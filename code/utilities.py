@@ -1,7 +1,7 @@
 # Imports
 import os
 import numpy as np 
-
+from collections import OrderedDict
 
 # PyTorch Imports
 import torch
@@ -10,6 +10,9 @@ import torchvision.transforms as transforms
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+
+# Torch Summary
+from torchsummary import summary
 
 
 # Define the Solution Class
@@ -75,32 +78,117 @@ class Solution():
 
 
 # Define the Model Class
-"""
 class Model(nn.Module):
     def __init__(self, input_shape, number_of_labels, solution):
         super(Model, self).__init__()
-        self.fc1 = nn.Linear(28*28, 120)
-        self.fc2 = nn.Linear(120, 10)
+        # Instance some important dictionaries
+        # Activation Functions
+        self.activ_functions = dict()
+        self.activ_functions['none'] = nn.Identity()
+        self.activ_functions['relu'] = nn.ReLU()
+        self.activ_functions['tanh'] = nn.Tanh()
+
+        # Convolutional Pooling Types
+        self.conv_pooling_types = dict()
+        self.conv_pooling_types['none'] = nn.Identity()
+        self.conv_pooling_types['max'] = nn.MaxPool2d(2, 2)
+        self.conv_pooling_types['avg'] = nn.AvgPool2d(2, 2)
+
+
+        # Process Input Shape
+        self.rows = input_shape[0]
+        self.columns = input_shape[1]
+        self.channels = input_shape[2]
+        
+
+        # Create Convolutional Block
+        self.convolutional_layers = OrderedDict()
+        
+        # Go through the solution
+        input_channels = self.channels
+        for conv_idx, layer in enumerate(solution):
+            # Check if Column 0 == 1; if yes, it is a Conv-Layer
+            if layer[0] == 1:
+                self.convolutional_layers[f'conv_{conv_idx}'] = nn.Conv2d(in_channels=input_channels, out_channels=layer[1], kernel_size=layer[2])
+                self.convolutional_layers[f'conv_{layer[3]}{conv_idx}'] = self.activ_functions[layer[3]]
+                self.convolutional_layers[f'conv_dropout{conv_idx}'] = nn.Dropout2d(layer[4])
+                self.convolutional_layers[f'conv_pool_{layer[5]}{conv_idx}'] = self.conv_pooling_types[layer[5]]
+                input_channels = layer[1]
+            
+        
+        # Convert into a conv-layer
+        self.convolutional_layers = nn.Sequential(self.convolutional_layers)
+
+        
+        # Now, we have to compute the linear dimensions for the first FC Layer
+        aux_tensor = torch.randn(1, self.channels, self.rows, self.columns)
+        aux_tensor = self.convolutional_layers(aux_tensor)
+        
+        # Input features
+        input_features = aux_tensor.size(0) * aux_tensor.size(1) * aux_tensor.size(2) * aux_tensor.size(3)
+        # print(input_features)
+
+        # del intermediate variables
+        del aux_tensor
+
+        # Now, we build the FC-Block
+        self.fc_layers = OrderedDict()
+
+        # Go through FC-Layers
+        for fc_idx, layer in enumerate(solution):
+            if layer[0] == 0:
+                self.fc_layers[f'fc_{fc_idx}'] = nn.Linear(in_features=input_features, out_features=layer[6])
+                self.fc_layers[f'fc_{layer[7]}{fc_idx}'] = self.activ_functions[layer[7]]
+                self.fc_layers[f'fc_dropout{fc_idx}'] = nn.Dropout(layer[8])
+                input_features = layer[6]
+        
+        # Now convert this into an fc layer
+        self.fc_layers = nn.Sequential(self.fc_layers)
+        
+        # Last FC-layer
+        self.fc_labels = nn.Linear(in_features=input_features, out_features=number_of_labels)
+
+
+
 
     def forward(self, x):
-        x = x.view(-1, 28*28)
-        x = self.fc1(x)
-        x = F.relu(x)
-        x = self.fc2(x)
+        # Go through convolutional block
+        x = self.convolutional_layers(x)
+        # print(x.size())
+        
+        # Flatten
+        x = x.view(x.size(0), -1)
+        # print(x.size())
+        
+        # Go through fc block
+        x = self.fc_layers(x)
+        # print(x.size())
+
+        # Apply last FC layer
+        x = self.fc_labels(x)
+        # print(x.size())
+
         return x
-"""
+
 
 # Test
-solution = Solution(
+""" solution = Solution(
     conv_filters=[8, 16],
     conv_kernel_sizes=[1, 2],
-    conv_activ_functions=['ReLU', 'Tanh'],
+    conv_activ_functions=['relu', 'tanh'],
     conv_drop_rates=[0.2, 0.5],
-    conv_pool_types=["Max", "Avg"],
+    conv_pool_types=["max", "avg"],
     fc_neurons=[100, 128],
-    fc_activ_functions=['ReLU', 'Softmax'],
+    fc_activ_functions=['relu', 'tanh'],
     fc_drop_rates=[0.0, 1.0]
 )
 
 candidate_solution = solution.get_solution_matrix()
 print(candidate_solution)
+
+model = Model(input_shape=[28, 28, 3], number_of_labels=10, solution=candidate_solution)
+print(model.parameters)
+tensor = torch.randn(1, 3, 28, 28)
+out = model(tensor)
+print(out)
+summary(model, (3, 28, 28)) """
