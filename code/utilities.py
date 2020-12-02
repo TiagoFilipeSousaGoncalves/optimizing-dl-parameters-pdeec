@@ -171,6 +171,30 @@ class Model(nn.Module):
         return x
 
 
+
+# Define the Genetic Algorithm Class
+class GeneticAlgorithm():
+    def __init__(self, size_of_population, nr_of_generations, mutation_rate, percentage_of_best_fit, survival_rate_of_less_fit):
+        # Initialize variables
+        self.size_of_population = size_of_population
+        self.nr_of_generations = nr_of_generations
+        self.mutation_rate = mutation_rate
+        self.percentage_of_best_fit = percentage_of_best_fit
+        self.survival_rate_of_less_fit = survival_rate_of_less_fit
+    
+    # Training Method
+    def train(self):
+        pass
+
+    # Mutation Method
+    def apply_mutation(self):
+        pass
+
+    # Crossover Method
+    def apply_crossover(self):
+        pass
+
+
 # Test
 """ solution = Solution(
     conv_filters=[8, 16],
