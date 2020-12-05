@@ -17,7 +17,10 @@ from torchsummary import summary
 
 # Define the Solution Class
 class Solution():
-    def __init__(self, conv_filters, conv_kernel_sizes, conv_activ_functions, conv_drop_rates, conv_pool_types, fc_neurons, fc_activ_functions, fc_drop_rates):
+    def __init__(self, conv_filters, conv_kernel_sizes, conv_activ_functions, conv_drop_rates, conv_pool_types, fc_neurons, fc_activ_functions, fc_drop_rates, learning_rate):
+        # TODO: Assert conv list sizes and fc list sizes
+
+
         # Convolutional Layers Parameters
         self.conv_filters = conv_filters
         self.conv_kernel_sizes = conv_kernel_sizes
@@ -29,10 +32,13 @@ class Solution():
         self.fc_neurons = fc_neurons
         self.fc_activ_functions = fc_activ_functions
         self.fc_drop_rates = fc_drop_rates
+
+        # Learning Rate
+        self.learning_rate = learning_rate
     
         # Create solution matrix
         self.number_of_layers = len(self.conv_filters) + len(self.fc_neurons)
-        self.solution_matrix = np.zeros(shape=(self.number_of_layers, 9), dtype='object')
+        self.solution_matrix = np.zeros(shape=(self.number_of_layers, 9+1), dtype='object')
 
         # Populate Solution Matrix with Parameters
         # Convolutional Layers
@@ -69,7 +75,14 @@ class Solution():
 
             # Column 8: FC Dropout Rates
             self.solution_matrix[row_idx, 8] = self.fc_drop_rates[fc_idx]
-    
+        
+
+        # TODO: Add learning rate to last column
+
+        # TODO: Convert solution matrix to torch.Tensor()
+
+        # TODO: Alter solution structure to:
+        self.final_built_solution = [self.convolutional_layers, self.fully_connected_layers, self.learning_rate]
 
     # Function to return the solution matrix
     def get_solution_matrix(self):
@@ -148,6 +161,8 @@ class Model(nn.Module):
         # Last FC-layer
         self.fc_labels = nn.Linear(in_features=input_features, out_features=number_of_labels)
 
+        # TODO: Add learning rate
+
 
 
 
@@ -182,16 +197,36 @@ class GeneticAlgorithm():
         self.percentage_of_best_fit = percentage_of_best_fit
         self.survival_rate_of_less_fit = survival_rate_of_less_fit
     
-    # Training Method
+    
+    # TODO: Training Method
     def train(self):
         pass
-
-    # Mutation Method
-    def apply_mutation(self):
+    
+    
+    # TODO: Thread Training Solution
+    def thread_training(self):
         pass
 
-    # Crossover Method
+    
+    # TODO: Transfer learning
+    def transfer_learning(self):
+        pass
+
+    # TODO: Mutation Method
+    def apply_mutation(self):
+        # TODO: Randomly change parameters inside the solution
+        pass
+
+
+    # TODO: Crossover Method
     def apply_crossover(self):
+        # TODO: Crossover between solution (random layers to hybrid); pay attention to the number of conv layers and fc layers of mum and dad
+        pass
+
+
+    # TODO: Fitness Function
+    def solution_fitness(self):
+        # TODO: Acc + Loss + Number of Epochs Until Convergence
         pass
 
 
@@ -204,7 +239,8 @@ class GeneticAlgorithm():
     conv_pool_types=["max", "avg"],
     fc_neurons=[100, 128],
     fc_activ_functions=['relu', 'tanh'],
-    fc_drop_rates=[0.0, 1.0]
+    fc_drop_rates=[0.0, 1.0],
+    learning_rate=0.001
 )
 
 candidate_solution = solution.get_solution_matrix()
@@ -215,4 +251,5 @@ print(model.parameters)
 tensor = torch.randn(1, 3, 28, 28)
 out = model(tensor)
 print(out)
-summary(model, (3, 28, 28)) """
+# summary(model, (3, 28, 28))
+print(model) """
