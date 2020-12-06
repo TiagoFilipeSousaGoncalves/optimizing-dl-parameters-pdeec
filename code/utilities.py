@@ -65,36 +65,41 @@ class Solution():
 
         # Create Solution structure
         # Populate Convolutional Layers Block Matrix with Parameters
-        self.convolutional_layers = np.zeros(shape=(len(self.conv_filters), 5), dtype='float')
-        for conv_idx in range(len(self.conv_filters)):
-            # Each row is a layer!       
-            # Column 0: Number of Conv-Filters
-            self.convolutional_layers[conv_idx, 0] = self.conv_filters[conv_idx]
+        self.convolutional_layers = np.array(list())
+        if len(self.conv_filters) > 0:
+            self.convolutional_layers = np.zeros(shape=(len(self.conv_filters), 5), dtype='float')
+            for conv_idx in range(len(self.conv_filters)):
+                # Each row is a layer!       
+                # Column 0: Number of Conv-Filters
+                self.convolutional_layers[conv_idx, 0] = self.conv_filters[conv_idx]
 
-            # Column 1: Conv-Kernel Sizes
-            self.convolutional_layers[conv_idx, 1] = self.conv_kernel_sizes[conv_idx]
+                # Column 1: Conv-Kernel Sizes
+                self.convolutional_layers[conv_idx, 1] = self.conv_kernel_sizes[conv_idx]
 
-            # Column 2: Conv-Activation Functions
-            self.convolutional_layers[conv_idx, 2] = self.activ_functions[self.conv_activ_functions[conv_idx]]
+                # Column 2: Conv-Activation Functions
+                self.convolutional_layers[conv_idx, 2] = self.activ_functions[self.conv_activ_functions[conv_idx]]
 
-            # Column 3: Conv-Drop Rates
-            self.convolutional_layers[conv_idx, 3] = self.conv_drop_rates[conv_idx]
+                # Column 3: Conv-Drop Rates
+                self.convolutional_layers[conv_idx, 3] = self.conv_drop_rates[conv_idx]
 
-            # Column 4: Conv-Pool Layer Types
-            self.convolutional_layers[conv_idx, 4] = self.pooling_types[self.conv_pool_types[conv_idx]]
+                # Column 4: Conv-Pool Layer Types
+                self.convolutional_layers[conv_idx, 4] = self.pooling_types[self.conv_pool_types[conv_idx]]
         
+
         # Populate Fully-Connected Layers Block Matrix with Parameters
-        self.fully_connected_layers = np.zeros(shape=(len(self.fc_neurons), 3), dtype='float')
-        for fc_idx in range(len(self.fc_neurons)):
-            # Each row is a layer!
-            # Column 0: FC Layer Number of Neurons
-            self.fully_connected_layers[fc_idx, 0] = self.fc_neurons[fc_idx]
+        self.fully_connected_layers = np.array(list())
+        if len(self.fc_neurons) > 0:
+            self.fully_connected_layers = np.zeros(shape=(len(self.fc_neurons), 3), dtype='float')
+            for fc_idx in range(len(self.fc_neurons)):
+                # Each row is a layer!
+                # Column 0: FC Layer Number of Neurons
+                self.fully_connected_layers[fc_idx, 0] = self.fc_neurons[fc_idx]
 
-            # Column 1: FC Layer Activation Functions
-            self.fully_connected_layers[fc_idx, 1] = self.activ_functions[self.fc_activ_functions[fc_idx]]
+                # Column 1: FC Layer Activation Functions
+                self.fully_connected_layers[fc_idx, 1] = self.activ_functions[self.fc_activ_functions[fc_idx]]
 
-            # Column 2: FC Dropout Rates
-            self.fully_connected_layers[fc_idx, 2] = self.fc_drop_rates[fc_idx]
+                # Column 2: FC Dropout Rates
+                self.fully_connected_layers[fc_idx, 2] = self.fc_drop_rates[fc_idx]
         
 
         # Add learning rate to the solution object
@@ -151,28 +156,36 @@ class Model(nn.Module):
         self.rows = input_shape[0]
         self.columns = input_shape[1]
         self.channels = input_shape[2]
+
+        # Convolutional Block Size
+        self.nr_conv_layers = solution[0].size(0)
+        self.nr_fc_layers = solution[1].size(0)
         
 
-        # Create Convolutional Block
-        self.convolutional_layers = OrderedDict()
+        
         
         # Go through the convolutional block of the solution (index: 0)
-        input_channels = self.channels
-        for conv_idx, layer in enumerate(solution[0]):
-            self.convolutional_layers[f'conv_{conv_idx}'] = nn.Conv2d(in_channels=input_channels, out_channels=int(layer[0].item()), kernel_size=int(layer[1].item()))
-            self.convolutional_layers[f'conv_act_{self.inv_activ_functions[int(layer[2].item())]}{conv_idx}'] = self.activ_functions[int(layer[2].item())]
-            self.convolutional_layers[f'conv_dropout{conv_idx}'] = nn.Dropout2d(layer[3].item())
-            self.convolutional_layers[f'conv_pool_{self.inv_pooling_types[int(layer[4].item())]}{conv_idx}'] = self.conv_pooling_types[int(layer[4].item())]
-            input_channels = int((layer[0].item()))
+        # Check if we have convolutional layers
+        if self.nr_conv_layers > 0:
+            # Create Convolutional Block
+            self.convolutional_layers = OrderedDict()
+            input_channels = self.channels
+            for conv_idx, layer in enumerate(solution[0]):
+                self.convolutional_layers[f'conv_{conv_idx}'] = nn.Conv2d(in_channels=input_channels, out_channels=int(layer[0].item()), kernel_size=int(layer[1].item()))
+                self.convolutional_layers[f'conv_act_{self.inv_activ_functions[int(layer[2].item())]}{conv_idx}'] = self.activ_functions[int(layer[2].item())]
+                self.convolutional_layers[f'conv_dropout{conv_idx}'] = nn.Dropout2d(layer[3].item())
+                self.convolutional_layers[f'conv_pool_{self.inv_pooling_types[int(layer[4].item())]}{conv_idx}'] = self.conv_pooling_types[int(layer[4].item())]
+                input_channels = int((layer[0].item()))
             
         
-        # Convert into a conv-layer
-        self.convolutional_layers = nn.Sequential(self.convolutional_layers)
+            # Convert into a conv-layer
+            self.convolutional_layers = nn.Sequential(self.convolutional_layers)
 
-        
+            
         # Now, we have to compute the linear dimensions for the first FC Layer
         aux_tensor = torch.randn(1, self.channels, self.rows, self.columns)
-        aux_tensor = self.convolutional_layers(aux_tensor)
+        if self.nr_conv_layers > 0:
+            aux_tensor = self.convolutional_layers(aux_tensor)
         
         # Input features
         input_features = aux_tensor.size(0) * aux_tensor.size(1) * aux_tensor.size(2) * aux_tensor.size(3)
@@ -181,18 +194,20 @@ class Model(nn.Module):
         # del intermediate variables
         del aux_tensor
 
-        # Now, we build the FC-Block
-        self.fc_layers = OrderedDict()
+        # Check if we have convolutional layers
+        if self.nr_fc_layers > 0:
+            # Now, we build the FC-Block
+            self.fc_layers = OrderedDict()
 
-        # Go through the fully-connected block of the solution (index: 1)
-        for fc_idx, layer in enumerate(solution[1]):
-            self.fc_layers[f'fc_{fc_idx}'] = nn.Linear(in_features=input_features, out_features=int(layer[0].item()))
-            self.fc_layers[f'fc_act_{self.inv_activ_functions[int(layer[1].item())]}{fc_idx}'] = self.activ_functions[int(layer[1].item())]
-            self.fc_layers[f'fc_dropout{fc_idx}'] = nn.Dropout(layer[2])
-            input_features = int(layer[0].item())
-        
-        # Now convert this into an fc layer
-        self.fc_layers = nn.Sequential(self.fc_layers)
+            # Go through the fully-connected block of the solution (index: 1)
+            for fc_idx, layer in enumerate(solution[1]):
+                self.fc_layers[f'fc_{fc_idx}'] = nn.Linear(in_features=input_features, out_features=int(layer[0].item()))
+                self.fc_layers[f'fc_act_{self.inv_activ_functions[int(layer[1].item())]}{fc_idx}'] = self.activ_functions[int(layer[1].item())]
+                self.fc_layers[f'fc_dropout{fc_idx}'] = nn.Dropout(layer[2])
+                input_features = int(layer[0].item())
+            
+            # Now convert this into an fc layer
+            self.fc_layers = nn.Sequential(self.fc_layers)
         
         # Last FC-layer
         self.fc_labels = nn.Linear(in_features=input_features, out_features=number_of_labels)
@@ -205,7 +220,8 @@ class Model(nn.Module):
 
     def forward(self, x):
         # Go through convolutional block
-        x = self.convolutional_layers(x)
+        if self.nr_conv_layers > 0:
+            x = self.convolutional_layers(x)
         # print(x.size())
         
         # Flatten
@@ -213,7 +229,8 @@ class Model(nn.Module):
         # print(x.size())
         
         # Go through fc block
-        x = self.fc_layers(x)
+        if self.nr_fc_layers > 0:
+            x = self.fc_layers(x)
         # print(x.size())
 
         # Apply last FC layer
@@ -271,27 +288,35 @@ class GeneticAlgorithm():
 
 
 # Test
-""" solution = Solution(
-    conv_filters=[8, 16],
-    conv_kernel_sizes=[1, 2],
-    conv_activ_functions=['relu', 'tanh'],
-    conv_drop_rates=[0.2, 0.5],
-    conv_pool_types=["max", "avg"],
-    fc_neurons=[100, 128],
-    fc_activ_functions=['relu', 'tanh'],
-    fc_drop_rates=[0.0, 1.0],
+solution = Solution(
+    # conv_filters=[8, 16],
+    conv_filters=[],
+    # conv_kernel_sizes=[1, 2],
+    conv_kernel_sizes=[],
+    # conv_activ_functions=['relu', 'tanh'],
+    conv_activ_functions=[],
+    # conv_drop_rates=[0.2, 0.5],
+    conv_drop_rates=[],
+    # conv_pool_types=["max", "avg"],
+    conv_pool_types=[],
+    # fc_neurons=[100, 128],
+    fc_neurons=[],
+    # fc_activ_functions=['relu', 'tanh'],
+    fc_activ_functions=[],
+    # fc_drop_rates=[0.0, 1.0],
+    fc_drop_rates=[],
     learning_rate=0.001
 )
 
 candidate_solution = solution.get_solution_matrix()
-print(candidate_solution) """
+print(candidate_solution)
 
 
-""" model = Model(input_shape=[28, 28, 3], number_of_labels=10, solution=candidate_solution)
+model = Model(input_shape=[28, 28, 3], number_of_labels=10, solution=candidate_solution)
 print(f"Learning Rate: {model.learning_rate}")
 print(model.parameters)
 tensor = torch.randn(1, 3, 28, 28)
 out = model(tensor)
 print(out)
 summary(model, (3, 28, 28))
-print(model) """
+print(model)
