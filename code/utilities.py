@@ -243,7 +243,7 @@ class Model(nn.Module):
 
 # Define the Genetic Algorithm Class
 class GeneticAlgorithm():
-    def __init__(self, size_of_population, nr_of_generations, mutation_rate, percentage_of_best_fit, survival_rate_of_less_fit, start_phase, end_phase, random_seed=42):
+    def __init__(self, size_of_population, nr_of_generations, mutation_rate, percentage_of_best_fit, survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length, random_seed=42):
         # Initialize random seeds
         # NumPy
         np.random.seed(random_seed)
@@ -257,13 +257,94 @@ class GeneticAlgorithm():
         self.mutation_rate = mutation_rate
         self.percentage_of_best_fit = percentage_of_best_fit
         self.survival_rate_of_less_fit = survival_rate_of_less_fit
+
+        # Phase Variables
         self.start_phase = start_phase
+        self.current_phase = start_phase
         self.end_phase = end_phase
+
+        # Chromossome Length Variables
+        self.initial_chromossome_length = initial_chromossome_length
+        self.current_chromossome_length = initial_chromossome_length
     
-    # TODO: Generate Solutions
+    # Generate Solutions
     def generate_candidate_solutions(self):
+        # Create list to append solutions
+        list_of_candidate_solutions = list()
+
+        # Go through the size of the population
+        for _ in range(self.size_of_population):
+            # Initialize empty lists of solution parameters
+            conv_filters = list()
+            conv_kernel_sizes = list()
+            conv_activ_functions = list()
+            conv_drop_rates = list()
+            conv_pool_types = list()
+            fc_neurons = list()
+            fc_activ_functions = list()
+            fc_drop_rates = list()
+    
+            # We have to build a solution with the current chromossome length
+            sol_c_length = 0
+            while sol_c_length < self.current_chromossome_length:
+                # Decide if  we have convolutional layers
+                add_conv_layer = np.random.choice(a=[True, False])
+                if add_conv_layer:
+                    # Conv Filter
+                    c_filter = np.random.choice(a=[8, 16, 32, 64, 128, 256, 512])
+                    conv_filters.append(c_filter)
+                    # Conv Kernel Size
+                    c_kernel = np.random.choice(a=[1, 3, 5, 7, 9])
+                    conv_kernel_sizes.append(c_kernel)
+                    # Conv Activation Functions
+                    c_activ_fn = np.random.choice(a=[0, 1, 2])
+                    conv_activ_functions.append(c_activ_fn)
+                    # Conv Dropout Rate
+                    c_drop_rate = np.random.uniform(low=0.0, high=1.0)
+                    conv_drop_rates.append(c_drop_rate)
+                    # Conv Pool Types
+                    c_pool_tp = np.random.choice(a=[0, 1, 2])
+                    conv_pool_types.append(c_pool_tp)
+                    # Update current c_length
+                    sol_c_length += 1
+                
+                # Decide if we have fully-connected layers
+                add_fc_layer = np.random.choice(a=[True, False])
+                if add_fc_layer:
+                    # FC Neurons
+                    fc_out_neuron = np.random.uniform(low=1.0, high=1000.0)
+                    fc_neurons.append(fc_out_neuron)
+                    # FC Activation Function
+                    fc_activ_fn = np.random.choice(a=[0, 1, 2])
+                    fc_activ_functions.append(fc_activ_fn)
+                    # FC Dropout Rate
+                    fc_drop = np.random.uniform(low=0.0, high=1.0)
+                    fc_drop_rates.append(fc_drop)
+                    # Update current c_length
+                    sol_c_length += 1
+            
+            # Decide the learning-rate
+            learning_rate = np.random.choice(a=[1, 0.1, 0.01, 0.001, 0.0001, 0.00001])
+
+            # Build solution
+            solution = Solution(
+                conv_filters=conv_filters,
+                conv_kernel_sizes=conv_kernel_sizes,
+                conv_activ_functions=conv_activ_functions,
+                conv_drop_rates=conv_drop_rates,
+                conv_pool_types=conv_pool_types,
+                fc_neurons=fc_neurons,
+                fc_activ_functions=fc_activ_functions,
+                fc_drop_rates=fc_drop_rates,
+                learning_rate=learning_rate
+            )
+
+
+            # Append this solution to the list of candidate solutions 
+            list_of_candidate_solutions.append(solution)
         
-        pass
+
+        return list_of_candidate_solutions
 
     # TODO: Normalize Data (compute data mean and std manually):
     def normalize_data(self):
