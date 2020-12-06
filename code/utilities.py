@@ -2,6 +2,7 @@
 import os
 import numpy as np 
 from collections import OrderedDict
+from itertools import combinations
 
 # PyTorch Imports
 import torch
@@ -18,8 +19,18 @@ from torchsummary import summary
 # Define the Solution Class
 class Solution():
     def __init__(self, conv_filters, conv_kernel_sizes, conv_activ_functions, conv_drop_rates, conv_pool_types, fc_neurons, fc_activ_functions, fc_drop_rates, learning_rate):
-        # TODO: Assert conv list sizes and fc list sizes
-
+        # Assert conv list sizes and fc list sizes
+        # Convolutional Block Sizes
+        conv_block_params_comb = combinations([conv_filters, conv_kernel_sizes, conv_activ_functions, conv_drop_rates, conv_pool_types], 2)
+        # Go through each combination
+        for comb in list(conv_block_params_comb):
+            assert len(comb[0]) == len(comb[1]), "The length of all the lists of convolutional layer parameters must match."
+        
+        # Fully-Connected Block Sizes
+        fc_block_params_comb = combinations([fc_neurons, fc_activ_functions, fc_drop_rates], 2)
+        # Go through each combination
+        for comb in list(fc_block_params_comb):
+            assert len(comb[0]) == len(comb[1]), "The length of all the lists of fully-connected layers parameters must match."
 
         # Convolutional Layers Parameters
         self.conv_filters = conv_filters
@@ -82,7 +93,7 @@ class Solution():
         # TODO: Convert solution matrix to torch.Tensor()
 
         # TODO: Alter solution structure to:
-        self.final_built_solution = [self.convolutional_layers, self.fully_connected_layers, self.learning_rate]
+        # self.final_built_solution = [self.convolutional_layers, self.fully_connected_layers, self.learning_rate]
 
     # Function to return the solution matrix
     def get_solution_matrix(self):
@@ -198,7 +209,8 @@ class GeneticAlgorithm():
         self.survival_rate_of_less_fit = survival_rate_of_less_fit
     
     # TODO: Normalize Data (compute data mean and std manually):
-    def 
+    def normalize_data(self):
+        pass
 
     # TODO: Training Method
     def train(self):
@@ -243,8 +255,8 @@ class GeneticAlgorithm():
     fc_activ_functions=['relu', 'tanh'],
     fc_drop_rates=[0.0, 1.0],
     learning_rate=0.001
-)
-
+) """
+"""
 candidate_solution = solution.get_solution_matrix()
 print(candidate_solution)
 
