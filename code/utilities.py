@@ -197,7 +197,9 @@ class GeneticAlgorithm():
         self.percentage_of_best_fit = percentage_of_best_fit
         self.survival_rate_of_less_fit = survival_rate_of_less_fit
     
-    
+    # TODO: Normalize Data (compute data mean and std manually):
+    def 
+
     # TODO: Training Method
     def train(self):
         pass
