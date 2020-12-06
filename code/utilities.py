@@ -122,18 +122,29 @@ class Solution():
 class Model(nn.Module):
     def __init__(self, input_shape, number_of_labels, solution):
         super(Model, self).__init__()
-        # Instance some important dictionaries
+        # Instance some important dictionaries to map numbers into parameters (PyTorch Layers)
         # Activation Functions
         self.activ_functions = dict()
-        self.activ_functions['none'] = nn.Identity()
-        self.activ_functions['relu'] = nn.ReLU()
-        self.activ_functions['tanh'] = nn.Tanh()
-
+        self.activ_functions[0] = nn.Identity()
+        self.activ_functions[1] = nn.ReLU()
+        self.activ_functions[2] = nn.Tanh()
         # Convolutional Pooling Types
         self.conv_pooling_types = dict()
-        self.conv_pooling_types['none'] = nn.Identity()
-        self.conv_pooling_types['max'] = nn.MaxPool2d(2, 2)
-        self.conv_pooling_types['avg'] = nn.AvgPool2d(2, 2)
+        self.conv_pooling_types[0] = nn.Identity()
+        self.conv_pooling_types[1] = nn.MaxPool2d(2, 2)
+        self.conv_pooling_types[2] = nn.AvgPool2d(2, 2)
+
+        # Instance some important dictionaries to inverse-map numbers into parameters names
+        # Activation Functions
+        self.inv_activ_functions = dict()
+        self.inv_activ_functions[0] = 'none'
+        self.inv_activ_functions[1] = 'relu'
+        self.inv_activ_functions[2] = 'tanh'
+        # Convolutional Pooling Types
+        self.inv_pooling_types = dict()
+        self.inv_pooling_types[0] = 'none'
+        self.inv_pooling_types[1] = 'max'
+        self.inv_pooling_types[2] = 'avg'
 
 
         # Process Input Shape
@@ -145,16 +156,14 @@ class Model(nn.Module):
         # Create Convolutional Block
         self.convolutional_layers = OrderedDict()
         
-        # Go through the solution
+        # Go through the convolutional block of the solution (index: 0)
         input_channels = self.channels
-        for conv_idx, layer in enumerate(solution):
-            # Check if Column 0 == 1; if yes, it is a Conv-Layer
-            if layer[0] == 1:
-                self.convolutional_layers[f'conv_{conv_idx}'] = nn.Conv2d(in_channels=input_channels, out_channels=layer[1], kernel_size=layer[2])
-                self.convolutional_layers[f'conv_{layer[3]}{conv_idx}'] = self.activ_functions[layer[3]]
-                self.convolutional_layers[f'conv_dropout{conv_idx}'] = nn.Dropout2d(layer[4])
-                self.convolutional_layers[f'conv_pool_{layer[5]}{conv_idx}'] = self.conv_pooling_types[layer[5]]
-                input_channels = layer[1]
+        for conv_idx, layer in enumerate(solution[0]):
+            self.convolutional_layers[f'conv_{conv_idx}'] = nn.Conv2d(in_channels=input_channels, out_channels=int(layer[0].item()), kernel_size=int(layer[1].item()))
+            self.convolutional_layers[f'conv_act_{self.inv_activ_functions[int(layer[2].item())]}{conv_idx}'] = self.activ_functions[int(layer[2].item())]
+            self.convolutional_layers[f'conv_dropout{conv_idx}'] = nn.Dropout2d(layer[3].item())
+            self.convolutional_layers[f'conv_pool_{self.inv_pooling_types[int(layer[4].item())]}{conv_idx}'] = self.conv_pooling_types[int(layer[4].item())]
+            input_channels = int((layer[0].item()))
             
         
         # Convert into a conv-layer
@@ -175,13 +184,12 @@ class Model(nn.Module):
         # Now, we build the FC-Block
         self.fc_layers = OrderedDict()
 
-        # Go through FC-Layers
-        for fc_idx, layer in enumerate(solution):
-            if layer[0] == 0:
-                self.fc_layers[f'fc_{fc_idx}'] = nn.Linear(in_features=input_features, out_features=layer[6])
-                self.fc_layers[f'fc_{layer[7]}{fc_idx}'] = self.activ_functions[layer[7]]
-                self.fc_layers[f'fc_dropout{fc_idx}'] = nn.Dropout(layer[8])
-                input_features = layer[6]
+        # Go through the fully-connected block of the solution (index: 1)
+        for fc_idx, layer in enumerate(solution[1]):
+            self.fc_layers[f'fc_{fc_idx}'] = nn.Linear(in_features=input_features, out_features=int(layer[0].item()))
+            self.fc_layers[f'fc_act_{self.inv_activ_functions[int(layer[1].item())]}{fc_idx}'] = self.activ_functions[int(layer[1].item())]
+            self.fc_layers[f'fc_dropout{fc_idx}'] = nn.Dropout(layer[2])
+            input_features = int(layer[0].item())
         
         # Now convert this into an fc layer
         self.fc_layers = nn.Sequential(self.fc_layers)
@@ -189,7 +197,8 @@ class Model(nn.Module):
         # Last FC-layer
         self.fc_labels = nn.Linear(in_features=input_features, out_features=number_of_labels)
 
-        # TODO: Add learning rate
+        # Add learning rate
+        self.learning_rate = solution[2]
 
 
 
@@ -262,7 +271,7 @@ class GeneticAlgorithm():
 
 
 # Test
-solution = Solution(
+""" solution = Solution(
     conv_filters=[8, 16],
     conv_kernel_sizes=[1, 2],
     conv_activ_functions=['relu', 'tanh'],
@@ -275,13 +284,14 @@ solution = Solution(
 )
 
 candidate_solution = solution.get_solution_matrix()
-print(candidate_solution)
+print(candidate_solution) """
 
-"""
-model = Model(input_shape=[28, 28, 3], number_of_labels=10, solution=candidate_solution)
+
+""" model = Model(input_shape=[28, 28, 3], number_of_labels=10, solution=candidate_solution)
+print(f"Learning Rate: {model.learning_rate}")
 print(model.parameters)
 tensor = torch.randn(1, 3, 28, 28)
 out = model(tensor)
 print(out)
-# summary(model, (3, 28, 28))
+summary(model, (3, 28, 28))
 print(model) """
