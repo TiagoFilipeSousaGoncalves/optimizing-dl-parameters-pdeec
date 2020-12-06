@@ -243,14 +243,28 @@ class Model(nn.Module):
 
 # Define the Genetic Algorithm Class
 class GeneticAlgorithm():
-    def __init__(self, size_of_population, nr_of_generations, mutation_rate, percentage_of_best_fit, survival_rate_of_less_fit):
+    def __init__(self, size_of_population, nr_of_generations, mutation_rate, percentage_of_best_fit, survival_rate_of_less_fit, start_phase, end_phase, random_seed=42):
+        # Initialize random seeds
+        # NumPy
+        np.random.seed(random_seed)
+
+        # PyTorch
+        torch.manual_seed(random_seed)
+
         # Initialize variables
         self.size_of_population = size_of_population
         self.nr_of_generations = nr_of_generations
         self.mutation_rate = mutation_rate
         self.percentage_of_best_fit = percentage_of_best_fit
         self.survival_rate_of_less_fit = survival_rate_of_less_fit
+        self.start_phase = start_phase
+        self.end_phase = end_phase
     
+    # TODO: Generate Solutions
+    def generate_candidate_solutions(self):
+        
+        pass
+
     # TODO: Normalize Data (compute data mean and std manually):
     def normalize_data(self):
         pass
@@ -281,14 +295,17 @@ class GeneticAlgorithm():
         pass
 
 
-    # TODO: Fitness Function
-    def solution_fitness(self):
-        # TODO: Acc + Loss + Number of Epochs Until Convergence
-        pass
+    # Fitness Function
+    def solution_fitness(self, solution_acc, solution_loss, solution_convergence_epoch):
+        # The solution cost is the convergence_epoch times the subtration of the solution accuracy and the solution loss
+        # This way we can penalise solutions that take longer epochs to convergence, and, for the solutions with similar epochs
+        # We can choose the one with better accuracies and lesser losses
+        solution_cost = solution_convergence_epoch * (solution_acc - solution_loss)
+        return solution_cost
 
 
 # Test
-solution = Solution(
+""" solution = Solution(
     # conv_filters=[8, 16],
     conv_filters=[],
     # conv_kernel_sizes=[1, 2],
@@ -319,4 +336,4 @@ tensor = torch.randn(1, 3, 28, 28)
 out = model(tensor)
 print(out)
 summary(model, (3, 28, 28))
-print(model)
+print(model) """
