@@ -130,3 +130,9 @@ dmypy.json
 
 # macOS
 *.DS_Store
+
+# Pycharm
+.idea/
+
+# Datasets
+data/

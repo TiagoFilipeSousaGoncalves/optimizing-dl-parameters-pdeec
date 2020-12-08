@@ -216,8 +216,6 @@ class Model(nn.Module):
         self.learning_rate = solution[2]
 
 
-
-
     def forward(self, x):
         # Go through convolutional block
         if self.nr_conv_layers > 0:
@@ -348,14 +346,27 @@ class GeneticAlgorithm():
 
     # TODO: Normalize Data (compute data mean and std manually):
     def normalize_data(self):
-        pass
+        mnist_mean = [0.1307]
+        mnist_std = [0.3081]
+
+        fashion_mnist_mean = [0.2860]
+        fashion_mnist_std = [0.3530]
+
+        cifar10_mean = [0.4914, 0.4822, 0.4465]
+        cifar10_std = [0.2470, 0.2435, 0.2616]
+        return
 
     # TODO: Training Method
     def train(self):
+        # 1) create model with a given solution
+        # 2) train model
+        # 3) calculate model cost
         pass
     
     
-    # TODO: Thread Training Solution
+    # TODO: Thread Training Solution (this would only give a performance boost using different processes, not threads, i think. I dont know how hard it is to implement,
+    #  because sharing memory between processes can be a pain sometimes. Even if we implement it this would only give a performance boost if the gpu can train multiple
+    #  models simultaneously without reaching its parallel processing capability. I think this should be the last thing to implement)
     def thread_training(self):
         pass
 
@@ -382,6 +393,8 @@ class GeneticAlgorithm():
         # This way we can penalise solutions that take longer epochs to convergence, and, for the solutions with similar epochs
         # We can choose the one with better accuracies and lesser losses
         solution_cost = solution_convergence_epoch * (solution_acc - solution_loss)
+
+        # solution_cost = solution_convergence_epoch * (solution_loss - solution_acc) // dont you mean this? TODO
         return solution_cost
 
 
@@ -418,3 +431,59 @@ out = model(tensor)
 print(out)
 summary(model, (3, 28, 28))
 print(model) """
+
+'''
+# data_loader = torch.utils.data.DataLoader(imagenet_data, batch_size=4, shuffle=True, num_workers=4)
+
+
+def calculate_mean_std():
+    train_transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.1307],
+                                                                                        std=[0.3081])])
+
+    mnist_data = torchvision.datasets.MNIST('data/mnist', train=True, download=True, transform=train_transform)
+
+    l = []
+
+    for i in range(len(mnist_data)):
+        l.append(mnist_data[i][0])
+
+    l = torch.stack(l, dim=0)
+
+    print(torch.std_mean(l))
+
+    ####
+    train_transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.2860],
+                                                                                      std=[0.3530])])
+
+    fashion_mnist_data = torchvision.datasets.FashionMNIST('data/fashion_mnist', train=True, download=True, transform=train_transform)
+
+    l = []
+
+    for i in range(len(fashion_mnist_data)):
+        l.append(fashion_mnist_data[i][0])
+
+    l = torch.stack(l, dim=0)
+
+    print(torch.std_mean(l))
+
+    ####
+    train_transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.4914, 0.4822, 0.4465],
+                                                                                      std=[0.2470, 0.2435, 0.2616])])
+
+    cifar_10_data = torchvision.datasets.CIFAR10('data/cifar10', train=True, download=True, transform=train_transform)
+
+    l = []
+
+    for i in range(len(cifar_10_data)):
+        l.append(cifar_10_data[i][0])
+
+    l = torch.stack(l, dim=0)
+
+    print(torch.std_mean(l[:, 0]))
+    print(torch.std_mean(l[:, 1]))
+    print(torch.std_mean(l[:, 2]))
+
+
+calculate_mean_std()
+'''
+
