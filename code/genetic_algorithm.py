@@ -244,12 +244,9 @@ class GeneticAlgorithm:
         pass
 
     # Fitness Function
-    def solution_fitness(self, solution_acc, solution_loss, solution_convergence_epoch):
-        # The solution cost is the convergence_epoch times the subtration of the solution accuracy and the solution loss
-        # This way we can penalise solutions that take longer epochs to convergence, and, for the solutions with similar epochs
-        # We can choose the one with better accuracies and lesser losses
-        solution_cost = solution_convergence_epoch * (solution_acc - solution_loss)
+    def solution_fitness(self, solution_acc, solution_loss):
+        # The solution cost is the solution loss minus the solution accuracy: this way we penalise the loss value and reward the accuracy
+        # Since we want to convert this into a maximisation problem, we multiply the value of the solution cost by -1
+        solution_cost = -1 * (solution_loss - solution_acc)
 
-        # solution_cost = solution_convergence_epoch * (solution_loss - solution_acc) // dont you mean this? TODO
         return solution_cost
-
