@@ -86,13 +86,12 @@ class GeneticAlgorithm:
                     conv_pool_types.append(c_pool_tp)
                     # Update current c_length
                     sol_c_length += 1
-                    continue
 
-                # Decide if we have fully-connected layers
-                add_fc_layer = True  # np.random.choice(a=[True, False]) # TODO this should enter every time otherwise p(conv)=0.5 and p(fc)=0.5*0.5=0.25
-                if add_fc_layer:
+
+                # Otherwise, we add a FC-Layer
+                else:
                     # FC Neurons
-                    fc_out_neuron = np.random.uniform(low=1.0, high=1000.0)
+                    fc_out_neuron = np.random.uniform(low=1.0, high=100)
                     fc_neurons.append(fc_out_neuron)
                     # FC Activation Function
                     fc_activ_fn = inv_activ_functions[np.random.choice(a=[0, 1, 2])]
@@ -102,7 +101,6 @@ class GeneticAlgorithm:
                     fc_drop_rates.append(fc_drop)
                     # Update current c_length
                     sol_c_length += 1
-                    continue
 
             # Decide the learning-rate
             learning_rate = np.random.choice(a=[0.001, 0.0001, 0.00001])
@@ -119,6 +117,9 @@ class GeneticAlgorithm:
                 fc_drop_rates=fc_drop_rates,
                 learning_rate=learning_rate
             )
+
+            # TODO: Test solution with Model to see if it is a viable solution
+            
 
             # Append this solution to the list of candidate solutions
             list_of_candidate_solutions.append(solution)
