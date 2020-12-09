@@ -10,7 +10,7 @@ import time
 
 # Define the Genetic Algorithm Class
 class GeneticAlgorithm:
-    def __init__(self, size_of_population, nr_of_generations, mutation_rate, percentage_of_best_fit,
+    def __init__(self, input_shape, number_of_labels, size_of_population, nr_of_generations, mutation_rate, percentage_of_best_fit,
                  survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length, random_seed=42):
         # Initialize random seeds
         # NumPy
@@ -18,6 +18,10 @@ class GeneticAlgorithm:
 
         # PyTorch
         torch.manual_seed(random_seed)
+
+        # Dataset Variables
+        self.input_shape = input_shape
+        self.number_of_labels = number_of_labels
 
         # Initialize variables
         self.size_of_population = size_of_population
@@ -51,7 +55,10 @@ class GeneticAlgorithm:
         inv_pooling_types[2] = 'avg'
 
         # Go through the size of the population
-        for _ in range(self.size_of_population):
+        # Initialize current p
+        p = 0
+        # We have to build p == size_of_population solutions
+        while p < self.size_of_population:
             # Initialize empty lists of solution parameters
             conv_filters = list()
             conv_kernel_sizes = list()
@@ -81,8 +88,8 @@ class GeneticAlgorithm:
                     c_drop_rate = np.random.uniform(low=0.0, high=1.0)
                     conv_drop_rates.append(c_drop_rate)
                     # Conv Pool Types
-                    c_pool_tp = inv_pooling_types[
-                        0]  # inv_pooling_types[np.random.choice(a=[0, 1, 2])]  # TODO change this back
+                    # c_pool_tp = inv_pooling_types[0]
+                    c_pool_tp = inv_pooling_types[np.random.choice(a=[0, 1, 2])] # TODO Check if this works with our validation routine
                     conv_pool_types.append(c_pool_tp)
                     # Update current c_length
                     sol_c_length += 1
@@ -118,11 +125,20 @@ class GeneticAlgorithm:
                 learning_rate=learning_rate
             )
 
-            # TODO: Test solution with Model to see if it is a viable solution
+            # Test solution with Model to see if it is a viable solution
+            try:
+                _ = Model(self.input_shape, self.number_of_labels, solution.get_solution_matrix())
             
-
-            # Append this solution to the list of candidate solutions
-            list_of_candidate_solutions.append(solution)
+            # If it goes wrong, p value stays the same
+            except:
+                p = p            
+            
+            # If it goes OK, we can append the solution to our solution candidates
+            else:
+                # Append this solution to the list of candidate solutions
+                list_of_candidate_solutions.append(solution)
+                # Update current p
+                p += 1
 
         return list_of_candidate_solutions
 
@@ -144,9 +160,9 @@ class GeneticAlgorithm:
         # 2) train model
         # 3) calculate model cost
 
-        # data
-        input_shape = [28, 28, 1]
-        number_of_labels = 10
+        # data // TODO:  We can erase this since these variables are now class variables 
+        # input_shape = [28, 28, 1]
+        # number_of_labels = 10
 
         train_transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.1307],
                                                                                           std=[0.3081])])
@@ -159,7 +175,7 @@ class GeneticAlgorithm:
         models = []
 
         for candidate in self.generate_candidate_solutions():
-            models.append(Model(input_shape, number_of_labels, candidate.get_solution_matrix()))
+            models.append(Model(self.input_shape, self.number_of_labels, candidate.get_solution_matrix()))
 
         # loss
         loss = nn.CrossEntropyLoss()
@@ -175,7 +191,7 @@ class GeneticAlgorithm:
 
             model = model.to(device)
             model.train()
-            optim = torch.optim.Adam(model.parameters()) # TODO model learning rate
+            optim = torch.optim.Adam(model.parameters(), lr=model.learning_rate) # TODO Check if this works
 
             every_x_minibatches = 100
 
