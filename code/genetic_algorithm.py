@@ -105,7 +105,7 @@ class GeneticAlgorithm:
                     continue
 
             # Decide the learning-rate
-            learning_rate = np.random.choice(a=[1, 0.1, 0.01, 0.001, 0.0001, 0.00001])
+            learning_rate = np.random.choice(a=[0.001, 0.0001, 0.00001])
 
             # Build solution
             solution = Solution(
