@@ -1,8 +1,11 @@
 import torch
 import torch.nn as nn
+import torchvision
+from torchvision import transforms
 import numpy as np
 from code.solution import Solution
 from code.model import Model
+import time
 
 
 # Define the Genetic Algorithm Class
@@ -140,37 +143,53 @@ class GeneticAlgorithm:
         # 2) train model
         # 3) calculate model cost
 
+        # data
         input_shape = [28, 28, 1]
         number_of_labels = 10
 
+        train_transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.1307],
+                                                                                          std=[0.3081])])
+
+        mnist_data = torchvision.datasets.MNIST('data/mnist', train=True, download=True, transform=train_transform)
+
+        data_loader = torch.utils.data.DataLoader(mnist_data, batch_size=32, shuffle=True, num_workers=4)
+
+        # create models
         models = []
 
         for candidate in self.generate_candidate_solutions():
             models.append(Model(input_shape, number_of_labels, candidate.get_solution_matrix()))
 
-        print(len(models))
-        print(models[0])
-
+        # loss
         loss = nn.CrossEntropyLoss()
 
-        '''for model in models:
-            print('training model 1')
-            every_x_minibatches = 1
+        # select gpu if possible
+        device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-            for epoch in range(epochs):
+        model_start = time.time()
+
+        # train
+        for model in models:
+            print('training model')
+
+            model = model.to(device)
+            model.train()
+            optim = torch.optim.Adam(model.parameters()) # TODO model learning rate
+
+            every_x_minibatches = 100
+
+            for epoch in range(5):
 
                 running_loss = 0.0
 
-                model.train()
-
                 start = time.time()
 
-                for i, data in enumerate(train_loader):
+                for i, data in enumerate(data_loader):
 
                     images, labels = data
 
                     # zero the parameter gradients
-                    optimizer.zero_grad()
+                    optim.zero_grad()
 
                     # forward + backward + optimize
                     images = images.to(device)
@@ -178,13 +197,11 @@ class GeneticAlgorithm:
 
                     features = model(images)
 
-                    a, p, n = batch_hard_mine(features, labels)
-
-                    loss_value = loss(a, p, n)
+                    loss_value = loss(features, labels)
 
                     loss_value.backward()
 
-                    optimizer.step()
+                    optim.step()
 
                     # print statistics
                     running_loss += loss_value.item()
@@ -197,9 +214,14 @@ class GeneticAlgorithm:
 
                 print('epoch time: ' + str(end - start))
 
-                torch.save(model.state_dict(), 'model.pth')
+                # torch.save(model.state_dict(), 'model.pth')
 
-            print('Finished Training')'''
+            print('Finished Training')
+            model = model.cpu()
+
+        print('Total time: ' + str(time.time()-model_start))
+        # total time on my pc with gpu 1129 seg ~ 18 min. (specs: ryzen 7 3700x, rtx 2070S, 32gb ram 3600mhz)
+
 
     # TODO: Thread Training Solution (this would only give a performance boost using different processes, not threads, i think. I dont know how hard it is to implement,
     #  because sharing memory between processes can be a pain sometimes. Even if we implement it this would only give a performance boost if the gpu can train multiple

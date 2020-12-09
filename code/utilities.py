@@ -96,6 +96,7 @@ def calculate_mean_std():
 calculate_mean_std()
 '''
 
-ga = GeneticAlgorithm(10, 10, 0.5, 0.5, 0.5, 0, 1, 8)
+if __name__ == '__main__':
+    ga = GeneticAlgorithm(10, 10, 0.5, 0.5, 0.5, 0, 1, 8)
 
-ga.train()
+    ga.train()
