@@ -1,0 +1,233 @@
+import torch
+import torch.nn as nn
+import numpy as np
+from code.solution import Solution
+from code.model import Model
+
+
+# Define the Genetic Algorithm Class
+class GeneticAlgorithm:
+    def __init__(self, size_of_population, nr_of_generations, mutation_rate, percentage_of_best_fit,
+                 survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length, random_seed=42):
+        # Initialize random seeds
+        # NumPy
+        np.random.seed(random_seed)
+
+        # PyTorch
+        torch.manual_seed(random_seed)
+
+        # Initialize variables
+        self.size_of_population = size_of_population
+        self.nr_of_generations = nr_of_generations
+        self.mutation_rate = mutation_rate
+        self.percentage_of_best_fit = percentage_of_best_fit
+        self.survival_rate_of_less_fit = survival_rate_of_less_fit
+
+        # Phase Variables
+        self.start_phase = start_phase
+        self.current_phase = start_phase
+        self.end_phase = end_phase
+
+        # Chromossome Length Variables
+        self.initial_chromossome_length = initial_chromossome_length
+        self.current_chromossome_length = initial_chromossome_length
+
+    # Generate Solutions
+    def generate_candidate_solutions(self):
+        # Create list to append solutions
+        list_of_candidate_solutions = list()
+
+        inv_activ_functions = dict()
+        inv_activ_functions[0] = 'none'
+        inv_activ_functions[1] = 'relu'
+        inv_activ_functions[2] = 'tanh'
+
+        inv_pooling_types = dict()
+        inv_pooling_types[0] = 'none'
+        inv_pooling_types[1] = 'max'
+        inv_pooling_types[2] = 'avg'
+
+        # Go through the size of the population
+        for _ in range(self.size_of_population):
+            # Initialize empty lists of solution parameters
+            conv_filters = list()
+            conv_kernel_sizes = list()
+            conv_activ_functions = list()
+            conv_drop_rates = list()
+            conv_pool_types = list()
+            fc_neurons = list()
+            fc_activ_functions = list()
+            fc_drop_rates = list()
+
+            # We have to build a solution with the current chromossome length
+            sol_c_length = 0
+            while sol_c_length < self.current_chromossome_length:
+                # Decide if  we have convolutional layers
+                add_conv_layer = np.random.choice(a=[True, False])
+                if add_conv_layer:
+                    # Conv Filter
+                    c_filter = np.random.choice(a=[8, 16, 32, 64, 128, 256, 512])
+                    conv_filters.append(c_filter)
+                    # Conv Kernel Size
+                    c_kernel = np.random.choice(a=[1, 3, 5, 7, 9])
+                    conv_kernel_sizes.append(c_kernel)
+                    # Conv Activation Functions
+                    c_activ_fn = inv_activ_functions[np.random.choice(a=[0, 1, 2])]
+                    conv_activ_functions.append(c_activ_fn)
+                    # Conv Dropout Rate
+                    c_drop_rate = np.random.uniform(low=0.0, high=1.0)
+                    conv_drop_rates.append(c_drop_rate)
+                    # Conv Pool Types
+                    c_pool_tp = inv_pooling_types[
+                        0]  # inv_pooling_types[np.random.choice(a=[0, 1, 2])]  # TODO change this back
+                    conv_pool_types.append(c_pool_tp)
+                    # Update current c_length
+                    sol_c_length += 1
+                    continue
+
+                # Decide if we have fully-connected layers
+                add_fc_layer = True  # np.random.choice(a=[True, False]) # TODO this should enter every time otherwise p(conv)=0.5 and p(fc)=0.5*0.5=0.25
+                if add_fc_layer:
+                    # FC Neurons
+                    fc_out_neuron = np.random.uniform(low=1.0, high=1000.0)
+                    fc_neurons.append(fc_out_neuron)
+                    # FC Activation Function
+                    fc_activ_fn = inv_activ_functions[np.random.choice(a=[0, 1, 2])]
+                    fc_activ_functions.append(fc_activ_fn)
+                    # FC Dropout Rate
+                    fc_drop = np.random.uniform(low=0.0, high=1.0)
+                    fc_drop_rates.append(fc_drop)
+                    # Update current c_length
+                    sol_c_length += 1
+                    continue
+
+            # Decide the learning-rate
+            learning_rate = np.random.choice(a=[1, 0.1, 0.01, 0.001, 0.0001, 0.00001])
+
+            # Build solution
+            solution = Solution(
+                conv_filters=conv_filters,
+                conv_kernel_sizes=conv_kernel_sizes,
+                conv_activ_functions=conv_activ_functions,
+                conv_drop_rates=conv_drop_rates,
+                conv_pool_types=conv_pool_types,
+                fc_neurons=fc_neurons,
+                fc_activ_functions=fc_activ_functions,
+                fc_drop_rates=fc_drop_rates,
+                learning_rate=learning_rate
+            )
+
+            # Append this solution to the list of candidate solutions
+            list_of_candidate_solutions.append(solution)
+
+        return list_of_candidate_solutions
+
+    # TODO: Normalize Data (compute data mean and std manually):
+    def normalize_data(self):
+        mnist_mean = [0.1307]
+        mnist_std = [0.3081]
+
+        fashion_mnist_mean = [0.2860]
+        fashion_mnist_std = [0.3530]
+
+        cifar10_mean = [0.4914, 0.4822, 0.4465]
+        cifar10_std = [0.2470, 0.2435, 0.2616]
+        return
+
+    # TODO: Training Method
+    def train(self):
+        # 1) create model with a given solution
+        # 2) train model
+        # 3) calculate model cost
+
+        input_shape = [28, 28, 1]
+        number_of_labels = 10
+
+        models = []
+
+        for candidate in self.generate_candidate_solutions():
+            models.append(Model(input_shape, number_of_labels, candidate.get_solution_matrix()))
+
+        print(len(models))
+        print(models[0])
+
+        loss = nn.CrossEntropyLoss()
+
+        '''for model in models:
+            print('training model 1')
+            every_x_minibatches = 1
+
+            for epoch in range(epochs):
+
+                running_loss = 0.0
+
+                model.train()
+
+                start = time.time()
+
+                for i, data in enumerate(train_loader):
+
+                    images, labels = data
+
+                    # zero the parameter gradients
+                    optimizer.zero_grad()
+
+                    # forward + backward + optimize
+                    images = images.to(device)
+                    labels = labels.to(device)
+
+                    features = model(images)
+
+                    a, p, n = batch_hard_mine(features, labels)
+
+                    loss_value = loss(a, p, n)
+
+                    loss_value.backward()
+
+                    optimizer.step()
+
+                    # print statistics
+                    running_loss += loss_value.item()
+                    if (i + 1) % every_x_minibatches == 0:
+                        print('[%d, %5d] loss: %.3f' %
+                              (epoch + 1, i + 1, running_loss / every_x_minibatches))
+                        running_loss = 0.0
+
+                end = time.time()
+
+                print('epoch time: ' + str(end - start))
+
+                torch.save(model.state_dict(), 'model.pth')
+
+            print('Finished Training')'''
+
+    # TODO: Thread Training Solution (this would only give a performance boost using different processes, not threads, i think. I dont know how hard it is to implement,
+    #  because sharing memory between processes can be a pain sometimes. Even if we implement it this would only give a performance boost if the gpu can train multiple
+    #  models simultaneously without reaching its parallel processing capability. I think this should be the last thing to implement)
+    def thread_training(self):
+        pass
+
+    # TODO: Transfer learning
+    def transfer_learning(self):
+        pass
+
+    # TODO: Mutation Method
+    def apply_mutation(self):
+        # TODO: Randomly change parameters inside the solution
+        pass
+
+    # TODO: Crossover Method
+    def apply_crossover(self):
+        # TODO: Crossover between solution (random layers to hybrid); pay attention to the number of conv layers and fc layers of mum and dad
+        pass
+
+    # Fitness Function
+    def solution_fitness(self, solution_acc, solution_loss, solution_convergence_epoch):
+        # The solution cost is the convergence_epoch times the subtration of the solution accuracy and the solution loss
+        # This way we can penalise solutions that take longer epochs to convergence, and, for the solutions with similar epochs
+        # We can choose the one with better accuracies and lesser losses
+        solution_cost = solution_convergence_epoch * (solution_acc - solution_loss)
+
+        # solution_cost = solution_convergence_epoch * (solution_loss - solution_acc) // dont you mean this? TODO
+        return solution_cost
+
