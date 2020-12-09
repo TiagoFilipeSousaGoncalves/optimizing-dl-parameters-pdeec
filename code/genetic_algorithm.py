@@ -152,7 +152,7 @@ class GeneticAlgorithm:
 
         cifar10_mean = [0.4914, 0.4822, 0.4465]
         cifar10_std = [0.2470, 0.2435, 0.2616]
-        return
+        return None
 
     # TODO: Training Method
     def train(self):
@@ -174,7 +174,13 @@ class GeneticAlgorithm:
         # create models
         models = []
 
-        for candidate in self.generate_candidate_solutions():
+        # Create candidate solutions for the present phase and generations 
+        # (this list will be usefull to the next steps such as mutation and crossover)
+        gen_candidate_solutions = self.generate_candidate_solutions()
+
+        for candidate in gen_candidate_solutions:
+            # TODO: Review this, since it was added to handle mutations and crossovers
+            candidate = candidate.build_solution()
             models.append(Model(self.input_shape, self.number_of_labels, candidate.get_solution_matrix()))
 
         # loss
@@ -251,9 +257,41 @@ class GeneticAlgorithm:
         pass
 
     # TODO: Mutation Method
-    def apply_mutation(self):
+    def apply_mutation(self, alive_solutions_list):
+        # Create a mutated solutions list to append solutions
+        mutated_solutions_list = list()
+        # First, we iterate through the alive solutions list
+        for solution in alive_solutions_list:
+            # Generate a random number between 0-1 to compare against the mutation rate
+            mutation_proba = np.random.uniform(low=0.0, high=1.0)
+            
+            # If it's bigger than the defined mutation rate we apply a mutation
+            if mutation_proba >= self.mutation_rate:
+                # TODO: Review where should we apply mutation
+                # For now, let's assume that we can randomly choice where to apply these
+                where_to_mutate = np.random.choice(a=[0, 1, 2])
+                # 0 - TODO: Apply on the Conv-Layers
+                if where_to_mutate == 0:
+                    pass
+                
+                # 1 - TODO: Apply on the FC-Layers
+                elif where_to_mutate == 1:
+                    pass
+                
+                # 2 - Apply on the learning rate
+                else:
+                    mutated_lr = np.random.choice(a=[0.001, 0.0001, 0.00001])
+                    solution.learning_rate = mutated_lr
+
+            
+            # Otherwise we keep the solution as it is
+            else:
+                mutated_solutions_list.append(solution)
+
+
         # TODO: Randomly change parameters inside the solution
-        pass
+        
+        return mutated_solutions_list
 
     # TODO: Crossover Method
     def apply_crossover(self):

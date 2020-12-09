@@ -52,6 +52,8 @@ class Solution:
         # Learning Rate
         self.learning_rate = learning_rate
 
+    # TODO: Function to (re)build solution structure (useful to handle mutations and crossovers)
+    def build_solution(self):
         # Create Solution structure
         # Populate Convolutional Layers Block Matrix with Parameters
         self.convolutional_layers = np.array(list())
@@ -106,4 +108,3 @@ class Solution:
     # Function to return the solution matrix
     def get_solution_matrix(self):
         return self.final_built_solution.copy()
-
