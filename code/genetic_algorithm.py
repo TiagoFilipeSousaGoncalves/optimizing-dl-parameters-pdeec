@@ -39,20 +39,23 @@ class GeneticAlgorithm:
         self.initial_chromossome_length = initial_chromossome_length
         self.current_chromossome_length = initial_chromossome_length
 
+        # Some important dictionaries to be used
+        # Activation Functions Dict
+        self.inv_activ_functions = dict()
+        self.inv_activ_functions[0] = 'none'
+        self.inv_activ_functions[1] = 'relu'
+        self.inv_activ_functions[2] = 'tanh'
+
+        # Pooling Types Dict
+        self.inv_pooling_types = dict()
+        self.inv_pooling_types[0] = 'none'
+        self.inv_pooling_types[1] = 'max'
+        self.inv_pooling_types[2] = 'avg'
+
     # Generate Solutions
     def generate_candidate_solutions(self):
         # Create list to append solutions
         list_of_candidate_solutions = list()
-
-        inv_activ_functions = dict()
-        inv_activ_functions[0] = 'none'
-        inv_activ_functions[1] = 'relu'
-        inv_activ_functions[2] = 'tanh'
-
-        inv_pooling_types = dict()
-        inv_pooling_types[0] = 'none'
-        inv_pooling_types[1] = 'max'
-        inv_pooling_types[2] = 'avg'
 
         # Go through the size of the population
         # Initialize current p
@@ -82,14 +85,14 @@ class GeneticAlgorithm:
                     c_kernel = np.random.choice(a=[1, 3, 5, 7, 9])
                     conv_kernel_sizes.append(c_kernel)
                     # Conv Activation Functions
-                    c_activ_fn = inv_activ_functions[np.random.choice(a=[0, 1, 2])]
+                    c_activ_fn = self.inv_activ_functions[np.random.choice(a=[0, 1, 2])]
                     conv_activ_functions.append(c_activ_fn)
                     # Conv Dropout Rate
                     c_drop_rate = np.random.uniform(low=0.0, high=1.0)
                     conv_drop_rates.append(c_drop_rate)
                     # Conv Pool Types
                     # c_pool_tp = inv_pooling_types[0]
-                    c_pool_tp = inv_pooling_types[np.random.choice(a=[0, 1, 2])] # TODO Check if this works with our validation routine
+                    c_pool_tp = self.inv_pooling_types[np.random.choice(a=[0, 1, 2])] # TODO Check if this works with our validation routine
                     conv_pool_types.append(c_pool_tp)
                     # Update current c_length
                     sol_c_length += 1
@@ -101,7 +104,7 @@ class GeneticAlgorithm:
                     fc_out_neuron = np.random.uniform(low=1.0, high=100)
                     fc_neurons.append(fc_out_neuron)
                     # FC Activation Function
-                    fc_activ_fn = inv_activ_functions[np.random.choice(a=[0, 1, 2])]
+                    fc_activ_fn = self.inv_activ_functions[np.random.choice(a=[0, 1, 2])]
                     fc_activ_functions.append(fc_activ_fn)
                     # FC Dropout Rate
                     fc_drop = np.random.uniform(low=0.0, high=1.0)
@@ -262,6 +265,11 @@ class GeneticAlgorithm:
         mutated_solutions_list = list()
         # First, we iterate through the alive solutions list
         for solution in alive_solutions_list:
+            # Create a copy of the solution to mutate
+            # This way, after the rebuild of the solution we can see if the solution is workable or not
+            # If not, we stay with the original solution
+            _solution = solution.copy()
+
             # Generate a random number between 0-1 to compare against the mutation rate
             mutation_proba = np.random.uniform(low=0.0, high=1.0)
             
@@ -272,21 +280,65 @@ class GeneticAlgorithm:
                 where_to_mutate = np.random.choice(a=[0, 1, 2])
                 # 0 - TODO: Apply on the Conv-Layers
                 if where_to_mutate == 0:
-                    pass
+                    # Check the size of the convolutional layers block
+                    conv_block_len = _solution.convolutional_layers.size(0)
+
+                    # Choose a random layer to apply a mutation
+                    # We create a list with the indices first
+                    conv_block_layers_indices = [i for i in range(conv_block_len)]
+                    # We choose a layer to apply mution based on the index
+                    c_layer_idx = np.random.choice(a=conv_block_layers_indices)
+
+
+                    # Now, we need to which of the parameters are we going to mutate
+                    conv_layer_params_to_change = ["conv_filters", "conv_kernel_sizes", "conv_activ_functions", "conv_drop_rates", "conv_pool_types"]
+                    c_param_change = np.random.choice(a=conv_layer_params_to_change)
+
+                    # Check the parameter to change
+                    # "conv_filters"
+                    if c_param_change == "conv_filters":
+                        # We change the number of c_filter of the c_layer_idx 
+                        _solution.conv_filters[c_layer_idx] = np.random.choice(a=[8, 16, 32, 64, 128, 256, 512])  
+                    
+                    # "conv_kernel_sizes"
+                    elif c_param_change == "conv_kernel_sizes":
+                        # We change the kernel size of the c_layer_idx
+                        _solution.conv_kernel_sizes[c_layer_idx] = np.random.choice(a=[1, 3, 5, 7, 9])
+                    
+                    # "conv_activ_functions"
+                    elif c_param_change == "conv_activ_functions":
+                        # We change the activation function of the c_layer_idx
+                        _solution.conv_activ_functions[c_layer_idx] = self.inv_activ_functions[np.random.choice(a=[0, 1, 2])]
+                    
+                    # "conv_drop_rates"
+                    elif c_param_change == "conv_drop_rates":
+                        # We change the dropout rate of the c_layer_idx
+                        _solution.conv_drop_rates[c_layer_idx] = np.random.uniform(low=0.0, high=1.0)
+                    
+                    # Otherwise, c_param_change == "conv_pool_types"
+                    else:
+                        # We change the pooling type of the c_layer_idx
+                        _solution.conv_pool_types[c_layer_idx] = self.inv_pooling_types[np.random.choice(a=[0, 1, 2])]
+
+
+
                 
                 # 1 - TODO: Apply on the FC-Layers
                 elif where_to_mutate == 1:
+                    fc_neurons
+                    fc_activ_functions
+                    fc_drop_rates
                     pass
                 
                 # 2 - Apply on the learning rate
                 else:
                     mutated_lr = np.random.choice(a=[0.001, 0.0001, 0.00001])
-                    solution.learning_rate = mutated_lr
+                    _solution.learning_rate = mutated_lr
 
             
             # Otherwise we keep the solution as it is
             # Anyway, we have to append the solution to 
-            # our mutated solutio list
+            # our mutated solution list
             mutated_solutions_list.append(solution)
 
 

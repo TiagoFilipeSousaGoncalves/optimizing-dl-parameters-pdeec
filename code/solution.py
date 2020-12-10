@@ -91,8 +91,6 @@ class Solution:
                 # Column 2: FC Dropout Rates
                 self.fully_connected_layers[fc_idx, 2] = self.fc_drop_rates[fc_idx]
 
-        # Add learning rate to the solution object
-        self.learning_rate = learning_rate
 
         # Convert convolutional and fully-connected layers' parameters matrices to torch.Tensor()
         # Convolutional Layers
