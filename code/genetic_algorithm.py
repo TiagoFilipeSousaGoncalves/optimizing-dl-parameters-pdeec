@@ -285,8 +285,9 @@ class GeneticAlgorithm:
 
             
             # Otherwise we keep the solution as it is
-            else:
-                mutated_solutions_list.append(solution)
+            # Anyway, we have to append the solution to 
+            # our mutated solutio list
+            mutated_solutions_list.append(solution)
 
 
         # TODO: Randomly change parameters inside the solution
