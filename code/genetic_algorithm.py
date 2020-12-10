@@ -290,7 +290,7 @@ class GeneticAlgorithm:
                     c_layer_idx = np.random.choice(a=conv_block_layers_indices)
 
 
-                    # Now, we need to which of the parameters are we going to mutate
+                    # Now, we need to choose which of the parameters are we going to mutate
                     conv_layer_params_to_change = ["conv_filters", "conv_kernel_sizes", "conv_activ_functions", "conv_drop_rates", "conv_pool_types"]
                     c_param_change = np.random.choice(a=conv_layer_params_to_change)
 
@@ -320,15 +320,39 @@ class GeneticAlgorithm:
                         # We change the pooling type of the c_layer_idx
                         _solution.conv_pool_types[c_layer_idx] = self.inv_pooling_types[np.random.choice(a=[0, 1, 2])]
 
-
-
                 
                 # 1 - TODO: Apply on the FC-Layers
                 elif where_to_mutate == 1:
-                    fc_neurons
-                    fc_activ_functions
-                    fc_drop_rates
-                    pass
+                    # Check the size of the FC block
+                    fc_block_len = _solution.fully_connected_layers.size(0)
+                    
+                    # Choose a random layer to apply mutation
+                    # We create a list with the indices first
+                    fc_block_indices = [i for i in range(fc_block_len)]
+                    # We choose a layer to apply mutation based on the index
+                    fc_layer_idx = np.random.choice(a=fc_block_indices)
+
+                    # Now, we need to choose which of the parameters are we going to mutate
+                    fc_layer_params_to_change = ["fc_neurons", "fc_activ_functions", "fc_drop_rates"]
+                    fc_param_change = np.random.choice(a=fc_layer_params_to_change)
+
+
+                    # Check the parameter to change
+                    # "fc_neurons"
+                    if fc_param_change == "fc_neurons":
+                        # We change the number of out-neurons of the fc_layer_idx
+                        _solution.fc_neurons[fc_layer_idx] = np.random.uniform(low=1.0, high=100)
+                    
+                    # "fc_activ_functions"
+                    elif fc_param_change == "fc_activ_functions":
+                        # We change the type of activation function of the neuron of the fc_layer_idx
+                        _solution.fc_activ_functions[fc_layer_idx] = self.inv_activ_functions[np.random.choice(a=[0, 1, 2])]
+                    
+                    # "fc_drop_rates"
+                    else:
+                        # We change the dropout rate of the neuron of the fc_layer_idx
+                        _solution.fc_drop_rates[fc_layer_idx] = np.random.uniform(low=0.0, high=1.0)
+
                 
                 # 2 - Apply on the learning rate
                 else:
@@ -336,13 +360,23 @@ class GeneticAlgorithm:
                     _solution.learning_rate = mutated_lr
 
             
-            # Otherwise we keep the solution as it is
-            # Anyway, we have to append the solution to 
-            # our mutated solution list
-            mutated_solutions_list.append(solution)
+            # Test the mutated solutio (_solution) with Model to see if it is a viable solution
+            try:
+                _solution = _solution.build_solution()
+                _ = Model(self.input_shape, self.number_of_labels, _solution.get_solution_matrix())
+            
+            # If it goes wrong, we keep the initial solution
+            except:
+                mutated_solutions_list.append(solution)            
+            
+            # If it goes OK, we can append the _solution to our mutated solution list
+            else:
+                # Append this _solution to the list of mutated solutions
+                mutated_solutions_list.append(_solution)
+            
 
 
-        # TODO: Randomly change parameters inside the solution
+        # TODO: Review code
         
         return mutated_solutions_list
 
