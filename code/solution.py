@@ -1,9 +1,11 @@
 import torch
 from itertools import combinations
 import numpy as np
+import copy
 
 
 # Define the Solution Class
+# TODO: Change Class to a function that generates new solution that outputs the final array 
 class Solution:
     def __init__(self, conv_filters, conv_kernel_sizes, conv_activ_functions, conv_drop_rates, conv_pool_types,
                  fc_neurons, fc_activ_functions, fc_drop_rates, learning_rate):
@@ -105,4 +107,4 @@ class Solution:
 
     # Function to return the solution matrix
     def get_solution_matrix(self):
-        return self.final_built_solution.copy()
+        return copy.deepcopy(self.final_built_solution)

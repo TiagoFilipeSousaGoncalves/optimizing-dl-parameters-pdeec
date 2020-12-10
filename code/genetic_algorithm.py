@@ -6,6 +6,7 @@ import numpy as np
 from code.solution import Solution
 from code.model import Model
 import time
+import copy
 
 
 # Define the Genetic Algorithm Class
@@ -268,7 +269,7 @@ class GeneticAlgorithm:
             # Create a copy of the solution to mutate
             # This way, after the rebuild of the solution we can see if the solution is workable or not
             # If not, we stay with the original solution
-            _solution = solution.copy()
+            _solution = copy.deepcopy(solution)
 
             # Generate a random number between 0-1 to compare against the mutation rate
             mutation_proba = np.random.uniform(low=0.0, high=1.0)
@@ -277,7 +278,9 @@ class GeneticAlgorithm:
             if mutation_proba >= self.mutation_rate:
                 # TODO: Review where should we apply mutation
                 # For now, let's assume that we can randomly choice where to apply these
-                where_to_mutate = np.random.choice(a=[0, 1, 2])
+                # TODO: Create a matrix with random numbers (0-1) for each parameter with the probas for each param 
+                # of each layer
+                where_to_mutate = np.random.choice(a=[0, 1, 2]) # TODO: This goes out!
                 # 0 - TODO: Apply on the Conv-Layers
                 if where_to_mutate == 0:
                     # Check the size of the convolutional layers block
@@ -381,9 +384,12 @@ class GeneticAlgorithm:
         return mutated_solutions_list
 
     # TODO: Crossover Method
-    def apply_crossover(self):
+    # TODO: Cross-probability
+    # TODO: Decide the the survival criteria
+    def apply_crossover(self, mutated_solutions_list):
         # TODO: Crossover between solution (random layers to hybrid); pay attention to the number of conv layers and fc layers of mum and dad
-        pass
+
+        return new_generation
 
     # Fitness Function
     def solution_fitness(self, solution_acc, solution_loss):
