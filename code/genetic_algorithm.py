@@ -183,8 +183,8 @@ class GeneticAlgorithm:
         gen_candidate_solutions = self.generate_candidate_solutions()
 
         for candidate in gen_candidate_solutions:
-            # TODO: Review this, since it was added to handle mutations and crossovers
-            candidate = candidate.build_solution()
+            # TODO: Solution structure changed
+            # candidate = candidate.build_solution()
             models.append(Model(self.input_shape, self.number_of_labels, candidate.get_solution_matrix()))
 
         # loss
@@ -365,7 +365,8 @@ class GeneticAlgorithm:
             
             # Test the mutated solutio (_solution) with Model to see if it is a viable solution
             try:
-                _solution = _solution.build_solution()
+                # TODO: buil_solution function no longer needed
+                # _solution = _solution.build_solution()
                 _ = Model(self.input_shape, self.number_of_labels, _solution.get_solution_matrix())
             
             # If it goes wrong, we keep the initial solution

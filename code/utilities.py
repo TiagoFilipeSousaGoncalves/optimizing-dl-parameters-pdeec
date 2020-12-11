@@ -2,11 +2,11 @@
 import torch
 from code.solution import Solution
 from code.model import Model
-from code.genetic_algorithm import GeneticAlgorithm
+from genetic_algorithm import GeneticAlgorithm
 
 from torchsummary import summary
 
-'''
+"""
 # Test
 solution = Solution(
     conv_filters=[8, 16],
@@ -29,9 +29,10 @@ solution = Solution(
 )
 
 candidate_solution = solution.get_solution_matrix()
-print(candidate_solution)
+print(candidate_solution, len(candidate_solution))
+"""
 
-
+"""
 model = Model(input_shape=[28, 28, 3], number_of_labels=10, solution=candidate_solution)
 print(f"Learning Rate: {model.learning_rate}")
 print(model.parameters)
@@ -96,7 +97,10 @@ def calculate_mean_std():
 calculate_mean_std()
 '''
 
+"""
+"""
 if __name__ == '__main__':
     ga = GeneticAlgorithm(10, 10, 0.5, 0.5, 0.5, 0, 1, 8)
 
     ga.train()
+"""
