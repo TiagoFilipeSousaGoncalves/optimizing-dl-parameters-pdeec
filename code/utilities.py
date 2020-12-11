@@ -2,7 +2,7 @@
 import torch
 from code.solution import Solution
 from code.model import Model
-from genetic_algorithm import GeneticAlgorithm
+from code.genetic_algorithm import GeneticAlgorithm
 
 from torchsummary import summary
 
