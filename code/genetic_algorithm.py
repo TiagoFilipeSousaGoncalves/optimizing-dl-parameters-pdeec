@@ -14,7 +14,7 @@ from code.utilities import utils
 from code.datasets import get_mnist_loader
 
 # Sklearn Imports
-from sklearn import sklearn_metrics
+import sklearn.metrics as sklearn_metrics
 
 # Set random seed value so we a have a reproductible work
 random_seed = 42
@@ -174,6 +174,7 @@ class GeneticAlgorithm:
                     # Generate initial candidate solutions
                     # (this list will be usefull to the next steps such as mutation and crossover)
                     gen_candidate_solutions = self.generate_candidate_solutions()
+                    print(f"Generation {current_generation} solutions generated.")
                 
                 # If not, we are generating new solutions; we obtain new ones by crossover and mutation
                 else:
