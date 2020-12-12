@@ -117,7 +117,7 @@ def copy_solution(sol):
 # Define the Genetic Algorithm Class
 class GeneticAlgorithm:
     def __init__(self, input_shape, number_of_labels, size_of_population, nr_of_generations, mutation_rate,
-                 percentage_of_best_fit, survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length):
+                 percentage_of_best_fit, survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length, nr_of_epochs=5):
 
         # Dataset Variables
         self.input_shape = input_shape
@@ -129,6 +129,7 @@ class GeneticAlgorithm:
         self.mutation_rate = mutation_rate
         self.percentage_of_best_fit = percentage_of_best_fit
         self.survival_rate_of_less_fit = survival_rate_of_less_fit
+        self.nr_of_epochs = nr_of_epochs
 
         # Phase Variables
         self.start_phase = start_phase
@@ -225,7 +226,7 @@ class GeneticAlgorithm:
                     model_start = time.time()
 
                     # We train each model for 5 Epochs
-                    for epoch in range(5):
+                    for epoch in range(self.nr_of_epochs):
 
                         # Epoch Start Time
                         epoch_start = time.time()
@@ -233,7 +234,7 @@ class GeneticAlgorithm:
                         # Running loss is initialised as 0
                         running_loss = 0.0
 
-                        # Initialise y and y_pred lists
+                        # Initialise y and y_pred lists to compute the accuracy in the end of the epoch
                         y = list()
                         y_pred = list()
 
@@ -304,82 +305,6 @@ class GeneticAlgorithm:
                 generation_solutions_fitness = [self.solution_fitness(r[0], r[1]) for r in generation_models_results]
                 print(generation_solutions_fitness)
 
-        # 1) create model with a given solution
-        # 2) train model
-        # 3) calculate model cost
-
-        # data_loader = get_mnist_loader(32)
-
-        # create models
-        # models = []
-
-        # Create candidate solutions for the present phase and generations 
-        
-        # gen_candidate_solutions = self.generate_candidate_solutions()
-
-        # for candidate in gen_candidate_solutions:
-            # models.append(Model(self.input_shape, self.number_of_labels, candidate))
-
-        # loss
-        # loss = nn.CrossEntropyLoss()
-
-        # select gpu if possible
-        # device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-
-        # model_start = time.time()
-
-        # train
-        # for model in models:
-        #     print('training model')
-
-        #     model = model.to(device)
-        #     model.train()
-        #     optim = torch.optim.Adam(model.parameters(), lr=model.learning_rate) # TODO Check if this works
-
-        #     every_x_minibatches = 100
-
-        #     for epoch in range(5):
-
-        #         running_loss = 0.0
-
-        #         start = time.time()
-
-        #         for i, data in enumerate(data_loader):
-
-        #             images, labels = data
-
-        #             # zero the parameter gradients
-        #             optim.zero_grad()
-
-        #             # forward + backward + optimize
-        #             images = images.to(device)
-        #             labels = labels.to(device)
-
-        #             features = model(images)
-
-        #             loss_value = loss(features, labels)
-
-        #             loss_value.backward()
-
-        #             optim.step()
-
-        #             # print statistics
-        #             running_loss += loss_value.item()
-        #             if (i + 1) % every_x_minibatches == 0:
-        #                 print(f'[{epoch + 1}, {i + 1}] loss: {running_loss / every_x_minibatches}')
-        #                 running_loss = 0.0
-
-        #         end = time.time()
-
-        #         print('epoch time: ' + str(end - start))
-
-        #         # torch.save(model.state_dict(), 'model.pth')
-
-        #     print('Finished Training')
-        #     model = model.cpu()
-
-        # print('Total time: ' + str(time.time()-model_start))
-        # total time on my pc with gpu 1129 seg ~ 18 min. (specs: ryzen 7 3700x, rtx 2070S, 32gb ram 3600mhz)
 
 
     # TODO: Thread Training Solution (this would only give a performance boost using different processes, not threads, i think. I dont know how hard it is to implement,
@@ -396,16 +321,107 @@ class GeneticAlgorithm:
     def apply_mutation(self, alive_solutions_list):
         # Create a mutated solutions list to append solutions
         mutated_solutions_list = list()
+        
         # First, we iterate through the alive solutions list
         for solution in alive_solutions_list:
             # Create a copy of the solution to mutate
             # This way, after the rebuild of the solution we can see if the solution is workable or not
             # If not, we stay with the original solution
-            _solution = copy.deepcopy(solution)
+            _solution = copy_solution(sol=solution)
 
+            # TODO: Erase after review
             # Generate a random number between 0-1 to compare against the mutation rate
-            mutation_proba = np.random.uniform(low=0.0, high=1.0)
+            # mutation_proba = np.random.uniform(low=0.0, high=1.0)
+
+            # We first check convolutional blocks
+            # We create a mask of numbers in interval [0, 1) for the conv-block
+            conv_block_mask = torch.rand_like(_solution[0])
+            conv_block_mask = conv_block_mask >= self.mutation_rate
+
+            # Create a Tensor to evaluate feasibility while creating the mutated solution
+            curr_tensor = torch.rand((1, self.input_shape[0], self.input_shape[1], self.input_shape[2]))
             
+            # Iterate through conv-block and evaluate mutation places
+            for layer_idx, layer in enumerate(_solution[0]):
+                layer_mask = conv_block_mask[layer_idx]
+
+                # Iterate through layer mask and see the places where we have to promote mutation
+                for where_mutated, is_mutated in enumerate(layer_mask):
+                    # We have to update our curr_tensor before going into Column 2 mutations
+                    if where_mutated == 2:
+                        curr_tensor = nn.Conv2d(in_channels=curr_tensor.size()[1], out_channels=_solution[0][layer_idx][0], kernel_size=_solution[0][layer_idx][1])(curr_tensor)
+
+                    if is_mutated == True:
+                        if where_mutated == 0:
+                            # Mutation happens in conv-filters
+                            _solution[0][layer_idx][where_mutated] = random.choice(utils.conv_nr_filters)
+                        
+                        elif where_mutated == 1:
+                            # Mutation happens in conv_kernel_sizes
+                            max_kernel_size = min(curr_tensor.size()[2:])
+                            allowed_conv_kernel_size = utils.conv_kernel_size[utils.conv_kernel_size <= max_kernel_size]
+                            kernel_size = random.choice(allowed_conv_kernel_size)
+                            _solution[0][layer_idx][where_mutated] = kernel_size
+
+                        elif where_mutated == 2:
+                            # Mutation happens in conv_activ_functions
+                            activ_function = random.randint(0, len(utils.conv_activ_functions)-1)
+                            _solution[0][layer_idx][where_mutated] = activ_function
+                        
+                        elif where_mutated == 3:
+                            # Mutation happens in conv_drop_rates
+                            drop_out = random.uniform(utils.conv_drop_out_range[0], utils.conv_drop_out_range[1])
+                            _solution[0][layer_idx][where_mutated] = drop_out
+
+                        else:
+                            # Mutation happens in conv_pool_types
+                            max_kernel_size = min(curr_tensor.size()[2:])
+                            if max_kernel_size < 2:
+                                pool = 0
+                            else:
+                                pool = random.randint(0, len(utils.conv_pooling_types)-1)
+                            
+                            _solution[0][layer_idx][where_mutated] = pool
+                    
+                    # Update curr_tensor after Column 4 mutations
+                    curr_tensor = utils.conv_pooling_types[pool](curr_tensor)
+
+            
+            # We now check the fc-block
+            # We create a mask of numbers in interval [0, 1) for the fc-block
+            fc_block_mask = torch.rand_like(_solution[1])
+            fc_block_mask = fc_block_mask >= self.mutation_rate
+
+            # Iterate through fc-block and evaluate mutation places
+            for layer_idx, layer in enumerate(_solution[1]):
+                layer_mask = fc_block_mask[layer_idx]
+
+                # Iterate through layer mask and see the places where we have to promote mutation
+                for where_mutated, is_mutated in enumerate(layer_mask):
+                    if is_mutated == True:
+                        if where_mutated == 0:
+                            # Mutation happens in fc_neurons
+                            _solution[1][layer_idx][where_mutated]
+                            pass
+
+                        elif where_mutated == 1:
+                            # Mutation happens in fc_activ_functions
+                            _solution[1][layer_idx][where_mutated]
+                            pass
+
+                        else:
+                            # Mutation happens in fc_drop_rates
+                            _solution[1][layer_idx][where_mutated]
+                            pass
+            
+            
+            # Last, we check the learning rate
+            # We also create a mask for the learning rate
+            if torch.rand_like(_solution[2]) >= self.mutation_rate:
+                # Mutation happens in the learning rate
+                _solution[2] = torch.tensor([random.choice(utils.learning_rate)])
+            
+
             # If it's bigger than the defined mutation rate we apply a mutation
             if mutation_proba >= self.mutation_rate:
                 # TODO: Review where should we apply mutation
