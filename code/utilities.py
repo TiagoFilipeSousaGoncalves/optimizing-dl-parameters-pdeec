@@ -1,10 +1,45 @@
 # Imports
-import torch
-from code.solution import Solution
-from code.model import Model
-from code.genetic_algorithm import GeneticAlgorithm
+import torch.nn as nn
+import numpy as np
 
-from torchsummary import summary
+
+class Utils:
+    def __init__(self):
+        self.inv_conv_activ_functions = ['none',
+                                         'relu',
+                                         'tanh']
+
+        self.inv_conv_pooling_types = ['none',
+                                       'max',
+                                       'avg']
+
+        self.inv_fc_activ_functions = ['none',
+                                       'relu',
+                                       'tanh']
+
+        # Conv Network parameters
+        self.conv_nr_filters = np.array([8, 16, 32, 64, 128, 256, 512])
+        self.conv_kernel_size = np.array([1, 3, 5, 7, 9])
+        self.conv_activ_functions = [nn.Identity(),
+                                     nn.ReLU(),
+                                     nn.Tanh()]
+        self.conv_drop_out_range = np.array([0.0, 1.0])
+        self.conv_pooling_types = [nn.Identity(),
+                                   nn.MaxPool2d(2, 2),
+                                   nn.AvgPool2d(2, 2)]
+
+        # FC Network Parameters
+        self.fc_nr_neurons_range = np.array([1, 100])
+        self.fc_activ_functions = [nn.Identity(),
+                                   nn.ReLU(),
+                                   nn.Tanh()]
+        self.fc_drop_out_range = np.array([0.0, 1.0])
+
+        # Learning rate
+        self.learning_rate = np.array([0.001, 0.0001, 0.00001])
+
+
+utils = Utils()
 
 """
 # Test

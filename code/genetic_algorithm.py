@@ -7,18 +7,111 @@ from code.solution import Solution
 from code.model import Model
 import time
 import copy
+from code.utilities import utils
+import random
+
+random_seed = 42
+
+# Initialize random seeds
+np.random.seed(random_seed)
+torch.manual_seed(random_seed)
+random.seed(random_seed)
+
+
+# input_shape is [C, H, W]
+def generate_random_solution(chromossome_length, input_shape):
+    # Block Sizes
+    nr_conv_layers = np.random.randint(0, chromossome_length + 1)
+    nr_fc_layers = chromossome_length - nr_conv_layers
+
+    # Process Input Shape
+    channels = input_shape[0]
+    rows = input_shape[1]
+    columns = input_shape[2]
+
+    # Create Convolutional Block
+    convolutional_layers = []
+    curr_tensor = torch.rand((1, channels, rows, columns))
+
+    for _ in range(nr_conv_layers):
+        curr_layer = []
+
+        # Column 0: Number of Conv-Filters
+        nr_filters = random.choice(utils.conv_nr_filters)
+        curr_layer.append(nr_filters)
+
+        # Column 1: Conv-Kernel Sizes
+        max_kernel_size = min(curr_tensor.size()[2:])
+        allowed_conv_kernel_size = utils.conv_kernel_size[utils.conv_kernel_size <= max_kernel_size]
+        kernel_size = random.choice(allowed_conv_kernel_size)
+        curr_layer.append(kernel_size)
+
+        # Update curr_tensor
+        curr_tensor = nn.Conv2d(in_channels=curr_tensor.size()[1], out_channels=nr_filters, kernel_size=kernel_size)(curr_tensor)
+
+        # Column 2: Conv-Activation Functions
+        activ_function = random.randint(0, len(utils.conv_activ_functions)-1)
+        curr_layer.append(activ_function)
+
+        # Column 3: Conv-Drop Rates
+        drop_out = random.uniform(utils.conv_drop_out_range[0], utils.conv_drop_out_range[1])
+        curr_layer.append(drop_out)
+
+        # Column 4: Conv-Pool Layer Types
+        max_kernel_size = min(curr_tensor.size()[2:])
+
+        if max_kernel_size < 2:
+            pool = 0
+        else:
+            pool = random.randint(0, len(utils.conv_pooling_types)-1)
+
+        # Update curr_tensor
+        curr_tensor = utils.conv_pooling_types[pool](curr_tensor)
+
+        curr_layer.append(pool)
+
+        # Add to convolutional block
+        convolutional_layers.append(curr_layer)
+
+    # Create Fully Connected Block
+    fully_connected_layers = []
+
+    for _ in range(nr_fc_layers):
+        curr_layer = []
+
+        # Column 0: FC Layer Number of Neurons
+        nr_neurons = random.randint(utils.fc_nr_neurons_range[0], utils.fc_nr_neurons_range[1])
+        curr_layer.append(nr_neurons)
+
+        # Column 1: FC Layer Activation Functions
+        activ_function = random.randint(0, len(utils.fc_activ_functions) - 1)
+        curr_layer.append(activ_function)
+
+        # Column 2: FC Dropout Rates
+        drop_out = random.uniform(utils.fc_drop_out_range[0], utils.fc_drop_out_range[1])
+        curr_layer.append(drop_out)
+
+        fully_connected_layers.append(curr_layer)
+
+    # Learning Rate
+    learning_rate = random.choice(utils.learning_rate)
+
+    convolutional_layers = torch.tensor(convolutional_layers)
+    fully_connected_layers = torch.tensor(fully_connected_layers)
+    learning_rate = torch.tensor([learning_rate])
+
+    return [convolutional_layers, fully_connected_layers, learning_rate]
+
+
+def copy_solution(sol):
+    return [sol[0].clone(), sol[1].clone(), sol[2].clone()]
 
 
 # Define the Genetic Algorithm Class
 class GeneticAlgorithm:
     def __init__(self, input_shape, number_of_labels, size_of_population, nr_of_generations, mutation_rate, percentage_of_best_fit,
-                 survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length, random_seed=42):
-        # Initialize random seeds
-        # NumPy
-        np.random.seed(random_seed)
+                 survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length):
 
-        # PyTorch
-        torch.manual_seed(random_seed)
 
         # Dataset Variables
         self.input_shape = input_shape
@@ -390,7 +483,7 @@ class GeneticAlgorithm:
     def apply_crossover(self, mutated_solutions_list):
         # TODO: Crossover between solution (random layers to hybrid); pay attention to the number of conv layers and fc layers of mum and dad
 
-        return new_generation
+        return # new_generation
 
     # Fitness Function
     def solution_fitness(self, solution_acc, solution_loss):
