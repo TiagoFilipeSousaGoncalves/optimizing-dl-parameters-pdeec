@@ -1,14 +1,12 @@
 import torch
 import torch.nn as nn
-import torchvision
-from torchvision import transforms
 import numpy as np
-from code.solution import Solution
 from code.model import Model
 import time
 import copy
 from code.utilities import utils
 import random
+from code.datasets import get_mnist_loader
 
 random_seed = 42
 
@@ -109,9 +107,8 @@ def copy_solution(sol):
 
 # Define the Genetic Algorithm Class
 class GeneticAlgorithm:
-    def __init__(self, input_shape, number_of_labels, size_of_population, nr_of_generations, mutation_rate, percentage_of_best_fit,
-                 survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length):
-
+    def __init__(self, input_shape, number_of_labels, size_of_population, nr_of_generations, mutation_rate,
+                 percentage_of_best_fit, survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length):
 
         # Dataset Variables
         self.input_shape = input_shape
@@ -133,123 +130,23 @@ class GeneticAlgorithm:
         self.initial_chromossome_length = initial_chromossome_length
         self.current_chromossome_length = initial_chromossome_length
 
-        # Some important dictionaries to be used
-        # Activation Functions Dict
-        self.inv_activ_functions = dict()
-        self.inv_activ_functions[0] = 'none'
-        self.inv_activ_functions[1] = 'relu'
-        self.inv_activ_functions[2] = 'tanh'
-
-        # Pooling Types Dict
-        self.inv_pooling_types = dict()
-        self.inv_pooling_types[0] = 'none'
-        self.inv_pooling_types[1] = 'max'
-        self.inv_pooling_types[2] = 'avg'
-
     # Generate Solutions
     def generate_candidate_solutions(self):
         # Create list to append solutions
-        list_of_candidate_solutions = list()
+        list_of_candidate_solutions = []
 
         # Go through the size of the population
         # Initialize current p
         p = 0
         # We have to build p == size_of_population solutions
         while p < self.size_of_population:
-            # Initialize empty lists of solution parameters
-            conv_filters = list()
-            conv_kernel_sizes = list()
-            conv_activ_functions = list()
-            conv_drop_rates = list()
-            conv_pool_types = list()
-            fc_neurons = list()
-            fc_activ_functions = list()
-            fc_drop_rates = list()
 
-            # We have to build a solution with the current chromossome length
-            sol_c_length = 0
-            while sol_c_length < self.current_chromossome_length:
-                # Decide if  we have convolutional layers
-                add_conv_layer = np.random.choice(a=[True, False])
-                if add_conv_layer:
-                    # Conv Filter
-                    c_filter = np.random.choice(a=[8, 16, 32, 64, 128, 256, 512])
-                    conv_filters.append(c_filter)
-                    # Conv Kernel Size
-                    c_kernel = np.random.choice(a=[1, 3, 5, 7, 9])
-                    conv_kernel_sizes.append(c_kernel)
-                    # Conv Activation Functions
-                    c_activ_fn = self.inv_activ_functions[np.random.choice(a=[0, 1, 2])]
-                    conv_activ_functions.append(c_activ_fn)
-                    # Conv Dropout Rate
-                    c_drop_rate = np.random.uniform(low=0.0, high=1.0)
-                    conv_drop_rates.append(c_drop_rate)
-                    # Conv Pool Types
-                    # c_pool_tp = inv_pooling_types[0]
-                    c_pool_tp = self.inv_pooling_types[np.random.choice(a=[0, 1, 2])] # TODO Check if this works with our validation routine
-                    conv_pool_types.append(c_pool_tp)
-                    # Update current c_length
-                    sol_c_length += 1
-
-
-                # Otherwise, we add a FC-Layer
-                else:
-                    # FC Neurons
-                    fc_out_neuron = np.random.uniform(low=1.0, high=100)
-                    fc_neurons.append(fc_out_neuron)
-                    # FC Activation Function
-                    fc_activ_fn = self.inv_activ_functions[np.random.choice(a=[0, 1, 2])]
-                    fc_activ_functions.append(fc_activ_fn)
-                    # FC Dropout Rate
-                    fc_drop = np.random.uniform(low=0.0, high=1.0)
-                    fc_drop_rates.append(fc_drop)
-                    # Update current c_length
-                    sol_c_length += 1
-
-            # Decide the learning-rate
-            learning_rate = np.random.choice(a=[0.001, 0.0001, 0.00001])
-
-            # Build solution
-            solution = Solution(
-                conv_filters=conv_filters,
-                conv_kernel_sizes=conv_kernel_sizes,
-                conv_activ_functions=conv_activ_functions,
-                conv_drop_rates=conv_drop_rates,
-                conv_pool_types=conv_pool_types,
-                fc_neurons=fc_neurons,
-                fc_activ_functions=fc_activ_functions,
-                fc_drop_rates=fc_drop_rates,
-                learning_rate=learning_rate
-            )
-
-            # Test solution with Model to see if it is a viable solution
-            try:
-                _ = Model(self.input_shape, self.number_of_labels, solution.get_solution_matrix())
-            
-            # If it goes wrong, p value stays the same
-            except:
-                p = p            
-            
-            # If it goes OK, we can append the solution to our solution candidates
-            else:
-                # Append this solution to the list of candidate solutions
-                list_of_candidate_solutions.append(solution)
-                # Update current p
-                p += 1
+            # Append this solution to the list of candidate solutions
+            list_of_candidate_solutions.append(generate_random_solution(self.current_chromossome_length, self.input_shape))
+            # Update current p
+            p += 1
 
         return list_of_candidate_solutions
-
-    # TODO: Normalize Data (compute data mean and std manually):
-    def normalize_data(self):
-        mnist_mean = [0.1307]
-        mnist_std = [0.3081]
-
-        fashion_mnist_mean = [0.2860]
-        fashion_mnist_std = [0.3530]
-
-        cifar10_mean = [0.4914, 0.4822, 0.4465]
-        cifar10_std = [0.2470, 0.2435, 0.2616]
-        return None
 
     # TODO: Training Method
     def train(self):
@@ -257,16 +154,7 @@ class GeneticAlgorithm:
         # 2) train model
         # 3) calculate model cost
 
-        # data // TODO:  We can erase this since these variables are now class variables 
-        # input_shape = [28, 28, 1]
-        # number_of_labels = 10
-
-        train_transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.1307],
-                                                                                          std=[0.3081])])
-
-        mnist_data = torchvision.datasets.MNIST('data/mnist', train=True, download=True, transform=train_transform)
-
-        data_loader = torch.utils.data.DataLoader(mnist_data, batch_size=32, shuffle=True, num_workers=4)
+        data_loader = get_mnist_loader(32)
 
         # create models
         models = []
@@ -276,9 +164,7 @@ class GeneticAlgorithm:
         gen_candidate_solutions = self.generate_candidate_solutions()
 
         for candidate in gen_candidate_solutions:
-            # TODO: Solution structure changed
-            # candidate = candidate.build_solution()
-            models.append(Model(self.input_shape, self.number_of_labels, candidate.get_solution_matrix()))
+            models.append(Model(self.input_shape, self.number_of_labels, candidate))
 
         # loss
         loss = nn.CrossEntropyLoss()
@@ -326,8 +212,7 @@ class GeneticAlgorithm:
                     # print statistics
                     running_loss += loss_value.item()
                     if (i + 1) % every_x_minibatches == 0:
-                        print('[%d, %5d] loss: %.3f' %
-                              (epoch + 1, i + 1, running_loss / every_x_minibatches))
+                        print(f'[{epoch + 1}, {i + 1}] loss: {running_loss / every_x_minibatches}')
                         running_loss = 0.0
 
                 end = time.time()
@@ -492,3 +377,11 @@ class GeneticAlgorithm:
         solution_cost = -1 * (solution_loss - solution_acc)
 
         return solution_cost
+
+
+if __name__ == '__main__':
+    ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=10, nr_of_generations=10, mutation_rate=0.5,
+                        percentage_of_best_fit=0.5, survival_rate_of_less_fit=0.5, start_phase=0, end_phase=1, initial_chromossome_length=2)
+
+    ga.train()
+

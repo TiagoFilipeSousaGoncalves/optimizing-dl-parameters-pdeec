@@ -64,7 +64,7 @@ class Model(nn.Module):
         self.fc_labels = nn.Linear(in_features=input_features, out_features=number_of_labels)
 
         # Add learning rate
-        self.learning_rate = solution[2]
+        self.learning_rate = solution[2].item()
 
     def forward(self, x):
         # Go through convolutional block

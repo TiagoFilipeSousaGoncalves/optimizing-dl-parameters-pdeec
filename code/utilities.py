@@ -41,41 +41,6 @@ class Utils:
 
 utils = Utils()
 
-"""
-# Test
-solution = Solution(
-    conv_filters=[8, 16],
-    # conv_filters=[],
-    conv_kernel_sizes=[1, 2],
-    # conv_kernel_sizes=[],
-    conv_activ_functions=['relu', 'tanh'],
-    # conv_activ_functions=[],
-    conv_drop_rates=[0.2, 0.5],
-    # conv_drop_rates=[],
-    conv_pool_types=["max", "avg"],
-    # conv_pool_types=[],
-    fc_neurons=[100, 128],
-    # fc_neurons=[],
-    fc_activ_functions=['relu', 'tanh'],
-    # fc_activ_functions=[],
-    fc_drop_rates=[0.0, 1.0],
-    # fc_drop_rates=[],
-    learning_rate=0.001
-)
-
-candidate_solution = solution.get_solution_matrix()
-print(candidate_solution, len(candidate_solution))
-"""
-
-"""
-model = Model(input_shape=[28, 28, 3], number_of_labels=10, solution=candidate_solution)
-print(f"Learning Rate: {model.learning_rate}")
-print(model.parameters)
-tensor = torch.randn(1, 3, 28, 28)
-out = model(tensor)
-print(out)
-summary(model, (3, 28, 28))
-print(model)'''
 
 '''
 # data_loader = torch.utils.data.DataLoader(imagenet_data, batch_size=4, shuffle=True, num_workers=4)
@@ -132,10 +97,10 @@ def calculate_mean_std():
 calculate_mean_std()
 '''
 
-"""
-"""
+'''
 if __name__ == '__main__':
     ga = GeneticAlgorithm(10, 10, 0.5, 0.5, 0.5, 0, 1, 8)
 
     ga.train()
-"""
+'''
+
