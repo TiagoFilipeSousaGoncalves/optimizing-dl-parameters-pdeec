@@ -1,40 +1,18 @@
 import torch
 import torch.nn as nn
 from collections import OrderedDict
+from code.utilities import utils
 
 
 # Define the Model Class
 class Model(nn.Module):
     def __init__(self, input_shape, number_of_labels, solution):
         super(Model, self).__init__()
-        # Instance some important dictionaries to map numbers into parameters (PyTorch Layers)
-        # Activation Functions
-        self.activ_functions = dict()
-        self.activ_functions[0] = nn.Identity()
-        self.activ_functions[1] = nn.ReLU()
-        self.activ_functions[2] = nn.Tanh()
-        # Convolutional Pooling Types
-        self.conv_pooling_types = dict()
-        self.conv_pooling_types[0] = nn.Identity()
-        self.conv_pooling_types[1] = nn.MaxPool2d(2, 2)
-        self.conv_pooling_types[2] = nn.AvgPool2d(2, 2)
-
-        # Instance some important dictionaries to inverse-map numbers into parameters names
-        # Activation Functions
-        self.inv_activ_functions = dict()
-        self.inv_activ_functions[0] = 'none'
-        self.inv_activ_functions[1] = 'relu'
-        self.inv_activ_functions[2] = 'tanh'
-        # Convolutional Pooling Types
-        self.inv_pooling_types = dict()
-        self.inv_pooling_types[0] = 'none'
-        self.inv_pooling_types[1] = 'max'
-        self.inv_pooling_types[2] = 'avg'
 
         # Process Input Shape
-        self.rows = input_shape[0]
-        self.columns = input_shape[1]
-        self.channels = input_shape[2]
+        self.channels = input_shape[0]
+        self.rows = input_shape[1]
+        self.columns = input_shape[2]
 
         # Convolutional Block Size
         self.nr_conv_layers = solution[0].size(0)
@@ -50,27 +28,21 @@ class Model(nn.Module):
                 self.convolutional_layers[f'conv_{conv_idx}'] = nn.Conv2d(in_channels=input_channels,
                                                                           out_channels=int(layer[0].item()),
                                                                           kernel_size=int(layer[1].item()))
-                self.convolutional_layers[f'conv_act_{self.inv_activ_functions[int(layer[2].item())]}{conv_idx}'] = \
-                self.activ_functions[int(layer[2].item())]
+                self.convolutional_layers[f'conv_act_{utils.inv_conv_activ_functions[int(layer[2].item())]}{conv_idx}'] = utils.conv_activ_functions[int(layer[2].item())]
                 self.convolutional_layers[f'conv_dropout{conv_idx}'] = nn.Dropout2d(layer[3].item())
-                self.convolutional_layers[f'conv_pool_{self.inv_pooling_types[int(layer[4].item())]}{conv_idx}'] = \
-                self.conv_pooling_types[int(layer[4].item())]
+                self.convolutional_layers[f'conv_pool_{utils.inv_conv_pooling_types[int(layer[4].item())]}{conv_idx}'] = utils.conv_pooling_types[int(layer[4].item())]
                 input_channels = int((layer[0].item()))
 
             # Convert into a conv-layer
             self.convolutional_layers = nn.Sequential(self.convolutional_layers)
 
         # Now, we have to compute the linear dimensions for the first FC Layer
-        aux_tensor = torch.randn(1, self.channels, self.rows, self.columns)
+        aux_tensor = torch.rand(1, self.channels, self.rows, self.columns)
         if self.nr_conv_layers > 0:
             aux_tensor = self.convolutional_layers(aux_tensor)
 
         # Input features
         input_features = aux_tensor.size(0) * aux_tensor.size(1) * aux_tensor.size(2) * aux_tensor.size(3)
-        # print(input_features)
-
-        # del intermediate variables
-        del aux_tensor
 
         # Check if we have convolutional layers
         if self.nr_fc_layers > 0:
@@ -81,8 +53,7 @@ class Model(nn.Module):
             for fc_idx, layer in enumerate(solution[1]):
                 self.fc_layers[f'fc_{fc_idx}'] = nn.Linear(in_features=input_features,
                                                            out_features=int(layer[0].item()))
-                self.fc_layers[f'fc_act_{self.inv_activ_functions[int(layer[1].item())]}{fc_idx}'] = \
-                self.activ_functions[int(layer[1].item())]
+                self.fc_layers[f'fc_act_{utils.inv_fc_activ_functions[int(layer[1].item())]}{fc_idx}'] = utils.fc_activ_functions[int(layer[1].item())]
                 self.fc_layers[f'fc_dropout{fc_idx}'] = nn.Dropout(layer[2])
                 input_features = int(layer[0].item())
 
