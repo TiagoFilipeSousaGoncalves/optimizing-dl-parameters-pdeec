@@ -1,13 +1,22 @@
-import torch
-import torch.nn as nn
+# Imports
 import numpy as np
-from code.model import Model
 import time
 import copy
-from code.utilities import utils
 import random
+
+# Torch Imports
+import torch
+import torch.nn as nn
+
+# Project Imports
+from code.model import Model
+from code.utilities import utils
 from code.datasets import get_mnist_loader
 
+# Sklearn Imports
+from sklearn import sklearn_metrics
+
+# Set random seed value so we a have a reproductible work
 random_seed = 42
 
 # Initialize random seeds
@@ -148,83 +157,227 @@ class GeneticAlgorithm:
 
         return list_of_candidate_solutions
 
-    # TODO: Training Method
+    # TODO: Review Training Method
     def train(self):
+        # Data will always be the same, so we can read it in the beginning of the loop
+        data_loader = get_mnist_loader(32)
+
+        # Evaluate the current phase agains the maximum number of phases
+        while self.current_phase < self.end_phase:
+            # In each phase we begin with current_generation == 0
+            current_generation = 0
+
+            # Evaluate current generation against the maximum number of generations
+            while current_generation < self.nr_of_generations:
+                # Check if we are in current_generation == 0
+                if current_generation == 0:
+                    # Generate initial candidate solutions
+                    # (this list will be usefull to the next steps such as mutation and crossover)
+                    gen_candidate_solutions = self.generate_candidate_solutions()
+                
+                # If not, we are generating new solutions; we obtain new ones by crossover and mutation
+                else:
+                    # TODO: Apply crossover between best solutions of the previous generation until you achieve
+                    # the size of the populations
+
+                    # TODO: Apply random mutations to the population
+
+                    pass
+
+                # Create models list
+                models = []
+                
+                # Create models from these candidate solution
+                for candidate in gen_candidate_solutions:
+                    models.append(Model(self.input_shape, self.number_of_labels, candidate))
+                
+                # Choose loss function; here we use CrossEntropy
+                loss = nn.CrossEntropyLoss()
+
+                # Select device: GPU or CPU
+                device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+
+                # Total Time Generation (Start)
+                generation_start = time.time()
+
+                # Models Results (Generation)
+                generation_models_results = list()
+
+                # Training Loop
+                for model_idx, model in enumerate(models):
+                    print(f'Training Model {model_idx+1}')
+
+                    # Transfer model to device (CPU or GPU)
+                    model = model.to(device)
+
+                    # Put model in "training mode"
+                    model.train()
+
+                    # Load optimizer (for now, we will used Adam)
+                    optim = torch.optim.Adam(model.parameters(), lr=model.learning_rate)
+
+                    # TODO: Delete this
+                    # FLAG for print statistics
+                    # every_x_minibatches = 100
+
+                    # Model Starting Time
+                    model_start = time.time()
+
+                    # We train each model for 5 Epochs
+                    for epoch in range(5):
+
+                        # Epoch Start Time
+                        epoch_start = time.time()
+                        
+                        # Running loss is initialised as 0
+                        running_loss = 0.0
+
+                        # Initialise y and y_pred lists
+                        y = list()
+                        y_pred = list()
+
+                        # Iterate through the dataset
+                        for i, data in enumerate(data_loader):
+
+                            images, labels = data
+
+                            # zero the parameter gradients
+                            optim.zero_grad()
+
+                            # forward + backward + optimize
+                            images = images.to(device)
+                            labels = labels.to(device)
+
+                            features = model(images)
+
+                            loss_value = loss(features, labels)
+
+                            loss_value.backward()
+
+                            optim.step()
+
+                            # Get statistics
+                            running_loss += loss_value.item() * images.size(0)
+
+                            # Concatenate lists
+                            y += list(labels.cpu().detach().numpy())
+                            y_pred += list(torch.argmax(features, dim=1).cpu().detach().numpy())
+
+                            # TODO: Erase this
+                            # if (i + 1) % every_x_minibatches == 0:
+                                # print(f'[{epoch + 1}, {i + 1}] loss: {running_loss / every_x_minibatches}')
+                                # running_loss = 0.0
+
+                        # Average Train Loss
+                        avg_train_loss = running_loss/len(data_loader.dataset)
+
+                        # Train Accuracy
+                        train_acc = sklearn_metrics.accuracy_score(y_true=y, y_pred=y_pred)
+
+                        # Epoch End Time
+                        epoch_end = time.time()
+
+                        print(f"Epoch: {epoch+1} | Time: {epoch_end-epoch_start} | Accuracy: {train_acc} | Loss: {avg_train_loss}")
+
+                        # torch.save(model.state_dict(), 'model.pth')
+                    
+                    # Model Ending Time 
+                    model_end = time.time()
+                    total_model_time = model_end - model_start
+                    print(f'Finished Training after {total_model_time} seconds.')
+                    
+                    # Pass model to the CPU 
+                    model = model.cpu()
+
+                    # Append models results to the generation models results list to evaluate fitness
+                    # We append: [train_acc, avg_train_loss, total_model_time]
+                    generation_models_results.append([train_acc, avg_train_loss, total_model_time])
+
+                # Generation Total Time
+                generation_end = time.time()
+                generation_total_time = generation_end - generation_start
+                print(f"Finished Generation {current_generation} | Total Time: {generation_total_time}")
+                # total time on my pc with gpu 1129 seg ~ 18 min. (specs: ryzen 7 3700x, rtx 2070S, 32gb ram 3600mhz)
+
+                # Evaluate Generations Solutions Fitness
+                generation_solutions_fitness = [self.solution_fitness(r[0], r[1]) for r in generation_models_results]
+                print(generation_solutions_fitness)
+
         # 1) create model with a given solution
         # 2) train model
         # 3) calculate model cost
 
-        data_loader = get_mnist_loader(32)
+        # data_loader = get_mnist_loader(32)
 
         # create models
-        models = []
+        # models = []
 
         # Create candidate solutions for the present phase and generations 
-        # (this list will be usefull to the next steps such as mutation and crossover)
-        gen_candidate_solutions = self.generate_candidate_solutions()
+        
+        # gen_candidate_solutions = self.generate_candidate_solutions()
 
-        for candidate in gen_candidate_solutions:
-            models.append(Model(self.input_shape, self.number_of_labels, candidate))
+        # for candidate in gen_candidate_solutions:
+            # models.append(Model(self.input_shape, self.number_of_labels, candidate))
 
         # loss
-        loss = nn.CrossEntropyLoss()
+        # loss = nn.CrossEntropyLoss()
 
         # select gpu if possible
-        device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+        # device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-        model_start = time.time()
+        # model_start = time.time()
 
         # train
-        for model in models:
-            print('training model')
+        # for model in models:
+        #     print('training model')
 
-            model = model.to(device)
-            model.train()
-            optim = torch.optim.Adam(model.parameters(), lr=model.learning_rate) # TODO Check if this works
+        #     model = model.to(device)
+        #     model.train()
+        #     optim = torch.optim.Adam(model.parameters(), lr=model.learning_rate) # TODO Check if this works
 
-            every_x_minibatches = 100
+        #     every_x_minibatches = 100
 
-            for epoch in range(5):
+        #     for epoch in range(5):
 
-                running_loss = 0.0
+        #         running_loss = 0.0
 
-                start = time.time()
+        #         start = time.time()
 
-                for i, data in enumerate(data_loader):
+        #         for i, data in enumerate(data_loader):
 
-                    images, labels = data
+        #             images, labels = data
 
-                    # zero the parameter gradients
-                    optim.zero_grad()
+        #             # zero the parameter gradients
+        #             optim.zero_grad()
 
-                    # forward + backward + optimize
-                    images = images.to(device)
-                    labels = labels.to(device)
+        #             # forward + backward + optimize
+        #             images = images.to(device)
+        #             labels = labels.to(device)
 
-                    features = model(images)
+        #             features = model(images)
 
-                    loss_value = loss(features, labels)
+        #             loss_value = loss(features, labels)
 
-                    loss_value.backward()
+        #             loss_value.backward()
 
-                    optim.step()
+        #             optim.step()
 
-                    # print statistics
-                    running_loss += loss_value.item()
-                    if (i + 1) % every_x_minibatches == 0:
-                        print(f'[{epoch + 1}, {i + 1}] loss: {running_loss / every_x_minibatches}')
-                        running_loss = 0.0
+        #             # print statistics
+        #             running_loss += loss_value.item()
+        #             if (i + 1) % every_x_minibatches == 0:
+        #                 print(f'[{epoch + 1}, {i + 1}] loss: {running_loss / every_x_minibatches}')
+        #                 running_loss = 0.0
 
-                end = time.time()
+        #         end = time.time()
 
-                print('epoch time: ' + str(end - start))
+        #         print('epoch time: ' + str(end - start))
 
-                # torch.save(model.state_dict(), 'model.pth')
+        #         # torch.save(model.state_dict(), 'model.pth')
 
-            print('Finished Training')
-            model = model.cpu()
+        #     print('Finished Training')
+        #     model = model.cpu()
 
-        print('Total time: ' + str(time.time()-model_start))
+        # print('Total time: ' + str(time.time()-model_start))
         # total time on my pc with gpu 1129 seg ~ 18 min. (specs: ryzen 7 3700x, rtx 2070S, 32gb ram 3600mhz)
 
 
@@ -372,11 +525,11 @@ class GeneticAlgorithm:
 
     # Fitness Function
     def solution_fitness(self, solution_acc, solution_loss):
-        # The solution cost is the solution loss minus the solution accuracy: this way we penalise the loss value and reward the accuracy
-        # Since we want to convert this into a maximisation problem, we multiply the value of the solution cost by -1
-        solution_cost = -1 * (solution_loss - solution_acc)
+        # The solution cost is the solution accuracy minus the solution loss: this way we penalise the loss value and reward the accuracy
+        # We aim to maximise this value
+        s_fitness = solution_acc - solution_loss
 
-        return solution_cost
+        return s_fitness
 
 
 if __name__ == '__main__':
