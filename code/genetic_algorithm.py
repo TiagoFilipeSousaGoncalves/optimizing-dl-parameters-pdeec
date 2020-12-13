@@ -165,6 +165,8 @@ class GeneticAlgorithm:
 
         # Evaluate the current phase agains the maximum number of phases
         while self.current_phase < self.end_phase:
+            print(f"Current Training Phase: {self.current_phase}")
+            
             # In each phase we begin with current_generation == 0
             current_generation = 0
 
@@ -183,8 +185,8 @@ class GeneticAlgorithm:
                     # the size of the populations
 
                     # TODO: Apply random mutations to the population
-
-                    pass
+                    gen_candidate_solutions = self.apply_mutation(alive_solutions_list=most_fit_solutions)
+                    print(f"Generation {current_generation} solutions generated.")
 
                 # Create models list
                 models = []
@@ -305,6 +307,14 @@ class GeneticAlgorithm:
                 generation_solutions_fitness = [self.solution_fitness(r[0], r[1]) for r in generation_models_results]
                 print(generation_solutions_fitness)
 
+                # TODO: Change this after applying the selection rule
+                most_fit_solutions = gen_candidate_solutions
+                
+                # TODO: Updated Generation
+                current_generation += 1
+
+            # TODO: Update phase
+            self.current_phase += 1
 
 
     # TODO: Thread Training Solution (this would only give a performance boost using different processes, not threads, i think. I dont know how hard it is to implement,
@@ -329,10 +339,6 @@ class GeneticAlgorithm:
             # If not, we stay with the original solution
             _solution = copy_solution(sol=solution)
 
-            # TODO: Erase after review
-            # Generate a random number between 0-1 to compare against the mutation rate
-            # mutation_proba = np.random.uniform(low=0.0, high=1.0)
-
             # We first check convolutional blocks
             # We create a mask of numbers in interval [0, 1) for the conv-block
             conv_block_mask = torch.rand_like(_solution[0])
@@ -347,33 +353,41 @@ class GeneticAlgorithm:
 
                 # Iterate through layer mask and see the places where we have to promote mutation
                 for where_mutated, is_mutated in enumerate(layer_mask):
-                    # We have to update our curr_tensor before going into Column 2 mutations
-                    if where_mutated == 2:
-                        curr_tensor = nn.Conv2d(in_channels=curr_tensor.size()[1], out_channels=_solution[0][layer_idx][0], kernel_size=_solution[0][layer_idx][1])(curr_tensor)
-
-                    if is_mutated == True:
-                        if where_mutated == 0:
+                    
+                    # Check mutation places first
+                    if where_mutated == 0:
+                        if is_mutated == True:
                             # Mutation happens in conv-filters
-                            _solution[0][layer_idx][where_mutated] = random.choice(utils.conv_nr_filters)
-                        
-                        elif where_mutated == 1:
+                            nr_filters = random.choice(utils.conv_nr_filters)
+                            _solution[0][layer_idx][where_mutated] = nr_filters
+                    
+                    elif where_mutated == 1:
+                        if is_mutated == True:
                             # Mutation happens in conv_kernel_sizes
                             max_kernel_size = min(curr_tensor.size()[2:])
                             allowed_conv_kernel_size = utils.conv_kernel_size[utils.conv_kernel_size <= max_kernel_size]
                             kernel_size = random.choice(allowed_conv_kernel_size)
                             _solution[0][layer_idx][where_mutated] = kernel_size
+                        
+                        # Update curr_tensor
+                        _nr_filters = int(_solution[0][layer_idx][0].item())
+                        _kernel_size = int(_solution[0][layer_idx][where_mutated].item())
+                        curr_tensor = nn.Conv2d(in_channels=curr_tensor.size()[1], out_channels=_nr_filters, kernel_size=_kernel_size)(curr_tensor)
 
-                        elif where_mutated == 2:
+                    elif where_mutated == 2:
+                        if is_mutated == True:
                             # Mutation happens in conv_activ_functions
                             activ_function = random.randint(0, len(utils.conv_activ_functions)-1)
                             _solution[0][layer_idx][where_mutated] = activ_function
-                        
-                        elif where_mutated == 3:
+                    
+                    elif where_mutated == 3:
+                        if is_mutated == True:
                             # Mutation happens in conv_drop_rates
                             drop_out = random.uniform(utils.conv_drop_out_range[0], utils.conv_drop_out_range[1])
                             _solution[0][layer_idx][where_mutated] = drop_out
 
-                        else:
+                    else:
+                        if is_mutated == True:
                             # Mutation happens in conv_pool_types
                             max_kernel_size = min(curr_tensor.size()[2:])
                             if max_kernel_size < 2:
@@ -382,10 +396,10 @@ class GeneticAlgorithm:
                                 pool = random.randint(0, len(utils.conv_pooling_types)-1)
                             
                             _solution[0][layer_idx][where_mutated] = pool
-                    
-                    # Update curr_tensor after Column 4 mutations
-                    curr_tensor = utils.conv_pooling_types[pool](curr_tensor)
-
+                        
+                        # Update curr_tensor after Column 4 mutations in conv_pool_type
+                        _pool = int(_solution[0][layer_idx][where_mutated].item())
+                        curr_tensor = utils.conv_pooling_types[_pool](curr_tensor)
             
             # We now check the fc-block
             # We create a mask of numbers in interval [0, 1) for the fc-block
@@ -401,18 +415,18 @@ class GeneticAlgorithm:
                     if is_mutated == True:
                         if where_mutated == 0:
                             # Mutation happens in fc_neurons
-                            _solution[1][layer_idx][where_mutated]
-                            pass
+                            nr_neurons = random.randint(utils.fc_nr_neurons_range[0], utils.fc_nr_neurons_range[1])
+                            _solution[1][layer_idx][where_mutated] = nr_neurons
 
                         elif where_mutated == 1:
                             # Mutation happens in fc_activ_functions
-                            _solution[1][layer_idx][where_mutated]
-                            pass
+                            activ_function = random.randint(0, len(utils.fc_activ_functions) - 1)
+                            _solution[1][layer_idx][where_mutated] = activ_function
 
                         else:
                             # Mutation happens in fc_drop_rates
-                            _solution[1][layer_idx][where_mutated]
-                            pass
+                            drop_out = random.uniform(utils.fc_drop_out_range[0], utils.fc_drop_out_range[1])
+                            _solution[1][layer_idx][where_mutated] = drop_out
             
             
             # Last, we check the learning rate
@@ -422,115 +436,12 @@ class GeneticAlgorithm:
                 _solution[2] = torch.tensor([random.choice(utils.learning_rate)])
             
 
-            # If it's bigger than the defined mutation rate we apply a mutation
-            if mutation_proba >= self.mutation_rate:
-                # TODO: Review where should we apply mutation
-                # For now, let's assume that we can randomly choice where to apply these
-                # TODO: Create a matrix with random numbers (0-1) for each parameter with the probas for each param 
-                # of each layer
-                where_to_mutate = np.random.choice(a=[0, 1, 2]) # TODO: This goes out!
-                # 0 - TODO: Apply on the Conv-Layers
-                if where_to_mutate == 0:
-                    # Check the size of the convolutional layers block
-                    conv_block_len = _solution.convolutional_layers.size(0)
-
-                    # Choose a random layer to apply a mutation
-                    # We create a list with the indices first
-                    conv_block_layers_indices = [i for i in range(conv_block_len)]
-                    # We choose a layer to apply mution based on the index
-                    c_layer_idx = np.random.choice(a=conv_block_layers_indices)
-
-
-                    # Now, we need to choose which of the parameters are we going to mutate
-                    conv_layer_params_to_change = ["conv_filters", "conv_kernel_sizes", "conv_activ_functions", "conv_drop_rates", "conv_pool_types"]
-                    c_param_change = np.random.choice(a=conv_layer_params_to_change)
-
-                    # Check the parameter to change
-                    # "conv_filters"
-                    if c_param_change == "conv_filters":
-                        # We change the number of c_filter of the c_layer_idx 
-                        _solution.conv_filters[c_layer_idx] = np.random.choice(a=[8, 16, 32, 64, 128, 256, 512])  
-                    
-                    # "conv_kernel_sizes"
-                    elif c_param_change == "conv_kernel_sizes":
-                        # We change the kernel size of the c_layer_idx
-                        _solution.conv_kernel_sizes[c_layer_idx] = np.random.choice(a=[1, 3, 5, 7, 9])
-                    
-                    # "conv_activ_functions"
-                    elif c_param_change == "conv_activ_functions":
-                        # We change the activation function of the c_layer_idx
-                        _solution.conv_activ_functions[c_layer_idx] = self.inv_activ_functions[np.random.choice(a=[0, 1, 2])]
-                    
-                    # "conv_drop_rates"
-                    elif c_param_change == "conv_drop_rates":
-                        # We change the dropout rate of the c_layer_idx
-                        _solution.conv_drop_rates[c_layer_idx] = np.random.uniform(low=0.0, high=1.0)
-                    
-                    # Otherwise, c_param_change == "conv_pool_types"
-                    else:
-                        # We change the pooling type of the c_layer_idx
-                        _solution.conv_pool_types[c_layer_idx] = self.inv_pooling_types[np.random.choice(a=[0, 1, 2])]
-
-                
-                # 1 - TODO: Apply on the FC-Layers
-                elif where_to_mutate == 1:
-                    # Check the size of the FC block
-                    fc_block_len = _solution.fully_connected_layers.size(0)
-                    
-                    # Choose a random layer to apply mutation
-                    # We create a list with the indices first
-                    fc_block_indices = [i for i in range(fc_block_len)]
-                    # We choose a layer to apply mutation based on the index
-                    fc_layer_idx = np.random.choice(a=fc_block_indices)
-
-                    # Now, we need to choose which of the parameters are we going to mutate
-                    fc_layer_params_to_change = ["fc_neurons", "fc_activ_functions", "fc_drop_rates"]
-                    fc_param_change = np.random.choice(a=fc_layer_params_to_change)
-
-
-                    # Check the parameter to change
-                    # "fc_neurons"
-                    if fc_param_change == "fc_neurons":
-                        # We change the number of out-neurons of the fc_layer_idx
-                        _solution.fc_neurons[fc_layer_idx] = np.random.uniform(low=1.0, high=100)
-                    
-                    # "fc_activ_functions"
-                    elif fc_param_change == "fc_activ_functions":
-                        # We change the type of activation function of the neuron of the fc_layer_idx
-                        _solution.fc_activ_functions[fc_layer_idx] = self.inv_activ_functions[np.random.choice(a=[0, 1, 2])]
-                    
-                    # "fc_drop_rates"
-                    else:
-                        # We change the dropout rate of the neuron of the fc_layer_idx
-                        _solution.fc_drop_rates[fc_layer_idx] = np.random.uniform(low=0.0, high=1.0)
-
-                
-                # 2 - Apply on the learning rate
-                else:
-                    mutated_lr = np.random.choice(a=[0.001, 0.0001, 0.00001])
-                    _solution.learning_rate = mutated_lr
-
-            
-            # Test the mutated solutio (_solution) with Model to see if it is a viable solution
-            try:
-                # TODO: buil_solution function no longer needed
-                # _solution = _solution.build_solution()
-                _ = Model(self.input_shape, self.number_of_labels, _solution.get_solution_matrix())
-            
-            # If it goes wrong, we keep the initial solution
-            except:
-                mutated_solutions_list.append(solution)            
-            
-            # If it goes OK, we can append the _solution to our mutated solution list
-            else:
-                # Append this _solution to the list of mutated solutions
-                mutated_solutions_list.append(_solution)
-            
-
-
-        # TODO: Review code
+            # Finally, we append the mutated solution to the mutated solutions list
+            mutated_solutions_list.append(_solution)
         
+
         return mutated_solutions_list
+
 
     # TODO: Crossover Method
     # TODO: Cross-probability
@@ -538,7 +449,7 @@ class GeneticAlgorithm:
     def apply_crossover(self, mutated_solutions_list):
         # TODO: Crossover between solution (random layers to hybrid); pay attention to the number of conv layers and fc layers of mum and dad
 
-        return # new_generation
+        pass # new_generation
 
     # Fitness Function
     def solution_fitness(self, solution_acc, solution_loss):
@@ -550,8 +461,8 @@ class GeneticAlgorithm:
 
 
 if __name__ == '__main__':
-    ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=10, nr_of_generations=10, mutation_rate=0.5,
-                        percentage_of_best_fit=0.5, survival_rate_of_less_fit=0.5, start_phase=0, end_phase=1, initial_chromossome_length=2)
+    ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=2, nr_of_generations=3, mutation_rate=0.5,
+                        percentage_of_best_fit=0.5, survival_rate_of_less_fit=0.5, start_phase=0, end_phase=1, initial_chromossome_length=2, nr_of_epochs=1)
 
     ga.train()
 
