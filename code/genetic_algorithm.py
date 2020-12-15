@@ -328,7 +328,7 @@ class GeneticAlgorithm:
     def transfer_learning(self):
         pass
 
-    # TODO: Mutation Method
+    # TODO: Review Mutation Method
     def apply_mutation(self, alive_solutions_list):
         # Create a mutated solutions list to append solutions
         mutated_solutions_list = list()
