@@ -445,15 +445,107 @@ class GeneticAlgorithm:
 
     # TODO selection circle probability
 
+    def repair_solution(self, solution):
+        solution = copy_solution(solution)
+
+        convolutional_layers = solution[0]
+        fully_connected_layers = solution[1]
+        learning_rate = solution[2]
+
+        # Block Sizes
+        nr_conv_layers = convolutional_layers.size()[0]
+
+        # Process Input Shape
+        channels = self.input_shape[0]
+        rows = self.input_shape[1]
+        columns = self.input_shape[2]
+
+        # Create Convolutional Block
+        curr_tensor = torch.rand((1, channels, rows, columns))
+
+        for layer in range(nr_conv_layers):
+
+            # Column 1: Conv-Kernel Sizes
+            max_kernel_size = min(curr_tensor.size()[2:])
+            curr_kernel_size = convolutional_layers[layer][1].item()
+
+            if curr_kernel_size > max_kernel_size:
+                curr_kernel_size = max(utils.conv_kernel_size[utils.conv_kernel_size <= max_kernel_size])
+
+            convolutional_layers[layer][1] = curr_kernel_size
+
+            # Update curr_tensor
+            curr_tensor = nn.Conv2d(in_channels=curr_tensor.size()[1], out_channels=convolutional_layers[layer][0].item(),
+                                    kernel_size=convolutional_layers[layer][1].item())(curr_tensor)
+
+            # Column 4: Conv-Pool Layer Types
+            max_kernel_size = min(curr_tensor.size()[2:])
+            pool = convolutional_layers[layer][4].item()
+
+            if max_kernel_size < 2:
+                pool = 0
+
+            convolutional_layers[layer][4] = pool
+
+            # Update curr_tensor
+            curr_tensor = utils.conv_pooling_types[convolutional_layers[layer][4].item()](curr_tensor)
+
+        return [convolutional_layers, fully_connected_layers, learning_rate]
 
     # TODO: Crossover Method
     # TODO: Cross-probability
     # TODO: Decide the the survival criteria
-    # TODO Repair solution
+    # TODO: learning rate crossover?
     def apply_crossover(self, mutated_solutions_list):
         # TODO: Crossover between solution (random layers to hybrid); pay attention to the number of conv layers and fc layers of mum and dad
+        sol1 = mutated_solutions_list[0]
+        sol2 = mutated_solutions_list[1]
 
-        pass # new_generation
+        # conv
+
+        conv_layers_sol1 = sol1[0]
+        conv_layers_sol2 = sol2[0]
+
+        nr_conv_layers_sol1 = conv_layers_sol1.size()[0]
+        nr_conv_layers_sol2 = conv_layers_sol2.size()[0]
+
+        cp = random.randint(0, min(nr_conv_layers_sol1, nr_conv_layers_sol2))
+
+        sol1_aux = conv_layers_sol1[cp:]
+        sol2_aux = conv_layers_sol2[cp:]
+
+        conv_layers_sol1 = conv_layers_sol1[:cp]
+        conv_layers_sol2 = conv_layers_sol2[:cp]
+
+        conv_layers_sol1 = torch.cat((conv_layers_sol1, sol2_aux), dim=0)
+        conv_layers_sol2 = torch.cat((conv_layers_sol2, sol1_aux), dim=0)
+
+        mutated_solutions_list[0][0] = conv_layers_sol1
+        mutated_solutions_list[1][0] = conv_layers_sol2
+
+        # fc
+
+        fc_layers_sol1 = sol1[1]
+        fc_layers_sol2 = sol2[1]
+
+        nr_fc_layers_sol1 = fc_layers_sol1.size()[0]
+        nr_fc_layers_sol2 = fc_layers_sol2.size()[0]
+
+        cp = random.randint(0, min(nr_fc_layers_sol1, nr_fc_layers_sol2))
+
+        sol1_aux = fc_layers_sol1[cp:]
+        sol2_aux = fc_layers_sol2[cp:]
+
+        fc_layers_sol1 = fc_layers_sol1[:cp]
+        fc_layers_sol2 = fc_layers_sol2[:cp]
+
+        fc_layers_sol1 = torch.cat((fc_layers_sol1, sol2_aux), dim=0)
+        fc_layers_sol2 = torch.cat((fc_layers_sol2, sol1_aux), dim=0)
+
+        mutated_solutions_list[0][1] = fc_layers_sol1
+        mutated_solutions_list[1][1] = fc_layers_sol2
+
+        return
 
     # Fitness Function
     def solution_fitness(self, solution_acc, solution_loss):
@@ -469,5 +561,15 @@ if __name__ == '__main__':
     ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=2, nr_of_generations=3, mutation_rate=0.5,
                         percentage_of_best_fit=0.5, survival_rate_of_less_fit=0.5, start_phase=0, end_phase=1, initial_chromossome_length=2, nr_of_epochs=1)
 
-    ga.train()
+    # ga.train()
+    # print(ga.repair_solution([torch.tensor([[10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 3, 0, 0, 1]]), torch.tensor([]), torch.tensor([])]))
+    a = [torch.tensor([]), torch.tensor([[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]),
+          torch.tensor([])]
 
+    b = [torch.tensor([]), torch.tensor([[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]),
+          torch.tensor([])]
+
+    ga.apply_crossover([a, b])
+
+    print(a)
+    print(b)
