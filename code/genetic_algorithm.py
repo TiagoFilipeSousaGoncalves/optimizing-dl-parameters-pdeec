@@ -443,10 +443,13 @@ class GeneticAlgorithm:
 
         return mutated_solutions_list
 
+    # TODO selection circle probability
+
 
     # TODO: Crossover Method
     # TODO: Cross-probability
     # TODO: Decide the the survival criteria
+    # TODO Repair solution
     def apply_crossover(self, mutated_solutions_list):
         # TODO: Crossover between solution (random layers to hybrid); pay attention to the number of conv layers and fc layers of mum and dad
 
