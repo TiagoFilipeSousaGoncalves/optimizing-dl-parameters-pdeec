@@ -324,6 +324,7 @@ class GeneticAlgorithm:
         pass
 
     # TODO: Transfer learning
+    # TODO: debug: transfer weights from a pretrained network to a new one and check the accuracy
     def transfer_learning(self):
         pass
 
@@ -455,6 +456,7 @@ class GeneticAlgorithm:
     def solution_fitness(self, solution_acc, solution_loss):
         # The solution cost is the solution accuracy minus the solution loss: this way we penalise the loss value and reward the accuracy
         # We aim to maximise this value
+        # TODO normalize before calculating fitnnes
         s_fitness = solution_acc - solution_loss
 
         return s_fitness
