@@ -324,6 +324,7 @@ class GeneticAlgorithm:
         pass
 
     # TODO: Transfer learning
+    # TODO: debug: transfer weights from a pretrained network to a new one and check the accuracy
     def transfer_learning(self):
         pass
 
