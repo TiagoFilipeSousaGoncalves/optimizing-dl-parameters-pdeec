@@ -496,13 +496,9 @@ class GeneticAlgorithm:
     # TODO: Cross-probability
     # TODO: Decide the the survival criteria
     # TODO: learning rate crossover?
-    def apply_crossover(self, mutated_solutions_list):
+    def apply_crossover(self, sol1, sol2):
         # TODO: Crossover between solution (random layers to hybrid); pay attention to the number of conv layers and fc layers of mum and dad
-        sol1 = mutated_solutions_list[0]
-        sol2 = mutated_solutions_list[1]
-
         # conv
-
         conv_layers_sol1 = sol1[0]
         conv_layers_sol2 = sol2[0]
 
@@ -520,8 +516,8 @@ class GeneticAlgorithm:
         conv_layers_sol1 = torch.cat((conv_layers_sol1, sol2_aux), dim=0)
         conv_layers_sol2 = torch.cat((conv_layers_sol2, sol1_aux), dim=0)
 
-        mutated_solutions_list[0][0] = conv_layers_sol1
-        mutated_solutions_list[1][0] = conv_layers_sol2
+        sol1[0] = conv_layers_sol1
+        sol2[0] = conv_layers_sol2
 
         # fc
 
@@ -542,8 +538,8 @@ class GeneticAlgorithm:
         fc_layers_sol1 = torch.cat((fc_layers_sol1, sol2_aux), dim=0)
         fc_layers_sol2 = torch.cat((fc_layers_sol2, sol1_aux), dim=0)
 
-        mutated_solutions_list[0][1] = fc_layers_sol1
-        mutated_solutions_list[1][1] = fc_layers_sol2
+        sol1[1] = fc_layers_sol1
+        sol2[1] = fc_layers_sol2
 
         return
 
@@ -569,7 +565,7 @@ if __name__ == '__main__':
     b = [torch.tensor([]), torch.tensor([[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]),
           torch.tensor([])]
 
-    ga.apply_crossover([a, b])
+    ga.apply_crossover(a, b)
 
     print(a)
     print(b)
