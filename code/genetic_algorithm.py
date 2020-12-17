@@ -15,6 +15,7 @@ from code.datasets import get_mnist_loader
 
 # Sklearn Imports
 import sklearn.metrics as sklearn_metrics
+from sklearn.preprocessing import StandardScaler
 
 # Set random seed value so we a have a reproductible work
 random_seed = 42
@@ -183,10 +184,16 @@ class GeneticAlgorithm:
                 else:
                     # TODO: Apply crossover between best solutions of the previous generation until you achieve
                     # the size of the populations
+                    gen_candidate_solutions = list()
+                    print(f"Generation {current_generation} solutions' crossover applied.")
 
                     # TODO: Apply random mutations to the population
                     gen_candidate_solutions = self.apply_mutation(alive_solutions_list=most_fit_solutions)
-                    print(f"Generation {current_generation} solutions generated.")
+                    print(f"Generation {current_generation} solutions' mutations applied.")
+
+                    # TODO: Repair solutions so we have a complete list of feasible solutions
+                    gen_candidate_solutions = [self.repair_solution(s) for s in gen_candidate_solutions]
+                    print(f"Generation {current_generation} solutions generated and repaired.")
 
                 # Create models list
                 models = []
@@ -304,7 +311,18 @@ class GeneticAlgorithm:
                 # total time on my pc with gpu 1129 seg ~ 18 min. (specs: ryzen 7 3700x, rtx 2070S, 32gb ram 3600mhz)
 
                 # Evaluate Generations Solutions Fitness
-                generation_solutions_fitness = [self.solution_fitness(r[0], r[1]) for r in generation_models_results]
+                # TODO: Normalize values before evaluating fitness
+                # Create a sklearn scaler
+                scaler = StandardScaler()
+                
+                # Fit scaler to our model results
+                scaler.fit(generation_models_results)
+
+                # Convert results
+                generation_models_results_scaled = scaler.transform(generation_models_results)
+
+
+                generation_solutions_fitness = [self.solution_fitness(r[0], r[1], r[2]) for r in generation_models_results_scaled]
                 print(generation_solutions_fitness)
 
                 # TODO: Change this after applying the selection rule
@@ -325,8 +343,26 @@ class GeneticAlgorithm:
 
     # TODO: Transfer learning
     # TODO: debug: transfer weights from a pretrained network to a new one and check the accuracy
-    def transfer_learning(self):
-        pass
+    def transfer_learning(self, previous_model_state_dict, previous_best_solution, new_candidate_solution):
+        # Create a Model Instance
+        previous_model = Model(self.input_shape, self.number_of_labels, previous_best_solution)
+        
+        # Load weights
+        previous_model.load_state_dict(torch.load(previous_model_state_dict))
+        previous_model.eval()
+
+        # Create a Model Instance 
+        pretrained_model = Model(self.input_shape, self.number_of_labels, new_candidate_solution)
+
+        # Check conv-layers first
+        # Create a list with the conv-blocks of each solution
+        conv_layers_sols = [previous_best_solution[0], new_candidate_solution[0]]
+        # Check the solution which has the lower number of layers
+        limitant_sol_idx = np.argmin([np.shape(conv_layers_sols[0]), np.shape(conv_layers_sols[1])])
+
+
+
+        return pretrained_model 
 
     # TODO: Review Mutation Method
     def apply_mutation(self, alive_solutions_list):
@@ -444,7 +480,13 @@ class GeneticAlgorithm:
         return mutated_solutions_list
 
     # TODO selection circle probability
+    def solution_selection(self, s_population, s_fitnesses):
+        # Create empty list for the most fit solutions
+        most_fit_solutions = list()
 
+        return most_fit_solutions
+
+    # Repair Solution Function: to repair "damaged" chromossomes after crossover and mutation
     def repair_solution(self, solution):
         solution = copy_solution(solution)
 
@@ -544,11 +586,12 @@ class GeneticAlgorithm:
         return
 
     # Fitness Function
-    def solution_fitness(self, solution_acc, solution_loss):
+    def solution_fitness(self, solution_acc, solution_loss, solution_time):
         # The solution cost is the solution accuracy minus the solution loss: this way we penalise the loss value and reward the accuracy
         # We aim to maximise this value
-        # TODO normalize before calculating fitnnes
-        s_fitness = solution_acc - solution_loss
+        # TODO: Review functioning. StandardScaler from sklearn is being applied during training loop
+        # TODO: See if it is worthy to take time into account
+        s_fitness = (1/solution_time) * (solution_acc - solution_loss)
 
         return s_fitness
 
