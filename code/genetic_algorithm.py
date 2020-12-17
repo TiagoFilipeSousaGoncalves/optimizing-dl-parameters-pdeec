@@ -7,6 +7,7 @@ import random
 # Torch Imports
 import torch
 import torch.nn as nn
+from torchsummary import summary
 
 # Project Imports
 from code.model import Model
@@ -344,23 +345,62 @@ class GeneticAlgorithm:
     # TODO: Transfer learning
     # TODO: debug: transfer weights from a pretrained network to a new one and check the accuracy
     def transfer_learning(self, previous_model_state_dict, previous_best_solution, new_candidate_solution):
-        # Create a Model Instance
+        # Create the Previous Model Instance
         previous_model = Model(self.input_shape, self.number_of_labels, previous_best_solution)
         
         # Load weights
         previous_model.load_state_dict(torch.load(previous_model_state_dict))
         previous_model.eval()
 
-        # Create a Model Instance 
+        # Create The New Model Instance 
         pretrained_model = Model(self.input_shape, self.number_of_labels, new_candidate_solution)
+
+        # Create a list with the two models: it will be useful with the next steps
+        models_list = [previous_model, pretrained_model]
 
         # Check conv-layers first
         # Create a list with the conv-blocks of each solution
         conv_layers_sols = [previous_best_solution[0], new_candidate_solution[0]]
+        
         # Check the solution which has the lower number of layers
-        limitant_sol_idx = np.argmin([np.shape(conv_layers_sols[0]), np.shape(conv_layers_sols[1])])
+        nr_of_conv_layers = [np.shape(conv_layers_sols[0])[0], np.shape(conv_layers_sols[1])[0]]
+        limitant_sol_idx = np.argmin(nr_of_conv_layers)
+        
+        # The weights are going to be copied from the number of layers equal to the the number of layers of limitant_sol_idx
+        with torch.no_grad():
+            conv_idx = 0
+            curr_idx = 0
+            # We iterate through the number of layers equal to the limitant_sol_idx
+            while conv_idx < nr_of_conv_layers[limitant_sol_idx]:
+                if isinstance(previous_model.convolutional_layers[curr_idx], nn.Conv2d):
+                    # Access this index and see the size of weight and bias tensors
+                    # Weight Tensors
+                    # Previous Weights
+                    previous_weights = torch.clone(previous_model.convolutional_layers[curr_idx].weight)
+                    previous_weights_size = previous_model.convolutional_layers[curr_idx].weight.size()
+                    # New Weights
+                    new_weights = torch.clone(pretrained_model.convolutional_layers[curr_idx].weight)
+                    new_weights_size = pretrained_model.convolutional_layers[curr_idx].weight.size()
+                    # Flatten Tensors to avoid dimension problems
+                    previous_weights = previous_weights.view(previous_weights.size(0), -1)
+                    new_weights = new_weights.view(new_weights.size(0), -1)
+                    # Check the minimum size
+                    min_size = min(previous_weights.size(0), new_weights.size(0))
+                    # Transfer Weights
+                    new_weights[0:min_size] = previous_weights[0:min_size]
+                    # Reshape New Weights Tensor
+                    new_weights = new_weights.view(new_weights_size)
+                    # TODO: Transfer this to the the pretrained model
+                    # TODO: Apply the Same to the Bias Tensor
 
 
+
+
+                    conv_idx +=1
+                
+                curr_idx += 1
+
+        
 
         return pretrained_model 
 
@@ -597,18 +637,51 @@ class GeneticAlgorithm:
 
 
 if __name__ == '__main__':
-    ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=2, nr_of_generations=3, mutation_rate=0.5,
-                        percentage_of_best_fit=0.5, survival_rate_of_less_fit=0.5, start_phase=0, end_phase=1, initial_chromossome_length=2, nr_of_epochs=1)
+    # ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=2, nr_of_generations=3, mutation_rate=0.5,
+                        # percentage_of_best_fit=0.5, survival_rate_of_less_fit=0.5, start_phase=0, end_phase=1, initial_chromossome_length=2, nr_of_epochs=1)
 
     # ga.train()
     # print(ga.repair_solution([torch.tensor([[10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 3, 0, 0, 1]]), torch.tensor([]), torch.tensor([])]))
-    a = [torch.tensor([]), torch.tensor([[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]),
-          torch.tensor([])]
+    # a = [torch.tensor([]), torch.tensor([[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]),
+        #   torch.tensor([])]
 
-    b = [torch.tensor([]), torch.tensor([[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]),
-          torch.tensor([])]
+    # b = [torch.tensor([]), torch.tensor([[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]),
+        #   torch.tensor([])]
 
-    ga.apply_crossover(a, b)
+    # ga.apply_crossover(a, b)
 
-    print(a)
-    print(b)
+    # print(a)
+    # print(b)
+
+    # s = generate_random_solution(4, [1, 28, 28])
+    # model = Model([1, 28, 28], 10, s)
+    # print(model)
+    # print(model.convolutional_layers[0].bias, model.convolutional_layers[0].bias.size())
+    # a = model.convolutional_layers[0].bias.view(model.convolutional_layers[0].bias.size())
+    # print(model.convolutional_layers)
+    # print(len(model.convolutional_layers))
+    # summary(model, [1, 28, 28])
+
+    # with torch.no_grad():
+        # for i in range(model.convolutional_layers[0].bias.size(0)):
+        # items_ = torch.rand(4, 1, 1, 1)
+        # print(items_)
+        # items = torch.tensor([1., 2., 3., 4.], dtype=torch.float)
+        # model.convolutional_layers[4].weight[0:4] = items_
+        # model.convolutional_layers[4].bias[0:4] = items[0:4]
+    
+    # model.convolutional_layers[0].bias.requires_grad = True
+
+    # for param in model.parameters():
+        # param.requires_grad = True
+    
+    # print(model.convolutional_layers[0].bias, model.convolutional_layers[0].bias.size())
+    # print(model.convolutional_layers[4].weight, model.convolutional_layers[4].weight.size())    
+
+
+    # print(model)
+    # params = model.state_dict()
+    # print(params.keys())
+    # print(model.convolutional_layers[0].weights, isinstance(model.convolutional_layers[0], nn.Conv2d))
+    # for m in model.modules():
+        # print(m)
