@@ -12,7 +12,7 @@ from torchsummary import summary
 # Project Imports
 from code.model import Model
 from code.utilities import utils
-from code.datasets import get_mnist_loader
+from code.datasets import get_mnist_loader, get_fashion_mnist_loader, get_cifar10_loader
 
 # Sklearn Imports
 import sklearn.metrics as sklearn_metrics
@@ -119,7 +119,8 @@ def copy_solution(sol):
 # Define the Genetic Algorithm Class
 class GeneticAlgorithm:
     def __init__(self, input_shape, number_of_labels, size_of_population, nr_of_generations, mutation_rate,
-                 percentage_of_best_fit, survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length, nr_of_epochs=5):
+                 percentage_of_best_fit, survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length,
+                 nr_of_epochs=5, data="mnist"):
 
         # Dataset Variables
         self.input_shape = input_shape
@@ -132,6 +133,7 @@ class GeneticAlgorithm:
         self.percentage_of_best_fit = percentage_of_best_fit
         self.survival_rate_of_less_fit = survival_rate_of_less_fit
         self.nr_of_epochs = nr_of_epochs
+        self.data = data
 
         # Phase Variables
         self.start_phase = start_phase
@@ -162,10 +164,22 @@ class GeneticAlgorithm:
 
     # TODO: Review Training Method
     def train(self):
+        # TODO: Review data loding methods
         # Data will always be the same, so we can read it in the beginning of the loop
-        data_loader = get_mnist_loader(32)
+        # Choose data loader based on the "self.data" variable
+        if self.data.lower() == "mnist":
+            data_loader = get_mnist_loader(32)
+        
+        elif self.data.lower() == "fashion-mnist":
+            data_loader = get_fashion_mnist_loader(32)
+        
+        elif self.data.lower() == "cifar10":
+            data_loader = get_cifar10_loader(32)
+        
+        else:
+            raise ValueError(f"{self.data} is not a valid argument. Please choose one of these: 'mnist', 'fashion-mnist', 'cifar10'.")
 
-        # Evaluate the current phase agains the maximum number of phases
+        # Evaluate the current phase against the maximum number of phases
         while self.current_phase < self.end_phase:
             print(f"Current Training Phase: {self.current_phase}")
             
@@ -186,10 +200,17 @@ class GeneticAlgorithm:
                     # TODO: Apply crossover between best solutions of the previous generation until you achieve
                     # the size of the populations
                     gen_candidate_solutions = list()
+
+                    # Iterate through most fit solutions
+                    for idx in range(start=0, stop=len(most_fit_solutions), step=2):
+                        sol1, sol2, = self.apply_crossover(sol1=most_fit_solutions[idx], sol2=most_fit_solutions[idx+1])
+                        gen_candidate_solutions.append(sol1)
+                        gen_candidate_solutions.append(sol2)
+
                     print(f"Generation {current_generation} solutions' crossover applied.")
 
                     # TODO: Apply random mutations to the population
-                    gen_candidate_solutions = self.apply_mutation(alive_solutions_list=most_fit_solutions)
+                    gen_candidate_solutions = self.apply_mutation(alive_solutions_list=gen_candidate_solutions)
                     print(f"Generation {current_generation} solutions' mutations applied.")
 
                     # TODO: Repair solutions so we have a complete list of feasible solutions
@@ -647,10 +668,19 @@ class GeneticAlgorithm:
 
         return mutated_solutions_list
 
-    # TODO selection circle probability
+    # TODO: Review Solution Selection Function
     def solution_selection(self, s_population, s_fitnesses):
+        # Obtain the total sum of fitnesses
+        fitnesses_sum = np.sum(s_fitnesses)
+
+        # Generate probabilities
+        f_probabs = [f/fitnesses_sum for f in s_fitnesses]
+
+        # Choose the best solutions
+        most_fit_solutions = np.random.choice(a=s_population, size=len(s_population), replace=True, p=f_probabs)
+
         # Create empty list for the most fit solutions
-        most_fit_solutions = list()
+        most_fit_solutions = list(most_fit_solutions)
 
         return most_fit_solutions
 
@@ -751,7 +781,7 @@ class GeneticAlgorithm:
         sol1[1] = fc_layers_sol1
         sol2[1] = fc_layers_sol2
 
-        return
+        return sol1, sol2
 
     # Fitness Function
     def solution_fitness(self, solution_acc, solution_loss, solution_time):
