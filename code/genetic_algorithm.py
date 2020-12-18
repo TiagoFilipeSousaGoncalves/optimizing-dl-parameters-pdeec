@@ -342,7 +342,7 @@ class GeneticAlgorithm:
     def thread_training(self):
         pass
 
-    # TODO: Transfer learning
+    # Transfer Learning Function
     # TODO: debug: transfer weights from a pretrained network to a new one and check the accuracy
     def transfer_learning(self, previous_model_state_dict, previous_best_solution, new_candidate_solution):
         # Create the Previous Model Instance
@@ -356,7 +356,7 @@ class GeneticAlgorithm:
         pretrained_model = Model(self.input_shape, self.number_of_labels, new_candidate_solution)
 
         # Create a list with the two models: it will be useful with the next steps
-        models_list = [previous_model, pretrained_model]
+        # models_list = [previous_model, pretrained_model]
 
         # Check conv-layers first
         # Create a list with the conv-blocks of each solution
@@ -382,23 +382,151 @@ class GeneticAlgorithm:
                     new_weights = torch.clone(pretrained_model.convolutional_layers[curr_idx].weight)
                     new_weights_size = pretrained_model.convolutional_layers[curr_idx].weight.size()
                     # Flatten Tensors to avoid dimension problems
-                    previous_weights = previous_weights.view(previous_weights.size(0), -1)
-                    new_weights = new_weights.view(new_weights.size(0), -1)
+                    previous_weights = previous_weights.view(-1)
+                    new_weights = new_weights.view(-1)
                     # Check the minimum size
                     min_size = min(previous_weights.size(0), new_weights.size(0))
                     # Transfer Weights
                     new_weights[0:min_size] = previous_weights[0:min_size]
                     # Reshape New Weights Tensor
                     new_weights = new_weights.view(new_weights_size)
-                    # TODO: Transfer this to the the pretrained model
-                    # TODO: Apply the Same to the Bias Tensor
+                    # Transfer this to the the pretrained model
+                    pretrained_model.convolutional_layers[curr_idx].weight = torch.nn.Parameter(new_weights)
+                    
+                    
+                    # Apply the Same to the Bias Tensor
+                    # Previous Bias
+                    previous_bias = torch.clone(previous_model.convolutional_layers[curr_idx].bias)
+                    previous_bias_size = previous_model.convolutional_layers[curr_idx].bias.size()
+                    # New Bias
+                    new_bias = torch.clone(pretrained_model.convolutional_layers[curr_idx].bias)
+                    new_bias_size = pretrained_model.convolutional_layers[curr_idx].bias.size()
+                    # Flatten Tensors to avoid dimensional problems
+                    previous_bias = previous_bias.view(-1)
+                    new_bias = new_bias.view(-1)
+                    # Check the minimum size
+                    min_size = min(previous_bias.size(0), new_bias.size(0))
+                    # Transfer Biases
+                    new_bias[0:min_size] = previous_bias[0:min_size]
+                    # Reshape New Bias Tensor
+                    new_bias = new_bias.view(new_bias_size)
+                    # Transfer this to the pretrained model
+                    pretrained_model.convolutional_layers[curr_idx].bias = torch.nn.Parameter(new_bias)
 
 
-
-
+                    # Update the conv_idx variable to the next
                     conv_idx +=1
                 
+                # Update curr_idx to go through
                 curr_idx += 1
+        
+
+        # Then, check fc-layers
+        # Create a list with the fc-blocks of each solution
+        fc_layers_sols = [previous_best_solution[1], new_candidate_solution[1]]
+
+        # Check the solution which has the lower number of layers
+        nr_of_fc_layers = [np.shape(fc_layers_sols[0])[0], np.shape(fc_layers_sols[1])[0]]
+        limitant_sol_idx = np.argmin(nr_of_fc_layers)
+
+        # The weights are going to be copied from the number of layers equal to the the number of layers of limitant_sol_idx
+        with torch.no_grad():
+            curr_idx = 0
+            fc_idx = 0
+            # We iterate through the number of layers equal to the limitant_sol_idx
+            while fc_idx < nr_of_fc_layers[limitant_sol_idx]:
+                if isinstance(previous_model.fc_layers[curr_idx], nn.Linear):
+                    # Access this index and see the size of weight and bias tensors
+                    # Weight Tensors
+                    # Previous Weights
+                    previous_weights = torch.clone(previous_model.fc_layers[curr_idx].weight)
+                    previous_weights_size = previous_model.fc_layers[curr_idx].weight.size()
+                    # New Weights
+                    new_weights = torch.clone(pretrained_model.fc_layers[curr_idx].weight)
+                    new_weights_size = pretrained_model.fc_layers[curr_idx].weight.size()
+                    # Flatten Tensors to avoid dimension problems
+                    previous_weights = previous_weights.view(-1)
+                    new_weights = new_weights.view(-1)
+                    # Check the minimum size
+                    min_size = min(previous_weights.size(0), new_weights.size(0))
+                    # Transfer Weights
+                    new_weights[0:min_size] = previous_weights[0:min_size]
+                    # Reshape New Weights Tensor
+                    new_weights = new_weights.view(new_weights_size)
+                    # Transfer this to the the pretrained model
+                    pretrained_model.fc_layers[curr_idx].weight = torch.nn.Parameter(new_weights)
+
+
+                    # Apply the Same to the Bias Tensor
+                    # Previous Bias
+                    previous_bias = torch.clone(previous_model.fc_layers[curr_idx].bias)
+                    previous_bias_size = previous_model.fc_layers[curr_idx].bias.size()
+                    # New Bias
+                    new_bias = torch.clone(pretrained_model.fc_layers[curr_idx].bias)
+                    new_bias_size = pretrained_model.fc_layers[curr_idx].bias.size()
+                    # Flatten Tensors to avoid dimensional problems
+                    previous_bias = previous_bias.view(-1)
+                    new_bias = new_bias.view(-1)
+                    # Check the minimum size
+                    min_size = min(previous_bias.size(0), new_bias.size(0))
+                    # Transfer Biases
+                    new_bias[0:min_size] = previous_bias[0:min_size]
+                    # Reshape New Bias Tensor
+                    new_bias = new_bias.view(new_bias_size)
+                    # Transfer this to the pretrained model
+                    pretrained_model.fc_layers[curr_idx].bias = torch.nn.Parameter(new_bias)
+
+
+                    # Update the conv_idx variable to the next
+                    fc_idx += 1
+                
+                # Update curr_idx to go through
+                curr_idx += 1
+
+    
+
+        # Last, but not least, check the fc-label layer
+        with torch.no_grad():
+            # Access this index and see the size of weight and bias tensors
+                # Weight Tensors
+                # Previous Weights
+                previous_weights = torch.clone(previous_model.fc_labels.weight)
+                previous_weights_size = previous_model.fc_labels.weight.size()
+                # New Weights
+                new_weights = torch.clone(pretrained_model.fc_labels.weight)
+                new_weights_size = pretrained_model.fc_labels.weight.size()
+                # Flatten Tensors to avoid dimension problems
+                previous_weights = previous_weights.view(-1)
+                new_weights = new_weights.view(-1)
+                # Check the minimum size
+                min_size = min(previous_weights.size(0), new_weights.size(0))
+                # Transfer Weights
+                new_weights[0:min_size] = previous_weights[0:min_size]
+                # Reshape New Weights Tensor
+                new_weights = new_weights.view(new_weights_size)
+                # Transfer this to the the pretrained model
+                pretrained_model.fc_labels.weight = torch.nn.Parameter(new_weights)
+
+
+                # Apply the Same to the Bias Tensor
+                # Previous Bias
+                previous_bias = torch.clone(previous_model.fc_labels.bias)
+                previous_bias_size = previous_model.fc_labels.bias.size()
+                # New Bias
+                new_bias = torch.clone(pretrained_model.fc_labels.bias)
+                new_bias_size = pretrained_model.fc_labels.bias.size()
+                # Flatten Tensors to avoid dimensional problems
+                previous_bias = previous_bias.view(-1)
+                new_bias = new_bias.view(-1)
+                # Check the minimum size
+                min_size = min(previous_bias.size(0), new_bias.size(0))
+                # Transfer Biases
+                new_bias[0:min_size] = previous_bias[0:min_size]
+                # Reshape New Bias Tensor
+                new_bias = new_bias.view(new_bias_size)
+                # Transfer this to the pretrained model
+                pretrained_model.fc_labels.bias = torch.nn.Parameter(new_bias)
+
 
         
 
@@ -637,8 +765,8 @@ class GeneticAlgorithm:
 
 
 if __name__ == '__main__':
-    # ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=2, nr_of_generations=3, mutation_rate=0.5,
-                        # percentage_of_best_fit=0.5, survival_rate_of_less_fit=0.5, start_phase=0, end_phase=1, initial_chromossome_length=2, nr_of_epochs=1)
+    ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=2, nr_of_generations=3, mutation_rate=0.5,
+                        percentage_of_best_fit=0.5, survival_rate_of_less_fit=0.5, start_phase=0, end_phase=1, initial_chromossome_length=2, nr_of_epochs=1)
 
     # ga.train()
     # print(ga.repair_solution([torch.tensor([[10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 3, 0, 0, 1]]), torch.tensor([]), torch.tensor([])]))
@@ -653,10 +781,26 @@ if __name__ == '__main__':
     # print(a)
     # print(b)
 
-    # s = generate_random_solution(4, [1, 28, 28])
-    # model = Model([1, 28, 28], 10, s)
+    ######################################################
+
+    # Tests with transfer learning
+    # s = generate_random_solution(3, [1, 28, 28])
+    # c = generate_random_solution(10, [1, 28, 28])
+    # model_s = Model([1, 28, 28], 10, s)
+    # model_c = Model([1, 28, 28], 10, c)
+
+    # torch.save(model_s.state_dict(), 'model_s.pt')
+
+    # model_d = ga.transfer_learning('model_s.pt', s, c)
+
+    # print(model_s.convolutional_layers[0].weight, model_d.convolutional_layers[0].weight)
+    # print(model_s.convolutional_layers[0].bias, model_d.convolutional_layers[0].bias)
+    # print(model_s.fc_layers[0].weight, model_d.fc_layers[0].weight)
+    # print(model_s.fc_layers[0].bias, model_d.fc_layers[0].bias)
+    # print(model_s.fc_labels.weight, model_d.fc_labels.weight)
+    # print(model_s.fc_labels.bias, model_d.fc_labels.bias)
     # print(model)
-    # print(model.convolutional_layers[0].bias, model.convolutional_layers[0].bias.size())
+    # print(model.fc_labels.bias, model.fc_labels.bias.size())
     # a = model.convolutional_layers[0].bias.view(model.convolutional_layers[0].bias.size())
     # print(model.convolutional_layers)
     # print(len(model.convolutional_layers))
