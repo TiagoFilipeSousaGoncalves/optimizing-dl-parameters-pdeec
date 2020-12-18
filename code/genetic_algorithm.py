@@ -3,6 +3,7 @@ import numpy as np
 import time
 import copy
 import random
+import os
 
 # Torch Imports
 import torch
@@ -143,8 +144,18 @@ class GeneticAlgorithm:
         # Chromossome Length Variables
         self.initial_chromossome_length = initial_chromossome_length
         self.current_chromossome_length = initial_chromossome_length
+        
+        # Solution Variables
+        self.best_model_path = f"results/{data.lower()}"
+        if os.path.isdir(self.best_model_path) == False:
+            os.mkdir(self.best_model_path)
+        
+        self.best_solution = list()
 
-    # Generate Solutions
+        self.best_sol_fitness = -np.Inf
+
+
+    # Function: Generate Solutions
     def generate_candidate_solutions(self):
         # Create list to append solutions
         list_of_candidate_solutions = []
@@ -195,7 +206,7 @@ class GeneticAlgorithm:
                     gen_candidate_solutions = self.generate_candidate_solutions()
                     print(f"Generation {current_generation} solutions generated.")
                 
-                # If not, we are generating new solutions; we obtain new ones by crossover and mutation
+                # If not, we are generating not new solutions; we obtain new ones by crossover and mutation
                 else:
                     # TODO: Apply crossover between best solutions of the previous generation until you achieve
                     # the size of the populations
@@ -221,8 +232,20 @@ class GeneticAlgorithm:
                 models = []
                 
                 # Create models from these candidate solution
-                for candidate in gen_candidate_solutions:
-                    models.append(Model(self.input_shape, self.number_of_labels, candidate))
+                # If we are in the 1st phase, we only need to generate new models
+                if self.current_phase == self.start_phase:
+                    for candidate in gen_candidate_solutions:
+                        models.append(Model(self.input_shape, self.number_of_labels, candidate))
+                
+                # If we are in an advanced phase, we have to perform transfer learning to assure fairness
+                # in solutions with longer cromossomes lengths
+                else:
+                    for candidate in gen_candidate_solutions:
+                        models.append(self.transfer_learning(
+                                                            previous_model_state_dict=self.best_model_path,
+                                                            previous_best_solution=self.best_solution,
+                                                            new_candidate_solution=candidate))
+
                 
                 # Choose loss function; here we use CrossEntropy
                 loss = nn.CrossEntropyLoss()
@@ -343,18 +366,31 @@ class GeneticAlgorithm:
                 # Convert results
                 generation_models_results_scaled = scaler.transform(generation_models_results)
 
-
+                # Obtain fitness values
                 generation_solutions_fitness = [self.solution_fitness(r[0], r[1], r[2]) for r in generation_models_results_scaled]
-                print(generation_solutions_fitness)
+                # print(generation_solutions_fitness)
 
-                # TODO: Change this after applying the selection rule
-                most_fit_solutions = gen_candidate_solutions
+
+                # TODO: Update best model path and best solution variables
+                if generation_solutions_fitness[np.argmax(generation_solutions_fitness)] > self.best_sol_fitness:
+                    self.best_model_path = f"results/{data.lower}/best_model_phase{current_phase}.pt"
+                    torch.save(models[np.argmax(generation_solutions_fitness)].state_dict(), self.best_model_path)
+
+                    self.best_sol_fitness = generation_solutions_fitness[np.argmax(generation_solutions_fitness)]
+                    self.best_solution = gen_candidate_solutions[np.argmax(generation_solutions_fitness)]
+
+                
+                # TODO: Review Most Fit Solutions Methods
+                most_fit_solutions = self.solution_selection(s_population=gen_candidate_solutions, s_fitnesses=generation_solutions_fitness)
                 
                 # TODO: Updated Generation
                 current_generation += 1
 
             # TODO: Update phase
             self.current_phase += 1
+            
+            # TODO: Update chromossome length
+            self.current_chromossome_length += 1
 
 
     # TODO: Thread Training Solution (this would only give a performance boost using different processes, not threads, i think. I dont know how hard it is to implement,
@@ -784,21 +820,24 @@ class GeneticAlgorithm:
         return sol1, sol2
 
     # Fitness Function
-    def solution_fitness(self, solution_acc, solution_loss, solution_time):
-        # The solution cost is the solution accuracy minus the solution loss: this way we penalise the loss value and reward the accuracy
+    def solution_fitness(self, solution_acc, solution_loss, solution_time, epsilon=1e-5):
+        # The solution fitness is the solution_accuracy X ((solution_loss) ^ -1) X ((solution_time) ^ -1)
+        # this way we penalise the loss and time values and reward the accuracy
         # We aim to maximise this value
         # TODO: Review functioning. StandardScaler from sklearn is being applied during training loop
         # TODO: See if it is worthy to take time into account
-        s_fitness = (1/solution_time) * (solution_acc - solution_loss)
+        # TODO: Review, we add an epsilon to avoid situations in which the loss is equal to zero
+        s_fitness = (1/solution_time) * (1/(solution_loss+epsilon)) * solution_acc
 
         return s_fitness
 
 
 if __name__ == '__main__':
     ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=2, nr_of_generations=3, mutation_rate=0.5,
-                        percentage_of_best_fit=0.5, survival_rate_of_less_fit=0.5, start_phase=0, end_phase=1, initial_chromossome_length=2, nr_of_epochs=1)
+                        percentage_of_best_fit=0.5, survival_rate_of_less_fit=0.5, start_phase=0, end_phase=1, initial_chromossome_length=2,
+                        nr_of_epochs=1, data="mnist")
 
-    # ga.train()
+    ga.train()
     # print(ga.repair_solution([torch.tensor([[10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 3, 0, 0, 1]]), torch.tensor([]), torch.tensor([])]))
     # a = [torch.tensor([]), torch.tensor([[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]),
         #   torch.tensor([])]
