@@ -134,7 +134,7 @@ class GeneticAlgorithm:
         self.percentage_of_best_fit = percentage_of_best_fit
         self.survival_rate_of_less_fit = survival_rate_of_less_fit
         self.nr_of_epochs = nr_of_epochs
-        self.data = data
+        self.data_name = data
 
         # Phase Variables
         self.start_phase = start_phase
@@ -146,7 +146,7 @@ class GeneticAlgorithm:
         self.current_chromossome_length = initial_chromossome_length
         
         # Solution Variables
-        self.best_model_path = f"results/{data.lower()}"
+        self.best_model_path = f"results/{self.data_name.lower()}"
         if os.path.isdir(self.best_model_path) == False:
             os.mkdir(self.best_model_path)
         
@@ -178,17 +178,17 @@ class GeneticAlgorithm:
         # TODO: Review data loding methods
         # Data will always be the same, so we can read it in the beginning of the loop
         # Choose data loader based on the "self.data" variable
-        if self.data.lower() == "mnist":
+        if self.data_name.lower() == "mnist":
             data_loader = get_mnist_loader(32)
         
-        elif self.data.lower() == "fashion-mnist":
+        elif self.data_name.lower() == "fashion-mnist":
             data_loader = get_fashion_mnist_loader(32)
         
-        elif self.data.lower() == "cifar10":
+        elif self.data_name.lower() == "cifar10":
             data_loader = get_cifar10_loader(32)
         
         else:
-            raise ValueError(f"{self.data} is not a valid argument. Please choose one of these: 'mnist', 'fashion-mnist', 'cifar10'.")
+            raise ValueError(f"{self.data_name} is not a valid argument. Please choose one of these: 'mnist', 'fashion-mnist', 'cifar10'.")
 
         # Evaluate the current phase against the maximum number of phases
         while self.current_phase < self.end_phase:
@@ -357,13 +357,13 @@ class GeneticAlgorithm:
 
                 # Evaluate Generations Solutions Fitness
                 # TODO: Normalize values before evaluating fitness
-                # Create a sklearn scaler
+                # TODO: Create a sklearn scaler WE NEED TO CHANGE THIS TO DO NORMALIZE BETWEEN [0, 1)
                 scaler = StandardScaler()
                 
-                # Fit scaler to our model results
+                # TODO: REVIEW Fit scaler to our model results
                 scaler.fit(generation_models_results)
 
-                # Convert results
+                # TODO: REVIEW Convert results
                 generation_models_results_scaled = scaler.transform(generation_models_results)
 
                 # Obtain fitness values
@@ -373,7 +373,7 @@ class GeneticAlgorithm:
 
                 # TODO: Update best model path and best solution variables
                 if generation_solutions_fitness[np.argmax(generation_solutions_fitness)] > self.best_sol_fitness:
-                    self.best_model_path = f"results/{data.lower}/best_model_phase{current_phase}.pt"
+                    self.best_model_path = f"results/{self.data_name.lower()}/best_model_phase{self.current_phase}.pt"
                     torch.save(models[np.argmax(generation_solutions_fitness)].state_dict(), self.best_model_path)
 
                     self.best_sol_fitness = generation_solutions_fitness[np.argmax(generation_solutions_fitness)]
@@ -713,10 +713,13 @@ class GeneticAlgorithm:
         f_probabs = [f/fitnesses_sum for f in s_fitnesses]
 
         # Choose the best solutions
-        most_fit_solutions = np.random.choice(a=s_population, size=len(s_population), replace=True, p=f_probabs)
+        # TODO: Review, this list was created to avoid tensor errors
+        s_population_indices = [i for i in range(len(f_probabs))]
+        # TODO: Review, we select the indices based on probabilities 
+        most_fit_solutions = np.random.choice(a=s_population_indices, size=len(s_population_indices), replace=True, p=f_probabs)
 
-        # Create empty list for the most fit solutions
-        most_fit_solutions = list(most_fit_solutions)
+        # TODO: Create empty list for the most fit solutions and assign in agreement with the indices obtained
+        most_fit_solutions = [s_population(s) for s in most_fit_solutions]
 
         return most_fit_solutions
 
