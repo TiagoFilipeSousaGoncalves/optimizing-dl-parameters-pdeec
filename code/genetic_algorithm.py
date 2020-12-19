@@ -212,8 +212,10 @@ class GeneticAlgorithm:
                     # the size of the populations
                     gen_candidate_solutions = list()
 
+                    # TODO: Shuffle most fit solutions
+
                     # Iterate through most fit solutions
-                    for idx in range(start=0, stop=len(most_fit_solutions), step=2):
+                    for idx in range(0, len(most_fit_solutions), 2):
                         sol1, sol2, = self.apply_crossover(sol1=most_fit_solutions[idx], sol2=most_fit_solutions[idx+1])
                         gen_candidate_solutions.append(sol1)
                         gen_candidate_solutions.append(sol2)
@@ -358,17 +360,18 @@ class GeneticAlgorithm:
                 # Evaluate Generations Solutions Fitness
                 # TODO: Normalize values before evaluating fitness
                 # TODO: Create a sklearn scaler WE NEED TO CHANGE THIS TO DO NORMALIZE BETWEEN [0, 1)
-                scaler = StandardScaler()
+                # scaler = StandardScaler()
                 
                 # TODO: REVIEW Fit scaler to our model results
-                scaler.fit(generation_models_results)
+                # scaler.fit(generation_models_results)
 
                 # TODO: REVIEW Convert results
-                generation_models_results_scaled = scaler.transform(generation_models_results)
+                # generation_models_results_scaled = scaler.transform(generation_models_results)
 
                 # Obtain fitness values
-                generation_solutions_fitness = [self.solution_fitness(r[0], r[1], r[2]) for r in generation_models_results_scaled]
-                # print(generation_solutions_fitness)
+                # generation_solutions_fitness = [self.solution_fitness(r[0], r[1], r[2]) for r in generation_models_results_scaled]
+                generation_solutions_fitness = [self.solution_fitness(r[0], r[1], r[2]) for r in generation_models_results]
+                print(generation_solutions_fitness)
 
 
                 # TODO: Update best model path and best solution variables
@@ -719,7 +722,7 @@ class GeneticAlgorithm:
         most_fit_solutions = np.random.choice(a=s_population_indices, size=len(s_population_indices), replace=True, p=f_probabs)
 
         # TODO: Create empty list for the most fit solutions and assign in agreement with the indices obtained
-        most_fit_solutions = [s_population(s) for s in most_fit_solutions]
+        most_fit_solutions = [s_population[s] for s in most_fit_solutions]
 
         return most_fit_solutions
 
@@ -754,8 +757,8 @@ class GeneticAlgorithm:
             convolutional_layers[layer][1] = curr_kernel_size
 
             # Update curr_tensor
-            curr_tensor = nn.Conv2d(in_channels=curr_tensor.size()[1], out_channels=convolutional_layers[layer][0].item(),
-                                    kernel_size=convolutional_layers[layer][1].item())(curr_tensor)
+            curr_tensor = nn.Conv2d(in_channels=int(curr_tensor.size()[1]), out_channels=int(convolutional_layers[layer][0].item()),
+                                    kernel_size=int(convolutional_layers[layer][1].item()))(curr_tensor)
 
             # Column 4: Conv-Pool Layer Types
             max_kernel_size = min(curr_tensor.size()[2:])
@@ -767,7 +770,7 @@ class GeneticAlgorithm:
             convolutional_layers[layer][4] = pool
 
             # Update curr_tensor
-            curr_tensor = utils.conv_pooling_types[convolutional_layers[layer][4].item()](curr_tensor)
+            curr_tensor = utils.conv_pooling_types[int(convolutional_layers[layer][4].item())](curr_tensor)
 
         return [convolutional_layers, fully_connected_layers, learning_rate]
 
@@ -830,7 +833,8 @@ class GeneticAlgorithm:
         # TODO: Review functioning. StandardScaler from sklearn is being applied during training loop
         # TODO: See if it is worthy to take time into account
         # TODO: Review, we add an epsilon to avoid situations in which the loss is equal to zero
-        s_fitness = (1/solution_time) * (1/(solution_loss+epsilon)) * solution_acc
+        # s_fitness = (1/solution_time) * (1/(solution_loss+epsilon)) * solution_acc
+        s_fitness = (1/(solution_loss+epsilon)) * solution_acc
 
         return s_fitness
 
