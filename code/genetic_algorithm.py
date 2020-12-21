@@ -17,7 +17,6 @@ from code.datasets import get_mnist_loader, get_fashion_mnist_loader, get_cifar1
 
 # Sklearn Imports
 import sklearn.metrics as sklearn_metrics
-from sklearn.preprocessing import StandardScaler
 
 # Set random seed value so we a have a reproductible work
 random_seed = 42
@@ -28,13 +27,13 @@ torch.manual_seed(random_seed)
 random.seed(random_seed)
 
 
-# input_shape is [C, H, W]
+# TODO: Put this inside the class
 def generate_random_solution(chromossome_length, input_shape):
     # Block Sizes
     nr_conv_layers = np.random.randint(0, chromossome_length + 1)
     nr_fc_layers = chromossome_length - nr_conv_layers
 
-    # Process Input Shape
+    # Process Input Shape [C, H, W]
     channels = input_shape[0]
     rows = input_shape[1]
     columns = input_shape[2]
@@ -112,7 +111,7 @@ def generate_random_solution(chromossome_length, input_shape):
 
     return [convolutional_layers, fully_connected_layers, learning_rate]
 
-
+# TODO: Put this inside the class
 def copy_solution(sol):
     return [sol[0].clone(), sol[1].clone(), sol[2].clone()]
 
@@ -120,8 +119,7 @@ def copy_solution(sol):
 # Define the Genetic Algorithm Class
 class GeneticAlgorithm:
     def __init__(self, input_shape, number_of_labels, size_of_population, nr_of_generations, mutation_rate,
-                 percentage_of_best_fit, survival_rate_of_less_fit, start_phase, end_phase, initial_chromossome_length,
-                 nr_of_epochs=5, data="mnist"):
+                nr_of_autoselected_solutions, start_phase, end_phase, initial_chromossome_length, nr_of_epochs=5, data="mnist"):
 
         # Dataset Variables
         self.input_shape = input_shape
@@ -131,8 +129,7 @@ class GeneticAlgorithm:
         self.size_of_population = size_of_population
         self.nr_of_generations = nr_of_generations
         self.mutation_rate = mutation_rate
-        self.percentage_of_best_fit = percentage_of_best_fit
-        self.survival_rate_of_less_fit = survival_rate_of_less_fit
+        self.nr_of_autoselected_solutions = nr_of_autoselected_solutions
         self.nr_of_epochs = nr_of_epochs
         self.data_name = data
 
@@ -151,6 +148,8 @@ class GeneticAlgorithm:
             os.mkdir(self.best_model_path)
         
         self.best_solution = list()
+
+        self.best_previous_phase_sol = list()
 
         self.best_sol_fitness = -np.Inf
 
@@ -209,12 +208,16 @@ class GeneticAlgorithm:
                 # If not, we are generating not new solutions; we obtain new ones by crossover and mutation
                 else:
                     # TODO: Apply crossover between best solutions of the previous generation until you achieve
-                    # the size of the populations
+                    # the size of the population
                     gen_candidate_solutions = list()
+
+                    # TODO: Append the previous best two solutions to assure that progress is not lost
+                    # TODO: Use this var self.nr_of_autoselected_solutions
 
                     # TODO: Shuffle most fit solutions
 
                     # Iterate through most fit solutions
+                    # TODO: Review apply_crossover function (we need to copy the inputs first!)
                     for idx in range(0, len(most_fit_solutions), 2):
                         sol1, sol2, = self.apply_crossover(sol1=most_fit_solutions[idx], sol2=most_fit_solutions[idx+1])
                         gen_candidate_solutions.append(sol1)
@@ -245,7 +248,7 @@ class GeneticAlgorithm:
                     for candidate in gen_candidate_solutions:
                         models.append(self.transfer_learning(
                                                             previous_model_state_dict=self.best_model_path,
-                                                            previous_best_solution=self.best_solution,
+                                                            previous_best_solution=self.best_previous_phase_sol,
                                                             new_candidate_solution=candidate))
 
                 
@@ -358,26 +361,15 @@ class GeneticAlgorithm:
                 # total time on my pc with gpu 1129 seg ~ 18 min. (specs: ryzen 7 3700x, rtx 2070S, 32gb ram 3600mhz)
 
                 # Evaluate Generations Solutions Fitness
-                # TODO: Normalize values before evaluating fitness
-                # TODO: Create a sklearn scaler WE NEED TO CHANGE THIS TO DO NORMALIZE BETWEEN [0, 1)
-                # scaler = StandardScaler()
-                
-                # TODO: REVIEW Fit scaler to our model results
-                # scaler.fit(generation_models_results)
-
-                # TODO: REVIEW Convert results
-                # generation_models_results_scaled = scaler.transform(generation_models_results)
-
                 # Obtain fitness values
-                # generation_solutions_fitness = [self.solution_fitness(r[0], r[1], r[2]) for r in generation_models_results_scaled]
-                generation_solutions_fitness = [self.solution_fitness(r[0], r[1], r[2]) for r in generation_models_results]
+                generation_solutions_fitness = [self.solution_fitness(r[0], r[1]) for r in generation_models_results]
                 print(generation_solutions_fitness)
 
 
                 # TODO: Update best model path and best solution variables
                 if generation_solutions_fitness[np.argmax(generation_solutions_fitness)] > self.best_sol_fitness:
-                    self.best_model_path = f"results/{self.data_name.lower()}/best_model_phase{self.current_phase}.pt"
-                    torch.save(models[np.argmax(generation_solutions_fitness)].state_dict(), self.best_model_path)
+                    phase_best_model_path = f"results/{self.data_name.lower()}/best_model_phase{self.current_phase}.pt"
+                    torch.save(models[np.argmax(generation_solutions_fitness)].state_dict(), phase_best_model_path)
 
                     self.best_sol_fitness = generation_solutions_fitness[np.argmax(generation_solutions_fitness)]
                     self.best_solution = gen_candidate_solutions[np.argmax(generation_solutions_fitness)]
@@ -389,6 +381,12 @@ class GeneticAlgorithm:
                 # TODO: Updated Generation
                 current_generation += 1
 
+            # TODO: Update best model path for transfer learning purposes 
+            self.best_model_path = f"results/{self.data_name.lower()}/best_model_phase{self.current_phase}.pt"
+
+            # TODO: Update best phase solution
+            self.best_previous_phase_sol = copy_solution(self.best_solution)
+            
             # TODO: Update phase
             self.current_phase += 1
             
@@ -426,7 +424,28 @@ class GeneticAlgorithm:
         nr_of_conv_layers = [np.shape(conv_layers_sols[0])[0], np.shape(conv_layers_sols[1])[0]]
         limitant_sol_idx = np.argmin(nr_of_conv_layers)
         
+        # TODO: Review Conv-Transfer Learning to Take Channel Dimensions Into Account
         # The weights are going to be copied from the number of layers equal to the the number of layers of limitant_sol_idx
+        
+        # TODO: Best way of transfer learning between conv-layers 
+        '''
+        # 1) calculate tensor sizes
+        # 2) calculate max size in each dimension
+        # 3) initialize random tensor with max sizes
+        # 4) assign learned weights to random tensor
+        # 5) slice to new tensor
+
+        t1
+        t2
+        c, h, w = t2.size()
+        random_tensor(max_size)
+
+        random_tensor[:c, :h, :w] = t2[:c, :h, :w]
+
+        t1 = random_tensor[t1.size()]
+        
+        '''
+        
         with torch.no_grad():
             conv_idx = 0
             curr_idx = 0
@@ -722,7 +741,7 @@ class GeneticAlgorithm:
         most_fit_solutions = np.random.choice(a=s_population_indices, size=len(s_population_indices), replace=True, p=f_probabs)
 
         # TODO: Create empty list for the most fit solutions and assign in agreement with the indices obtained
-        most_fit_solutions = [s_population[s] for s in most_fit_solutions]
+        most_fit_solutions = [copy_solution(s_population[s]) for s in most_fit_solutions]
 
         return most_fit_solutions
 
@@ -774,13 +793,13 @@ class GeneticAlgorithm:
 
         return [convolutional_layers, fully_connected_layers, learning_rate]
 
-    # TODO: Crossover Method
-    # TODO: Cross-probability
-    # TODO: Decide the the survival criteria
-    # TODO: learning rate crossover?
+    # Crossover Method
     def apply_crossover(self, sol1, sol2):
-        # TODO: Crossover between solution (random layers to hybrid); pay attention to the number of conv layers and fc layers of mum and dad
-        # conv
+        # Copy solutions first
+        sol1 = copy_solution(sol1)
+        sol2 = copy_solution(sol2)
+
+        # Conv
         conv_layers_sol1 = sol1[0]
         conv_layers_sol2 = sol2[0]
 
@@ -826,13 +845,12 @@ class GeneticAlgorithm:
         return sol1, sol2
 
     # Fitness Function
-    def solution_fitness(self, solution_acc, solution_loss, solution_time, epsilon=1e-5):
+    def solution_fitness(self, solution_acc, solution_loss, epsilon=1e-5):
         # The solution fitness is the solution_accuracy X ((solution_loss) ^ -1) X ((solution_time) ^ -1)
         # this way we penalise the loss and time values and reward the accuracy
         # We aim to maximise this value
-        # TODO: Review functioning. StandardScaler from sklearn is being applied during training loop
-        # TODO: See if it is worthy to take time into account
-        # TODO: Review, we add an epsilon to avoid situations in which the loss is equal to zero
+        # Time is not taken into account because it is batch dependent (it would not be fair to compare time between batches)
+        # We add an epsilon to avoid situations in which the loss is equal to zero
         # s_fitness = (1/solution_time) * (1/(solution_loss+epsilon)) * solution_acc
         s_fitness = (1/(solution_loss+epsilon)) * solution_acc
 

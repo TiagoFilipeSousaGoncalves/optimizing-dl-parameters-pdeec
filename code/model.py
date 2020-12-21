@@ -1,3 +1,4 @@
+# Imports
 import torch
 import torch.nn as nn
 from collections import OrderedDict
@@ -86,4 +87,3 @@ class Model(nn.Module):
         # print(x.size())
 
         return x
-
