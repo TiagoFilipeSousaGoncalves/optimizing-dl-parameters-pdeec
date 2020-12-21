@@ -1,7 +1,6 @@
 # Imports
 import numpy as np
 import time
-import copy
 import random
 import os
 
@@ -27,99 +26,11 @@ torch.manual_seed(random_seed)
 random.seed(random_seed)
 
 
-# TODO: Put this inside the class
-def generate_random_solution(chromossome_length, input_shape):
-    # Block Sizes
-    nr_conv_layers = np.random.randint(0, chromossome_length + 1)
-    nr_fc_layers = chromossome_length - nr_conv_layers
-
-    # Process Input Shape [C, H, W]
-    channels = input_shape[0]
-    rows = input_shape[1]
-    columns = input_shape[2]
-
-    # Create Convolutional Block
-    convolutional_layers = []
-    curr_tensor = torch.rand((1, channels, rows, columns))
-
-    for _ in range(nr_conv_layers):
-        curr_layer = []
-
-        # Column 0: Number of Conv-Filters
-        nr_filters = random.choice(utils.conv_nr_filters)
-        curr_layer.append(nr_filters)
-
-        # Column 1: Conv-Kernel Sizes
-        max_kernel_size = min(curr_tensor.size()[2:])
-        allowed_conv_kernel_size = utils.conv_kernel_size[utils.conv_kernel_size <= max_kernel_size]
-        kernel_size = random.choice(allowed_conv_kernel_size)
-        curr_layer.append(kernel_size)
-
-        # Update curr_tensor
-        curr_tensor = nn.Conv2d(in_channels=curr_tensor.size()[1], out_channels=nr_filters, kernel_size=kernel_size)(curr_tensor)
-
-        # Column 2: Conv-Activation Functions
-        activ_function = random.randint(0, len(utils.conv_activ_functions)-1)
-        curr_layer.append(activ_function)
-
-        # Column 3: Conv-Drop Rates
-        drop_out = random.uniform(utils.conv_drop_out_range[0], utils.conv_drop_out_range[1])
-        curr_layer.append(drop_out)
-
-        # Column 4: Conv-Pool Layer Types
-        max_kernel_size = min(curr_tensor.size()[2:])
-
-        if max_kernel_size < 2:
-            pool = 0
-        else:
-            pool = random.randint(0, len(utils.conv_pooling_types)-1)
-
-        # Update curr_tensor
-        curr_tensor = utils.conv_pooling_types[pool](curr_tensor)
-
-        curr_layer.append(pool)
-
-        # Add to convolutional block
-        convolutional_layers.append(curr_layer)
-
-    # Create Fully Connected Block
-    fully_connected_layers = []
-
-    for _ in range(nr_fc_layers):
-        curr_layer = []
-
-        # Column 0: FC Layer Number of Neurons
-        nr_neurons = random.randint(utils.fc_nr_neurons_range[0], utils.fc_nr_neurons_range[1])
-        curr_layer.append(nr_neurons)
-
-        # Column 1: FC Layer Activation Functions
-        activ_function = random.randint(0, len(utils.fc_activ_functions) - 1)
-        curr_layer.append(activ_function)
-
-        # Column 2: FC Dropout Rates
-        drop_out = random.uniform(utils.fc_drop_out_range[0], utils.fc_drop_out_range[1])
-        curr_layer.append(drop_out)
-
-        fully_connected_layers.append(curr_layer)
-
-    # Learning Rate
-    learning_rate = random.choice(utils.learning_rate)
-
-    convolutional_layers = torch.tensor(convolutional_layers)
-    fully_connected_layers = torch.tensor(fully_connected_layers)
-    learning_rate = torch.tensor([learning_rate])
-
-    return [convolutional_layers, fully_connected_layers, learning_rate]
-
-# TODO: Put this inside the class
-def copy_solution(sol):
-    return [sol[0].clone(), sol[1].clone(), sol[2].clone()]
-
-
 # Define the Genetic Algorithm Class
 class GeneticAlgorithm:
     def __init__(self, input_shape, number_of_labels, size_of_population, nr_of_generations, mutation_rate,
-                nr_of_autoselected_solutions, start_phase, end_phase, initial_chromossome_length, nr_of_epochs=5, data="mnist"):
+                    nr_of_autoselected_solutions, start_phase, end_phase, initial_chromossome_length,
+                    nr_of_epochs=5, data="mnist"):
 
         # Dataset Variables
         self.input_shape = input_shape
@@ -153,8 +64,98 @@ class GeneticAlgorithm:
 
         self.best_sol_fitness = -np.Inf
 
+    
+    # Function: Copy Solution Object
+    def copy_solution(self, sol):
+        return [sol[0].clone(), sol[1].clone(), sol[2].clone()]
 
-    # Function: Generate Solutions
+
+    # Function: Generate Random Solution
+    def generate_random_solution(self, chromossome_length, input_shape):
+        # Block Sizes
+        nr_conv_layers = np.random.randint(0, chromossome_length + 1)
+        nr_fc_layers = chromossome_length - nr_conv_layers
+
+        # Process Input Shape [C, H, W]
+        channels = input_shape[0]
+        rows = input_shape[1]
+        columns = input_shape[2]
+
+        # Create Convolutional Block
+        convolutional_layers = []
+        curr_tensor = torch.rand((1, channels, rows, columns))
+
+        for _ in range(nr_conv_layers):
+            curr_layer = []
+
+            # Column 0: Number of Conv-Filters
+            nr_filters = random.choice(utils.conv_nr_filters)
+            curr_layer.append(nr_filters)
+
+            # Column 1: Conv-Kernel Sizes
+            max_kernel_size = min(curr_tensor.size()[2:])
+            allowed_conv_kernel_size = utils.conv_kernel_size[utils.conv_kernel_size <= max_kernel_size]
+            kernel_size = random.choice(allowed_conv_kernel_size)
+            curr_layer.append(kernel_size)
+
+            # Update curr_tensor
+            curr_tensor = nn.Conv2d(in_channels=curr_tensor.size()[1], out_channels=nr_filters, kernel_size=kernel_size)(curr_tensor)
+
+            # Column 2: Conv-Activation Functions
+            activ_function = random.randint(0, len(utils.conv_activ_functions)-1)
+            curr_layer.append(activ_function)
+
+            # Column 3: Conv-Drop Rates
+            drop_out = random.uniform(utils.conv_drop_out_range[0], utils.conv_drop_out_range[1])
+            curr_layer.append(drop_out)
+
+            # Column 4: Conv-Pool Layer Types
+            max_kernel_size = min(curr_tensor.size()[2:])
+
+            if max_kernel_size < 2:
+                pool = 0
+            else:
+                pool = random.randint(0, len(utils.conv_pooling_types)-1)
+
+            # Update curr_tensor
+            curr_tensor = utils.conv_pooling_types[pool](curr_tensor)
+
+            curr_layer.append(pool)
+
+            # Add to convolutional block
+            convolutional_layers.append(curr_layer)
+
+        # Create Fully Connected Block
+        fully_connected_layers = []
+
+        for _ in range(nr_fc_layers):
+            curr_layer = []
+
+            # Column 0: FC Layer Number of Neurons
+            nr_neurons = random.randint(utils.fc_nr_neurons_range[0], utils.fc_nr_neurons_range[1])
+            curr_layer.append(nr_neurons)
+
+            # Column 1: FC Layer Activation Functions
+            activ_function = random.randint(0, len(utils.fc_activ_functions) - 1)
+            curr_layer.append(activ_function)
+
+            # Column 2: FC Dropout Rates
+            drop_out = random.uniform(utils.fc_drop_out_range[0], utils.fc_drop_out_range[1])
+            curr_layer.append(drop_out)
+
+            fully_connected_layers.append(curr_layer)
+
+        # Learning Rate
+        learning_rate = random.choice(utils.learning_rate)
+
+        convolutional_layers = torch.tensor(convolutional_layers)
+        fully_connected_layers = torch.tensor(fully_connected_layers)
+        learning_rate = torch.tensor([learning_rate])
+
+        return [convolutional_layers, fully_connected_layers, learning_rate]
+
+
+    # Function: Generate a List of Candidate Solutions
     def generate_candidate_solutions(self):
         # Create list to append solutions
         list_of_candidate_solutions = []
@@ -166,7 +167,7 @@ class GeneticAlgorithm:
         while p < self.size_of_population:
 
             # Append this solution to the list of candidate solutions
-            list_of_candidate_solutions.append(generate_random_solution(self.current_chromossome_length, self.input_shape))
+            list_of_candidate_solutions.append(self.generate_random_solution(self.current_chromossome_length, self.input_shape))
             # Update current p
             p += 1
 
@@ -385,7 +386,7 @@ class GeneticAlgorithm:
             self.best_model_path = f"results/{self.data_name.lower()}/best_model_phase{self.current_phase}.pt"
 
             # TODO: Update best phase solution
-            self.best_previous_phase_sol = copy_solution(self.best_solution)
+            self.best_previous_phase_sol = self.copy_solution(self.best_solution)
             
             # TODO: Update phase
             self.current_phase += 1
@@ -621,7 +622,7 @@ class GeneticAlgorithm:
             # Create a copy of the solution to mutate
             # This way, after the rebuild of the solution we can see if the solution is workable or not
             # If not, we stay with the original solution
-            _solution = copy_solution(sol=solution)
+            _solution = self.copy_solution(sol=solution)
 
             # We first check convolutional blocks
             # We create a mask of numbers in interval [0, 1) for the conv-block
@@ -741,13 +742,13 @@ class GeneticAlgorithm:
         most_fit_solutions = np.random.choice(a=s_population_indices, size=len(s_population_indices), replace=True, p=f_probabs)
 
         # TODO: Create empty list for the most fit solutions and assign in agreement with the indices obtained
-        most_fit_solutions = [copy_solution(s_population[s]) for s in most_fit_solutions]
+        most_fit_solutions = [self.copy_solution(s_population[s]) for s in most_fit_solutions]
 
         return most_fit_solutions
 
     # Repair Solution Function: to repair "damaged" chromossomes after crossover and mutation
     def repair_solution(self, solution):
-        solution = copy_solution(solution)
+        solution = self.copy_solution(solution)
 
         convolutional_layers = solution[0]
         fully_connected_layers = solution[1]
@@ -796,8 +797,8 @@ class GeneticAlgorithm:
     # Crossover Method
     def apply_crossover(self, sol1, sol2):
         # Copy solutions first
-        sol1 = copy_solution(sol1)
-        sol2 = copy_solution(sol2)
+        sol1 = self.copy_solution(sol1)
+        sol2 = self.copy_solution(sol2)
 
         # Conv
         conv_layers_sol1 = sol1[0]
