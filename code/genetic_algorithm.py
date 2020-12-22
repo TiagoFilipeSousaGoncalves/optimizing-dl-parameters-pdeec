@@ -427,8 +427,8 @@ class GeneticAlgorithm:
         
         # TODO: Review Conv-Transfer Learning to Take Channel Dimensions Into Account
         # The weights are going to be copied from the number of layers equal to the the number of layers of limitant_sol_idx
-        
         # TODO: Best way of transfer learning between conv-layers 
+        # TODO: Erase this string upon review
         '''
         # 1) calculate tensor sizes
         # 2) calculate max size in each dimension
@@ -461,20 +461,76 @@ class GeneticAlgorithm:
                     # New Weights
                     new_weights = torch.clone(pretrained_model.convolutional_layers[curr_idx].weight)
                     new_weights_size = pretrained_model.convolutional_layers[curr_idx].weight.size()
+                    
+                    # TODO: Erase this commented code upon review
                     # Flatten Tensors to avoid dimension problems
-                    previous_weights = previous_weights.view(-1)
-                    new_weights = new_weights.view(-1)
+                    # previous_weights = previous_weights.view(-1)
+                    # new_weights = new_weights.view(-1)
                     # Check the minimum size
-                    min_size = min(previous_weights.size(0), new_weights.size(0))
+                    # min_size = min(previous_weights.size(0), new_weights.size(0))
+
+                    # TODO: Validate this commented code upon review
+                    # Each Conv2d Tensor has 4 Dimensions; we need to get maximum dimension size
+                    # Dimension 0: The Output Channels
+                    max_nr_out_channels = max(int(previous_weights_size[0]), int(new_weights_size[0]))
+                    # Dimension 1: The Input Channels
+                    max_nr_in_channels = max(int(previous_weights_size[1]), int(new_weights_size[1]))
+                    # Dimension 2: Kernel Size XX-Axis
+                    max_k_size_xx = max(int(previous_weights_size[2]), int(new_weights_size[2]))
+                    # Dimension 3: Kernel Size YY-Axis
+                    max_k_size_yy = max(int(previous_weights_size[3]), int(new_weights_size[3]))
+                    
+                    # Generate a RandN Torch Tensor that has this Max 4 Dimensions' Sizes
+                    randn_weights_tensor = torch.randn(max_nr_out_channels, max_nr_in_channels, max_k_size_xx, max_k_size_yy)
+
+                    # Fill this tensor with the maximum possible values for every dimension with the previous_weights
+                    # Get the Previous Weights Dimensions' Sizes
+                    previous_weights_out_channels = int(previous_weights_size[0])
+                    previous_weights_in_channels = int(previous_weights_size[1])
+                    previous_weights_k_size_xx = int(previous_weights_size[2])
+                    previous_weights_k_size_yy = int(previous_weights_size[3])
+                    
+                    # Fill the randn tensor with the maximum possible values
+                    randn_weights_tensor[:previous_weights_out_channels,
+                                         :previous_weights_in_channels,
+                                         :previous_weights_k_size_xx,
+                                         :previous_weights_k_size_yy] = previous_weights[:previous_weights_out_channels,
+                                                                        :previous_weights_in_channels,
+                                                                        :previous_weights_k_size_xx,
+                                                                        :previous_weights_k_size_yy]
+                    
+
+                    
+                    # Transfer the maximum possible values of the randn tensor for the new weights tensor
+                    # Get the New Weights Dimensions' Sizes
+                    new_weights_out_channels = int(new_weights_size[0])
+                    new_weights_in_channels = int(new_weights_size[1])
+                    new_weights_k_size_xx = int(new_weights_size[2])
+                    new_weights_k_size_yy = int(new_weights_size[3])
+
+                    # Fill the new weights tensor with maximum possible values
+                    new_weights[:new_weights_out_channels,
+                                :new_weights_in_channels,
+                                :new_weights_k_size_xx,
+                                :new_weights_k_size_yy] = randn_weights_tensor[:new_weights_out_channels,
+                                                                               :new_weights_in_channels,
+                                                                               :new_weights_k_size_xx,
+                                                                               :new_weights_k_size_yy]
+
+                    
+
+                    # TODO: Erase this part upon review
                     # Transfer Weights
-                    new_weights[0:min_size] = previous_weights[0:min_size]
+                    # new_weights[0:min_size] = previous_weights[0:min_size]
                     # Reshape New Weights Tensor
-                    new_weights = new_weights.view(new_weights_size)
+                    # new_weights = new_weights.view(new_weights_size)
+                    
+                    
                     # Transfer this to the the pretrained model
                     pretrained_model.convolutional_layers[curr_idx].weight = torch.nn.Parameter(new_weights)
                     
                     
-                    # Apply the Same to the Bias Tensor
+                    # The Bias Tensor only has 1 Dimension, so it is easier to check the minimum size and transfer that ammount
                     # Previous Bias
                     previous_bias = torch.clone(previous_model.convolutional_layers[curr_idx].bias)
                     previous_bias_size = previous_model.convolutional_layers[curr_idx].bias.size()
@@ -607,10 +663,8 @@ class GeneticAlgorithm:
                 # Transfer this to the pretrained model
                 pretrained_model.fc_labels.bias = torch.nn.Parameter(new_bias)
 
-
-        
-
         return pretrained_model 
+
 
     # TODO: Review Mutation Method
     def apply_mutation(self, alive_solutions_list):
@@ -860,10 +914,10 @@ class GeneticAlgorithm:
 
 if __name__ == '__main__':
     ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=2, nr_of_generations=3, mutation_rate=0.5,
-                        percentage_of_best_fit=0.5, survival_rate_of_less_fit=0.5, start_phase=0, end_phase=1, initial_chromossome_length=2,
+                        nr_of_autoselected_solutions=2, start_phase=0, end_phase=1, initial_chromossome_length=2,
                         nr_of_epochs=1, data="mnist")
 
-    ga.train()
+    # ga.train()
     # print(ga.repair_solution([torch.tensor([[10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 3, 0, 0, 1]]), torch.tensor([]), torch.tensor([])]))
     # a = [torch.tensor([]), torch.tensor([[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]),
         #   torch.tensor([])]
@@ -879,8 +933,8 @@ if __name__ == '__main__':
     ######################################################
 
     # Tests with transfer learning
-    # s = generate_random_solution(3, [1, 28, 28])
-    # c = generate_random_solution(10, [1, 28, 28])
+    # s = ga.generate_random_solution(3, [1, 28, 28])
+    # c = ga.generate_random_solution(10, [1, 28, 28])
     # model_s = Model([1, 28, 28], 10, s)
     # model_c = Model([1, 28, 28], 10, c)
 
