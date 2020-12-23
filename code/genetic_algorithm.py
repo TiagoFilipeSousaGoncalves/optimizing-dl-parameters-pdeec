@@ -175,7 +175,7 @@ class GeneticAlgorithm:
 
     # TODO: Review Training Method
     def train(self):
-        # TODO: Review data loding methods
+        # Load data
         # Data will always be the same, so we can read it in the beginning of the loop
         # Choose data loader based on the "self.data" variable
         if self.data_name.lower() == "mnist":
@@ -208,6 +208,9 @@ class GeneticAlgorithm:
                 
                 # If not, we are generating not new solutions; we obtain new ones by crossover and mutation
                 else:
+                    # Apply Most Fit Solutions Methods
+                    most_fit_solutions = self.solution_selection(s_population=gen_candidate_solutions, s_fitnesses=generation_solutions_fitness)
+                    
                     # TODO: Apply crossover between best solutions of the previous generation until you achieve
                     # the size of the population
                     gen_candidate_solutions = list()
@@ -278,10 +281,6 @@ class GeneticAlgorithm:
                     # Load optimizer (for now, we will used Adam)
                     optim = torch.optim.Adam(model.parameters(), lr=model.learning_rate)
 
-                    # TODO: Delete this
-                    # FLAG for print statistics
-                    # every_x_minibatches = 100
-
                     # Model Starting Time
                     model_start = time.time()
 
@@ -325,11 +324,6 @@ class GeneticAlgorithm:
                             y += list(labels.cpu().detach().numpy())
                             y_pred += list(torch.argmax(features, dim=1).cpu().detach().numpy())
 
-                            # TODO: Erase this
-                            # if (i + 1) % every_x_minibatches == 0:
-                                # print(f'[{epoch + 1}, {i + 1}] loss: {running_loss / every_x_minibatches}')
-                                # running_loss = 0.0
-
                         # Average Train Loss
                         avg_train_loss = running_loss/len(data_loader.dataset)
 
@@ -359,12 +353,11 @@ class GeneticAlgorithm:
                 generation_end = time.time()
                 generation_total_time = generation_end - generation_start
                 print(f"Finished Generation {current_generation} | Total Time: {generation_total_time}")
-                # total time on my pc with gpu 1129 seg ~ 18 min. (specs: ryzen 7 3700x, rtx 2070S, 32gb ram 3600mhz)
 
                 # Evaluate Generations Solutions Fitness
                 # Obtain fitness values
                 generation_solutions_fitness = [self.solution_fitness(r[0], r[1]) for r in generation_models_results]
-                print(generation_solutions_fitness)
+                # print(generation_solutions_fitness)
 
 
                 # TODO: Update best model path and best solution variables
@@ -372,21 +365,27 @@ class GeneticAlgorithm:
                     phase_best_model_path = f"results/{self.data_name.lower()}/best_model_phase{self.current_phase}.pt"
                     torch.save(models[np.argmax(generation_solutions_fitness)].state_dict(), phase_best_model_path)
 
+                    # TODO: Save Model in CPU
                     self.best_sol_fitness = generation_solutions_fitness[np.argmax(generation_solutions_fitness)]
                     self.best_solution = gen_candidate_solutions[np.argmax(generation_solutions_fitness)]
 
                 
-                # TODO: Review Most Fit Solutions Methods
-                most_fit_solutions = self.solution_selection(s_population=gen_candidate_solutions, s_fitnesses=generation_solutions_fitness)
+                # TODO: Erase this after testing 
+                # Apply Most Fit Solutions Methods
+                # most_fit_solutions = self.solution_selection(s_population=gen_candidate_solutions, s_fitnesses=generation_solutions_fitness)
                 
                 # TODO: Updated Generation
                 current_generation += 1
 
             # TODO: Update best model path for transfer learning purposes 
-            self.best_model_path = f"results/{self.data_name.lower()}/best_model_phase{self.current_phase}.pt"
+            # TODO: With Model in CPU with do not need to save this in disk
+            # TODO: Erase this after testing with the Models in CPU
+            # self.best_model_path = f"results/{self.data_name.lower()}/best_model_phase{self.current_phase}.pt"
 
             # TODO: Update best phase solution
-            self.best_previous_phase_sol = self.copy_solution(self.best_solution)
+            # TODO: We can not assume that the previous has better solutions!
+            # TODO: Refactor the code to have this into account
+            # self.best_previous_phase_sol = self.copy_solution(self.best_solution)
             
             # TODO: Update phase
             self.current_phase += 1
@@ -394,7 +393,10 @@ class GeneticAlgorithm:
             # TODO: Update chromossome length
             self.current_chromossome_length += 1
 
-
+    # TODO: Test Loop
+    def test(self):
+        pass
+    
     # TODO: Thread Training Solution (this would only give a performance boost using different processes, not threads, i think. I dont know how hard it is to implement,
     #  because sharing memory between processes can be a pain sometimes. Even if we implement it this would only give a performance boost if the gpu can train multiple
     #  models simultaneously without reaching its parallel processing capability. I think this should be the last thing to implement)
@@ -781,7 +783,7 @@ class GeneticAlgorithm:
 
         return mutated_solutions_list
 
-    # TODO: Review Solution Selection Function
+    # Function: Solution Selection Function
     def solution_selection(self, s_population, s_fitnesses):
         # Obtain the total sum of fitnesses
         fitnesses_sum = np.sum(s_fitnesses)
@@ -790,12 +792,12 @@ class GeneticAlgorithm:
         f_probabs = [f/fitnesses_sum for f in s_fitnesses]
 
         # Choose the best solutions
-        # TODO: Review, this list was created to avoid tensor errors
+        # This list was created to avoid tensor errors
         s_population_indices = [i for i in range(len(f_probabs))]
-        # TODO: Review, we select the indices based on probabilities 
+        # We select the indices based on probabilities 
         most_fit_solutions = np.random.choice(a=s_population_indices, size=len(s_population_indices), replace=True, p=f_probabs)
 
-        # TODO: Create empty list for the most fit solutions and assign in agreement with the indices obtained
+        # Create empty list for the most fit solutions and assign in agreement with the indices obtained
         most_fit_solutions = [self.copy_solution(s_population[s]) for s in most_fit_solutions]
 
         return most_fit_solutions
