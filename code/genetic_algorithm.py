@@ -56,7 +56,7 @@ class GeneticAlgorithm:
         # Solution Variables
         self.best_model_path = f"results/{self.data_name.lower()}"
         if os.path.isdir(self.best_model_path) == False:
-            os.mkdir(self.best_model_path)
+            os.makedirs(self.best_model_path)
         
         self.best_solution = list()
 
@@ -189,6 +189,8 @@ class GeneticAlgorithm:
         
         else:
             raise ValueError(f"{self.data_name} is not a valid argument. Please choose one of these: 'mnist', 'fashion-mnist', 'cifar10'.")
+
+        stat_data = np.zeros((self.end_phase-self.start_phase, self.nr_of_generations, self.size_of_population, 3))
 
         # Evaluate the current phase against the maximum number of phases
         while self.current_phase < self.end_phase:
@@ -359,6 +361,13 @@ class GeneticAlgorithm:
                 generation_solutions_fitness = [self.solution_fitness(r[0], r[1]) for r in generation_models_results]
                 # print(generation_solutions_fitness)
 
+                # save statistic data
+                for stat_idx in range(len(generation_models_results)):
+                    stat_data[self.current_phase - self.start_phase][current_generation][stat_idx][0] = generation_models_results[stat_idx][0]
+                    stat_data[self.current_phase - self.start_phase][current_generation][stat_idx][1] = generation_models_results[stat_idx][1]
+                    stat_data[self.current_phase - self.start_phase][current_generation][stat_idx][2] = generation_solutions_fitness[stat_idx]
+
+                print(stat_data)
 
                 # TODO: Update best model path and best solution variables
                 if generation_solutions_fitness[np.argmax(generation_solutions_fitness)] > self.best_sol_fitness:
@@ -918,6 +927,8 @@ if __name__ == '__main__':
     ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=2, nr_of_generations=3, mutation_rate=0.5,
                         nr_of_autoselected_solutions=2, start_phase=0, end_phase=1, initial_chromossome_length=2,
                         nr_of_epochs=1, data="mnist")
+
+    ga.train()
 
     # ga.train()
     # print(ga.repair_solution([torch.tensor([[10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 3, 0, 0, 1]]), torch.tensor([]), torch.tensor([])]))
