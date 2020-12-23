@@ -28,13 +28,12 @@ random.seed(random_seed)
 
 # Define the Genetic Algorithm Class
 class GeneticAlgorithm:
-    def __init__(self, input_shape, number_of_labels, size_of_population, nr_of_generations, mutation_rate,
-                    nr_of_autoselected_solutions, start_phase, end_phase, initial_chromossome_length,
-                    nr_of_epochs=5, data="mnist"):
+    def __init__(self, input_shape, size_of_population, nr_of_labels, nr_of_phases, nr_of_generations, nr_of_autoselected_solutions,
+                 mutation_rate, initial_chromossome_length, nr_of_epochs=5, data="mnist"):
 
         # Dataset Variables
         self.input_shape = input_shape
-        self.number_of_labels = number_of_labels
+        self.nr_of_labels = nr_of_labels
 
         # Initialize variables
         self.size_of_population = size_of_population
@@ -45,30 +44,23 @@ class GeneticAlgorithm:
         self.data_name = data
 
         # Phase Variables
-        self.start_phase = start_phase
-        self.current_phase = start_phase
-        self.end_phase = end_phase
+        self.nr_of_phases = nr_of_phases
 
         # Chromossome Length Variables
-        self.initial_chromossome_length = initial_chromossome_length
         self.current_chromossome_length = initial_chromossome_length
-        
-        # Solution Variables
-        self.best_model_path = f"results/{self.data_name.lower()}"
-        if os.path.isdir(self.best_model_path) == False:
-            os.makedirs(self.best_model_path)
-        
-        self.best_solution = list()
 
-        self.best_previous_phase_sol = list()
+        self.best_solution = list()
+        self.best_model = None
+
+        self.best_solution_aux = list()
+        self.best_model_aux = None
 
         self.best_sol_fitness = -np.Inf
 
-    
+
     # Function: Copy Solution Object
     def copy_solution(self, sol):
         return [sol[0].clone(), sol[1].clone(), sol[2].clone()]
-
 
     # Function: Generate Random Solution
     def generate_random_solution(self, chromossome_length, input_shape):
@@ -180,22 +172,24 @@ class GeneticAlgorithm:
         # Choose data loader based on the "self.data" variable
         if self.data_name.lower() == "mnist":
             data_loader = get_mnist_loader(32)
-        
+
         elif self.data_name.lower() == "fashion-mnist":
             data_loader = get_fashion_mnist_loader(32)
-        
+
         elif self.data_name.lower() == "cifar10":
             data_loader = get_cifar10_loader(32)
-        
+
         else:
             raise ValueError(f"{self.data_name} is not a valid argument. Please choose one of these: 'mnist', 'fashion-mnist', 'cifar10'.")
 
-        stat_data = np.zeros((self.end_phase-self.start_phase, self.nr_of_generations, self.size_of_population, 3))
+        stat_data = np.zeros((self.nr_of_phases, self.nr_of_generations, self.size_of_population, 3))
+
+        current_phase = 0
 
         # Evaluate the current phase against the maximum number of phases
-        while self.current_phase < self.end_phase:
-            print(f"Current Training Phase: {self.current_phase}")
-            
+        while current_phase < self.nr_of_phases:
+            print(f"Current Training Phase: {current_phase}")
+
             # In each phase we begin with current_generation == 0
             current_generation = 0
 
@@ -207,12 +201,12 @@ class GeneticAlgorithm:
                     # (this list will be usefull to the next steps such as mutation and crossover)
                     gen_candidate_solutions = self.generate_candidate_solutions()
                     print(f"Generation {current_generation} solutions generated.")
-                
+
                 # If not, we are generating not new solutions; we obtain new ones by crossover and mutation
                 else:
                     # Apply Most Fit Solutions Methods
                     most_fit_solutions = self.solution_selection(s_population=gen_candidate_solutions, s_fitnesses=generation_solutions_fitness)
-                    
+
                     # TODO: Apply crossover between best solutions of the previous generation until you achieve
                     # the size of the population
                     gen_candidate_solutions = list()
@@ -241,23 +235,21 @@ class GeneticAlgorithm:
 
                 # Create models list
                 models = []
-                
+
                 # Create models from these candidate solution
                 # If we are in the 1st phase, we only need to generate new models
-                if self.current_phase == self.start_phase:
+                if current_phase == 0:
                     for candidate in gen_candidate_solutions:
-                        models.append(Model(self.input_shape, self.number_of_labels, candidate))
-                
+                        models.append(Model(self.input_shape, self.nr_of_labels, candidate))
+
                 # If we are in an advanced phase, we have to perform transfer learning to assure fairness
                 # in solutions with longer cromossomes lengths
                 else:
                     for candidate in gen_candidate_solutions:
-                        models.append(self.transfer_learning(
-                                                            previous_model_state_dict=self.best_model_path,
-                                                            previous_best_solution=self.best_previous_phase_sol,
-                                                            new_candidate_solution=candidate))
+                        models.append(self.transfer_learning(previous_model=self.best_model,
+                                                             previous_best_solution=self.best_solution,
+                                                             new_candidate_solution=candidate))
 
-                
                 # Choose loss function; here we use CrossEntropy
                 loss = nn.CrossEntropyLoss()
 
@@ -291,7 +283,7 @@ class GeneticAlgorithm:
 
                         # Epoch Start Time
                         epoch_start = time.time()
-                        
+
                         # Running loss is initialised as 0
                         running_loss = 0.0
 
@@ -338,12 +330,12 @@ class GeneticAlgorithm:
                         print(f"Epoch: {epoch+1} | Time: {epoch_end-epoch_start} | Accuracy: {train_acc} | Loss: {avg_train_loss}")
 
                         # torch.save(model.state_dict(), 'model.pth')
-                    
+
                     # Model Ending Time 
                     model_end = time.time()
                     total_model_time = model_end - model_start
                     print(f'Finished Training after {total_model_time} seconds.')
-                    
+
                     # Pass model to the CPU 
                     model = model.cpu()
 
@@ -361,33 +353,36 @@ class GeneticAlgorithm:
                 generation_solutions_fitness = [self.solution_fitness(r[0], r[1]) for r in generation_models_results]
                 # print(generation_solutions_fitness)
 
+                # TODO save solution
                 # save statistic data
                 for stat_idx in range(len(generation_models_results)):
-                    stat_data[self.current_phase - self.start_phase][current_generation][stat_idx][0] = generation_models_results[stat_idx][0]
-                    stat_data[self.current_phase - self.start_phase][current_generation][stat_idx][1] = generation_models_results[stat_idx][1]
-                    stat_data[self.current_phase - self.start_phase][current_generation][stat_idx][2] = generation_solutions_fitness[stat_idx]
+                    stat_data[current_phase][current_generation][stat_idx][0] = generation_models_results[stat_idx][0]
+                    stat_data[current_phase][current_generation][stat_idx][1] = generation_models_results[stat_idx][1]
+                    stat_data[current_phase][current_generation][stat_idx][2] = generation_solutions_fitness[stat_idx]
 
                 print(stat_data)
 
                 # Save statistics into a NumPy Array
-                np.save(file=f"results/{self.data_name.lower()}/stat_data.npy", arr=stat_data, allow_pickle=True)
+                stat_path = f"results/{self.data_name.lower()}"
+                stat_filename = "stat_data.npy"
+
+                if not os.path.isdir(stat_path):
+                    os.makedirs(stat_path)
+
+                np.save(file=os.path.join(stat_path, stat_filename), arr=stat_data, allow_pickle=True)
+
+                best_model_idx = np.argmax(generation_solutions_fitness)
 
                 # TODO: Update best model path and best solution variables
-                if generation_solutions_fitness[np.argmax(generation_solutions_fitness)] > self.best_sol_fitness:
-                    phase_best_model_path = f"results/{self.data_name.lower()}/best_model_phase{self.current_phase}.pt"
-                    torch.save(models[np.argmax(generation_solutions_fitness)].state_dict(), phase_best_model_path)
+                if generation_solutions_fitness[best_model_idx] > self.best_sol_fitness:
+                    self.best_model_aux = models[best_model_idx]
+                    self.best_solution_aux = gen_candidate_solutions[best_model_idx]
+                    self.best_sol_fitness = generation_solutions_fitness[best_model_idx]
 
-                    # TODO: Save Model in CPU
-                    self.best_sol_fitness = generation_solutions_fitness[np.argmax(generation_solutions_fitness)]
-                    self.best_solution = gen_candidate_solutions[np.argmax(generation_solutions_fitness)]
-
-                
-                # TODO: Erase this after testing 
-                # Apply Most Fit Solutions Methods
-                # most_fit_solutions = self.solution_selection(s_population=gen_candidate_solutions, s_fitnesses=generation_solutions_fitness)
-                
-                # TODO: Updated Generation
                 current_generation += 1
+
+            self.best_model = self.best_model_aux
+            self.best_solution = self.best_solution_aux
 
             # TODO: Update best model path for transfer learning purposes 
             # TODO: With Model in CPU with do not need to save this in disk
@@ -398,17 +393,17 @@ class GeneticAlgorithm:
             # TODO: We can not assume that the previous has better solutions!
             # TODO: Refactor the code to have this into account
             # self.best_previous_phase_sol = self.copy_solution(self.best_solution)
-            
+
             # TODO: Update phase
-            self.current_phase += 1
-            
+            current_phase += 1
+
             # TODO: Update chromossome length
             self.current_chromossome_length += 1
 
     # TODO: Test Loop
     def test(self):
         pass
-    
+
     # TODO: Thread Training Solution (this would only give a performance boost using different processes, not threads, i think. I dont know how hard it is to implement,
     #  because sharing memory between processes can be a pain sometimes. Even if we implement it this would only give a performance boost if the gpu can train multiple
     #  models simultaneously without reaching its parallel processing capability. I think this should be the last thing to implement)
@@ -422,7 +417,7 @@ class GeneticAlgorithm:
         previous_model.train()
 
         # Create The New Model Instance 
-        pretrained_model = Model(self.input_shape, self.number_of_labels, new_candidate_solution)
+        pretrained_model = Model(self.input_shape, self.nr_of_labels, new_candidate_solution)
         pretrained_model.train()
 
         # Create a list with the two models: it will be useful with the next steps
@@ -431,11 +426,11 @@ class GeneticAlgorithm:
         # Check conv-layers first
         # Create a list with the conv-blocks of each solution
         conv_layers_sols = [previous_best_solution[0], new_candidate_solution[0]]
-        
+
         # Check the solution which has the lower number of layers
         nr_of_conv_layers = [np.shape(conv_layers_sols[0])[0], np.shape(conv_layers_sols[1])[0]]
         limitant_sol_idx = np.argmin(nr_of_conv_layers)
-        
+
         # TODO: Review Conv-Transfer Learning to Take Channel Dimensions Into Account
         # The weights are going to be copied from the number of layers equal to the the number of layers of limitant_sol_idx
         # TODO: Best way of transfer learning between conv-layers 
@@ -457,7 +452,7 @@ class GeneticAlgorithm:
         t1 = random_tensor[t1.size()]
         
         '''
-        
+
         with torch.no_grad():
             conv_idx = 0
             curr_idx = 0
@@ -472,7 +467,7 @@ class GeneticAlgorithm:
                     # New Weights
                     new_weights = torch.clone(pretrained_model.convolutional_layers[curr_idx].weight)
                     new_weights_size = pretrained_model.convolutional_layers[curr_idx].weight.size()
-                    
+
                     # TODO: Erase this commented code upon review
                     # Flatten Tensors to avoid dimension problems
                     # previous_weights = previous_weights.view(-1)
@@ -490,7 +485,7 @@ class GeneticAlgorithm:
                     max_k_size_xx = max(int(previous_weights_size[2]), int(new_weights_size[2]))
                     # Dimension 3: Kernel Size YY-Axis
                     max_k_size_yy = max(int(previous_weights_size[3]), int(new_weights_size[3]))
-                    
+
                     # Generate a RandN Torch Tensor that has this Max 4 Dimensions' Sizes
                     randn_weights_tensor = torch.randn(max_nr_out_channels, max_nr_in_channels, max_k_size_xx, max_k_size_yy)
 
@@ -500,7 +495,7 @@ class GeneticAlgorithm:
                     previous_weights_in_channels = int(previous_weights_size[1])
                     previous_weights_k_size_xx = int(previous_weights_size[2])
                     previous_weights_k_size_yy = int(previous_weights_size[3])
-                    
+
                     # Fill the randn tensor with the maximum possible values
                     randn_weights_tensor[:previous_weights_out_channels,
                                          :previous_weights_in_channels,
@@ -509,9 +504,9 @@ class GeneticAlgorithm:
                                                                         :previous_weights_in_channels,
                                                                         :previous_weights_k_size_xx,
                                                                         :previous_weights_k_size_yy]
-                    
 
-                    
+
+
                     # Transfer the maximum possible values of the randn tensor for the new weights tensor
                     # Get the New Weights Dimensions' Sizes
                     new_weights_out_channels = int(new_weights_size[0])
@@ -528,19 +523,19 @@ class GeneticAlgorithm:
                                                                                :new_weights_k_size_xx,
                                                                                :new_weights_k_size_yy]
 
-                    
+
 
                     # TODO: Erase this part upon review
                     # Transfer Weights
                     # new_weights[0:min_size] = previous_weights[0:min_size]
                     # Reshape New Weights Tensor
                     # new_weights = new_weights.view(new_weights_size)
-                    
-                    
+
+
                     # Transfer this to the the pretrained model
                     pretrained_model.convolutional_layers[curr_idx].weight = torch.nn.Parameter(new_weights)
-                    
-                    
+
+
                     # The Bias Tensor only has 1 Dimension, so it is easier to check the minimum size and transfer that ammount
                     # Previous Bias
                     previous_bias = torch.clone(previous_model.convolutional_layers[curr_idx].bias)
@@ -563,10 +558,10 @@ class GeneticAlgorithm:
 
                     # Update the conv_idx variable to the next
                     conv_idx +=1
-                
+
                 # Update curr_idx to go through
                 curr_idx += 1
-        
+
 
         # Then, check fc-layers
         # Create a list with the fc-blocks of each solution
@@ -626,11 +621,11 @@ class GeneticAlgorithm:
 
                     # Update the conv_idx variable to the next
                     fc_idx += 1
-                
+
                 # Update curr_idx to go through
                 curr_idx += 1
 
-    
+
 
         # Last, but not least, check the fc-label layer
         with torch.no_grad():
@@ -674,14 +669,14 @@ class GeneticAlgorithm:
                 # Transfer this to the pretrained model
                 pretrained_model.fc_labels.bias = torch.nn.Parameter(new_bias)
 
-        return pretrained_model 
+        return pretrained_model
 
 
     # TODO: Review Mutation Method
     def apply_mutation(self, alive_solutions_list):
         # Create a mutated solutions list to append solutions
         mutated_solutions_list = list()
-        
+
         # First, we iterate through the alive solutions list
         for solution in alive_solutions_list:
             # Create a copy of the solution to mutate
@@ -696,21 +691,21 @@ class GeneticAlgorithm:
 
             # Create a Tensor to evaluate feasibility while creating the mutated solution
             curr_tensor = torch.rand((1, self.input_shape[0], self.input_shape[1], self.input_shape[2]))
-            
+
             # Iterate through conv-block and evaluate mutation places
             for layer_idx, layer in enumerate(_solution[0]):
                 layer_mask = conv_block_mask[layer_idx]
 
                 # Iterate through layer mask and see the places where we have to promote mutation
                 for where_mutated, is_mutated in enumerate(layer_mask):
-                    
+
                     # Check mutation places first
                     if where_mutated == 0:
                         if is_mutated == True:
                             # Mutation happens in conv-filters
                             nr_filters = random.choice(utils.conv_nr_filters)
                             _solution[0][layer_idx][where_mutated] = nr_filters
-                    
+
                     elif where_mutated == 1:
                         if is_mutated == True:
                             # Mutation happens in conv_kernel_sizes
@@ -718,7 +713,7 @@ class GeneticAlgorithm:
                             allowed_conv_kernel_size = utils.conv_kernel_size[utils.conv_kernel_size <= max_kernel_size]
                             kernel_size = random.choice(allowed_conv_kernel_size)
                             _solution[0][layer_idx][where_mutated] = kernel_size
-                        
+
                         # Update curr_tensor
                         _nr_filters = int(_solution[0][layer_idx][0].item())
                         _kernel_size = int(_solution[0][layer_idx][where_mutated].item())
@@ -729,7 +724,7 @@ class GeneticAlgorithm:
                             # Mutation happens in conv_activ_functions
                             activ_function = random.randint(0, len(utils.conv_activ_functions)-1)
                             _solution[0][layer_idx][where_mutated] = activ_function
-                    
+
                     elif where_mutated == 3:
                         if is_mutated == True:
                             # Mutation happens in conv_drop_rates
@@ -744,13 +739,13 @@ class GeneticAlgorithm:
                                 pool = 0
                             else:
                                 pool = random.randint(0, len(utils.conv_pooling_types)-1)
-                            
+
                             _solution[0][layer_idx][where_mutated] = pool
-                        
+
                         # Update curr_tensor after Column 4 mutations in conv_pool_type
                         _pool = int(_solution[0][layer_idx][where_mutated].item())
                         curr_tensor = utils.conv_pooling_types[_pool](curr_tensor)
-            
+
             # We now check the fc-block
             # We create a mask of numbers in interval [0, 1) for the fc-block
             fc_block_mask = torch.rand_like(_solution[1])
@@ -777,18 +772,18 @@ class GeneticAlgorithm:
                             # Mutation happens in fc_drop_rates
                             drop_out = random.uniform(utils.fc_drop_out_range[0], utils.fc_drop_out_range[1])
                             _solution[1][layer_idx][where_mutated] = drop_out
-            
-            
+
+
             # Last, we check the learning rate
             # We also create a mask for the learning rate
             if torch.rand_like(_solution[2]) >= self.mutation_rate:
                 # Mutation happens in the learning rate
                 _solution[2] = torch.tensor([random.choice(utils.learning_rate)])
-            
+
 
             # Finally, we append the mutated solution to the mutated solutions list
             mutated_solutions_list.append(_solution)
-        
+
 
         return mutated_solutions_list
 
@@ -924,9 +919,8 @@ class GeneticAlgorithm:
 
 
 if __name__ == '__main__':
-    ga = GeneticAlgorithm(input_shape=[1, 28, 28], number_of_labels=10, size_of_population=2, nr_of_generations=3, mutation_rate=0.5,
-                        nr_of_autoselected_solutions=2, start_phase=0, end_phase=1, initial_chromossome_length=2,
-                        nr_of_epochs=1, data="mnist")
+    ga = GeneticAlgorithm(input_shape=[1, 28, 28], size_of_population=2, nr_of_labels=10, nr_of_phases=1, nr_of_generations=3, nr_of_autoselected_solutions=2,
+                 mutation_rate=0.5, initial_chromossome_length=2, nr_of_epochs=5, data="mnist")
 
     ga.train()
 
@@ -975,12 +969,12 @@ if __name__ == '__main__':
         # items = torch.tensor([1., 2., 3., 4.], dtype=torch.float)
         # model.convolutional_layers[4].weight[0:4] = items_
         # model.convolutional_layers[4].bias[0:4] = items[0:4]
-    
+
     # model.convolutional_layers[0].bias.requires_grad = True
 
     # for param in model.parameters():
         # param.requires_grad = True
-    
+
     # print(model.convolutional_layers[0].bias, model.convolutional_layers[0].bias.size())
     # print(model.convolutional_layers[4].weight, model.convolutional_layers[4].weight.size())    
 
