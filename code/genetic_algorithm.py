@@ -413,8 +413,155 @@ class GeneticAlgorithm:
             self.current_chromossome_length += 1
 
     # TODO: Test Loop
-    def test(self):
-        pass
+    def test(self, epochs=30):
+        # Load data
+        # Data will always be the same, so we can read it in the beginning of the loop
+        # Choose data loader based on the "self.data" variable
+        # Here we load the data 
+        if self.data_name.lower() == "mnist":
+            train_loader = get_mnist_loader(batch_size=32, train=True)
+            test_loader = get_mnist_loader(batch_size=32, train=False)
+            
+        
+        elif self.data_name.lower() == "fashion-mnist":
+            train_loader = get_fashion_mnist_loader(batch_size=32, train=True)
+            test_loader = get_fashion_mnist_loader(batch_size=32, train=False)
+        
+        elif self.data_name.lower() == "cifar10":
+            train_loader = get_cifar10_loader(batch_size=32, train=True)
+            test_loader = get_cifar10_loader(batch_size=32, train=False)
+        
+        else:
+            raise ValueError(f"{self.data_name} is not a valid argument. Please choose one of these: 'mnist', 'fashion-mnist', 'cifar10'.")
+
+        
+        # Choose loss function; here we use CrossEntropy
+        loss = nn.CrossEntropyLoss()
+
+        # Select device: GPU or CPU
+        device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+
+
+        # Load the best model
+        # model = Model(self.input_shape, self.number_of_labels, self.best_solution)
+
+        print(f'Training Best Model on Train Set')
+
+        # Transfer model to device (CPU or GPU)
+        self.best_model = self.best_model.to(device)
+
+        # Put model in "training mode"
+        self.best_model.train()
+
+        # Load optimizer (for now, we will used Adam)
+        optim = torch.optim.Adam(self.best_model.parameters(), lr=self.best_model.learning_rate)
+
+        # Model Starting Time
+        model_start = time.time()
+
+        train_loss_min = np.Inf
+
+        # We train each model for 30 Epochs
+        for epoch in range(epochs):
+            
+            # Epoch Start Time
+            epoch_start = time.time()
+            
+            # Running loss is initialised as 0
+            running_loss = 0.0
+
+            # Initialise y and y_pred lists to compute the accuracy in the end of the epoch
+            y = list()
+            y_pred = list()
+
+            # Iterate through the dataset
+            for i, data in enumerate(train_loader):
+
+                images, labels = data
+
+                # zero the parameter gradients
+                optim.zero_grad()
+
+                # forward + backward + optimize
+                images = images.to(device)
+                labels = labels.to(device)
+
+                features = self.best_model(images)
+
+                loss_value = loss(features, labels)
+
+                loss_value.backward()
+
+                optim.step()
+
+                # Get statistics
+                running_loss += loss_value.item() * images.size(0)
+
+                # Concatenate lists
+                y += list(labels.cpu().detach().numpy())
+                y_pred += list(torch.argmax(features, dim=1).cpu().detach().numpy())
+
+            # Average Train Loss
+            avg_train_loss = running_loss/len(train_loader.dataset)
+
+            # Train Accuracy
+            train_acc = sklearn_metrics.accuracy_score(y_true=y, y_pred=y_pred)
+
+            # Epoch End Time
+            epoch_end = time.time()
+
+            print(f"Epoch: {epoch+1} | Time: {epoch_end-epoch_start} | Accuracy: {train_acc} | Loss: {avg_train_loss}")
+
+            if avg_train_loss < train_loss_min:
+                print(f"Train Loss decreased from {train_loss_min} to {avg_train_loss}.")
+                torch.save(self.best_model.state_dict(), f'results/{self.data_name.lower()}/best_model_weights.pt')
+                train_loss_min = avg_train_loss
+
+        
+        # Testing Phase
+        print(f"Testing Best Model on Test Set")
+
+        self.best_model = self.best_model.eval()
+
+
+        with torch.no_grad():
+            # Running loss is initialised as 0
+            running_loss = 0.0
+
+            # Initialise y and y_pred lists to compute the accuracy in the end of the epoch
+            y = list()
+            y_pred = list()
+
+            # Iterate through the dataset
+            for i, data in enumerate(test_loader):
+
+                images, labels = data
+
+                # forward + backward + optimize
+                images = images.to(device)
+                labels = labels.to(device)
+
+                features = self.best_model(images)
+
+                loss_value = loss(features, labels)
+
+                # Get statistics
+                running_loss += loss_value.item() * images.size(0)
+
+                # Concatenate lists
+                y += list(labels.cpu().detach().numpy())
+                y_pred += list(torch.argmax(features, dim=1).cpu().detach().numpy())
+
+            # Average Train Loss
+            avg_test_loss = running_loss/len(train_loader.dataset)
+
+            # Train Accuracy
+            test_acc = sklearn_metrics.accuracy_score(y_true=y, y_pred=y_pred)
+
+
+        print(f"Accuracy: {test_acc} | Loss: {avg_test_loss}")
+
+
     
     # TODO: Thread Training Solution (this would only give a performance boost using different processes, not threads, i think. I dont know how hard it is to implement,
     #  because sharing memory between processes can be a pain sometimes. Even if we implement it this would only give a performance boost if the gpu can train multiple
