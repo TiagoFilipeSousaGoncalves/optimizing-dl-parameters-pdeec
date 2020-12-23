@@ -17,6 +17,9 @@ from code.datasets import get_mnist_loader, get_fashion_mnist_loader, get_cifar1
 # Sklearn Imports
 import sklearn.metrics as sklearn_metrics
 
+# Pickle
+import _pickle as cPickle
+
 # Set random seed value so we a have a reproductible work
 random_seed = 42
 
@@ -30,6 +33,7 @@ random.seed(random_seed)
 class GeneticAlgorithm:
     def __init__(self, input_shape, size_of_population, nr_of_labels, nr_of_phases, nr_of_generations, nr_of_autoselected_solutions,
                  mutation_rate, initial_chromossome_length, nr_of_epochs=5, data="mnist"):
+        # TODO assert nr_of_population even
 
         # Dataset Variables
         self.input_shape = input_shape
@@ -182,7 +186,7 @@ class GeneticAlgorithm:
         else:
             raise ValueError(f"{self.data_name} is not a valid argument. Please choose one of these: 'mnist', 'fashion-mnist', 'cifar10'.")
 
-        stat_data = np.zeros((self.nr_of_phases, self.nr_of_generations, self.size_of_population, 3))
+        stat_data = np.zeros((self.nr_of_phases, self.nr_of_generations, self.size_of_population, 4), dtype=object)
 
         current_phase = 0
 
@@ -215,13 +219,14 @@ class GeneticAlgorithm:
                     # Get the sorted indices 
                     sorted_indices = np.argsort(generation_solutions_fitness)
                     # Use this var self.nr_of_autoselected_solutions
-                    for i in range(1, self.nr_of_autoselected_solutions+1):
+                    for i in range(-1, -1-self.nr_of_autoselected_solutions, -1):
                         # The n best solutions are in the end
-                        gen_candidate_solutions.append(most_fit_solutions[-i])
+                        gen_candidate_solutions.append(most_fit_solutions[i])
+
+                    print(f"length:{len(gen_candidate_solutions)}")
 
                     # TODO: Shuffle most fit solutions
-                    most_fit_solutions = np.random.shuffle(most_fit_solutions)
-
+                    np.random.shuffle(most_fit_solutions)
 
                     # Iterate through most fit solutions
                     # TODO: Review that we need to subtract self.nr_of_autoselected_solutions to keep the size of population!
@@ -366,17 +371,21 @@ class GeneticAlgorithm:
                     stat_data[current_phase][current_generation][stat_idx][0] = generation_models_results[stat_idx][0]
                     stat_data[current_phase][current_generation][stat_idx][1] = generation_models_results[stat_idx][1]
                     stat_data[current_phase][current_generation][stat_idx][2] = generation_solutions_fitness[stat_idx]
+                    stat_data[current_phase][current_generation][stat_idx][3] = gen_candidate_solutions[stat_idx]
 
                 print(stat_data)
 
                 # Save statistics into a NumPy Array
                 stat_path = f"results/{self.data_name.lower()}"
-                stat_filename = "stat_data.npy"
+                stat_filename = "stat_data.pickle"
 
                 if not os.path.isdir(stat_path):
                     os.makedirs(stat_path)
 
-                np.save(file=os.path.join(stat_path, stat_filename), arr=stat_data, allow_pickle=True)
+                with open(os.path.join(stat_path, stat_filename), 'wb') as fp:
+                    cPickle.dump(stat_data, fp, -1)
+
+                #np.save(file=os.path.join(stat_path, stat_filename), arr=stat_data, allow_pickle=True)
 
                 best_model_idx = np.argmax(generation_solutions_fitness)
 
@@ -1076,8 +1085,8 @@ class GeneticAlgorithm:
 
 
 if __name__ == '__main__':
-    ga = GeneticAlgorithm(input_shape=[1, 28, 28], size_of_population=2, nr_of_labels=10, nr_of_phases=1, nr_of_generations=3, nr_of_autoselected_solutions=2,
-                 mutation_rate=0.5, initial_chromossome_length=2, nr_of_epochs=5, data="mnist")
+    ga = GeneticAlgorithm(input_shape=[1, 28, 28], size_of_population=4, nr_of_labels=10, nr_of_phases=1, nr_of_generations=2, nr_of_autoselected_solutions=2,
+                 mutation_rate=0.5, initial_chromossome_length=2, nr_of_epochs=2, data="mnist")
 
     ga.train()
 
