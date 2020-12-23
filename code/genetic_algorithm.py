@@ -218,13 +218,20 @@ class GeneticAlgorithm:
                     gen_candidate_solutions = list()
 
                     # TODO: Append the previous best two solutions to assure that progress is not lost
-                    # TODO: Use this var self.nr_of_autoselected_solutions
+                    # Get the sorted indices 
+                    sorted_indices = np.argsort(generation_solutions_fitness)
+                    # Use this var self.nr_of_autoselected_solutions
+                    for i in range(1, self.nr_of_autoselected_solutions+1):
+                        # The n best solutions are in the end
+                        gen_candidate_solutions.append(most_fit_solutions[-i])
 
                     # TODO: Shuffle most fit solutions
+                    most_fit_solutions = np.random.shuffle(most_fit_solutions)
+
 
                     # Iterate through most fit solutions
-                    # TODO: Review apply_crossover function (we need to copy the inputs first!)
-                    for idx in range(0, len(most_fit_solutions), 2):
+                    # TODO: Review that we need to subtract self.nr_of_autoselected_solutions to keep the size of population!
+                    for idx in range(0, len(most_fit_solutions)-self.nr_of_autoselected_solutions, 2):
                         sol1, sol2, = self.apply_crossover(sol1=most_fit_solutions[idx], sol2=most_fit_solutions[idx+1])
                         gen_candidate_solutions.append(sol1)
                         gen_candidate_solutions.append(sol2)
