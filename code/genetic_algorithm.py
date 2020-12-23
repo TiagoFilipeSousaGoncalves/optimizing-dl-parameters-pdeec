@@ -558,7 +558,6 @@ class GeneticAlgorithm:
             # Train Accuracy
             test_acc = sklearn_metrics.accuracy_score(y_true=y, y_pred=y_pred)
 
-
         print(f"Accuracy: {test_acc} | Loss: {avg_test_loss}")
 
 
