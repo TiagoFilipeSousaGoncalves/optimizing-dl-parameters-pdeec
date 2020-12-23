@@ -369,6 +369,9 @@ class GeneticAlgorithm:
 
                 print(stat_data)
 
+                # Save statistics into a NumPy Array
+                np.save(file=f"results/{self.data_name.lower()}/stat_data.npy", arr=stat_data, allow_pickle=True)
+
                 # TODO: Update best model path and best solution variables
                 if generation_solutions_fitness[np.argmax(generation_solutions_fitness)] > self.best_sol_fitness:
                     phase_best_model_path = f"results/{self.data_name.lower()}/best_model_phase{self.current_phase}.pt"
