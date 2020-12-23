@@ -514,7 +514,12 @@ class GeneticAlgorithm:
 
             if avg_train_loss < train_loss_min:
                 print(f"Train Loss decreased from {train_loss_min} to {avg_train_loss}.")
-                torch.save(self.best_model.state_dict(), f'results/{self.data_name.lower()}/best_model_weights.pt')
+
+                model_path = f'results/{self.data_name.lower()}'
+                if not os.path.isdir(model_path):
+                    os.makedirs(model_path)
+
+                torch.save(self.best_model.state_dict(), os.path.join(model_path, 'best_model_weights.pt'))
                 train_loss_min = avg_train_loss
 
         
