@@ -414,16 +414,13 @@ class GeneticAlgorithm:
 
     # Transfer Learning Function
     # TODO: debug: transfer weights from a pretrained network to a new one and check the accuracy
-    def transfer_learning(self, previous_model_state_dict, previous_best_solution, new_candidate_solution):
-        # Create the Previous Model Instance
-        previous_model = Model(self.input_shape, self.number_of_labels, previous_best_solution)
-        
-        # Load weights
-        previous_model.load_state_dict(torch.load(previous_model_state_dict))
-        previous_model.eval()
+    def transfer_learning(self, previous_model, previous_best_solution, new_candidate_solution):
+        # Put in train mode
+        previous_model.train()
 
         # Create The New Model Instance 
         pretrained_model = Model(self.input_shape, self.number_of_labels, new_candidate_solution)
+        pretrained_model.train()
 
         # Create a list with the two models: it will be useful with the next steps
         # models_list = [previous_model, pretrained_model]
