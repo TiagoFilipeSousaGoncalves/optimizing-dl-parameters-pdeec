@@ -33,7 +33,9 @@ random.seed(random_seed)
 class GeneticAlgorithm:
     def __init__(self, input_shape, size_of_population, nr_of_labels, nr_of_phases, nr_of_generations, nr_of_autoselected_solutions,
                  mutation_rate, initial_chromossome_length, nr_of_epochs=5, data="mnist"):
-        # TODO assert nr_of_population even
+        
+        # TODO: Review Assert that the size of population must be even
+        assert size_of_population % 2 != 0, "Size of population must be even."
 
         # Dataset Variables
         self.input_shape = input_shape
