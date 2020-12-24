@@ -34,7 +34,7 @@ class GeneticAlgorithm:
     def __init__(self, input_shape, size_of_population, nr_of_labels, nr_of_phases, nr_of_generations, nr_of_autoselected_solutions,
                  mutation_rate, initial_chromossome_length, nr_of_epochs=5, data="mnist"):
         
-        # TODO: Review Assert that the size of population must be even
+        # Assert that the size of population must be even
         assert size_of_population % 2 != 0, "Size of population must be even."
 
         # Dataset Variables
@@ -387,7 +387,7 @@ class GeneticAlgorithm:
                 with open(os.path.join(stat_path, stat_filename), 'wb') as fp:
                     cPickle.dump(stat_data, fp, -1)
 
-                #np.save(file=os.path.join(stat_path, stat_filename), arr=stat_data, allow_pickle=True)
+                # np.save(file=os.path.join(stat_path, stat_filename), arr=stat_data, allow_pickle=True)
 
                 best_model_idx = np.argmax(generation_solutions_fitness)
 
