@@ -1091,8 +1091,15 @@ class GeneticAlgorithm:
 if __name__ == '__main__':
     ga = GeneticAlgorithm(input_shape=[1, 28, 28], size_of_population=4, nr_of_labels=10, nr_of_phases=1, nr_of_generations=2, nr_of_autoselected_solutions=2,
                  mutation_rate=0.5, initial_chromossome_length=2, nr_of_epochs=2, data="mnist")
+    
+    best_solution = ga.generate_random_solution(2, [1, 28, 28])
+    ga.best_model = Model([1, 28, 28], 10, best_solution)
+    ga.best_solution = best_solution
 
-    ga.train()
+    ga.test(epochs=30)
+
+
+    # ga.train()
 
     # ga.train()
     # print(ga.repair_solution([torch.tensor([[10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 3, 0, 0, 1]]), torch.tensor([]), torch.tensor([])]))
