@@ -375,7 +375,7 @@ class GeneticAlgorithm:
                     stat_data[current_phase][current_generation][stat_idx][2] = generation_solutions_fitness[stat_idx]
                     stat_data[current_phase][current_generation][stat_idx][3] = gen_candidate_solutions[stat_idx]
 
-                print(stat_data)
+                # print(stat_data)
 
                 # Save statistics into a NumPy Array
                 stat_path = f"results/{self.data_name.lower()}"
