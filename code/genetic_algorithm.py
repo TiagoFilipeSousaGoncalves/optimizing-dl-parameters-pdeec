@@ -35,7 +35,7 @@ class GeneticAlgorithm:
                  mutation_rate, initial_chromossome_length, nr_of_epochs=5, data="mnist"):
         
         # Assert that the size of population must be even
-        assert size_of_population % 2 != 0, "Size of population must be even."
+        assert size_of_population % 2 == 0, "Size of population must be even."
 
         # Dataset Variables
         self.input_shape = input_shape

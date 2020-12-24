@@ -33,24 +33,34 @@ random.seed(random_seed)
 datasets_names = ["mnist", "fashion-mnist", "cifar10"]
 datasets_shapes = [[1, 28, 28], [1, 28, 28], [3, 32, 32]]
 
-# Go through datasets and shapes
-for dataset, shape in zip(datasets_names, datasets_shapes):
-    # Some debug prints
-    print(f"Current Dataset {dataset} | Dataset Shape: {shape}")
 
-    # Create GeneticAlgorithm Instance
-    ga = GeneticAlgorithm(input_shape=shape, size_of_population=20, nr_of_labels=10,
-                          nr_of_phases=4, nr_of_generations=50, nr_of_autoselected_solutions=2,
-                          mutation_rate=0.5, initial_chromossome_length=2, nr_of_epochs=5, data=dataset)
-    
-    # Train the genetic algorithm
-    ga.train()
+def main():
+    # Go through datasets and shapes
+    for dataset, shape in zip(datasets_names, datasets_shapes):
+        # Some debug prints
+        print(f"Current Dataset {dataset} | Dataset Shape: {shape}")
 
-    # Test the genetic algorithm
-    results = ga.test(epochs=30)
+        if not os.path.isdir(f"results/{dataset}"):
+            os.makedirs(f"results/{dataset}")
 
-    # Save results into a pickle file for further analysis
-    with open(f"results/{dataset}/test_results.pickle", 'wb') as fp:
-        cPickle.dump(results, fp, -1)
+        # Create GeneticAlgorithm Instance
+        ga = GeneticAlgorithm(input_shape=shape, size_of_population=20, nr_of_labels=10,
+                              nr_of_phases=4, nr_of_generations=50, nr_of_autoselected_solutions=2,
+                              mutation_rate=0.5, initial_chromossome_length=2, nr_of_epochs=5, data=dataset)
 
-print(f"Finished the training of all datasets")
+        # Train the genetic algorithm
+        ga.train()
+
+        # Test the genetic algorithm
+        results = ga.test(epochs=30)
+
+        # Save results into a pickle file for further analysis
+        with open(f"results/{dataset}/test_results.pickle", 'wb') as fp:
+            cPickle.dump(results, fp, -1)
+
+    print(f"Finished the training of all datasets")
+
+
+if __name__ == '__main__':
+    main()
+
