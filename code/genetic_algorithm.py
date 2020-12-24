@@ -571,6 +571,8 @@ class GeneticAlgorithm:
 
         print(f"Accuracy: {test_acc} | Loss: {avg_test_loss}")
 
+        return [test_acc, avg_test_loss]
+
 
     # TODO: Thread Training Solution (this would only give a performance boost using different processes, not threads, i think. I dont know how hard it is to implement,
     #  because sharing memory between processes can be a pain sometimes. Even if we implement it this would only give a performance boost if the gpu can train multiple

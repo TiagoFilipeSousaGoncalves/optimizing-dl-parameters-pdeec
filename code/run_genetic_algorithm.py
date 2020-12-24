@@ -47,6 +47,10 @@ for dataset, shape in zip(datasets_names, datasets_shapes):
     ga.train()
 
     # Test the genetic algorithm
-    ga.test(epochs=30)
+    results = ga.test(epochs=30)
+
+    # Save results into a pickle file for further analysis
+    with open(f"results/{dataset}/test_results.pickle", 'wb') as fp:
+        cPickle.dump(results, fp, -1)
 
 print(f"Finished the training of all datasets")
