@@ -210,28 +210,32 @@ class GeneticAlgorithm:
 
                 # If not, we are generating not new solutions; we obtain new ones by crossover and mutation
                 else:
-                    # Apply Most Fit Solutions Methods
-                    most_fit_solutions = self.solution_selection(s_population=gen_candidate_solutions, s_fitnesses=generation_solutions_fitness)
-
-                    # TODO: Apply crossover between best solutions of the previous generation until you achieve
+                    # Apply crossover between best solutions of the previous generation until you achieve
                     # the size of the population
-                    gen_candidate_solutions = list()
+                    best_gen_candidates = list()
 
-                    # TODO: Append the previous best two solutions to assure that progress is not lost
+                    # Append the previous best two solutions to assure that progress is not lost
                     # Get the sorted indices 
                     sorted_indices = np.argsort(generation_solutions_fitness)
                     # Use this var self.nr_of_autoselected_solutions
                     for i in range(-1, -1-self.nr_of_autoselected_solutions, -1):
                         # The n best solutions are in the end
-                        gen_candidate_solutions.append(most_fit_solutions[i])
+                        best_gen_candidates.append(gen_candidate_solutions[sorted_indices[i]])
 
-                    print(f"length:{len(gen_candidate_solutions)}")
+                    print(f"Number of Best Candidates Selected:{len(best_gen_candidates)}")
 
-                    # TODO: Shuffle most fit solutions
+                    # Apply Most Fit Solutions Methods
+                    print(f"Selecting best solutions...")
+                    most_fit_solutions = self.solution_selection(s_population=gen_candidate_solutions, s_fitnesses=generation_solutions_fitness)
+
+                    # Shuffle most fit solutions
                     np.random.shuffle(most_fit_solutions)
 
+                    # Reset gen_candidate_solutions
+                    gen_candidate_solutions = list()
+
                     # Iterate through most fit solutions
-                    # TODO: Review that we need to subtract self.nr_of_autoselected_solutions to keep the size of population!
+                    # We need to subtract self.nr_of_autoselected_solutions to keep the size of population!
                     for idx in range(0, len(most_fit_solutions)-self.nr_of_autoselected_solutions, 2):
                         sol1, sol2, = self.apply_crossover(sol1=most_fit_solutions[idx], sol2=most_fit_solutions[idx+1])
                         gen_candidate_solutions.append(sol1)
@@ -246,6 +250,9 @@ class GeneticAlgorithm:
                     # TODO: Repair solutions so we have a complete list of feasible solutions
                     gen_candidate_solutions = [self.repair_solution(s) for s in gen_candidate_solutions]
                     print(f"Generation {current_generation} solutions generated and repaired.")
+
+                    # Concatenate gen_candidate_solutions and best_gen_candidates
+                    gen_candidate_solutions = best_gen_candidates + gen_candidate_solutions
 
                 # Create models list
                 models = []

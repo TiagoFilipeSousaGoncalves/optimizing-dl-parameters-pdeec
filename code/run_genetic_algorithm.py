@@ -46,7 +46,7 @@ def main():
         # Create GeneticAlgorithm Instance
         ga = GeneticAlgorithm(input_shape=shape, size_of_population=20, nr_of_labels=10,
                               nr_of_phases=4, nr_of_generations=50, nr_of_autoselected_solutions=2,
-                              mutation_rate=0.5, initial_chromossome_length=2, nr_of_epochs=5, data=dataset)
+                              mutation_rate=0.2, initial_chromossome_length=2, nr_of_epochs=5, data=dataset)
 
         # Train the genetic algorithm
         ga.train()
