@@ -866,8 +866,9 @@ class GeneticAlgorithm:
             conv_block_mask = torch.rand_like(_solution[0])
             conv_block_mask = conv_block_mask >= self.mutation_rate
 
+            # TODO: Review that this was commented 
             # Create a Tensor to evaluate feasibility while creating the mutated solution
-            curr_tensor = torch.rand((1, self.input_shape[0], self.input_shape[1], self.input_shape[2]))
+            # curr_tensor = torch.rand((1, self.input_shape[0], self.input_shape[1], self.input_shape[2]))
 
             # Iterate through conv-block and evaluate mutation places
             for layer_idx, layer in enumerate(_solution[0]):
@@ -886,15 +887,16 @@ class GeneticAlgorithm:
                     elif where_mutated == 1:
                         if is_mutated == True:
                             # Mutation happens in conv_kernel_sizes
-                            max_kernel_size = min(curr_tensor.size()[2:])
-                            allowed_conv_kernel_size = utils.conv_kernel_size[utils.conv_kernel_size <= max_kernel_size]
-                            kernel_size = random.choice(allowed_conv_kernel_size)
+                            # max_kernel_size = min(curr_tensor.size()[2:])
+                            # allowed_conv_kernel_size = utils.conv_kernel_size[utils.conv_kernel_size <= max_kernel_size]
+                            # kernel_size = random.choice(allowed_conv_kernel_size)
+                            kernel_size = random.choice(utils.conv_kernel_size)
                             _solution[0][layer_idx][where_mutated] = kernel_size
 
                         # Update curr_tensor
-                        _nr_filters = int(_solution[0][layer_idx][0].item())
-                        _kernel_size = int(_solution[0][layer_idx][where_mutated].item())
-                        curr_tensor = nn.Conv2d(in_channels=curr_tensor.size()[1], out_channels=_nr_filters, kernel_size=_kernel_size)(curr_tensor)
+                        # _nr_filters = int(_solution[0][layer_idx][0].item())
+                        # _kernel_size = int(_solution[0][layer_idx][where_mutated].item())
+                        # curr_tensor = nn.Conv2d(in_channels=curr_tensor.size()[1], out_channels=_nr_filters, kernel_size=_kernel_size)(curr_tensor)
 
                     elif where_mutated == 2:
                         if is_mutated == True:
@@ -911,17 +913,18 @@ class GeneticAlgorithm:
                     else:
                         if is_mutated == True:
                             # Mutation happens in conv_pool_types
-                            max_kernel_size = min(curr_tensor.size()[2:])
-                            if max_kernel_size < 2:
-                                pool = 0
-                            else:
-                                pool = random.randint(0, len(utils.conv_pooling_types)-1)
-
+                            # max_kernel_size = min(curr_tensor.size()[2:])
+                            # if max_kernel_size < 2:
+                                # pool = 0
+                            # else:
+                                # pool = random.randint(0, len(utils.conv_pooling_types)-1)
+                            
+                            pool = random.randint(0, len(utils.conv_pooling_types)-1)
                             _solution[0][layer_idx][where_mutated] = pool
 
                         # Update curr_tensor after Column 4 mutations in conv_pool_type
-                        _pool = int(_solution[0][layer_idx][where_mutated].item())
-                        curr_tensor = utils.conv_pooling_types[_pool](curr_tensor)
+                        # _pool = int(_solution[0][layer_idx][where_mutated].item())
+                        # curr_tensor = utils.conv_pooling_types[_pool](curr_tensor)
 
             # We now check the fc-block
             # We create a mask of numbers in interval [0, 1) for the fc-block
