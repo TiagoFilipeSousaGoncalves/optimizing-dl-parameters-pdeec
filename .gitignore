@@ -137,5 +137,5 @@ dmypy.json
 # Datasets
 # data/
 data/mnist 
-data/fashion-mnist 
+data/fashion_mnist 
 data/cifar10
