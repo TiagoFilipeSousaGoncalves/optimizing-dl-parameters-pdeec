@@ -45,3 +45,9 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     # Debug prints
     print(f"Test Results Values: {test_results}")
     # print(f"Test Results Shape: {np.shape(test_results)}")
+
+    # TODO: Plot 1 - Search Space Size vs Nr of Layers
+    # TODO: Plot 2 - Best Individual Fitness per Phase
+    # TODO: Plot 3 - Best Individual Accuracy per Phase
+    # TODO: Plot 4 - Individual Fitness per Generation per Phase
+    # TODO: Plot 5 - Distribution of Individuals and Fitnesses
