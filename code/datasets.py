@@ -3,18 +3,6 @@ import torch
 import torchvision
 from torchvision import transforms
 
-# TODO: Erase this after review
-'''
-mnist_mean = [0.1307]
-mnist_std = [0.3081]
-
-fashion_mnist_mean = [0.2860]
-fashion_mnist_std = [0.3530]
-
-cifar10_mean = [0.4914, 0.4822, 0.4465]
-cifar10_std = [0.2470, 0.2435, 0.2616]
-'''
-
 # MNIST Data Loader
 def get_mnist_loader(batch_size, train=True):
 
