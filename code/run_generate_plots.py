@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import _pickle as cPickle
 import os
+from itertools import product
 
 # PyTorch
 import torch
@@ -14,6 +15,7 @@ results = "results"
 # Datasets Directories
 datasets = [i for i in os.listdir(results) if not i.startswith('.')]
 datasets = [i for i in datasets if not i.startswith('_')]
+datasets = [i for i in datasets if not i.startswith('s')]
 # print(datasets)
 
 # Filenames
@@ -46,7 +48,73 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     print(f"Test Results Values: {test_results}")
     # print(f"Test Results Shape: {np.shape(test_results)}")
 
-    # TODO: Plot 1 - Search Space Size vs Nr of Layers
+    # TODO: Review Plot 1 - Search Space Size vs Chromossome Lengths
+    # Initial chromossome length
+    chromossome_lengths = [2+i for i in range(4)]
+    # Conv-Layer Params
+    nr_conv_filters = 7
+    nr_kernel_sizes = 5
+    nr_conv_act_fns = 3
+    nr_of_conv_dropout_probs = 1000
+    nr_pool_types = 3
+    nr_conv_params = nr_conv_filters * nr_kernel_sizes * nr_conv_act_fns * nr_of_conv_dropout_probs * nr_pool_types
+    
+    # FC-Layer Params
+    nr_fc_neurons = 100
+    nr_fc_act_fns = 3
+    nr_of_fc_dropout_probs = 3
+    nr_fc_params = nr_fc_neurons * nr_fc_act_fns * nr_of_fc_dropout_probs
+
+    # Learning Rate
+    nr_of_lrates = 3
+
+    # Create lists to append search space sizes and chromossome legths
+    sss_cl_lists = list()
+
+    # Compute the search space sizes as function of the chromossome length 
+    for c_len in chromossome_lengths:
+        # Get the permutations of the types of architectures 
+        c_prod = product(range(0, c_len+1), repeat=2)
+        # Debug print
+        # print(list(c_prod))
+
+        # Exclude the permutations in which the sum of layers is different from c_len
+        valid_perm = list()
+        for p in list(c_prod):
+            # print(p[0], p[1])
+            if p[0] + p[1] == c_len:
+                valid_perm.append([p[0], p[1]])
+        
+        # Debug print
+        # print(valid_perm)
+        
+
+        # Compute the size of search spaces per permutation
+        search_space_size = 0
+        # Go through the valid permutations
+        for p_val in valid_perm:
+            p_sss = ((p_val[0] * nr_conv_params) + (p_val[1] * nr_fc_params)) * nr_of_lrates
+            search_space_size += p_sss
+            # print(f"{search_space_size}")
+        
+        # Append search space size per c_len
+        sss_cl_lists.append(search_space_size)
+    
+    # Generate plot with best individual fitnesse per phase
+    # Plot Title
+    plt.title(f"Search Space Size Per Chromossome Length")
+    # Plot Axis Labels
+    plt.xlabel("Chromossome Length")
+    plt.ylabel("Search Space Size")
+    # Plot Axis Limits
+    plt.xticks(chromossome_lengths)
+    # Generate plot
+    plt.plot(chromossome_lengths, sss_cl_lists)
+    plt.savefig(fname=os.path.join(results, "ssize_clen.png"))
+    plt.show()
+
+
+
     
     # TODO: Review Plot 2 - Best Individual Fitnesses per Phase
     # List for phases
@@ -78,6 +146,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     plt.xticks(phases)
     # Generate plot
     plt.plot(phases, best_individual_fitnesses)
+    plt.savefig(fname=os.path.join(results, dataset_folder_name, f"best_ind_fit_phase.png"))
     plt.show()
 
 
@@ -108,6 +177,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     plt.xticks(phases)
     # Generate plot
     plt.plot(phases, best_individual_accuracy)
+    plt.savefig(fname=os.path.join(results, dataset_folder_name, f"best_ind_acc_phase.png"))
     plt.show()
 
 
@@ -139,6 +209,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     # Generate scatter plot 
     for idx in range(len(phases)):
         plt.scatter(ind_ph_fitnesses[idx][0], ind_ph_fitnesses[idx][1])
+    plt.savefig(fname=os.path.join(results, dataset_folder_name, f"ind_fit_per_gen_per_phase.png"))
     plt.show()
 
 
@@ -168,4 +239,5 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     plt.ylabel("Individual Fitnesses")
     # Generate scatter plot
     plt.scatter([i for i in range(len(ind_fitnesses))], ind_fitnesses)
+    plt.savefig(fname=os.path.join(results, dataset_folder_name, f"distribution_ind_fit.png"))
     plt.show()
