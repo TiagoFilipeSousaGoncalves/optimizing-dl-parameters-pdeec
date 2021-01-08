@@ -48,6 +48,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     print(f"Test Results Values: {test_results}")
     # print(f"Test Results Shape: {np.shape(test_results)}")
 
+
     # TODO: Review Plot 1 - Search Space Size vs Chromossome Lengths
     # Initial chromossome length
     chromossome_lengths = [2+i for i in range(4)]
@@ -241,3 +242,36 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     plt.scatter([i for i in range(len(ind_fitnesses))], ind_fitnesses)
     plt.savefig(fname=os.path.join(results, dataset_folder_name, f"distribution_ind_fit.png"))
     plt.show()
+
+
+    """
+    # TODO: Review Plot 6 - Acc 
+    gen_fitnesses = list()
+    # Go through all phases
+    # for ph in range(stat_data.shape[0]):
+    for ph in range(1):
+        # Create a list for all individual phase fitnesses
+        phase_ind_fit = list()
+        # Go through all generations
+        for gen in range(stat_data.shape[1]):
+        # for gen in range(1):
+            # Go through all the individuals of the population
+            for p_ind in range(stat_data.shape[2]):
+                # Append individual phase fitnesses
+                # phase_ind_fit.append(stat_data[ph][gen][p_ind][2])
+                gen_fitnesses.append(stat_data[ph][gen][p_ind][2])
+        
+        # Concatenate the lists of individual phase fitnesses
+        # ind_fitnesses += phase_ind_fit
+        
+    # Generate plot with distribution of individuals and fitnesses
+    # Plot Title
+    plt.title(f"Distribution of Fitnesses along the Generation | Dataset: {dataset_folder_name}")
+    # Plot Axis Labels
+    plt.xlabel("Number of Individuals")
+    plt.ylabel("Individual Fitnesses")
+    # Generate scatter plot
+    plt.scatter(gen_fitnesses, [i for i in range(len(gen_fitnesses))])
+    plt.savefig(fname=os.path.join(results, dataset_folder_name, f"distribution_ind_fit.png"))
+    plt.show()
+    """

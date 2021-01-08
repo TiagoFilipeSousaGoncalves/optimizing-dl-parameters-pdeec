@@ -1085,7 +1085,7 @@ class GeneticAlgorithm:
 
         return sol1, sol2
 
-    # Fitness Function
+    # TODO: Review Fitness Function
     def solution_fitness(self, solution_acc, solution_loss, epsilon=1e-5):
         # The solution fitness is the solution_accuracy X ((solution_loss) ^ -1) X ((solution_time) ^ -1)
         # this way we penalise the loss and time values and reward the accuracy
@@ -1093,82 +1093,7 @@ class GeneticAlgorithm:
         # Time is not taken into account because it is batch dependent (it would not be fair to compare time between batches)
         # We add an epsilon to avoid situations in which the loss is equal to zero
         # s_fitness = (1/solution_time) * (1/(solution_loss+epsilon)) * solution_acc
-        s_fitness = (1/(solution_loss+epsilon)) * solution_acc
+        # s_fitness = (1/(solution_loss+epsilon)) * solution_acc
+        s_fitness = solution_acc
 
         return s_fitness
-
-
-# if __name__ == '__main__':
-#     ga = GeneticAlgorithm(input_shape=[1, 28, 28], size_of_population=4, nr_of_labels=10, nr_of_phases=1, nr_of_generations=2, nr_of_autoselected_solutions=2,
-#                  mutation_rate=0.5, initial_chromossome_length=2, nr_of_epochs=2, data="mnist")
-    
-#     best_solution = ga.generate_random_solution(2, [1, 28, 28])
-#     ga.best_model = Model([1, 28, 28], 10, best_solution)
-#     ga.best_solution = best_solution
-
-#     ga.test(epochs=30)
-
-
-    # ga.train()
-
-    # ga.train()
-    # print(ga.repair_solution([torch.tensor([[10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 9, 0, 0, 1], [10, 3, 0, 0, 1]]), torch.tensor([]), torch.tensor([])]))
-    # a = [torch.tensor([]), torch.tensor([[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]),
-        #   torch.tensor([])]
-
-    # b = [torch.tensor([]), torch.tensor([[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]),
-        #   torch.tensor([])]
-
-    # ga.apply_crossover(a, b)
-
-    # print(a)
-    # print(b)
-
-    ######################################################
-
-    # Tests with transfer learning
-    # s = ga.generate_random_solution(3, [1, 28, 28])
-    # c = ga.generate_random_solution(10, [1, 28, 28])
-    # model_s = Model([1, 28, 28], 10, s)
-    # model_c = Model([1, 28, 28], 10, c)
-
-    # torch.save(model_s.state_dict(), 'model_s.pt')
-
-    # model_d = ga.transfer_learning('model_s.pt', s, c)
-
-    # print(model_s.convolutional_layers[0].weight, model_d.convolutional_layers[0].weight)
-    # print(model_s.convolutional_layers[0].bias, model_d.convolutional_layers[0].bias)
-    # print(model_s.fc_layers[0].weight, model_d.fc_layers[0].weight)
-    # print(model_s.fc_layers[0].bias, model_d.fc_layers[0].bias)
-    # print(model_s.fc_labels.weight, model_d.fc_labels.weight)
-    # print(model_s.fc_labels.bias, model_d.fc_labels.bias)
-    # print(model)
-    # print(model.fc_labels.bias, model.fc_labels.bias.size())
-    # a = model.convolutional_layers[0].bias.view(model.convolutional_layers[0].bias.size())
-    # print(model.convolutional_layers)
-    # print(len(model.convolutional_layers))
-    # summary(model, [1, 28, 28])
-
-    # with torch.no_grad():
-        # for i in range(model.convolutional_layers[0].bias.size(0)):
-        # items_ = torch.rand(4, 1, 1, 1)
-        # print(items_)
-        # items = torch.tensor([1., 2., 3., 4.], dtype=torch.float)
-        # model.convolutional_layers[4].weight[0:4] = items_
-        # model.convolutional_layers[4].bias[0:4] = items[0:4]
-
-    # model.convolutional_layers[0].bias.requires_grad = True
-
-    # for param in model.parameters():
-        # param.requires_grad = True
-
-    # print(model.convolutional_layers[0].bias, model.convolutional_layers[0].bias.size())
-    # print(model.convolutional_layers[4].weight, model.convolutional_layers[4].weight.size())    
-
-
-    # print(model)
-    # params = model.state_dict()
-    # print(params.keys())
-    # print(model.convolutional_layers[0].weights, isinstance(model.convolutional_layers[0], nn.Conv2d))
-    # for m in model.modules():
-        # print(m)
