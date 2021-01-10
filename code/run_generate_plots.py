@@ -16,6 +16,7 @@ results = "results"
 datasets = [i for i in os.listdir(results) if not i.startswith('.')]
 datasets = [i for i in datasets if not i.startswith('_')]
 datasets = [i for i in datasets if not i.startswith('s')]
+datasets = [i for i in datasets if not i.startswith('e')]
 # print(datasets)
 
 # Filenames
@@ -244,34 +245,23 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     plt.show()
 
 
-    """
-    # TODO: Review Plot 6 - Acc 
-    gen_fitnesses = list()
-    # Go through all phases
-    # for ph in range(stat_data.shape[0]):
-    for ph in range(1):
-        # Create a list for all individual phase fitnesses
-        phase_ind_fit = list()
-        # Go through all generations
-        for gen in range(stat_data.shape[1]):
-        # for gen in range(1):
-            # Go through all the individuals of the population
-            for p_ind in range(stat_data.shape[2]):
-                # Append individual phase fitnesses
-                # phase_ind_fit.append(stat_data[ph][gen][p_ind][2])
-                gen_fitnesses.append(stat_data[ph][gen][p_ind][2])
-        
-        # Concatenate the lists of individual phase fitnesses
-        # ind_fitnesses += phase_ind_fit
+
+    # TODO: Review Plot 6 - Acc per Generation 
+    x = []
+    y = []
+
+    for gen in range(stat_data.shape[1]):
+        for p_ind in range(stat_data.shape[2]):
+            x.append(gen)
+            y.append(stat_data[0][gen][p_ind][0])
         
     # Generate plot with distribution of individuals and fitnesses
     # Plot Title
     plt.title(f"Distribution of Fitnesses along the Generation | Dataset: {dataset_folder_name}")
     # Plot Axis Labels
-    plt.xlabel("Number of Individuals")
-    plt.ylabel("Individual Fitnesses")
+    plt.xlabel("Generation")
+    plt.ylabel("Fitnesses")
     # Generate scatter plot
-    plt.scatter(gen_fitnesses, [i for i in range(len(gen_fitnesses))])
-    plt.savefig(fname=os.path.join(results, dataset_folder_name, f"distribution_ind_fit.png"))
+    plt.scatter(x, y)
+    plt.savefig(fname=os.path.join(results, dataset_folder_name, f"ind_fit_per_gen_single_phase.png"))
     plt.show()
-    """
