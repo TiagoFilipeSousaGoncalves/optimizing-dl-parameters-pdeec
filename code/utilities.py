@@ -2,7 +2,7 @@
 import torch.nn as nn
 import numpy as np
 
-
+# Class Utils with some important dictionaries that we use in the building of our solutions
 class Utils:
     def __init__(self):
         self.inv_conv_activ_functions = ['none',

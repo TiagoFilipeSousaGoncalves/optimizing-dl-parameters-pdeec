@@ -61,6 +61,7 @@ class GeneticAlgorithm:
         self.best_solution_aux = list()
         self.best_model_aux = None
 
+        self.best_sol_fitness_aux = -np.Inf
         self.best_sol_fitness = -np.Inf
 
 
@@ -171,7 +172,7 @@ class GeneticAlgorithm:
 
         return list_of_candidate_solutions
 
-    # TODO: Review Training Method
+    # Function: Training Method
     def train(self):
         # Load data
         # Data will always be the same, so we can read it in the beginning of the loop
@@ -371,23 +372,22 @@ class GeneticAlgorithm:
 
                 # Evaluate Generations Solutions Fitness
                 # Obtain fitness values
-                generation_solutions_fitness = [self.solution_fitness(r[0], r[1]) for r in generation_models_results]
+                generation_solutions_fitness = [self.solution_fitness(r[0]) for r in generation_models_results]
                 # print(generation_solutions_fitness)
 
-                # TODO save solution
-                # save statistic data
+                # Save Solution and Save Statistic Data
                 for stat_idx in range(len(generation_models_results)):
                     stat_data[current_phase][current_generation][stat_idx][0] = generation_models_results[stat_idx][0]
                     stat_data[current_phase][current_generation][stat_idx][1] = generation_models_results[stat_idx][1]
                     stat_data[current_phase][current_generation][stat_idx][2] = generation_solutions_fitness[stat_idx]
                     stat_data[current_phase][current_generation][stat_idx][3] = gen_candidate_solutions[stat_idx]
-
                 # print(stat_data)
 
                 # Save statistics into a NumPy Array
                 stat_path = f"results/{self.data_name.lower()}"
                 stat_filename = "stat_data.pickle"
 
+                # Create directories if they are not created yet
                 if not os.path.isdir(stat_path):
                     os.makedirs(stat_path)
 
@@ -398,34 +398,33 @@ class GeneticAlgorithm:
 
                 best_model_idx = np.argmax(generation_solutions_fitness)
 
-                # TODO: Update best model path and best solution variables
-                if generation_solutions_fitness[best_model_idx] > self.best_sol_fitness:
+                # Update best model, best solution and best solution fitness variables
+                if generation_solutions_fitness[best_model_idx] > self.best_sol_fitness_aux:
                     self.best_model_aux = models[best_model_idx]
                     self.best_solution_aux = gen_candidate_solutions[best_model_idx]
-                    self.best_sol_fitness = generation_solutions_fitness[best_model_idx]
+                    self.best_sol_fitness_aux = generation_solutions_fitness[best_model_idx]
 
                 current_generation += 1
 
-            self.best_model = self.best_model_aux
-            self.best_solution = self.best_solution_aux
 
-            # TODO: Update best model path for transfer learning purposes 
-            # TODO: With Model in CPU with do not need to save this in disk
-            # TODO: Erase this after testing with the Models in CPU
-            # self.best_model_path = f"results/{self.data_name.lower()}/best_model_phase{self.current_phase}.pt"
+            # Check if the previous phase helped
+            # If it helped, continue
+            if self.best_sol_fitness_aux >= self.best_sol_fitness:
+                self.best_model = self.best_model_aux
+                self.best_solution = self.best_solution_aux
+                self.best_sol_fitness = self.best_sol_fitness_aux
 
-            # TODO: Update best phase solution
-            # TODO: We can not assume that the previous has better solutions!
-            # TODO: Refactor the code to have this into account
-            # self.best_previous_phase_sol = self.copy_solution(self.best_solution)
+                # Update phase
+                current_phase += 1
 
-            # TODO: Update phase
-            current_phase += 1
+                # Update chromossome length
+                self.current_chromossome_length += 1
+            
+            # Else, proceed to the testing phase
+            else:
+                current_phase = self.nr_of_phases
 
-            # TODO: Update chromossome length
-            self.current_chromossome_length += 1
-
-    # TODO: Test Loop
+    # Function: Test Phase
     def test(self, epochs=30):
         # Load data
         # Data will always be the same, so we can read it in the beginning of the loop
@@ -849,7 +848,7 @@ class GeneticAlgorithm:
         return pretrained_model
 
 
-    # TODO: Review Mutation Method
+    # Function: Review Mutation Method
     def apply_mutation(self, alive_solutions_list):
         # Create a mutated solutions list to append solutions
         mutated_solutions_list = list()
@@ -986,7 +985,7 @@ class GeneticAlgorithm:
 
         return most_fit_solutions
 
-    # Repair Solution Function: to repair "damaged" chromossomes after crossover and mutation
+    # Function: Repair Solution, to repair "damaged" chromossomes after crossover and mutation
     def repair_solution(self, solution):
         solution = self.copy_solution(solution)
 
@@ -1034,7 +1033,7 @@ class GeneticAlgorithm:
 
         return [convolutional_layers, fully_connected_layers, learning_rate]
 
-    # Crossover Method
+    # Function: Crossover Method
     def apply_crossover(self, sol1, sol2):
         # Copy solutions first
         sol1 = self.copy_solution(sol1)
@@ -1085,15 +1084,9 @@ class GeneticAlgorithm:
 
         return sol1, sol2
 
-    # TODO: Review Fitness Function
-    def solution_fitness(self, solution_acc, solution_loss, epsilon=1e-5):
-        # The solution fitness is the solution_accuracy X ((solution_loss) ^ -1) X ((solution_time) ^ -1)
-        # this way we penalise the loss and time values and reward the accuracy
-        # We aim to maximise this value
-        # Time is not taken into account because it is batch dependent (it would not be fair to compare time between batches)
-        # We add an epsilon to avoid situations in which the loss is equal to zero
-        # s_fitness = (1/solution_time) * (1/(solution_loss+epsilon)) * solution_acc
-        # s_fitness = (1/(solution_loss+epsilon)) * solution_acc
+    # Function: Fitness
+    def solution_fitness(self, solution_acc):
+        # The fitness is the solution accuracy
         s_fitness = solution_acc
 
         return s_fitness

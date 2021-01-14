@@ -30,12 +30,10 @@ torch.manual_seed(random_seed)
 random.seed(random_seed)
 
 # Datasets and Datasets-Shapes
-# datasets_names = ["mnist", "fashion-mnist", "cifar10"]
-# datasets_shapes = [[1, 28, 28], [1, 28, 28], [3, 32, 32]]
-datasets_names = ["mnist"]
-datasets_shapes = [[1, 28, 28]]
+datasets_names = ["mnist", "fashion-mnist", "cifar10"]
+datasets_shapes = [[1, 28, 28], [1, 28, 28], [3, 32, 32]]
 
-
+# We define this function to avoid issues with Windows OS
 def main():
     # Go through datasets and shapes
     for dataset, shape in zip(datasets_names, datasets_shapes):
@@ -47,7 +45,7 @@ def main():
 
         # Create GeneticAlgorithm Instance
         ga = GeneticAlgorithm(input_shape=shape, size_of_population=40, nr_of_labels=10,
-                              nr_of_phases=1, nr_of_generations=100, nr_of_autoselected_solutions=4,
+                              nr_of_phases=5, nr_of_generations=100, nr_of_autoselected_solutions=4,
                               mutation_rate=0.2, initial_chromossome_length=2, nr_of_epochs=5, data=dataset)
 
         # Train the genetic algorithm
