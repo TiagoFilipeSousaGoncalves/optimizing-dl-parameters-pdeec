@@ -30,8 +30,11 @@ torch.manual_seed(random_seed)
 random.seed(random_seed)
 
 # Datasets and Datasets-Shapes
-datasets_names = ["mnist", "fashion-mnist", "cifar10"]
-datasets_shapes = [[1, 28, 28], [1, 28, 28], [3, 32, 32]]
+# datasets_names = ["mnist", "fashion-mnist", "cifar10"]
+# datasets_shapes = [[1, 28, 28], [1, 28, 28], [3, 32, 32]]
+
+datasets_names = ["fashion-mnist", "cifar10"]
+datasets_shapes = [[1, 28, 28], [3, 32, 32]]
 
 # We define this function to avoid issues with Windows OS
 def main():
