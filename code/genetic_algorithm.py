@@ -276,7 +276,7 @@ class GeneticAlgorithm:
                 loss = nn.CrossEntropyLoss()
 
                 # Select device: GPU or CPU
-                device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+                device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
 
                 # Total Time Generation (Start)
                 generation_start = time.time()
