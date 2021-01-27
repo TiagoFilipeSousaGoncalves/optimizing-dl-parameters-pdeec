@@ -244,11 +244,11 @@ class GeneticAlgorithm:
 
                     print(f"Generation {current_generation} solutions' crossover applied.")
 
-                    # TODO: Apply random mutations to the population
+                    # Apply random mutations to the population
                     gen_candidate_solutions = self.apply_mutation(alive_solutions_list=gen_candidate_solutions)
                     print(f"Generation {current_generation} solutions' mutations applied.")
 
-                    # TODO: Repair solutions so we have a complete list of feasible solutions
+                    # Repair solutions so we have a complete list of feasible solutions
                     gen_candidate_solutions = [self.repair_solution(s) for s in gen_candidate_solutions]
                     print(f"Generation {current_generation} solutions generated and repaired.")
 
@@ -409,7 +409,7 @@ class GeneticAlgorithm:
 
             # Check if the previous phase helped
             # If it helped, continue
-            if self.best_sol_fitness_aux >= self.best_sol_fitness:
+            if self.best_sol_fitness_aux > self.best_sol_fitness:
                 self.best_model = self.best_model_aux
                 self.best_solution = self.best_solution_aux
                 self.best_sol_fitness = self.best_sol_fitness_aux
