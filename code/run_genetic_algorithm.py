@@ -30,16 +30,18 @@ torch.manual_seed(random_seed)
 random.seed(random_seed)
 
 # Datasets and Datasets-Shapes
-# datasets_names = ["mnist", "fashion-mnist", "cifar10"]
-# datasets_shapes = [[1, 28, 28], [1, 28, 28], [3, 32, 32]]
+datasets_names = ["mnist", "fashion-mnist", "cifar10"]
+datasets_shapes = [[1, 28, 28], [1, 28, 28], [3, 32, 32]]
 
-datasets_names = ["mnist"]
-datasets_shapes = [[1, 28, 28]]
+# Only MNIST
+# datasets_names = ["mnist"]
+# datasets_shapes = [[1, 28, 28]]
 
+# Only Fashion-MNIST
+# datasets_names = ["fashion-mnist"]
+# datasets_shapes = [[1, 28, 28]]
 
-# datasets_names = ["fashion-mnist", "cifar10"]
-# datasets_shapes = [[1, 28, 28], [3, 32, 32]]
-
+# Only CIFAR-10
 # datasets_names = ["cifar10"]
 # datasets_shapes = [[3, 32, 32]]
 
