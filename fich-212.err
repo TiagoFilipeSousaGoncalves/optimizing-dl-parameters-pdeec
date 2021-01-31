@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "code/run_genetic_algorithm.py", line 13, in <module>
+    from code.model import Model
+ModuleNotFoundError: No module named 'code.model'; 'code' is not a package
