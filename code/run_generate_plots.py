@@ -13,10 +13,12 @@ import torch
 # Results Directory
 results = "results"
 # Datasets Directories
-datasets = [i for i in os.listdir(results) if not i.startswith('.')]
-datasets = [i for i in datasets if not i.startswith('_')]
-datasets = [i for i in datasets if not i.startswith('s')]
-datasets = [i for i in datasets if not i.startswith('e')]
+# datasets = [i for i in os.listdir(results) if not i.startswith('.')]
+# datasets = [i for i in datasets if not i.startswith('_')]
+# datasets = [i for i in datasets if not i.startswith('s')]
+# datasets = [i for i in datasets if not i.startswith('e')]
+datasets = ["mnist"]
+datasets_max_phases = [2]
 # print(datasets)
 
 # Filenames
@@ -104,7 +106,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     
     # Generate plot with best individual fitnesse per phase
     # Plot Title
-    plt.title(f"Search Space Size Per Chromossome Length")
+    plt.title(f"Search Space Size per Chromossome Length")
     # Plot Axis Labels
     plt.xlabel("Chromossome Length")
     plt.ylabel("Search Space Size")
@@ -120,12 +122,12 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     
     # TODO: Review Plot 2 - Best Individual Fitnesses per Phase
     # List for phases
-    phases = [i for i in range(stat_data.shape[0])]
+    phases = [i for i in range(datasets_max_phases[dataset_idx])]
     
     # List for best individual fitnesses per phase
     best_individual_fitnesses = list()
     # Go through all phases
-    for ph in range(stat_data.shape[0]):
+    for ph in range(datasets_max_phases[dataset_idx]):
         # Create a list for all phase fitnesses
         phase_fitnesses = list()
         # Go through all generations
@@ -140,14 +142,14 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     
     # Generate plot with best individual fitnesse per phase
     # Plot Title
-    plt.title(f"Best Individual Fitnesses Per Phase | Dataset: {dataset_folder_name}")
+    plt.title(f"Best Individual Fitnesses per Phase | Dataset: {dataset_folder_name.upper()}")
     # Plot Axis Labels
     plt.xlabel("Phase")
     plt.ylabel("Fitness")
     # Plot Axis Limits
     plt.xticks(phases)
     # Generate plot
-    plt.plot(phases, best_individual_fitnesses)
+    plt.plot(phases, best_individual_fitnesses, 'o')
     plt.savefig(fname=os.path.join(results, dataset_folder_name, f"best_ind_fit_phase.png"))
     plt.show()
 
@@ -156,7 +158,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     # List for best individual accuracies per phase
     best_individual_accuracy = list()
     # Go through all phases
-    for ph in range(stat_data.shape[0]):
+    for ph in range(datasets_max_phases[dataset_idx]):
         # Create a list for all phase accuracies
         phase_accs = list()
         # Go through all generations
@@ -171,14 +173,14 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     
     # Generate plot with best individual accuracy per phase
     # Plot Title
-    plt.title(f"Best Individual Accuracies Per Phase | Dataset: {dataset_folder_name}")
+    plt.title(f"Best Individual Accuracies per Phase | Dataset: {dataset_folder_name.upper()}")
     # Plot Axis Labels
     plt.xlabel("Phase")
     plt.ylabel("Accuracy")
     # Plot Axis Limits
     plt.xticks(phases)
     # Generate plot
-    plt.plot(phases, best_individual_accuracy)
+    plt.plot(phases, best_individual_accuracy, 'o')
     plt.savefig(fname=os.path.join(results, dataset_folder_name, f"best_ind_acc_phase.png"))
     plt.show()
 
@@ -187,7 +189,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     # Create list to append lists of individual fitnesses
     ind_ph_fitnesses = list()
     # Go through all phases
-    for ph in range(stat_data.shape[0]):
+    for ph in range(datasets_max_phases[dataset_idx]):
         # Create a list for all individual fitnesses
         phase_ind_fit = list()
         # Go through all generations
@@ -202,7 +204,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
 
     # Generate plot with individual fitness per generation per phase
     # Plot Title
-    plt.title(f"Individual Fitnesses per Generation per Phase | Dataset: {dataset_folder_name}")
+    plt.title(f"Individual Fitnesses per Generation per Phase | Dataset: {dataset_folder_name.upper()}")
     # Plot Axis Labels
     plt.xlabel("Phase")
     plt.ylabel("Individuals and Fitnesses")
@@ -220,7 +222,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     # Create list for all the individual fitnesses
     ind_fitnesses = list()
     # Go through all phases
-    for ph in range(stat_data.shape[0]):
+    for ph in range(datasets_max_phases[dataset_idx]):
         # Create a list for all individual phase fitnesses
         phase_ind_fit = list()
         # Go through all generations
@@ -235,7 +237,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
         
     # Generate plot with distribution of individuals and fitnesses
     # Plot Title
-    plt.title(f"Distribution of Individuals and Fitnesses | Dataset: {dataset_folder_name}")
+    plt.title(f"Distribution of Individuals and Fitnesses | Dataset: {dataset_folder_name.upper()}")
     # Plot Axis Labels
     plt.xlabel("Number of Individuals")
     plt.ylabel("Individual Fitnesses")
@@ -246,22 +248,27 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
 
 
 
-    # TODO: Review Plot 6 - Acc per Generation 
-    x = []
-    y = []
+    # TODO: Review Plot 6 - Accuracy per Generation per Phase
+    # Go through phases
+    for phase in range(datasets_max_phases[dataset_idx]):
+        # Create temporary axis lists to append the results per phase
+        generations = []
+        fitnesses = []
+        for gen in range(stat_data.shape[1]):
+            for p_ind in range(stat_data.shape[2]):
+                generations.append(gen)
+                fitnesses.append(stat_data[phase][gen][p_ind][0])
+            
+        # Generate plot with distribution of individuals and fitnesses
+        # Plot Title
+        plt.title(f"Distribution of Fitnesses along the Generation | Phase {phase} | Dataset: {dataset_folder_name.upper()}")
+        # Plot Axis Labels
+        plt.xlabel("Generation")
+        plt.ylabel("Fitness")
+        # Generate scatter plot
+        plt.scatter(generations, fitnesses)
+        plt.savefig(fname=os.path.join(results, dataset_folder_name, f"ind_fit_per_gen_single_phase_{phase}.png"))
+        plt.show()
 
-    for gen in range(stat_data.shape[1]):
-        for p_ind in range(stat_data.shape[2]):
-            x.append(gen)
-            y.append(stat_data[0][gen][p_ind][0])
-        
-    # Generate plot with distribution of individuals and fitnesses
-    # Plot Title
-    plt.title(f"Distribution of Fitnesses along the Generation | Dataset: {dataset_folder_name}")
-    # Plot Axis Labels
-    plt.xlabel("Generation")
-    plt.ylabel("Fitnesses")
-    # Generate scatter plot
-    plt.scatter(x, y)
-    plt.savefig(fname=os.path.join(results, dataset_folder_name, f"ind_fit_per_gen_single_phase.png"))
-    plt.show()
+# Finish statement
+print(f"Finished.")
