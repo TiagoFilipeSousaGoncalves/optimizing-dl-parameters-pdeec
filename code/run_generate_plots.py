@@ -106,7 +106,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     
     # Generate plot with best individual fitnesse per phase
     # Plot Title
-    plt.title(f"Search Space Size per Chromossome Length")
+    plt.title(f"Search Space Size per Chromosome Length")
     # Plot Axis Labels
     plt.xlabel("Chromossome Length")
     plt.ylabel("Search Space Size")
@@ -269,6 +269,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
         plt.scatter(generations, fitnesses)
         plt.savefig(fname=os.path.join(results, dataset_folder_name, f"ind_fit_per_gen_single_phase_{phase}.png"))
         plt.show()
+        
 
 # Finish statement
 print(f"Finished.")
