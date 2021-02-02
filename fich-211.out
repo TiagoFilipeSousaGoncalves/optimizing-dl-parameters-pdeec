@@ -42636,3 +42636,2878 @@ Epoch: 4 | Time: 14.834900140762329 | Accuracy: 0.55452 | Loss: 1.26564576763153
 Epoch: 5 | Time: 14.69041633605957 | Accuracy: 0.58346 | Loss: 1.173486304397583
 Finished Training after 73.07371258735657 seconds.
 Training Model 4
+Epoch: 1 | Time: 19.404000997543335 | Accuracy: 0.39398 | Loss: 1.7295123310470581
+Epoch: 2 | Time: 19.130916357040405 | Accuracy: 0.49774 | Loss: 1.4733550917053222
+Epoch: 3 | Time: 19.434795141220093 | Accuracy: 0.53014 | Loss: 1.383054201812744
+Epoch: 4 | Time: 19.294113874435425 | Accuracy: 0.56166 | Loss: 1.3016974375915527
+Epoch: 5 | Time: 19.22319722175598 | Accuracy: 0.57916 | Loss: 1.2434254597854615
+Finished Training after 96.487144947052 seconds.
+Training Model 5
+Epoch: 1 | Time: 11.863295793533325 | Accuracy: 0.1296 | Loss: 2.291895028152466
+Epoch: 2 | Time: 11.912626266479492 | Accuracy: 0.14534 | Loss: 2.2431132946014403
+Epoch: 3 | Time: 11.969264030456543 | Accuracy: 0.15142 | Loss: 2.226520288467407
+Epoch: 4 | Time: 12.084622621536255 | Accuracy: 0.15428 | Loss: 2.2176017754364015
+Epoch: 5 | Time: 12.00176191329956 | Accuracy: 0.15306 | Loss: 2.218292382888794
+Finished Training after 59.831697940826416 seconds.
+Training Model 6
+Epoch: 1 | Time: 12.196418285369873 | Accuracy: 0.09988 | Loss: 2.4113177788543703
+Epoch: 2 | Time: 12.332953929901123 | Accuracy: 0.10052 | Loss: 2.346490177230835
+Epoch: 3 | Time: 12.356796503067017 | Accuracy: 0.1001 | Loss: 2.344210043334961
+Epoch: 4 | Time: 12.155099630355835 | Accuracy: 0.09984 | Loss: 2.341961264343262
+Epoch: 5 | Time: 12.428730010986328 | Accuracy: 0.10018 | Loss: 2.3392435260009767
+Finished Training after 61.47011685371399 seconds.
+Training Model 7
+Epoch: 1 | Time: 13.293865442276001 | Accuracy: 0.11526 | Loss: 4.668247485961914
+Epoch: 2 | Time: 13.208460807800293 | Accuracy: 0.12098 | Loss: 3.8138936513519286
+Epoch: 3 | Time: 13.790410041809082 | Accuracy: 0.12072 | Loss: 3.651456399078369
+Epoch: 4 | Time: 13.611511945724487 | Accuracy: 0.1233 | Loss: 3.5494274058532715
+Epoch: 5 | Time: 13.212673902511597 | Accuracy: 0.12138 | Loss: 3.511681867904663
+Finished Training after 67.1170425415039 seconds.
+Training Model 8
+Epoch: 1 | Time: 41.330254793167114 | Accuracy: 0.15594 | Loss: 45.67562334838867
+Epoch: 2 | Time: 41.27517628669739 | Accuracy: 0.16862 | Loss: 32.75096791503906
+Epoch: 3 | Time: 41.4100923538208 | Accuracy: 0.17406 | Loss: 24.872297052001954
+Epoch: 4 | Time: 41.489030838012695 | Accuracy: 0.17602 | Loss: 20.046997439575197
+Epoch: 5 | Time: 41.42724370956421 | Accuracy: 0.18224 | Loss: 17.41198083557129
+Finished Training after 206.93191957473755 seconds.
+Training Model 9
+Epoch: 1 | Time: 12.108888149261475 | Accuracy: 0.11336 | Loss: 2.3341268887329103
+Epoch: 2 | Time: 12.324491262435913 | Accuracy: 0.1353 | Loss: 2.2940038021087648
+Epoch: 3 | Time: 12.241672039031982 | Accuracy: 0.15032 | Loss: 2.259674132232666
+Epoch: 4 | Time: 12.416898965835571 | Accuracy: 0.16394 | Loss: 2.2268401862335203
+Epoch: 5 | Time: 12.280315160751343 | Accuracy: 0.17406 | Loss: 2.2002627478790284
+Finished Training after 61.37239050865173 seconds.
+Training Model 10
+Epoch: 1 | Time: 14.74194622039795 | Accuracy: 0.18374 | Loss: 31.640403318481447
+Epoch: 2 | Time: 14.871824979782104 | Accuracy: 0.22914 | Loss: 18.562288338012696
+Epoch: 3 | Time: 15.238238334655762 | Accuracy: 0.25156 | Loss: 13.771846135864259
+Epoch: 4 | Time: 14.77384352684021 | Accuracy: 0.2635 | Loss: 10.645104592437745
+Epoch: 5 | Time: 14.99844217300415 | Accuracy: 0.27598 | Loss: 8.372389875946045
+Finished Training after 74.62441682815552 seconds.
+Training Model 11
+Epoch: 1 | Time: 12.85371208190918 | Accuracy: 0.18906 | Loss: 2.1630376429748535
+Epoch: 2 | Time: 12.751088380813599 | Accuracy: 0.2208 | Loss: 2.1057048092269897
+Epoch: 3 | Time: 12.219020366668701 | Accuracy: 0.22902 | Loss: 2.0846856196594237
+Epoch: 4 | Time: 12.504375219345093 | Accuracy: 0.23836 | Loss: 2.067436485595703
+Epoch: 5 | Time: 12.56032657623291 | Accuracy: 0.24056 | Loss: 2.0592816093444823
+Finished Training after 62.88864541053772 seconds.
+Training Model 12
+Epoch: 1 | Time: 54.532703161239624 | Accuracy: 0.169 | Loss: 10.339366822814942
+Epoch: 2 | Time: 54.74678063392639 | Accuracy: 0.18124 | Loss: 8.073958460388184
+Epoch: 3 | Time: 54.82929968833923 | Accuracy: 0.18882 | Loss: 8.161134320220947
+Epoch: 4 | Time: 54.85841464996338 | Accuracy: 0.18874 | Loss: 7.947935944061279
+Epoch: 5 | Time: 54.82109236717224 | Accuracy: 0.1931 | Loss: 8.008263702850341
+Finished Training after 273.7884120941162 seconds.
+Training Model 13
+Epoch: 1 | Time: 12.218001365661621 | Accuracy: 0.18816 | Loss: 2.1342035176849365
+Epoch: 2 | Time: 12.501735210418701 | Accuracy: 0.22184 | Loss: 2.059952684402466
+Epoch: 3 | Time: 12.454493522644043 | Accuracy: 0.2371 | Loss: 2.030698426246643
+Epoch: 4 | Time: 12.267193078994751 | Accuracy: 0.24014 | Loss: 2.0182022481536865
+Epoch: 5 | Time: 12.3275625705719 | Accuracy: 0.24456 | Loss: 2.0085556883239746
+Finished Training after 61.76910734176636 seconds.
+Training Model 14
+Epoch: 1 | Time: 25.551664352416992 | Accuracy: 0.1799 | Loss: 2.2115429734802245
+Epoch: 2 | Time: 24.85046935081482 | Accuracy: 0.23298 | Loss: 2.067455376586914
+Epoch: 3 | Time: 25.630451440811157 | Accuracy: 0.25776 | Loss: 2.01632748714447
+Epoch: 4 | Time: 25.17059564590454 | Accuracy: 0.27434 | Loss: 1.9794735758590698
+Epoch: 5 | Time: 25.35649824142456 | Accuracy: 0.28774 | Loss: 1.9511637688827514
+Finished Training after 126.55980038642883 seconds.
+Training Model 15
+Epoch: 1 | Time: 12.76283311843872 | Accuracy: 0.10082 | Loss: 2.317166993408203
+Epoch: 2 | Time: 13.071489572525024 | Accuracy: 0.10332 | Loss: 2.309193120803833
+Epoch: 3 | Time: 13.076772212982178 | Accuracy: 0.10094 | Loss: 2.308588887710571
+Epoch: 4 | Time: 13.048311948776245 | Accuracy: 0.10044 | Loss: 2.3066173181915284
+Epoch: 5 | Time: 12.73681378364563 | Accuracy: 0.09958 | Loss: 2.30600107131958
+Finished Training after 64.6963632106781 seconds.
+Training Model 16
+Epoch: 1 | Time: 12.134637832641602 | Accuracy: 0.11026 | Loss: 2.3577012783050537
+Epoch: 2 | Time: 11.944913387298584 | Accuracy: 0.11856 | Loss: 2.3233393452453615
+Epoch: 3 | Time: 12.130388736724854 | Accuracy: 0.1335 | Loss: 2.300329026489258
+Epoch: 4 | Time: 11.958470344543457 | Accuracy: 0.14444 | Loss: 2.2789431328582763
+Epoch: 5 | Time: 11.925068855285645 | Accuracy: 0.1497 | Loss: 2.2623488430023193
+Finished Training after 60.093602657318115 seconds.
+Training Model 17
+Epoch: 1 | Time: 36.091490745544434 | Accuracy: 0.2852 | Loss: 1.9969140766525268
+Epoch: 2 | Time: 35.99068641662598 | Accuracy: 0.3309 | Loss: 1.8759570445251466
+Epoch: 3 | Time: 35.92941975593567 | Accuracy: 0.35782 | Loss: 1.815972257423401
+Epoch: 4 | Time: 35.89030694961548 | Accuracy: 0.37052 | Loss: 1.777699997406006
+Epoch: 5 | Time: 35.839635133743286 | Accuracy: 0.37922 | Loss: 1.7483511814117432
+Finished Training after 179.74166083335876 seconds.
+Training Model 18
+Epoch: 1 | Time: 15.487757205963135 | Accuracy: 0.10496 | Loss: 2.5458748081207276
+Epoch: 2 | Time: 15.488224267959595 | Accuracy: 0.1147 | Loss: 2.3287870939636233
+Epoch: 3 | Time: 14.874670028686523 | Accuracy: 0.1316 | Loss: 2.2823900651550293
+Epoch: 4 | Time: 15.118857622146606 | Accuracy: 0.14244 | Loss: 2.2525001919555665
+Epoch: 5 | Time: 15.513697147369385 | Accuracy: 0.15628 | Loss: 2.2236916954803467
+Finished Training after 76.4833288192749 seconds.
+Training Model 19
+Epoch: 1 | Time: 14.869563579559326 | Accuracy: 0.1166 | Loss: 214.74415017578124
+Epoch: 2 | Time: 14.801351308822632 | Accuracy: 0.117 | Loss: 26.874997239685058
+Epoch: 3 | Time: 14.73268985748291 | Accuracy: 0.11298 | Loss: 5.424628624343872
+Epoch: 4 | Time: 15.179935932159424 | Accuracy: 0.11554 | Loss: 3.1938416328430175
+Epoch: 5 | Time: 15.202907800674438 | Accuracy: 0.12128 | Loss: 3.0448043182373046
+Finished Training after 74.78656721115112 seconds.
+Training Model 20
+Epoch: 1 | Time: 80.63335728645325 | Accuracy: 0.1857 | Loss: 10.70798279296875
+Epoch: 2 | Time: 80.84358072280884 | Accuracy: 0.19692 | Loss: 8.78158599029541
+Epoch: 3 | Time: 80.83590745925903 | Accuracy: 0.207 | Loss: 7.65868492767334
+Epoch: 4 | Time: 80.81425523757935 | Accuracy: 0.21198 | Loss: 6.729502638549805
+Epoch: 5 | Time: 80.82224130630493 | Accuracy: 0.2189 | Loss: 5.987281917266846
+Finished Training after 403.9494640827179 seconds.
+Training Model 21
+Epoch: 1 | Time: 15.949971914291382 | Accuracy: 0.12382 | Loss: 3.3260443310546877
+Epoch: 2 | Time: 16.100011348724365 | Accuracy: 0.15702 | Loss: 2.6353064817810057
+Epoch: 3 | Time: 15.478265047073364 | Accuracy: 0.18266 | Loss: 2.3659457947540283
+Epoch: 4 | Time: 16.541104316711426 | Accuracy: 0.20144 | Loss: 2.235986419296265
+Epoch: 5 | Time: 16.143805980682373 | Accuracy: 0.21926 | Loss: 2.165357370300293
+Finished Training after 80.21327948570251 seconds.
+Training Model 22
+Epoch: 1 | Time: 12.596981525421143 | Accuracy: 0.10086 | Loss: 2.392509874420166
+Epoch: 2 | Time: 12.500609874725342 | Accuracy: 0.09782 | Loss: 2.316339134140015
+Epoch: 3 | Time: 12.527658700942993 | Accuracy: 0.09538 | Loss: 2.321324928894043
+Epoch: 4 | Time: 12.095614194869995 | Accuracy: 0.09974 | Loss: 2.3234379467010497
+Epoch: 5 | Time: 12.546031475067139 | Accuracy: 0.09838 | Loss: 2.3462189351654055
+Finished Training after 62.26702260971069 seconds.
+Training Model 23
+Epoch: 1 | Time: 26.730607986450195 | Accuracy: 0.09768 | Loss: 35.029795764160156
+Epoch: 2 | Time: 26.268170595169067 | Accuracy: 0.09914 | Loss: 2.8676242266845704
+Epoch: 3 | Time: 26.109078645706177 | Accuracy: 0.09826 | Loss: 2.383120816421509
+Epoch: 4 | Time: 26.546488761901855 | Accuracy: 0.0995 | Loss: 2.535129719619751
+Epoch: 5 | Time: 26.653155088424683 | Accuracy: 0.09766 | Loss: 2.3217830030822753
+Finished Training after 132.30762672424316 seconds.
+Training Model 24
+Epoch: 1 | Time: 11.798461675643921 | Accuracy: 0.13248 | Loss: 2.2660653993988036
+Epoch: 2 | Time: 11.928839445114136 | Accuracy: 0.14426 | Loss: 2.2318390394592287
+Epoch: 3 | Time: 11.785515308380127 | Accuracy: 0.1486 | Loss: 2.222713603439331
+Epoch: 4 | Time: 11.96292233467102 | Accuracy: 0.14736 | Loss: 2.2196558116912843
+Epoch: 5 | Time: 12.218478202819824 | Accuracy: 0.15004 | Loss: 2.218960849304199
+Finished Training after 59.69433856010437 seconds.
+Training Model 25
+Epoch: 1 | Time: 11.942688465118408 | Accuracy: 0.10006 | Loss: 2.3737614768218993
+Epoch: 2 | Time: 11.903438329696655 | Accuracy: 0.10078 | Loss: 2.318446912155151
+Epoch: 3 | Time: 11.890986919403076 | Accuracy: 0.09934 | Loss: 2.3072247458648683
+Epoch: 4 | Time: 12.041002035140991 | Accuracy: 0.09918 | Loss: 2.3046661851501464
+Epoch: 5 | Time: 11.786191463470459 | Accuracy: 0.1004 | Loss: 2.303694705123901
+Finished Training after 59.56443381309509 seconds.
+Training Model 26
+Epoch: 1 | Time: 14.840704441070557 | Accuracy: 0.11994 | Loss: 2.357340771255493
+Epoch: 2 | Time: 14.619463920593262 | Accuracy: 0.1442 | Loss: 2.240746468887329
+Epoch: 3 | Time: 14.001446723937988 | Accuracy: 0.16246 | Loss: 2.2034699436187744
+Epoch: 4 | Time: 14.698520421981812 | Accuracy: 0.1864 | Loss: 2.1747432134246827
+Epoch: 5 | Time: 14.665382385253906 | Accuracy: 0.2016 | Loss: 2.144991011276245
+Finished Training after 72.82564043998718 seconds.
+Training Model 27
+Epoch: 1 | Time: 15.330399513244629 | Accuracy: 0.10244 | Loss: 9.288775500717163
+Epoch: 2 | Time: 15.198703527450562 | Accuracy: 0.10176 | Loss: 2.6775904023742676
+Epoch: 3 | Time: 15.044289350509644 | Accuracy: 0.10006 | Loss: 2.4352845336914064
+Epoch: 4 | Time: 15.041595220565796 | Accuracy: 0.09914 | Loss: 2.3271044520568847
+Epoch: 5 | Time: 15.107954978942871 | Accuracy: 0.09798 | Loss: 2.353175883331299
+Finished Training after 75.72306871414185 seconds.
+Training Model 28
+Epoch: 1 | Time: 12.508887767791748 | Accuracy: 0.1783 | Loss: 2.1665191806030273
+Epoch: 2 | Time: 12.276398420333862 | Accuracy: 0.2018 | Loss: 2.0963417705535887
+Epoch: 3 | Time: 12.686483383178711 | Accuracy: 0.21186 | Loss: 2.0747968534851076
+Epoch: 4 | Time: 12.315796613693237 | Accuracy: 0.21924 | Loss: 2.0615436249160766
+Epoch: 5 | Time: 12.53470778465271 | Accuracy: 0.2253 | Loss: 2.042660348815918
+Finished Training after 62.32240176200867 seconds.
+Training Model 29
+Epoch: 1 | Time: 12.299606084823608 | Accuracy: 0.15274 | Loss: 2.2276216683197023
+Epoch: 2 | Time: 12.43074083328247 | Accuracy: 0.18006 | Loss: 2.1431428663635255
+Epoch: 3 | Time: 12.527591228485107 | Accuracy: 0.19122 | Loss: 2.106284413757324
+Epoch: 4 | Time: 12.073764324188232 | Accuracy: 0.20178 | Loss: 2.078031097717285
+Epoch: 5 | Time: 12.581215143203735 | Accuracy: 0.20524 | Loss: 2.0665833673095704
+Finished Training after 61.91304588317871 seconds.
+Training Model 30
+Epoch: 1 | Time: 41.51439070701599 | Accuracy: 0.11326 | Loss: 16.645477283325196
+Epoch: 2 | Time: 41.498634576797485 | Accuracy: 0.12344 | Loss: 2.3215692179870606
+Epoch: 3 | Time: 41.53894376754761 | Accuracy: 0.13538 | Loss: 2.3005290366363527
+Epoch: 4 | Time: 41.513447761535645 | Accuracy: 0.1406 | Loss: 2.278308544769287
+Epoch: 5 | Time: 41.50388836860657 | Accuracy: 0.15542 | Loss: 2.253087462463379
+Finished Training after 207.56943035125732 seconds.
+Training Model 31
+Epoch: 1 | Time: 20.68907642364502 | Accuracy: 0.18602 | Loss: 2.205145051498413
+Epoch: 2 | Time: 20.72996687889099 | Accuracy: 0.24668 | Loss: 2.034255857925415
+Epoch: 3 | Time: 20.685948610305786 | Accuracy: 0.27588 | Loss: 1.9760907746505738
+Epoch: 4 | Time: 21.044546365737915 | Accuracy: 0.29216 | Loss: 1.9467032155227662
+Epoch: 5 | Time: 20.51490545272827 | Accuracy: 0.2961 | Loss: 1.935496488456726
+Finished Training after 103.66456770896912 seconds.
+Training Model 32
+Epoch: 1 | Time: 12.073760986328125 | Accuracy: 0.10408 | Loss: 2.333199051513672
+Epoch: 2 | Time: 12.19463849067688 | Accuracy: 0.10622 | Loss: 2.302505962219238
+Epoch: 3 | Time: 12.04811406135559 | Accuracy: 0.11398 | Loss: 2.296388228607178
+Epoch: 4 | Time: 12.001465797424316 | Accuracy: 0.11136 | Loss: 2.291773000488281
+Epoch: 5 | Time: 12.178627967834473 | Accuracy: 0.12248 | Loss: 2.2843708390045165
+Finished Training after 60.4967303276062 seconds.
+Training Model 33
+Epoch: 1 | Time: 14.61302399635315 | Accuracy: 0.21832 | Loss: 2.127083098449707
+Epoch: 2 | Time: 14.552706956863403 | Accuracy: 0.24882 | Loss: 2.060181802482605
+Epoch: 3 | Time: 14.371207475662231 | Accuracy: 0.2599 | Loss: 2.032812638320923
+Epoch: 4 | Time: 14.39364242553711 | Accuracy: 0.26918 | Loss: 2.0164220025634765
+Epoch: 5 | Time: 14.540571928024292 | Accuracy: 0.27162 | Loss: 2.0070628032684326
+Finished Training after 72.47127652168274 seconds.
+Training Model 34
+Epoch: 1 | Time: 15.59506106376648 | Accuracy: 0.09992 | Loss: 2.4423670946502685
+Epoch: 2 | Time: 15.739135503768921 | Accuracy: 0.10064 | Loss: 2.3469020708465576
+Epoch: 3 | Time: 15.797089576721191 | Accuracy: 0.10012 | Loss: 2.3201365576171873
+Epoch: 4 | Time: 16.089576721191406 | Accuracy: 0.09946 | Loss: 2.312523472442627
+Epoch: 5 | Time: 15.74576187133789 | Accuracy: 0.09804 | Loss: 2.3080465714263916
+Finished Training after 78.9667501449585 seconds.
+Training Model 35
+Epoch: 1 | Time: 12.438935279846191 | Accuracy: 0.11692 | Loss: 2.3764293256378175
+Epoch: 2 | Time: 12.265257835388184 | Accuracy: 0.13754 | Loss: 2.281526629333496
+Epoch: 3 | Time: 12.350844860076904 | Accuracy: 0.14974 | Loss: 2.2417813954162598
+Epoch: 4 | Time: 12.311131477355957 | Accuracy: 0.15372 | Loss: 2.226310397491455
+Epoch: 5 | Time: 12.105114459991455 | Accuracy: 0.15736 | Loss: 2.2138208110046387
+Finished Training after 61.47140574455261 seconds.
+Training Model 36
+Epoch: 1 | Time: 13.262924194335938 | Accuracy: 0.18722 | Loss: 2.1595978926467896
+Epoch: 2 | Time: 13.723394632339478 | Accuracy: 0.22372 | Loss: 2.0535033448028566
+Epoch: 3 | Time: 13.56403398513794 | Accuracy: 0.23634 | Loss: 2.022755148010254
+Epoch: 4 | Time: 13.841097593307495 | Accuracy: 0.23602 | Loss: 2.0099386153793337
+Epoch: 5 | Time: 13.468345880508423 | Accuracy: 0.2432 | Loss: 1.9950337545776367
+Finished Training after 67.85991978645325 seconds.
+Training Model 37
+Epoch: 1 | Time: 12.144458293914795 | Accuracy: 0.32216 | Loss: 1.906941690750122
+Epoch: 2 | Time: 12.1075599193573 | Accuracy: 0.39056 | Loss: 1.7171525442123412
+Epoch: 3 | Time: 11.8419189453125 | Accuracy: 0.42266 | Loss: 1.6381739694213868
+Epoch: 4 | Time: 11.940650463104248 | Accuracy: 0.44486 | Loss: 1.5741835267257691
+Epoch: 5 | Time: 12.290992259979248 | Accuracy: 0.4591 | Loss: 1.5298722092056274
+Finished Training after 60.3257052898407 seconds.
+Training Model 38
+Epoch: 1 | Time: 14.39669680595398 | Accuracy: 0.10026 | Loss: 32.471409199676515
+Epoch: 2 | Time: 13.60509729385376 | Accuracy: 0.09896 | Loss: 2.838361361465454
+Epoch: 3 | Time: 14.068164110183716 | Accuracy: 0.09872 | Loss: 2.4596895166015624
+Epoch: 4 | Time: 14.03064250946045 | Accuracy: 0.10006 | Loss: 2.367820563735962
+Epoch: 5 | Time: 14.278053283691406 | Accuracy: 0.10024 | Loss: 2.3323150231170655
+Finished Training after 70.37877750396729 seconds.
+Training Model 39
+Epoch: 1 | Time: 11.902756690979004 | Accuracy: 0.18996 | Loss: 2.165966828613281
+Epoch: 2 | Time: 11.869879245758057 | Accuracy: 0.23264 | Loss: 2.0727384467697143
+Epoch: 3 | Time: 11.79993224143982 | Accuracy: 0.25288 | Loss: 2.031308558692932
+Epoch: 4 | Time: 11.643991470336914 | Accuracy: 0.26546 | Loss: 2.0015159630584716
+Epoch: 5 | Time: 11.809247016906738 | Accuracy: 0.27328 | Loss: 1.9834574773788451
+Finished Training after 59.02592897415161 seconds.
+Training Model 40
+Epoch: 1 | Time: 12.074866771697998 | Accuracy: 0.13056 | Loss: 2.293426849594116
+Epoch: 2 | Time: 11.83115267753601 | Accuracy: 0.15702 | Loss: 2.2177644734954836
+Epoch: 3 | Time: 12.186874866485596 | Accuracy: 0.16048 | Loss: 2.1985484574890135
+Epoch: 4 | Time: 12.124192476272583 | Accuracy: 0.16054 | Loss: 2.190182195968628
+Epoch: 5 | Time: 12.2100830078125 | Accuracy: 0.15852 | Loss: 2.1869394890594482
+Finished Training after 60.427292346954346 seconds.
+Finished Generation 49 | Total Time: 3904.2262959480286
+Number of Best Candidates Selected:4
+Selecting best solutions...
+Generation 50 solutions' crossover applied.
+Generation 50 solutions' mutations applied.
+Generation 50 solutions generated and repaired.
+Training Model 1
+Epoch: 1 | Time: 13.088916301727295 | Accuracy: 0.43064 | Loss: 1.5984007398605347
+Epoch: 2 | Time: 12.885226726531982 | Accuracy: 0.5285 | Loss: 1.3209743863296508
+Epoch: 3 | Time: 12.957991600036621 | Accuracy: 0.57766 | Loss: 1.189079168586731
+Epoch: 4 | Time: 13.237061977386475 | Accuracy: 0.61258 | Loss: 1.0867056512451172
+Epoch: 5 | Time: 13.289530515670776 | Accuracy: 0.64812 | Loss: 0.986851097240448
+Finished Training after 65.45884990692139 seconds.
+Training Model 2
+Epoch: 1 | Time: 37.06891179084778 | Accuracy: 0.42554 | Loss: 1.6220130127334595
+Epoch: 2 | Time: 37.08965182304382 | Accuracy: 0.51312 | Loss: 1.3738450520324708
+Epoch: 3 | Time: 37.09924030303955 | Accuracy: 0.55288 | Loss: 1.262489561843872
+Epoch: 4 | Time: 37.08323574066162 | Accuracy: 0.58366 | Loss: 1.1787714994049072
+Epoch: 5 | Time: 37.07857847213745 | Accuracy: 0.60872 | Loss: 1.1189423852920533
+Finished Training after 185.41974115371704 seconds.
+Training Model 3
+Epoch: 1 | Time: 14.492511987686157 | Accuracy: 0.39084 | Loss: 1.7216873419952392
+Epoch: 2 | Time: 14.227016925811768 | Accuracy: 0.47204 | Loss: 1.4837304579925537
+Epoch: 3 | Time: 14.298277854919434 | Accuracy: 0.52032 | Loss: 1.3575308056259154
+Epoch: 4 | Time: 14.56682538986206 | Accuracy: 0.55586 | Loss: 1.2607014980697633
+Epoch: 5 | Time: 14.901318788528442 | Accuracy: 0.5886 | Loss: 1.1686158475494384
+Finished Training after 72.48607730865479 seconds.
+Training Model 4
+Epoch: 1 | Time: 19.593356370925903 | Accuracy: 0.39456 | Loss: 1.7274378709030151
+Epoch: 2 | Time: 19.36612820625305 | Accuracy: 0.50006 | Loss: 1.4681355674362182
+Epoch: 3 | Time: 19.323867082595825 | Accuracy: 0.53522 | Loss: 1.3699823447418213
+Epoch: 4 | Time: 19.359614849090576 | Accuracy: 0.56258 | Loss: 1.296086732673645
+Epoch: 5 | Time: 19.501794815063477 | Accuracy: 0.58074 | Loss: 1.243129060382843
+Finished Training after 97.14488291740417 seconds.
+Training Model 5
+Epoch: 1 | Time: 29.062669038772583 | Accuracy: 0.10624 | Loss: 53.102170568389894
+Epoch: 2 | Time: 28.44641637802124 | Accuracy: 0.10458 | Loss: 5.977437718429566
+Epoch: 3 | Time: 28.792754650115967 | Accuracy: 0.10456 | Loss: 3.8822452254486084
+Epoch: 4 | Time: 28.68686819076538 | Accuracy: 0.12368 | Loss: 2.5267136394500733
+Epoch: 5 | Time: 29.039567947387695 | Accuracy: 0.13744 | Loss: 2.4101047715759276
+Finished Training after 144.0283966064453 seconds.
+Training Model 6
+Epoch: 1 | Time: 35.653520584106445 | Accuracy: 0.26978 | Loss: 2.016835994377136
+Epoch: 2 | Time: 35.90288066864014 | Accuracy: 0.34082 | Loss: 1.8369248239135743
+Epoch: 3 | Time: 35.363229274749756 | Accuracy: 0.36622 | Loss: 1.7728012744140624
+Epoch: 4 | Time: 35.5526556968689 | Accuracy: 0.37844 | Loss: 1.734668204498291
+Epoch: 5 | Time: 35.39942932128906 | Accuracy: 0.38976 | Loss: 1.701972402114868
+Finished Training after 177.87183594703674 seconds.
+Training Model 7
+Epoch: 1 | Time: 11.768014907836914 | Accuracy: 0.18254 | Loss: 2.1712682402801513
+Epoch: 2 | Time: 11.746172189712524 | Accuracy: 0.2071 | Loss: 2.1106900130462645
+Epoch: 3 | Time: 11.761422395706177 | Accuracy: 0.21386 | Loss: 2.0993321114349364
+Epoch: 4 | Time: 11.644220352172852 | Accuracy: 0.21918 | Loss: 2.096866340408325
+Epoch: 5 | Time: 11.607019662857056 | Accuracy: 0.21854 | Loss: 2.0928469831848147
+Finished Training after 58.52697253227234 seconds.
+Training Model 8
+Epoch: 1 | Time: 12.350194931030273 | Accuracy: 0.13172 | Loss: 2.270210249710083
+Epoch: 2 | Time: 12.13258409500122 | Accuracy: 0.1301 | Loss: 2.259325196533203
+Epoch: 3 | Time: 12.188184022903442 | Accuracy: 0.13778 | Loss: 2.2492695572662353
+Epoch: 4 | Time: 12.142287015914917 | Accuracy: 0.11774 | Loss: 2.280863073043823
+Epoch: 5 | Time: 12.093730449676514 | Accuracy: 0.1208 | Loss: 2.274397688598633
+Finished Training after 60.90711784362793 seconds.
+Training Model 9
+Epoch: 1 | Time: 15.809951305389404 | Accuracy: 0.11804 | Loss: 6.908479718322754
+Epoch: 2 | Time: 15.679091215133667 | Accuracy: 0.1284 | Loss: 5.625323782043457
+Epoch: 3 | Time: 15.386257648468018 | Accuracy: 0.13226 | Loss: 4.914174853057862
+Epoch: 4 | Time: 15.320188045501709 | Accuracy: 0.13298 | Loss: 4.4002018005371095
+Epoch: 5 | Time: 15.675153732299805 | Accuracy: 0.1411 | Loss: 3.9419860510253906
+Finished Training after 77.87076473236084 seconds.
+Training Model 10
+Epoch: 1 | Time: 13.840895652770996 | Accuracy: 0.12724 | Loss: 2.3289834651947023
+Epoch: 2 | Time: 13.336932182312012 | Accuracy: 0.15254 | Loss: 2.2352101915740965
+Epoch: 3 | Time: 14.115423679351807 | Accuracy: 0.16268 | Loss: 2.1980679763793947
+Epoch: 4 | Time: 13.648716688156128 | Accuracy: 0.16954 | Loss: 2.1761365774536134
+Epoch: 5 | Time: 13.742858409881592 | Accuracy: 0.17772 | Loss: 2.1577002822875975
+Finished Training after 68.68495059013367 seconds.
+Training Model 11
+Epoch: 1 | Time: 13.93351674079895 | Accuracy: 0.2223 | Loss: 2.115214302520752
+Epoch: 2 | Time: 13.58612060546875 | Accuracy: 0.27628 | Loss: 1.9995267932128906
+Epoch: 3 | Time: 14.19638466835022 | Accuracy: 0.28838 | Loss: 1.9654171308898927
+Epoch: 4 | Time: 13.772164821624756 | Accuracy: 0.2943 | Loss: 1.9357942261886596
+Epoch: 5 | Time: 13.820462226867676 | Accuracy: 0.30052 | Loss: 1.914219799232483
+Finished Training after 69.30877327919006 seconds.
+Training Model 12
+Epoch: 1 | Time: 11.940965414047241 | Accuracy: 0.12756 | Loss: 2.27642975982666
+Epoch: 2 | Time: 12.01962947845459 | Accuracy: 0.18052 | Loss: 2.12965169090271
+Epoch: 3 | Time: 12.12136697769165 | Accuracy: 0.19406 | Loss: 2.090793256149292
+Epoch: 4 | Time: 11.88831901550293 | Accuracy: 0.19784 | Loss: 2.0714661390686033
+Epoch: 5 | Time: 12.289278268814087 | Accuracy: 0.20622 | Loss: 2.0519449238586427
+Finished Training after 60.259681224823 seconds.
+Training Model 13
+Epoch: 1 | Time: 12.49579381942749 | Accuracy: 0.19686 | Loss: 2.1460468951416014
+Epoch: 2 | Time: 12.18221926689148 | Accuracy: 0.25638 | Loss: 1.9994216318511964
+Epoch: 3 | Time: 12.274357557296753 | Accuracy: 0.28172 | Loss: 1.9470883309936524
+Epoch: 4 | Time: 12.199620723724365 | Accuracy: 0.29422 | Loss: 1.9215254132080077
+Epoch: 5 | Time: 12.026140213012695 | Accuracy: 0.30054 | Loss: 1.901300136795044
+Finished Training after 61.17825698852539 seconds.
+Training Model 14
+Epoch: 1 | Time: 20.77238941192627 | Accuracy: 0.13794 | Loss: 2.286442371368408
+Epoch: 2 | Time: 20.685534477233887 | Accuracy: 0.15236 | Loss: 2.237766826095581
+Epoch: 3 | Time: 20.46961808204651 | Accuracy: 0.15992 | Loss: 2.2170787009429933
+Epoch: 4 | Time: 20.72965979576111 | Accuracy: 0.16406 | Loss: 2.20064348777771
+Epoch: 5 | Time: 20.510838747024536 | Accuracy: 0.16434 | Loss: 2.1927446005249025
+Finished Training after 103.16816306114197 seconds.
+Training Model 15
+Epoch: 1 | Time: 30.477349042892456 | Accuracy: 0.1186 | Loss: 2.3001416220092774
+Epoch: 2 | Time: 30.297640323638916 | Accuracy: 0.12578 | Loss: 2.2815737094116213
+Epoch: 3 | Time: 30.48417568206787 | Accuracy: 0.12924 | Loss: 2.2800780696105956
+Epoch: 4 | Time: 30.237337589263916 | Accuracy: 0.13324 | Loss: 2.2673689585113523
+Epoch: 5 | Time: 30.27575659751892 | Accuracy: 0.13534 | Loss: 2.2627980617523193
+Finished Training after 151.77238059043884 seconds.
+Training Model 16
+Epoch: 1 | Time: 12.006327629089355 | Accuracy: 0.23812 | Loss: 2.0814944708251955
+Epoch: 2 | Time: 11.937917232513428 | Accuracy: 0.31464 | Loss: 1.913332056312561
+Epoch: 3 | Time: 11.992497205734253 | Accuracy: 0.3404 | Loss: 1.8540106744384766
+Epoch: 4 | Time: 12.033283948898315 | Accuracy: 0.35848 | Loss: 1.8216889979934692
+Epoch: 5 | Time: 12.117205142974854 | Accuracy: 0.3655 | Loss: 1.790733494720459
+Finished Training after 60.08735489845276 seconds.
+Training Model 17
+Epoch: 1 | Time: 35.76378321647644 | Accuracy: 0.09966 | Loss: 9.210479347000122
+Epoch: 2 | Time: 35.77878761291504 | Accuracy: 0.10008 | Loss: 16.63931120162964
+Epoch: 3 | Time: 35.71276116371155 | Accuracy: 0.09864 | Loss: 24.893596610565186
+Epoch: 4 | Time: 35.726287841796875 | Accuracy: 0.1008 | Loss: 2.9845768473815917
+Epoch: 5 | Time: 35.709712266922 | Accuracy: 0.09932 | Loss: 4.844240723876953
+Finished Training after 178.69145250320435 seconds.
+Training Model 18
+Epoch: 1 | Time: 11.857194662094116 | Accuracy: 0.11828 | Loss: 2.313265238723755
+Epoch: 2 | Time: 11.836780071258545 | Accuracy: 0.14826 | Loss: 2.2463588265228274
+Epoch: 3 | Time: 12.061778545379639 | Accuracy: 0.1725 | Loss: 2.195476069107056
+Epoch: 4 | Time: 11.951677083969116 | Accuracy: 0.18638 | Loss: 2.1594721923065188
+Epoch: 5 | Time: 11.995702505111694 | Accuracy: 0.19626 | Loss: 2.136174584236145
+Finished Training after 59.703261613845825 seconds.
+Training Model 19
+Epoch: 1 | Time: 21.355897665023804 | Accuracy: 0.10262 | Loss: 139.53266130386353
+Epoch: 2 | Time: 21.69661283493042 | Accuracy: 0.10094 | Loss: 79.85061165237427
+Epoch: 3 | Time: 21.406954288482666 | Accuracy: 0.1021 | Loss: 71.85004455245972
+Epoch: 4 | Time: 21.325328826904297 | Accuracy: 0.10114 | Loss: 68.76709054718017
+Epoch: 5 | Time: 21.518962860107422 | Accuracy: 0.1048 | Loss: 67.56133242767334
+Finished Training after 107.30387949943542 seconds.
+Training Model 20
+Epoch: 1 | Time: 13.157356262207031 | Accuracy: 0.09924 | Loss: 2.3744346714782716
+Epoch: 2 | Time: 13.504542112350464 | Accuracy: 0.10328 | Loss: 2.3356669091796873
+Epoch: 3 | Time: 13.53658652305603 | Accuracy: 0.1053 | Loss: 2.318964955749512
+Epoch: 4 | Time: 14.002684116363525 | Accuracy: 0.1088 | Loss: 2.3094528060150146
+Epoch: 5 | Time: 13.426865816116333 | Accuracy: 0.11212 | Loss: 2.3031097579956055
+Finished Training after 67.62818574905396 seconds.
+Training Model 21
+Epoch: 1 | Time: 12.307527780532837 | Accuracy: 0.21218 | Loss: 2.1039465873718264
+Epoch: 2 | Time: 12.2703537940979 | Accuracy: 0.2457 | Loss: 2.0071724562835693
+Epoch: 3 | Time: 12.269829750061035 | Accuracy: 0.25754 | Loss: 1.986830555114746
+Epoch: 4 | Time: 12.420007467269897 | Accuracy: 0.2681 | Loss: 1.969249038619995
+Epoch: 5 | Time: 12.17936086654663 | Accuracy: 0.26886 | Loss: 1.9617762783050536
+Finished Training after 61.447203397750854 seconds.
+Training Model 22
+Epoch: 1 | Time: 11.8555908203125 | Accuracy: 0.2035 | Loss: 2.1522151554870605
+Epoch: 2 | Time: 11.909036874771118 | Accuracy: 0.22268 | Loss: 2.112550726776123
+Epoch: 3 | Time: 11.96459150314331 | Accuracy: 0.22806 | Loss: 2.091594386138916
+Epoch: 4 | Time: 11.85869550704956 | Accuracy: 0.23838 | Loss: 2.075502379684448
+Epoch: 5 | Time: 12.044998168945312 | Accuracy: 0.2422 | Loss: 2.0645948853302003
+Finished Training after 59.63303828239441 seconds.
+Training Model 23
+Epoch: 1 | Time: 14.59153962135315 | Accuracy: 0.16672 | Loss: 2.263570018005371
+Epoch: 2 | Time: 13.691091537475586 | Accuracy: 0.19072 | Loss: 2.1531706777954103
+Epoch: 3 | Time: 14.156656503677368 | Accuracy: 0.20118 | Loss: 2.129038636627197
+Epoch: 4 | Time: 13.949670791625977 | Accuracy: 0.20992 | Loss: 2.1139351527404786
+Epoch: 5 | Time: 14.032297849655151 | Accuracy: 0.21046 | Loss: 2.107636107635498
+Finished Training after 70.42137789726257 seconds.
+Training Model 24
+Epoch: 1 | Time: 12.170916557312012 | Accuracy: 0.10048 | Loss: 2.340947403793335
+Epoch: 2 | Time: 12.243175029754639 | Accuracy: 0.10186 | Loss: 2.3198335076904297
+Epoch: 3 | Time: 12.107211828231812 | Accuracy: 0.10112 | Loss: 2.3119552074432375
+Epoch: 4 | Time: 12.221473693847656 | Accuracy: 0.10068 | Loss: 2.3078647399139403
+Epoch: 5 | Time: 12.417052030563354 | Accuracy: 0.10062 | Loss: 2.3059408251190185
+Finished Training after 61.15995764732361 seconds.
+Training Model 25
+Epoch: 1 | Time: 22.6793794631958 | Accuracy: 0.2256 | Loss: 2.1207755740356444
+Epoch: 2 | Time: 21.834120750427246 | Accuracy: 0.28432 | Loss: 2.0314865869903564
+Epoch: 3 | Time: 21.81082582473755 | Accuracy: 0.31672 | Loss: 1.971862824859619
+Epoch: 4 | Time: 22.274163007736206 | Accuracy: 0.33544 | Loss: 1.9266692151641847
+Epoch: 5 | Time: 21.89381980895996 | Accuracy: 0.34898 | Loss: 1.8879305141067504
+Finished Training after 110.49243712425232 seconds.
+Training Model 26
+Epoch: 1 | Time: 25.07804584503174 | Accuracy: 0.11076 | Loss: 2.467795383300781
+Epoch: 2 | Time: 25.10261869430542 | Accuracy: 0.13104 | Loss: 2.284731848678589
+Epoch: 3 | Time: 25.129120349884033 | Accuracy: 0.13968 | Loss: 2.248353954849243
+Epoch: 4 | Time: 25.163246393203735 | Accuracy: 0.14796 | Loss: 2.2317615985107424
+Epoch: 5 | Time: 25.27688455581665 | Accuracy: 0.14894 | Loss: 2.2259218179321287
+Finished Training after 125.75004172325134 seconds.
+Training Model 27
+Epoch: 1 | Time: 14.882511615753174 | Accuracy: 0.11072 | Loss: 3.823954829559326
+Epoch: 2 | Time: 14.468510627746582 | Accuracy: 0.1144 | Loss: 2.300675429611206
+Epoch: 3 | Time: 14.7166428565979 | Accuracy: 0.13962 | Loss: 2.238721684112549
+Epoch: 4 | Time: 14.619535446166992 | Accuracy: 0.14336 | Loss: 2.2208311949920656
+Epoch: 5 | Time: 14.60970139503479 | Accuracy: 0.14694 | Loss: 2.2044407171630858
+Finished Training after 73.29702425003052 seconds.
+Training Model 28
+Epoch: 1 | Time: 12.302557706832886 | Accuracy: 0.1217 | Loss: 3.2934349311828615
+Epoch: 2 | Time: 12.492730379104614 | Accuracy: 0.13954 | Loss: 2.5686313703918455
+Epoch: 3 | Time: 12.3844473361969 | Accuracy: 0.15876 | Loss: 2.3725246411132814
+Epoch: 4 | Time: 12.418251276016235 | Accuracy: 0.1786 | Loss: 2.272870765838623
+Epoch: 5 | Time: 12.428029537200928 | Accuracy: 0.1923 | Loss: 2.215505643005371
+Finished Training after 62.02613663673401 seconds.
+Training Model 29
+Epoch: 1 | Time: 11.83161449432373 | Accuracy: 0.14102 | Loss: 2.243732555770874
+Epoch: 2 | Time: 11.666516780853271 | Accuracy: 0.15956 | Loss: 2.1939784352874754
+Epoch: 3 | Time: 11.527669429779053 | Accuracy: 0.1621 | Loss: 2.1836875315093995
+Epoch: 4 | Time: 11.619891166687012 | Accuracy: 0.16418 | Loss: 2.182046570892334
+Epoch: 5 | Time: 11.57007360458374 | Accuracy: 0.16196 | Loss: 2.1750558446502684
+Finished Training after 58.21588492393494 seconds.
+Training Model 30
+Epoch: 1 | Time: 11.632702827453613 | Accuracy: 0.14666 | Loss: 2.2329281317901613
+Epoch: 2 | Time: 11.644221544265747 | Accuracy: 0.15642 | Loss: 2.200177992019653
+Epoch: 3 | Time: 11.532400846481323 | Accuracy: 0.15274 | Loss: 2.1972461799621583
+Epoch: 4 | Time: 11.685607194900513 | Accuracy: 0.15546 | Loss: 2.194752857055664
+Epoch: 5 | Time: 11.797199249267578 | Accuracy: 0.15322 | Loss: 2.193140997695923
+Finished Training after 58.29225206375122 seconds.
+Training Model 31
+Epoch: 1 | Time: 14.669092178344727 | Accuracy: 0.12744 | Loss: 2.4798345892333984
+Epoch: 2 | Time: 14.462925910949707 | Accuracy: 0.1478 | Loss: 2.3413606369781492
+Epoch: 3 | Time: 14.965390682220459 | Accuracy: 0.154 | Loss: 2.3120545502471925
+Epoch: 4 | Time: 14.93220329284668 | Accuracy: 0.16568 | Loss: 2.2983730905914306
+Epoch: 5 | Time: 14.774674654006958 | Accuracy: 0.16338 | Loss: 2.3000728426361086
+Finished Training after 73.80440640449524 seconds.
+Training Model 32
+Epoch: 1 | Time: 23.408233165740967 | Accuracy: 0.12584 | Loss: 776.4842649023437
+Epoch: 2 | Time: 23.659135103225708 | Accuracy: 0.1345 | Loss: 368.3676769042969
+Epoch: 3 | Time: 23.94701075553894 | Accuracy: 0.14362 | Loss: 241.48476068359375
+Epoch: 4 | Time: 23.69000220298767 | Accuracy: 0.14528 | Loss: 167.1118611279297
+Epoch: 5 | Time: 23.66941809654236 | Accuracy: 0.14758 | Loss: 118.54840364257812
+Finished Training after 118.37392234802246 seconds.
+Training Model 33
+Epoch: 1 | Time: 22.292673349380493 | Accuracy: 0.10046 | Loss: 2.345517691650391
+Epoch: 2 | Time: 22.455052614212036 | Accuracy: 0.10014 | Loss: 2.3144757049560547
+Epoch: 3 | Time: 22.30305576324463 | Accuracy: 0.10084 | Loss: 2.306146708831787
+Epoch: 4 | Time: 22.36049771308899 | Accuracy: 0.099 | Loss: 2.3047781363677977
+Epoch: 5 | Time: 22.599558353424072 | Accuracy: 0.10072 | Loss: 2.3043740634918213
+Finished Training after 112.01095962524414 seconds.
+Training Model 34
+Epoch: 1 | Time: 33.7740752696991 | Accuracy: 0.18374 | Loss: 2.3174032736206054
+Epoch: 2 | Time: 33.9155797958374 | Accuracy: 0.21558 | Loss: 2.2441572436523436
+Epoch: 3 | Time: 33.93687438964844 | Accuracy: 0.22206 | Loss: 2.2204316847991943
+Epoch: 4 | Time: 33.89479398727417 | Accuracy: 0.2295 | Loss: 2.2030649111557006
+Epoch: 5 | Time: 33.87969613075256 | Accuracy: 0.23612 | Loss: 2.1875040215301516
+Finished Training after 169.40113854408264 seconds.
+Training Model 35
+Epoch: 1 | Time: 14.421692848205566 | Accuracy: 0.1526 | Loss: 2.2261863846588135
+Epoch: 2 | Time: 14.465251684188843 | Accuracy: 0.17938 | Loss: 2.1422637937164306
+Epoch: 3 | Time: 14.28049111366272 | Accuracy: 0.18486 | Loss: 2.12671948387146
+Epoch: 4 | Time: 14.363046169281006 | Accuracy: 0.19756 | Loss: 2.103059860610962
+Epoch: 5 | Time: 14.561662435531616 | Accuracy: 0.20674 | Loss: 2.09036835269928
+Finished Training after 72.09226632118225 seconds.
+Training Model 36
+Epoch: 1 | Time: 44.3420524597168 | Accuracy: 0.1142 | Loss: 32.286061432800295
+Epoch: 2 | Time: 43.59792351722717 | Accuracy: 0.1091 | Loss: 7.228339368896484
+Epoch: 3 | Time: 44.22752594947815 | Accuracy: 0.10562 | Loss: 7.522301279754639
+Epoch: 4 | Time: 44.24953556060791 | Accuracy: 0.1081 | Loss: 5.061144566802978
+Epoch: 5 | Time: 44.05896878242493 | Accuracy: 0.11262 | Loss: 4.409602192230224
+Finished Training after 220.47613263130188 seconds.
+Training Model 37
+Epoch: 1 | Time: 24.218398094177246 | Accuracy: 0.14308 | Loss: 10.714783839569092
+Epoch: 2 | Time: 23.797901153564453 | Accuracy: 0.13538 | Loss: 3.5882114246368406
+Epoch: 3 | Time: 23.504350900650024 | Accuracy: 0.12556 | Loss: 2.7775254989624023
+Epoch: 4 | Time: 23.347566604614258 | Accuracy: 0.12284 | Loss: 2.562464691848755
+Epoch: 5 | Time: 23.57871389389038 | Accuracy: 0.1261 | Loss: 2.449193343963623
+Finished Training after 118.44705581665039 seconds.
+Training Model 38
+Epoch: 1 | Time: 12.21387505531311 | Accuracy: 0.19472 | Loss: 2.8706495878601075
+Epoch: 2 | Time: 12.201486349105835 | Accuracy: 0.28936 | Loss: 2.04476514377594
+Epoch: 3 | Time: 12.038228034973145 | Accuracy: 0.33872 | Loss: 1.8554937731170655
+Epoch: 4 | Time: 12.132863759994507 | Accuracy: 0.36424 | Loss: 1.784742675743103
+Epoch: 5 | Time: 12.421600818634033 | Accuracy: 0.37706 | Loss: 1.7481228551101684
+Finished Training after 61.00817799568176 seconds.
+Training Model 39
+Epoch: 1 | Time: 84.15185523033142 | Accuracy: 0.20446 | Loss: 2.371028843460083
+Epoch: 2 | Time: 84.66261911392212 | Accuracy: 0.21318 | Loss: 2.211884230270386
+Epoch: 3 | Time: 84.8624017238617 | Accuracy: 0.20868 | Loss: 2.2122217168426515
+Epoch: 4 | Time: 84.81726622581482 | Accuracy: 0.2113 | Loss: 2.209758348236084
+Epoch: 5 | Time: 84.95813202857971 | Accuracy: 0.21832 | Loss: 2.198747697677612
+Finished Training after 423.4523959159851 seconds.
+Training Model 40
+Epoch: 1 | Time: 12.111199140548706 | Accuracy: 0.13542 | Loss: 2.298506585998535
+Epoch: 2 | Time: 12.051586151123047 | Accuracy: 0.1683 | Loss: 2.2341551903533934
+Epoch: 3 | Time: 12.444574117660522 | Accuracy: 0.18762 | Loss: 2.1964832763671875
+Epoch: 4 | Time: 12.171425104141235 | Accuracy: 0.19812 | Loss: 2.1685442554473875
+Epoch: 5 | Time: 12.577483892440796 | Accuracy: 0.20938 | Loss: 2.1445011741638185
+Finished Training after 61.356393575668335 seconds.
+Finished Generation 50 | Total Time: 4099.165198326111
+Number of Best Candidates Selected:4
+Selecting best solutions...
+Generation 51 solutions' crossover applied.
+Generation 51 solutions' mutations applied.
+Generation 51 solutions generated and repaired.
+Training Model 1
+Epoch: 1 | Time: 13.255934953689575 | Accuracy: 0.42438 | Loss: 1.6085396517944337
+Epoch: 2 | Time: 12.908253192901611 | Accuracy: 0.52624 | Loss: 1.3251514450073243
+Epoch: 3 | Time: 13.10418152809143 | Accuracy: 0.57842 | Loss: 1.1873764183807374
+Epoch: 4 | Time: 13.221583604812622 | Accuracy: 0.61544 | Loss: 1.0737605561637877
+Epoch: 5 | Time: 13.16709566116333 | Accuracy: 0.653 | Loss: 0.9753601019859314
+Finished Training after 65.65716910362244 seconds.
+Training Model 2
+Epoch: 1 | Time: 37.03785681724548 | Accuracy: 0.4246 | Loss: 1.629371234817505
+Epoch: 2 | Time: 37.10544991493225 | Accuracy: 0.51016 | Loss: 1.3789101448059082
+Epoch: 3 | Time: 37.133654832839966 | Accuracy: 0.5522 | Loss: 1.2675478760528565
+Epoch: 4 | Time: 37.10567021369934 | Accuracy: 0.58106 | Loss: 1.1838422845840455
+Epoch: 5 | Time: 37.12032961845398 | Accuracy: 0.60716 | Loss: 1.116889962425232
+Finished Training after 185.50308561325073 seconds.
+Training Model 3
+Epoch: 1 | Time: 14.099295616149902 | Accuracy: 0.38962 | Loss: 1.7178513982009889
+Epoch: 2 | Time: 14.744025230407715 | Accuracy: 0.47192 | Loss: 1.4821112264251708
+Epoch: 3 | Time: 14.434213399887085 | Accuracy: 0.51794 | Loss: 1.3572898643493652
+Epoch: 4 | Time: 14.761568784713745 | Accuracy: 0.55394 | Loss: 1.2579428398704529
+Epoch: 5 | Time: 14.701789140701294 | Accuracy: 0.58694 | Loss: 1.164723899078369
+Finished Training after 72.74101686477661 seconds.
+Training Model 4
+Epoch: 1 | Time: 19.77744746208191 | Accuracy: 0.39178 | Loss: 1.7282394731903077
+Epoch: 2 | Time: 19.145911931991577 | Accuracy: 0.49884 | Loss: 1.474318339691162
+Epoch: 3 | Time: 19.140241384506226 | Accuracy: 0.53332 | Loss: 1.372842908782959
+Epoch: 4 | Time: 19.2415874004364 | Accuracy: 0.5571 | Loss: 1.2993390174865722
+Epoch: 5 | Time: 19.3274245262146 | Accuracy: 0.57758 | Loss: 1.2487638262939453
+Finished Training after 96.63273668289185 seconds.
+Training Model 5
+Epoch: 1 | Time: 18.904984712600708 | Accuracy: 0.12254 | Loss: 6.093048834609985
+Epoch: 2 | Time: 18.612288236618042 | Accuracy: 0.1507 | Loss: 4.576816248321533
+Epoch: 3 | Time: 18.76531481742859 | Accuracy: 0.16142 | Loss: 4.244024119644165
+Epoch: 4 | Time: 18.8291597366333 | Accuracy: 0.16776 | Loss: 4.07287547744751
+Epoch: 5 | Time: 18.908352851867676 | Accuracy: 0.1728 | Loss: 3.954937880706787
+Finished Training after 94.02022743225098 seconds.
+Training Model 6
+Epoch: 1 | Time: 18.377408266067505 | Accuracy: 0.1456 | Loss: 2.251764715652466
+Epoch: 2 | Time: 18.267815828323364 | Accuracy: 0.16564 | Loss: 2.186893755569458
+Epoch: 3 | Time: 18.349115133285522 | Accuracy: 0.16942 | Loss: 2.1737045810699462
+Epoch: 4 | Time: 18.450763940811157 | Accuracy: 0.17584 | Loss: 2.168873184890747
+Epoch: 5 | Time: 18.41818404197693 | Accuracy: 0.17388 | Loss: 2.1606475829315186
+Finished Training after 91.86340641975403 seconds.
+Training Model 7
+Epoch: 1 | Time: 12.443647861480713 | Accuracy: 0.1378 | Loss: 2.2109686196136473
+Epoch: 2 | Time: 12.633461713790894 | Accuracy: 0.1441 | Loss: 2.161081672668457
+Epoch: 3 | Time: 12.327730655670166 | Accuracy: 0.14652 | Loss: 2.14810984954834
+Epoch: 4 | Time: 12.362740516662598 | Accuracy: 0.14446 | Loss: 2.139470188903809
+Epoch: 5 | Time: 12.32604718208313 | Accuracy: 0.1459 | Loss: 2.1340720171356202
+Finished Training after 62.093749046325684 seconds.
+Training Model 8
+Epoch: 1 | Time: 12.645474910736084 | Accuracy: 0.1336 | Loss: 2.2999659812927247
+Epoch: 2 | Time: 12.474224090576172 | Accuracy: 0.15814 | Loss: 2.2483520362091065
+Epoch: 3 | Time: 12.405844926834106 | Accuracy: 0.1754 | Loss: 2.205732868270874
+Epoch: 4 | Time: 12.443545579910278 | Accuracy: 0.1885 | Loss: 2.1644298949432375
+Epoch: 5 | Time: 12.629168272018433 | Accuracy: 0.20472 | Loss: 2.1319720583343504
+Finished Training after 62.59838128089905 seconds.
+Training Model 9
+Epoch: 1 | Time: 20.382447719573975 | Accuracy: 0.11244 | Loss: 2.305784768371582
+Epoch: 2 | Time: 20.554464101791382 | Accuracy: 0.12134 | Loss: 2.286611329727173
+Epoch: 3 | Time: 20.482396841049194 | Accuracy: 0.12158 | Loss: 2.2823800901794433
+Epoch: 4 | Time: 20.71854305267334 | Accuracy: 0.12514 | Loss: 2.275448854675293
+Epoch: 5 | Time: 20.308950662612915 | Accuracy: 0.12628 | Loss: 2.272958113708496
+Finished Training after 102.44692373275757 seconds.
+Training Model 10
+Epoch: 1 | Time: 13.455528259277344 | Accuracy: 0.0999 | Loss: 2.3180258602905273
+Epoch: 2 | Time: 13.23121190071106 | Accuracy: 0.09904 | Loss: 2.302994639968872
+Epoch: 3 | Time: 13.412163734436035 | Accuracy: 0.09936 | Loss: 2.3030797102355955
+Epoch: 4 | Time: 13.541929244995117 | Accuracy: 0.10184 | Loss: 2.3028710817718507
+Epoch: 5 | Time: 13.575347423553467 | Accuracy: 0.0986 | Loss: 2.3030338819122314
+Finished Training after 67.21631097793579 seconds.
+Training Model 11
+Epoch: 1 | Time: 13.312183141708374 | Accuracy: 0.10342 | Loss: 2.4982588803863526
+Epoch: 2 | Time: 13.680083513259888 | Accuracy: 0.10848 | Loss: 2.403184088897705
+Epoch: 3 | Time: 13.727246522903442 | Accuracy: 0.12276 | Loss: 2.3554239209747316
+Epoch: 4 | Time: 13.149719715118408 | Accuracy: 0.1381 | Loss: 2.318794504547119
+Epoch: 5 | Time: 13.444480895996094 | Accuracy: 0.15058 | Loss: 2.2810599781036376
+Finished Training after 67.31383776664734 seconds.
+Training Model 12
+Epoch: 1 | Time: 13.830498456954956 | Accuracy: 0.17208 | Loss: 4.543436034698487
+Epoch: 2 | Time: 14.49846363067627 | Accuracy: 0.22584 | Loss: 2.1665224410247803
+Epoch: 3 | Time: 14.028435707092285 | Accuracy: 0.25996 | Loss: 2.0701771157836912
+Epoch: 4 | Time: 14.070044755935669 | Accuracy: 0.26446 | Loss: 2.056361824798584
+Epoch: 5 | Time: 13.463686227798462 | Accuracy: 0.27174 | Loss: 2.034315962982178
+Finished Training after 69.89124536514282 seconds.
+Training Model 13
+Epoch: 1 | Time: 17.583611488342285 | Accuracy: 0.179 | Loss: 2.2098432387542726
+Epoch: 2 | Time: 17.431097745895386 | Accuracy: 0.18944 | Loss: 2.1651465058135986
+Epoch: 3 | Time: 17.866031408309937 | Accuracy: 0.1993 | Loss: 2.145000906600952
+Epoch: 4 | Time: 17.553247928619385 | Accuracy: 0.20334 | Loss: 2.141970787773132
+Epoch: 5 | Time: 17.13774013519287 | Accuracy: 0.19934 | Loss: 2.1492173542022703
+Finished Training after 87.57184886932373 seconds.
+Training Model 14
+Epoch: 1 | Time: 72.81075501441956 | Accuracy: 0.15154 | Loss: 7.800841672668457
+Epoch: 2 | Time: 72.99622392654419 | Accuracy: 0.19004 | Loss: 4.387353691101074
+Epoch: 3 | Time: 72.93907403945923 | Accuracy: 0.20518 | Loss: 3.3990682720947265
+Epoch: 4 | Time: 72.97747659683228 | Accuracy: 0.2166 | Loss: 2.867529764099121
+Epoch: 5 | Time: 73.04404640197754 | Accuracy: 0.23084 | Loss: 2.585927668685913
+Finished Training after 364.7676978111267 seconds.
+Training Model 15
+Epoch: 1 | Time: 13.896042108535767 | Accuracy: 0.23052 | Loss: 2.084753904724121
+Epoch: 2 | Time: 13.780394315719604 | Accuracy: 0.33192 | Loss: 1.8264879804992675
+Epoch: 3 | Time: 13.74773097038269 | Accuracy: 0.36464 | Loss: 1.7490752994918823
+Epoch: 4 | Time: 14.014264106750488 | Accuracy: 0.38146 | Loss: 1.7068804065322876
+Epoch: 5 | Time: 13.801859617233276 | Accuracy: 0.39052 | Loss: 1.6838388984680175
+Finished Training after 69.2404203414917 seconds.
+Training Model 16
+Epoch: 1 | Time: 13.197184085845947 | Accuracy: 0.10402 | Loss: 4.631384622344971
+Epoch: 2 | Time: 14.360012292861938 | Accuracy: 0.1226 | Loss: 3.356920916748047
+Epoch: 3 | Time: 14.360034465789795 | Accuracy: 0.13372 | Loss: 2.942774142379761
+Epoch: 4 | Time: 14.508748054504395 | Accuracy: 0.13862 | Loss: 2.717740573730469
+Epoch: 5 | Time: 13.843296766281128 | Accuracy: 0.1444 | Loss: 2.5727932066345214
+Finished Training after 70.26939678192139 seconds.
+Training Model 17
+Epoch: 1 | Time: 13.238101243972778 | Accuracy: 0.13268 | Loss: 2.3947163806915284
+Epoch: 2 | Time: 13.460724830627441 | Accuracy: 0.15436 | Loss: 2.2697287029266358
+Epoch: 3 | Time: 12.71160626411438 | Accuracy: 0.1597 | Loss: 2.2482590491485595
+Epoch: 4 | Time: 13.083252668380737 | Accuracy: 0.1648 | Loss: 2.224673950958252
+Epoch: 5 | Time: 13.847965955734253 | Accuracy: 0.1655 | Loss: 2.221750399017334
+Finished Training after 66.34177684783936 seconds.
+Training Model 18
+Epoch: 1 | Time: 18.762864589691162 | Accuracy: 0.20062 | Loss: 2.153573932952881
+Epoch: 2 | Time: 18.89880061149597 | Accuracy: 0.25542 | Loss: 2.028193963432312
+Epoch: 3 | Time: 18.947474002838135 | Accuracy: 0.2738 | Loss: 1.9908658995056152
+Epoch: 4 | Time: 18.827118396759033 | Accuracy: 0.28502 | Loss: 1.9675966702270509
+Epoch: 5 | Time: 19.08278250694275 | Accuracy: 0.29414 | Loss: 1.9501820935440064
+Finished Training after 94.51916193962097 seconds.
+Training Model 19
+Epoch: 1 | Time: 13.811076879501343 | Accuracy: 0.13556 | Loss: 457.6035377050781
+Epoch: 2 | Time: 13.736403465270996 | Accuracy: 0.1575 | Loss: 216.5437794482422
+Epoch: 3 | Time: 14.116142272949219 | Accuracy: 0.1559 | Loss: 111.22018696411133
+Epoch: 4 | Time: 13.72076416015625 | Accuracy: 0.13172 | Loss: 35.08702839080811
+Epoch: 5 | Time: 13.685026168823242 | Accuracy: 0.10742 | Loss: 8.04242623413086
+Finished Training after 69.06953263282776 seconds.
+Training Model 20
+Epoch: 1 | Time: 13.249911546707153 | Accuracy: 0.10182 | Loss: 4.874233149414063
+Epoch: 2 | Time: 13.524101972579956 | Accuracy: 0.09838 | Loss: 2.316315858154297
+Epoch: 3 | Time: 13.055792331695557 | Accuracy: 0.10154 | Loss: 2.305431805267334
+Epoch: 4 | Time: 13.547357320785522 | Accuracy: 0.09934 | Loss: 2.3037667144012453
+Epoch: 5 | Time: 12.948158502578735 | Accuracy: 0.09814 | Loss: 2.322179023513794
+Finished Training after 66.32544374465942 seconds.
+Training Model 21
+Epoch: 1 | Time: 25.859509229660034 | Accuracy: 0.10118 | Loss: 727.7072084716797
+Epoch: 2 | Time: 26.015446424484253 | Accuracy: 0.09862 | Loss: 40.23456822021485
+Epoch: 3 | Time: 25.608914852142334 | Accuracy: 0.1002 | Loss: 10.538634834442139
+Epoch: 4 | Time: 26.32514476776123 | Accuracy: 0.1004 | Loss: 5.36942144607544
+Epoch: 5 | Time: 25.78249955177307 | Accuracy: 0.10032 | Loss: 3.5686567765045165
+Finished Training after 129.5916428565979 seconds.
+Training Model 22
+Epoch: 1 | Time: 15.579336166381836 | Accuracy: 0.10842 | Loss: 8.234556381835937
+Epoch: 2 | Time: 15.780742645263672 | Accuracy: 0.1366 | Loss: 5.197997907867432
+Epoch: 3 | Time: 15.475278854370117 | Accuracy: 0.16132 | Loss: 4.24144123840332
+Epoch: 4 | Time: 15.567311763763428 | Accuracy: 0.18174 | Loss: 3.657921285934448
+Epoch: 5 | Time: 15.685691833496094 | Accuracy: 0.19998 | Loss: 3.250002610549927
+Finished Training after 78.08848309516907 seconds.
+Training Model 23
+Epoch: 1 | Time: 11.917533159255981 | Accuracy: 0.10906 | Loss: 2.379996301574707
+Epoch: 2 | Time: 11.962272644042969 | Accuracy: 0.13984 | Loss: 2.2774454164886473
+Epoch: 3 | Time: 11.887256145477295 | Accuracy: 0.1639 | Loss: 2.2158796236419676
+Epoch: 4 | Time: 11.993227243423462 | Accuracy: 0.17644 | Loss: 2.1824022760009765
+Epoch: 5 | Time: 11.68180537223816 | Accuracy: 0.1878 | Loss: 2.1644565296936036
+Finished Training after 59.44222044944763 seconds.
+Training Model 24
+Epoch: 1 | Time: 12.756411075592041 | Accuracy: 0.12612 | Loss: 2.3219527785491945
+Epoch: 2 | Time: 12.875478506088257 | Accuracy: 0.13778 | Loss: 2.290754221343994
+Epoch: 3 | Time: 13.100486040115356 | Accuracy: 0.14638 | Loss: 2.266765414123535
+Epoch: 4 | Time: 12.640745639801025 | Accuracy: 0.1522 | Loss: 2.2478470319366455
+Epoch: 5 | Time: 12.76543140411377 | Accuracy: 0.15572 | Loss: 2.2339232389068604
+Finished Training after 64.13867735862732 seconds.
+Training Model 25
+Epoch: 1 | Time: 12.392836809158325 | Accuracy: 0.30098 | Loss: 1.9527153769683838
+Epoch: 2 | Time: 12.560585737228394 | Accuracy: 0.38936 | Loss: 1.740090235710144
+Epoch: 3 | Time: 12.795170307159424 | Accuracy: 0.41498 | Loss: 1.6557355309677124
+Epoch: 4 | Time: 12.206559419631958 | Accuracy: 0.4427 | Loss: 1.5926693020629883
+Epoch: 5 | Time: 12.20770788192749 | Accuracy: 0.46058 | Loss: 1.5419127677917481
+Finished Training after 62.16298294067383 seconds.
+Training Model 26
+Epoch: 1 | Time: 15.35604476928711 | Accuracy: 0.17472 | Loss: 2.199652324295044
+Epoch: 2 | Time: 14.98172116279602 | Accuracy: 0.19976 | Loss: 2.151088846664429
+Epoch: 3 | Time: 14.971824407577515 | Accuracy: 0.20458 | Loss: 2.134515323562622
+Epoch: 4 | Time: 15.146290302276611 | Accuracy: 0.20696 | Loss: 2.1158176871490477
+Epoch: 5 | Time: 15.165757894515991 | Accuracy: 0.2122 | Loss: 2.103774380607605
+Finished Training after 75.62175941467285 seconds.
+Training Model 27
+Epoch: 1 | Time: 13.15442180633545 | Accuracy: 0.1283 | Loss: 2.521447056732178
+Epoch: 2 | Time: 13.992582559585571 | Accuracy: 0.19024 | Loss: 2.202974822692871
+Epoch: 3 | Time: 14.117347478866577 | Accuracy: 0.2385 | Loss: 2.0863204955291748
+Epoch: 4 | Time: 13.006055355072021 | Accuracy: 0.26504 | Loss: 2.0281420437240603
+Epoch: 5 | Time: 13.517781972885132 | Accuracy: 0.28124 | Loss: 2.004302050476074
+Finished Training after 67.78831434249878 seconds.
+Training Model 28
+Epoch: 1 | Time: 14.014638900756836 | Accuracy: 0.2775 | Loss: 2.2969413876724243
+Epoch: 2 | Time: 14.036442279815674 | Accuracy: 0.3573 | Loss: 1.8922629021835327
+Epoch: 3 | Time: 14.852038860321045 | Accuracy: 0.39952 | Loss: 1.7375152309799193
+Epoch: 4 | Time: 15.293347835540771 | Accuracy: 0.42384 | Loss: 1.6448207083511353
+Epoch: 5 | Time: 13.83178997039795 | Accuracy: 0.44348 | Loss: 1.5854985489273072
+Finished Training after 72.02837896347046 seconds.
+Training Model 29
+Epoch: 1 | Time: 38.62882709503174 | Accuracy: 0.14662 | Loss: 2.2780336933135987
+Epoch: 2 | Time: 38.712510108947754 | Accuracy: 0.18498 | Loss: 2.1833241679763793
+Epoch: 3 | Time: 38.76342582702637 | Accuracy: 0.2021 | Loss: 2.140968671569824
+Epoch: 4 | Time: 38.79220390319824 | Accuracy: 0.2117 | Loss: 2.125022698364258
+Epoch: 5 | Time: 38.57405233383179 | Accuracy: 0.2145 | Loss: 2.1131717613220213
+Finished Training after 193.4711480140686 seconds.
+Training Model 30
+Epoch: 1 | Time: 14.2069833278656 | Accuracy: 0.10842 | Loss: 2.811348814239502
+Epoch: 2 | Time: 14.506067514419556 | Accuracy: 0.1116 | Loss: 2.5329362060546874
+Epoch: 3 | Time: 14.455293416976929 | Accuracy: 0.10958 | Loss: 2.4690769083404542
+Epoch: 4 | Time: 14.471276998519897 | Accuracy: 0.11108 | Loss: 2.4341642963409424
+Epoch: 5 | Time: 14.541102647781372 | Accuracy: 0.1094 | Loss: 2.413892257537842
+Finished Training after 72.18084478378296 seconds.
+Training Model 31
+Epoch: 1 | Time: 12.38880705833435 | Accuracy: 0.1001 | Loss: 2.4537698320770263
+Epoch: 2 | Time: 12.416903018951416 | Accuracy: 0.10154 | Loss: 2.3575456945037843
+Epoch: 3 | Time: 12.124502182006836 | Accuracy: 0.09982 | Loss: 2.352981492919922
+Epoch: 4 | Time: 12.530524969100952 | Accuracy: 0.10066 | Loss: 2.3489614838409425
+Epoch: 5 | Time: 12.47766923904419 | Accuracy: 0.10312 | Loss: 2.3465813137054443
+Finished Training after 61.938525438308716 seconds.
+Training Model 32
+Epoch: 1 | Time: 12.982812881469727 | Accuracy: 0.13338 | Loss: 2.298268167190552
+Epoch: 2 | Time: 13.191805362701416 | Accuracy: 0.16346 | Loss: 2.21489409286499
+Epoch: 3 | Time: 13.1848464012146 | Accuracy: 0.17728 | Loss: 2.1774795541381837
+Epoch: 4 | Time: 12.977860689163208 | Accuracy: 0.18276 | Loss: 2.156603404159546
+Epoch: 5 | Time: 12.830930233001709 | Accuracy: 0.19292 | Loss: 2.1359351181793214
+Finished Training after 65.16838312149048 seconds.
+Training Model 33
+Epoch: 1 | Time: 12.098142385482788 | Accuracy: 0.10122 | Loss: 2.351621084136963
+Epoch: 2 | Time: 11.964332818984985 | Accuracy: 0.10888 | Loss: 2.3353798921966553
+Epoch: 3 | Time: 12.056428909301758 | Accuracy: 0.11682 | Loss: 2.3199344483184814
+Epoch: 4 | Time: 11.86649489402771 | Accuracy: 0.12314 | Loss: 2.306315287094116
+Epoch: 5 | Time: 11.912946224212646 | Accuracy: 0.12946 | Loss: 2.2919791749572753
+Finished Training after 59.89846849441528 seconds.
+Training Model 34
+Epoch: 1 | Time: 12.638888359069824 | Accuracy: 0.14944 | Loss: 2.270555601348877
+Epoch: 2 | Time: 12.814330816268921 | Accuracy: 0.16658 | Loss: 2.2185885262298584
+Epoch: 3 | Time: 12.393210172653198 | Accuracy: 0.17882 | Loss: 2.1844184029388427
+Epoch: 4 | Time: 12.434271574020386 | Accuracy: 0.19552 | Loss: 2.1502733954620363
+Epoch: 5 | Time: 12.458442687988281 | Accuracy: 0.20688 | Loss: 2.1301842847442627
+Finished Training after 62.73926663398743 seconds.
+Training Model 35
+Epoch: 1 | Time: 13.304311275482178 | Accuracy: 0.12594 | Loss: 2.548618850708008
+Epoch: 2 | Time: 13.143622159957886 | Accuracy: 0.16606 | Loss: 2.3078114992523195
+Epoch: 3 | Time: 13.881802558898926 | Accuracy: 0.1878 | Loss: 2.2447686904907225
+Epoch: 4 | Time: 13.748048782348633 | Accuracy: 0.19682 | Loss: 2.210644898071289
+Epoch: 5 | Time: 14.017213106155396 | Accuracy: 0.20234 | Loss: 2.1952371572113036
+Finished Training after 68.09512066841125 seconds.
+Training Model 36
+Epoch: 1 | Time: 13.906826734542847 | Accuracy: 0.10118 | Loss: 6.943206602783203
+Epoch: 2 | Time: 14.006994247436523 | Accuracy: 0.10078 | Loss: 5.642394918060303
+Epoch: 3 | Time: 14.7458016872406 | Accuracy: 0.09788 | Loss: 5.1826130014038085
+Epoch: 4 | Time: 14.407443046569824 | Accuracy: 0.10218 | Loss: 4.756023183898926
+Epoch: 5 | Time: 14.20830225944519 | Accuracy: 0.10246 | Loss: 4.471418127365112
+Finished Training after 71.27548813819885 seconds.
+Training Model 37
+Epoch: 1 | Time: 14.209620714187622 | Accuracy: 0.16596 | Loss: 2.1920884046936036
+Epoch: 2 | Time: 14.021390914916992 | Accuracy: 0.19104 | Loss: 2.1477597254180907
+Epoch: 3 | Time: 14.173093795776367 | Accuracy: 0.19458 | Loss: 2.134599892425537
+Epoch: 4 | Time: 13.904081106185913 | Accuracy: 0.1962 | Loss: 2.1322443685913086
+Epoch: 5 | Time: 13.85209345817566 | Accuracy: 0.20744 | Loss: 2.1218353388214113
+Finished Training after 70.16040444374084 seconds.
+Training Model 38
+Epoch: 1 | Time: 33.81566596031189 | Accuracy: 0.11336 | Loss: 2.8284365773010256
+Epoch: 2 | Time: 33.88661599159241 | Accuracy: 0.11926 | Loss: 2.8595223011016846
+Epoch: 3 | Time: 34.051987409591675 | Accuracy: 0.12476 | Loss: 2.7730461736297607
+Epoch: 4 | Time: 34.03853368759155 | Accuracy: 0.12886 | Loss: 2.714148731765747
+Epoch: 5 | Time: 33.77609062194824 | Accuracy: 0.13746 | Loss: 2.6429985441589356
+Finished Training after 169.5690131187439 seconds.
+Training Model 39
+Epoch: 1 | Time: 17.40877079963684 | Accuracy: 0.10184 | Loss: 2.871613935165405
+Epoch: 2 | Time: 17.131264686584473 | Accuracy: 0.09774 | Loss: 2.3104433628845213
+Epoch: 3 | Time: 17.496336221694946 | Accuracy: 0.09524 | Loss: 2.3283644537353516
+Epoch: 4 | Time: 17.191479682922363 | Accuracy: 0.10036 | Loss: 2.3137625623321534
+Epoch: 5 | Time: 17.396896839141846 | Accuracy: 0.09884 | Loss: 2.302858856201172
+Finished Training after 86.6248893737793 seconds.
+Training Model 40
+Epoch: 1 | Time: 13.079230070114136 | Accuracy: 0.10154 | Loss: 4.008612853393554
+Epoch: 2 | Time: 13.231521606445312 | Accuracy: 0.1052 | Loss: 2.46530161026001
+Epoch: 3 | Time: 13.219090223312378 | Accuracy: 0.1174 | Loss: 2.365172065963745
+Epoch: 4 | Time: 13.191214323043823 | Accuracy: 0.11204 | Loss: 2.411239656600952
+Epoch: 5 | Time: 13.134692430496216 | Accuracy: 0.11108 | Loss: 2.4223866566467285
+Finished Training after 65.85587191581726 seconds.
+Finished Generation 51 | Total Time: 3582.423675060272
+Number of Best Candidates Selected:4
+Selecting best solutions...
+Generation 52 solutions' crossover applied.
+Generation 52 solutions' mutations applied.
+Generation 52 solutions generated and repaired.
+Training Model 1
+Epoch: 1 | Time: 13.468932628631592 | Accuracy: 0.42982 | Loss: 1.5864025173950196
+Epoch: 2 | Time: 13.290476560592651 | Accuracy: 0.53256 | Loss: 1.3155732397079467
+Epoch: 3 | Time: 13.057605981826782 | Accuracy: 0.57992 | Loss: 1.179117171535492
+Epoch: 4 | Time: 13.40548586845398 | Accuracy: 0.62184 | Loss: 1.0693021434211731
+Epoch: 5 | Time: 12.927009105682373 | Accuracy: 0.65872 | Loss: 0.9678799168586731
+Finished Training after 66.14963293075562 seconds.
+Training Model 2
+Epoch: 1 | Time: 37.07898259162903 | Accuracy: 0.42834 | Loss: 1.626972816848755
+Epoch: 2 | Time: 37.12669014930725 | Accuracy: 0.51008 | Loss: 1.3777109474563598
+Epoch: 3 | Time: 37.09731936454773 | Accuracy: 0.54872 | Loss: 1.2774829591178893
+Epoch: 4 | Time: 37.13288974761963 | Accuracy: 0.57756 | Loss: 1.197328491897583
+Epoch: 5 | Time: 37.132712841033936 | Accuracy: 0.60136 | Loss: 1.129303323955536
+Finished Training after 185.5687119960785 seconds.
+Training Model 3
+Epoch: 1 | Time: 14.866585731506348 | Accuracy: 0.39294 | Loss: 1.7186262964248658
+Epoch: 2 | Time: 14.243760347366333 | Accuracy: 0.47556 | Loss: 1.4776572970199584
+Epoch: 3 | Time: 14.624579429626465 | Accuracy: 0.5196 | Loss: 1.3595102842330933
+Epoch: 4 | Time: 14.799456119537354 | Accuracy: 0.56054 | Loss: 1.2499818119430541
+Epoch: 5 | Time: 14.411037683486938 | Accuracy: 0.58794 | Loss: 1.1604122253799438
+Finished Training after 72.94554090499878 seconds.
+Training Model 4
+Epoch: 1 | Time: 19.163423538208008 | Accuracy: 0.39066 | Loss: 1.735073595314026
+Epoch: 2 | Time: 19.523133277893066 | Accuracy: 0.4948 | Loss: 1.483715736656189
+Epoch: 3 | Time: 19.281752824783325 | Accuracy: 0.53286 | Loss: 1.373373989868164
+Epoch: 4 | Time: 19.394309997558594 | Accuracy: 0.55908 | Loss: 1.3049686010360717
+Epoch: 5 | Time: 19.344725847244263 | Accuracy: 0.57692 | Loss: 1.2492215631484986
+Finished Training after 96.70747208595276 seconds.
+Training Model 5
+Epoch: 1 | Time: 12.03573751449585 | Accuracy: 0.10212 | Loss: 2.340285897064209
+Epoch: 2 | Time: 11.95402717590332 | Accuracy: 0.10818 | Loss: 2.3278351922607423
+Epoch: 3 | Time: 11.958949089050293 | Accuracy: 0.1176 | Loss: 2.3173566558837893
+Epoch: 4 | Time: 11.938084125518799 | Accuracy: 0.12662 | Loss: 2.3062897958374022
+Epoch: 5 | Time: 11.984875679016113 | Accuracy: 0.13298 | Loss: 2.2965665425109862
+Finished Training after 59.87180042266846 seconds.
+Training Model 6
+Epoch: 1 | Time: 13.51826786994934 | Accuracy: 0.13774 | Loss: 2.7516253356170655
+Epoch: 2 | Time: 13.626150131225586 | Accuracy: 0.16618 | Loss: 2.399434909744263
+Epoch: 3 | Time: 13.941246032714844 | Accuracy: 0.18072 | Loss: 2.304766491088867
+Epoch: 4 | Time: 13.902180910110474 | Accuracy: 0.19208 | Loss: 2.2361271712493895
+Epoch: 5 | Time: 13.913009881973267 | Accuracy: 0.20074 | Loss: 2.1957237564086913
+Finished Training after 68.90097665786743 seconds.
+Training Model 7
+Epoch: 1 | Time: 12.127644062042236 | Accuracy: 0.18514 | Loss: 2.160194152984619
+Epoch: 2 | Time: 11.984984397888184 | Accuracy: 0.2255 | Loss: 2.0734355213165285
+Epoch: 3 | Time: 12.222425937652588 | Accuracy: 0.24308 | Loss: 2.0460366943359376
+Epoch: 4 | Time: 12.06424069404602 | Accuracy: 0.25532 | Loss: 2.0223634642410278
+Epoch: 5 | Time: 11.973996877670288 | Accuracy: 0.25462 | Loss: 2.0113768850326537
+Finished Training after 60.37342190742493 seconds.
+Training Model 8
+Epoch: 1 | Time: 14.430914402008057 | Accuracy: 0.10358 | Loss: 4.6165733000183105
+Epoch: 2 | Time: 14.652260303497314 | Accuracy: 0.10942 | Loss: 2.472459519958496
+Epoch: 3 | Time: 14.738554239273071 | Accuracy: 0.10944 | Loss: 2.326303182296753
+Epoch: 4 | Time: 14.444677114486694 | Accuracy: 0.10842 | Loss: 2.327012844314575
+Epoch: 5 | Time: 14.207226037979126 | Accuracy: 0.10934 | Loss: 2.3234197510528563
+Finished Training after 72.47376036643982 seconds.
+Training Model 9
+Epoch: 1 | Time: 14.606184005737305 | Accuracy: 0.2099 | Loss: 2.637671549530029
+Epoch: 2 | Time: 14.542827844619751 | Accuracy: 0.31238 | Loss: 1.9028188149261474
+Epoch: 3 | Time: 15.002380609512329 | Accuracy: 0.36094 | Loss: 1.7629987242507934
+Epoch: 4 | Time: 14.85482907295227 | Accuracy: 0.3854 | Loss: 1.6832891445159912
+Epoch: 5 | Time: 14.484562635421753 | Accuracy: 0.40874 | Loss: 1.639676058807373
+Finished Training after 73.49091362953186 seconds.
+Training Model 10
+Epoch: 1 | Time: 15.386799812316895 | Accuracy: 0.12838 | Loss: 2.6580938066864013
+Epoch: 2 | Time: 15.31497859954834 | Accuracy: 0.18502 | Loss: 2.145052724304199
+Epoch: 3 | Time: 15.374025106430054 | Accuracy: 0.20096 | Loss: 2.0947470832824706
+Epoch: 4 | Time: 15.363896131515503 | Accuracy: 0.21358 | Loss: 2.0664997537231447
+Epoch: 5 | Time: 15.34471082687378 | Accuracy: 0.22516 | Loss: 2.055152283859253
+Finished Training after 76.78453660011292 seconds.
+Training Model 11
+Epoch: 1 | Time: 15.897505760192871 | Accuracy: 0.10826 | Loss: 2.3179720385742186
+Epoch: 2 | Time: 15.942180633544922 | Accuracy: 0.12348 | Loss: 2.2959622161865236
+Epoch: 3 | Time: 15.539963722229004 | Accuracy: 0.16782 | Loss: 2.275686439666748
+Epoch: 4 | Time: 15.39797592163086 | Accuracy: 0.17428 | Loss: 2.254779835281372
+Epoch: 5 | Time: 15.411062240600586 | Accuracy: 0.17588 | Loss: 2.2357701503753664
+Finished Training after 78.18884229660034 seconds.
+Training Model 12
+Epoch: 1 | Time: 19.937562227249146 | Accuracy: 0.18892 | Loss: 2.1757741595458984
+Epoch: 2 | Time: 20.046157598495483 | Accuracy: 0.20428 | Loss: 2.1451824793624876
+Epoch: 3 | Time: 19.998211145401 | Accuracy: 0.20354 | Loss: 2.1332194955444335
+Epoch: 4 | Time: 20.01666522026062 | Accuracy: 0.21042 | Loss: 2.1284191940307617
+Epoch: 5 | Time: 20.1897189617157 | Accuracy: 0.20904 | Loss: 2.1279077243804934
+Finished Training after 100.18844246864319 seconds.
+Training Model 13
+Epoch: 1 | Time: 12.170541286468506 | Accuracy: 0.1172 | Loss: 2.3132855380249024
+Epoch: 2 | Time: 12.245167255401611 | Accuracy: 0.13658 | Loss: 2.2785683423614502
+Epoch: 3 | Time: 12.088325023651123 | Accuracy: 0.15374 | Loss: 2.2496263796234133
+Epoch: 4 | Time: 12.428185939788818 | Accuracy: 0.16462 | Loss: 2.2213272050476074
+Epoch: 5 | Time: 12.027744054794312 | Accuracy: 0.17478 | Loss: 2.193262825164795
+Finished Training after 60.96008825302124 seconds.
+Training Model 14
+Epoch: 1 | Time: 13.83014726638794 | Accuracy: 0.1021 | Loss: 2.327428794555664
+Epoch: 2 | Time: 13.811892032623291 | Accuracy: 0.1029 | Loss: 2.3108235903930665
+Epoch: 3 | Time: 14.773396492004395 | Accuracy: 0.10848 | Loss: 2.304742007446289
+Epoch: 4 | Time: 14.494980335235596 | Accuracy: 0.12056 | Loss: 2.2904663563537597
+Epoch: 5 | Time: 13.842070579528809 | Accuracy: 0.13264 | Loss: 2.2748196839141848
+Finished Training after 70.75261068344116 seconds.
+Training Model 15
+Epoch: 1 | Time: 16.658937454223633 | Accuracy: 0.11746 | Loss: 2.334854664916992
+Epoch: 2 | Time: 16.582881450653076 | Accuracy: 0.13214 | Loss: 2.293339428253174
+Epoch: 3 | Time: 15.928303241729736 | Accuracy: 0.14492 | Loss: 2.269825513534546
+Epoch: 4 | Time: 15.993895530700684 | Accuracy: 0.152 | Loss: 2.255968030319214
+Epoch: 5 | Time: 16.132673978805542 | Accuracy: 0.16212 | Loss: 2.241233588256836
+Finished Training after 81.29681277275085 seconds.
+Training Model 16
+Epoch: 1 | Time: 12.032337427139282 | Accuracy: 0.10478 | Loss: 2.4187366761779785
+Epoch: 2 | Time: 11.998630285263062 | Accuracy: 0.12314 | Loss: 2.3099279344940187
+Epoch: 3 | Time: 11.879895210266113 | Accuracy: 0.1513 | Loss: 2.235482183151245
+Epoch: 4 | Time: 11.815571546554565 | Accuracy: 0.16806 | Loss: 2.179448342285156
+Epoch: 5 | Time: 11.849371671676636 | Accuracy: 0.17608 | Loss: 2.1462886610412597
+Finished Training after 59.57592701911926 seconds.
+Training Model 17
+Epoch: 1 | Time: 11.909141778945923 | Accuracy: 0.1079 | Loss: 2.328923515853882
+Epoch: 2 | Time: 12.03851866722107 | Accuracy: 0.11958 | Loss: 2.2989659275054932
+Epoch: 3 | Time: 12.028045892715454 | Accuracy: 0.1266 | Loss: 2.279520998535156
+Epoch: 4 | Time: 12.113933801651001 | Accuracy: 0.13674 | Loss: 2.262784278182983
+Epoch: 5 | Time: 12.011841535568237 | Accuracy: 0.146 | Loss: 2.2464911887359618
+Finished Training after 60.101606130599976 seconds.
+Training Model 18
+Epoch: 1 | Time: 14.498505592346191 | Accuracy: 0.13918 | Loss: 2.2912528856658936
+Epoch: 2 | Time: 14.658899307250977 | Accuracy: 0.16344 | Loss: 2.228794531173706
+Epoch: 3 | Time: 14.464941501617432 | Accuracy: 0.18444 | Loss: 2.1756905751037596
+Epoch: 4 | Time: 14.557997465133667 | Accuracy: 0.19698 | Loss: 2.145146900558472
+Epoch: 5 | Time: 14.483526229858398 | Accuracy: 0.21086 | Loss: 2.1104403170013426
+Finished Training after 72.6639940738678 seconds.
+Training Model 19
+Epoch: 1 | Time: 15.94810676574707 | Accuracy: 0.1263 | Loss: 2.3180910306549074
+Epoch: 2 | Time: 15.986104488372803 | Accuracy: 0.1606 | Loss: 2.2429725566864014
+Epoch: 3 | Time: 16.25431752204895 | Accuracy: 0.17624 | Loss: 2.181854312133789
+Epoch: 4 | Time: 16.422194957733154 | Accuracy: 0.19048 | Loss: 2.1433397188568115
+Epoch: 5 | Time: 16.346086978912354 | Accuracy: 0.20204 | Loss: 2.1112876439285277
+Finished Training after 80.95693325996399 seconds.
+Training Model 20
+Epoch: 1 | Time: 20.049458980560303 | Accuracy: 0.1243 | Loss: 2.3494790048980714
+Epoch: 2 | Time: 20.13044548034668 | Accuracy: 0.14024 | Loss: 2.197835112609863
+Epoch: 3 | Time: 20.24919891357422 | Accuracy: 0.14264 | Loss: 2.186092187805176
+Epoch: 4 | Time: 19.70401096343994 | Accuracy: 0.1456 | Loss: 2.1808436739349366
+Epoch: 5 | Time: 20.022340774536133 | Accuracy: 0.1494 | Loss: 2.174636536026001
+Finished Training after 100.15558123588562 seconds.
+Training Model 21
+Epoch: 1 | Time: 12.088989496231079 | Accuracy: 0.15242 | Loss: 2.6144197956848143
+Epoch: 2 | Time: 11.767261743545532 | Accuracy: 0.19962 | Loss: 2.135382059173584
+Epoch: 3 | Time: 11.780673265457153 | Accuracy: 0.22262 | Loss: 2.0650503472900392
+Epoch: 4 | Time: 12.004598140716553 | Accuracy: 0.23238 | Loss: 2.0528900826644896
+Epoch: 5 | Time: 11.819578409194946 | Accuracy: 0.23496 | Loss: 2.0498936785888673
+Finished Training after 59.46122455596924 seconds.
+Training Model 22
+Epoch: 1 | Time: 15.38776421546936 | Accuracy: 0.09956 | Loss: 2.356318571548462
+Epoch: 2 | Time: 15.156185150146484 | Accuracy: 0.09932 | Loss: 2.3045634309387206
+Epoch: 3 | Time: 15.495369911193848 | Accuracy: 0.10098 | Loss: 2.3032989842224123
+Epoch: 4 | Time: 16.017387866973877 | Accuracy: 0.09826 | Loss: 2.303321032409668
+Epoch: 5 | Time: 15.96536111831665 | Accuracy: 0.09912 | Loss: 2.3030906182861326
+Finished Training after 78.02219414710999 seconds.
+Training Model 23
+Epoch: 1 | Time: 18.999598264694214 | Accuracy: 0.17186 | Loss: 2.203131741409302
+Epoch: 2 | Time: 19.030046463012695 | Accuracy: 0.22876 | Loss: 2.081737656402588
+Epoch: 3 | Time: 18.984960556030273 | Accuracy: 0.25706 | Loss: 2.007237653274536
+Epoch: 4 | Time: 18.97860836982727 | Accuracy: 0.27456 | Loss: 1.9632826327514648
+Epoch: 5 | Time: 18.851366758346558 | Accuracy: 0.28244 | Loss: 1.9319195463562011
+Finished Training after 94.84470677375793 seconds.
+Training Model 24
+Epoch: 1 | Time: 15.087622165679932 | Accuracy: 0.27326 | Loss: 1.969316424217224
+Epoch: 2 | Time: 14.827001094818115 | Accuracy: 0.33002 | Loss: 1.8223075107574462
+Epoch: 3 | Time: 14.235301733016968 | Accuracy: 0.3425 | Loss: 1.7870576961898803
+Epoch: 4 | Time: 14.288428783416748 | Accuracy: 0.3535 | Loss: 1.7541854705810547
+Epoch: 5 | Time: 14.711993217468262 | Accuracy: 0.35874 | Loss: 1.7417571206283569
+Finished Training after 73.15046787261963 seconds.
+Training Model 25
+Epoch: 1 | Time: 13.978614807128906 | Accuracy: 0.23004 | Loss: 2.0629286462020873
+Epoch: 2 | Time: 13.717155694961548 | Accuracy: 0.2805 | Loss: 1.9556960277175903
+Epoch: 3 | Time: 13.3959379196167 | Accuracy: 0.30256 | Loss: 1.9040726499938965
+Epoch: 4 | Time: 14.088016986846924 | Accuracy: 0.31342 | Loss: 1.8667219055557251
+Epoch: 5 | Time: 13.65301513671875 | Accuracy: 0.32126 | Loss: 1.8485141777801513
+Finished Training after 68.83285927772522 seconds.
+Training Model 26
+Epoch: 1 | Time: 11.967402935028076 | Accuracy: 0.10114 | Loss: 7.378064186935425
+Epoch: 2 | Time: 11.806700229644775 | Accuracy: 0.09734 | Loss: 2.661916107406616
+Epoch: 3 | Time: 11.984696865081787 | Accuracy: 0.09658 | Loss: 2.5126289543151854
+Epoch: 4 | Time: 11.80258321762085 | Accuracy: 0.09996 | Loss: 2.381488123931885
+Epoch: 5 | Time: 11.92517638206482 | Accuracy: 0.10794 | Loss: 2.3403394012451173
+Finished Training after 59.48668336868286 seconds.
+Training Model 27
+Epoch: 1 | Time: 14.779902696609497 | Accuracy: 0.26424 | Loss: 2.018783883972168
+Epoch: 2 | Time: 14.41684603691101 | Accuracy: 0.32226 | Loss: 1.9034039277267456
+Epoch: 3 | Time: 14.494145154953003 | Accuracy: 0.33638 | Loss: 1.8708503533935548
+Epoch: 4 | Time: 14.344302654266357 | Accuracy: 0.3488 | Loss: 1.8522650762939452
+Epoch: 5 | Time: 14.595710039138794 | Accuracy: 0.353 | Loss: 1.838975058670044
+Finished Training after 72.63102722167969 seconds.
+Training Model 28
+Epoch: 1 | Time: 12.011805772781372 | Accuracy: 0.22154 | Loss: 2.094596424942017
+Epoch: 2 | Time: 12.08525013923645 | Accuracy: 0.29658 | Loss: 1.9343205602645874
+Epoch: 3 | Time: 11.756795883178711 | Accuracy: 0.32224 | Loss: 1.8808889489746095
+Epoch: 4 | Time: 12.264891624450684 | Accuracy: 0.33834 | Loss: 1.844810329208374
+Epoch: 5 | Time: 12.09553837776184 | Accuracy: 0.34912 | Loss: 1.8215860582733154
+Finished Training after 60.21441149711609 seconds.
+Training Model 29
+Epoch: 1 | Time: 14.431630849838257 | Accuracy: 0.21676 | Loss: 2.2275195524597167
+Epoch: 2 | Time: 14.345065355300903 | Accuracy: 0.26896 | Loss: 2.022153345832825
+Epoch: 3 | Time: 14.243024587631226 | Accuracy: 0.29936 | Loss: 1.9464330030441284
+Epoch: 4 | Time: 14.331317901611328 | Accuracy: 0.30716 | Loss: 1.9293715685272217
+Epoch: 5 | Time: 14.388298749923706 | Accuracy: 0.30694 | Loss: 1.92760331741333
+Finished Training after 71.7394609451294 seconds.
+Training Model 30
+Epoch: 1 | Time: 17.835580825805664 | Accuracy: 0.15822 | Loss: 2.254423166885376
+Epoch: 2 | Time: 18.302914142608643 | Accuracy: 0.18108 | Loss: 2.1798857818603516
+Epoch: 3 | Time: 17.720935106277466 | Accuracy: 0.2022 | Loss: 2.1266159381103518
+Epoch: 4 | Time: 17.780523538589478 | Accuracy: 0.22342 | Loss: 2.078709220275879
+Epoch: 5 | Time: 18.077176094055176 | Accuracy: 0.23884 | Loss: 2.0473102438735964
+Finished Training after 89.71725392341614 seconds.
+Training Model 31
+Epoch: 1 | Time: 14.438722133636475 | Accuracy: 0.10166 | Loss: 12.786659365997314
+Epoch: 2 | Time: 14.347622394561768 | Accuracy: 0.10394 | Loss: 8.000815516967773
+Epoch: 3 | Time: 14.395157098770142 | Accuracy: 0.10474 | Loss: 6.834264272003174
+Epoch: 4 | Time: 14.4731605052948 | Accuracy: 0.10426 | Loss: 6.288555314331055
+Epoch: 5 | Time: 14.662625312805176 | Accuracy: 0.1061 | Loss: 5.966689441833496
+Finished Training after 72.31740689277649 seconds.
+Training Model 32
+Epoch: 1 | Time: 42.535279750823975 | Accuracy: 0.1898 | Loss: 12.689386642150879
+Epoch: 2 | Time: 42.52583336830139 | Accuracy: 0.20868 | Loss: 9.907985480041503
+Epoch: 3 | Time: 42.54314875602722 | Accuracy: 0.21588 | Loss: 9.12434974029541
+Epoch: 4 | Time: 42.53098273277283 | Accuracy: 0.22506 | Loss: 8.568155946044921
+Epoch: 5 | Time: 42.58196258544922 | Accuracy: 0.22728 | Loss: 8.115156893310546
+Finished Training after 212.71732926368713 seconds.
+Training Model 33
+Epoch: 1 | Time: 23.93544578552246 | Accuracy: 0.12674 | Loss: 2.8195985413360596
+Epoch: 2 | Time: 23.96138072013855 | Accuracy: 0.15566 | Loss: 2.3656627001190187
+Epoch: 3 | Time: 23.96535348892212 | Accuracy: 0.1726 | Loss: 2.2665504581451414
+Epoch: 4 | Time: 23.8543119430542 | Accuracy: 0.1848 | Loss: 2.2244728904724123
+Epoch: 5 | Time: 23.882615089416504 | Accuracy: 0.19766 | Loss: 2.1871093659973146
+Finished Training after 119.59922909736633 seconds.
+Training Model 34
+Epoch: 1 | Time: 11.998207092285156 | Accuracy: 0.19604 | Loss: 2.144124726867676
+Epoch: 2 | Time: 11.99761700630188 | Accuracy: 0.22608 | Loss: 2.0856794826126097
+Epoch: 3 | Time: 11.948256969451904 | Accuracy: 0.22978 | Loss: 2.0774004551315306
+Epoch: 4 | Time: 12.172662734985352 | Accuracy: 0.23508 | Loss: 2.0597152688980103
+Epoch: 5 | Time: 11.990187406539917 | Accuracy: 0.24186 | Loss: 2.050618841552734
+Finished Training after 60.10705900192261 seconds.
+Training Model 35
+Epoch: 1 | Time: 14.577955484390259 | Accuracy: 0.10156 | Loss: 12.148020245895387
+Epoch: 2 | Time: 14.310186386108398 | Accuracy: 0.10142 | Loss: 2.359229926223755
+Epoch: 3 | Time: 14.763009071350098 | Accuracy: 0.09934 | Loss: 2.3268321854400633
+Epoch: 4 | Time: 14.609818935394287 | Accuracy: 0.10032 | Loss: 2.3153166065979005
+Epoch: 5 | Time: 13.865705490112305 | Accuracy: 0.1006 | Loss: 2.309790766372681
+Finished Training after 72.12680196762085 seconds.
+Training Model 36
+Epoch: 1 | Time: 15.111810445785522 | Accuracy: 0.09996 | Loss: 2.3390998445892333
+Epoch: 2 | Time: 15.371184825897217 | Accuracy: 0.1 | Loss: 2.3237755347442626
+Epoch: 3 | Time: 14.738827466964722 | Accuracy: 0.1 | Loss: 2.3152920333862306
+Epoch: 4 | Time: 14.250331401824951 | Accuracy: 0.10004 | Loss: 2.3103866235351562
+Epoch: 5 | Time: 14.979579210281372 | Accuracy: 0.1 | Loss: 2.3068583293151854
+Finished Training after 74.45186018943787 seconds.
+Training Model 37
+Epoch: 1 | Time: 12.108730554580688 | Accuracy: 0.16702 | Loss: 2.1518309617233276
+Epoch: 2 | Time: 12.263369798660278 | Accuracy: 0.19162 | Loss: 2.089304713745117
+Epoch: 3 | Time: 12.067372798919678 | Accuracy: 0.19916 | Loss: 2.0706584851074217
+Epoch: 4 | Time: 12.194244861602783 | Accuracy: 0.20212 | Loss: 2.060548694152832
+Epoch: 5 | Time: 12.217820882797241 | Accuracy: 0.20762 | Loss: 2.0457847527313233
+Finished Training after 60.851661682128906 seconds.
+Training Model 38
+Epoch: 1 | Time: 12.790854930877686 | Accuracy: 0.14598 | Loss: 2.319595047225952
+Epoch: 2 | Time: 12.825676441192627 | Accuracy: 0.15988 | Loss: 2.2186801287078857
+Epoch: 3 | Time: 13.004518747329712 | Accuracy: 0.15682 | Loss: 2.2181982006072998
+Epoch: 4 | Time: 13.320140361785889 | Accuracy: 0.15482 | Loss: 2.2142467990875243
+Epoch: 5 | Time: 12.867365837097168 | Accuracy: 0.15944 | Loss: 2.2160189714050293
+Finished Training after 64.80867600440979 seconds.
+Training Model 39
+Epoch: 1 | Time: 11.830310106277466 | Accuracy: 0.221 | Loss: 2.0866096125030515
+Epoch: 2 | Time: 11.994779586791992 | Accuracy: 0.26066 | Loss: 2.0093520336914064
+Epoch: 3 | Time: 12.029546976089478 | Accuracy: 0.27534 | Loss: 1.993101227874756
+Epoch: 4 | Time: 11.83230185508728 | Accuracy: 0.27904 | Loss: 1.9743851544189452
+Epoch: 5 | Time: 12.001191139221191 | Accuracy: 0.28964 | Loss: 1.964611753616333
+Finished Training after 59.688251972198486 seconds.
+Training Model 40
+Epoch: 1 | Time: 13.980479717254639 | Accuracy: 0.20588 | Loss: 2.1536802239227293
+Epoch: 2 | Time: 13.99319314956665 | Accuracy: 0.25938 | Loss: 2.043992926025391
+Epoch: 3 | Time: 14.115873575210571 | Accuracy: 0.27848 | Loss: 2.004560982666016
+Epoch: 4 | Time: 14.217608451843262 | Accuracy: 0.28724 | Loss: 1.9778619567871094
+Epoch: 5 | Time: 13.824309825897217 | Accuracy: 0.29912 | Loss: 1.9577967644500733
+Finished Training after 70.13158845901489 seconds.
+Finished Generation 52 | Total Time: 3193.2852871418
+Number of Best Candidates Selected:4
+Selecting best solutions...
+Generation 53 solutions' crossover applied.
+Generation 53 solutions' mutations applied.
+Generation 53 solutions generated and repaired.
+Training Model 1
+Epoch: 1 | Time: 12.869964361190796 | Accuracy: 0.42716 | Loss: 1.607177888031006
+Epoch: 2 | Time: 13.135278463363647 | Accuracy: 0.529 | Loss: 1.3240245626068115
+Epoch: 3 | Time: 13.248722553253174 | Accuracy: 0.58056 | Loss: 1.1810195690917968
+Epoch: 4 | Time: 13.033480882644653 | Accuracy: 0.61916 | Loss: 1.0721684837150574
+Epoch: 5 | Time: 13.17473840713501 | Accuracy: 0.65634 | Loss: 0.9681614349746704
+Finished Training after 65.4623076915741 seconds.
+Training Model 2
+Epoch: 1 | Time: 37.04254674911499 | Accuracy: 0.4242 | Loss: 1.6240600653076172
+Epoch: 2 | Time: 37.10353970527649 | Accuracy: 0.51328 | Loss: 1.3702664295959472
+Epoch: 3 | Time: 37.11116337776184 | Accuracy: 0.55072 | Loss: 1.2676875096130371
+Epoch: 4 | Time: 37.09113383293152 | Accuracy: 0.58302 | Loss: 1.1822721146011352
+Epoch: 5 | Time: 37.00343704223633 | Accuracy: 0.6061 | Loss: 1.1144802769851685
+Finished Training after 185.35194516181946 seconds.
+Training Model 3
+Epoch: 1 | Time: 13.885070085525513 | Accuracy: 0.39146 | Loss: 1.7204931119918823
+Epoch: 2 | Time: 14.169218063354492 | Accuracy: 0.47086 | Loss: 1.4849667444610595
+Epoch: 3 | Time: 14.150579452514648 | Accuracy: 0.51792 | Loss: 1.3598510419464112
+Epoch: 4 | Time: 14.274899959564209 | Accuracy: 0.55646 | Loss: 1.2638782732772826
+Epoch: 5 | Time: 13.931636571884155 | Accuracy: 0.58604 | Loss: 1.1726530095672607
+Finished Training after 70.41152954101562 seconds.
+Training Model 4
+Epoch: 1 | Time: 18.98357605934143 | Accuracy: 0.39006 | Loss: 1.7332847233200073
+Epoch: 2 | Time: 19.09015679359436 | Accuracy: 0.49406 | Loss: 1.4825024531173705
+Epoch: 3 | Time: 19.073540210723877 | Accuracy: 0.53284 | Loss: 1.3805186220169068
+Epoch: 4 | Time: 18.906529664993286 | Accuracy: 0.55644 | Loss: 1.3017588613128661
+Epoch: 5 | Time: 19.074982404708862 | Accuracy: 0.57612 | Loss: 1.24473299407959
+Finished Training after 95.12890839576721 seconds.
+Training Model 5
+Epoch: 1 | Time: 11.679930686950684 | Accuracy: 0.1215 | Loss: 2.312712088394165
+Epoch: 2 | Time: 11.776177644729614 | Accuracy: 0.13072 | Loss: 2.2748853047180178
+Epoch: 3 | Time: 11.639061212539673 | Accuracy: 0.13546 | Loss: 2.2536062863922117
+Epoch: 4 | Time: 11.719256162643433 | Accuracy: 0.13762 | Loss: 2.238020037765503
+Epoch: 5 | Time: 11.893989086151123 | Accuracy: 0.14152 | Loss: 2.2225604026031496
+Finished Training after 58.70853781700134 seconds.
+Training Model 6
+Epoch: 1 | Time: 16.90199112892151 | Accuracy: 0.09978 | Loss: 108.57605265701294
+Epoch: 2 | Time: 16.783895015716553 | Accuracy: 0.09896 | Loss: 2.4251693019866942
+Epoch: 3 | Time: 16.51665472984314 | Accuracy: 0.10004 | Loss: 2.3651946392059324
+Epoch: 4 | Time: 16.9109308719635 | Accuracy: 0.09936 | Loss: 2.3473513714599608
+Epoch: 5 | Time: 16.795196056365967 | Accuracy: 0.09898 | Loss: 2.5006858232116698
+Finished Training after 83.90879225730896 seconds.
+Training Model 7
+Epoch: 1 | Time: 11.854881763458252 | Accuracy: 0.13376 | Loss: 2.2856532500457765
+Epoch: 2 | Time: 12.095239639282227 | Accuracy: 0.16556 | Loss: 2.2148297676849364
+Epoch: 3 | Time: 11.83218765258789 | Accuracy: 0.17568 | Loss: 2.1754290860748293
+Epoch: 4 | Time: 11.69252896308899 | Accuracy: 0.18682 | Loss: 2.149525673751831
+Epoch: 5 | Time: 11.793815851211548 | Accuracy: 0.19396 | Loss: 2.13145916343689
+Finished Training after 59.26878070831299 seconds.
+Training Model 8
+Epoch: 1 | Time: 17.13687825202942 | Accuracy: 0.19036 | Loss: 2.1555419626235963
+Epoch: 2 | Time: 17.077242374420166 | Accuracy: 0.2123 | Loss: 2.1106361321258547
+Epoch: 3 | Time: 17.076223134994507 | Accuracy: 0.21744 | Loss: 2.09483802696228
+Epoch: 4 | Time: 17.208011627197266 | Accuracy: 0.22372 | Loss: 2.080152010345459
+Epoch: 5 | Time: 17.41128635406494 | Accuracy: 0.22532 | Loss: 2.0755339627075196
+Finished Training after 85.90976762771606 seconds.
+Training Model 9
+Epoch: 1 | Time: 11.99155330657959 | Accuracy: 0.1298 | Loss: 2.310736212310791
+Epoch: 2 | Time: 12.015803337097168 | Accuracy: 0.14892 | Loss: 2.2734953630828856
+Epoch: 3 | Time: 12.451615333557129 | Accuracy: 0.16156 | Loss: 2.2382145988464357
+Epoch: 4 | Time: 12.143837928771973 | Accuracy: 0.1745 | Loss: 2.2096092018127442
+Epoch: 5 | Time: 12.301074028015137 | Accuracy: 0.18558 | Loss: 2.1817753939056397
+Finished Training after 60.90400791168213 seconds.
+Training Model 10
+Epoch: 1 | Time: 14.958851337432861 | Accuracy: 0.20262 | Loss: 2.152685866622925
+Epoch: 2 | Time: 15.049194812774658 | Accuracy: 0.22558 | Loss: 2.088681488647461
+Epoch: 3 | Time: 15.199391603469849 | Accuracy: 0.23268 | Loss: 2.069066891784668
+Epoch: 4 | Time: 14.91254186630249 | Accuracy: 0.23876 | Loss: 2.052514688415527
+Epoch: 5 | Time: 15.273238897323608 | Accuracy: 0.2365 | Loss: 2.060176029586792
+Finished Training after 75.39334034919739 seconds.
+Training Model 11
+Epoch: 1 | Time: 12.06975531578064 | Accuracy: 0.13282 | Loss: 2.291549833831787
+Epoch: 2 | Time: 12.134410858154297 | Accuracy: 0.16746 | Loss: 2.2208805795288087
+Epoch: 3 | Time: 12.066754817962646 | Accuracy: 0.18288 | Loss: 2.169238337173462
+Epoch: 4 | Time: 12.249025106430054 | Accuracy: 0.19198 | Loss: 2.1315277455902097
+Epoch: 5 | Time: 12.362389087677002 | Accuracy: 0.20026 | Loss: 2.101661732711792
+Finished Training after 60.882458209991455 seconds.
+Training Model 12
+Epoch: 1 | Time: 11.843798875808716 | Accuracy: 0.28882 | Loss: 1.9769850833892821
+Epoch: 2 | Time: 11.949717998504639 | Accuracy: 0.3501 | Loss: 1.834844171447754
+Epoch: 3 | Time: 11.769105434417725 | Accuracy: 0.36866 | Loss: 1.7938405332946776
+Epoch: 4 | Time: 11.917916059494019 | Accuracy: 0.37838 | Loss: 1.7701285762405397
+Epoch: 5 | Time: 11.900768995285034 | Accuracy: 0.38592 | Loss: 1.7514375564575195
+Finished Training after 59.381428718566895 seconds.
+Training Model 13
+Epoch: 1 | Time: 16.068639516830444 | Accuracy: 0.113 | Loss: 2.4722462255859377
+Epoch: 2 | Time: 15.51983642578125 | Accuracy: 0.12326 | Loss: 2.3797204456329344
+Epoch: 3 | Time: 15.561254978179932 | Accuracy: 0.12756 | Loss: 2.3507793103027343
+Epoch: 4 | Time: 15.354216814041138 | Accuracy: 0.13182 | Loss: 2.3191581700897217
+Epoch: 5 | Time: 15.564651727676392 | Accuracy: 0.13752 | Loss: 2.300018078918457
+Finished Training after 78.06872797012329 seconds.
+Training Model 14
+Epoch: 1 | Time: 15.728490829467773 | Accuracy: 0.19222 | Loss: 2.2254672900390626
+Epoch: 2 | Time: 15.915799140930176 | Accuracy: 0.24386 | Loss: 2.1270518647766115
+Epoch: 3 | Time: 15.682823896408081 | Accuracy: 0.28426 | Loss: 2.0366880142211916
+Epoch: 4 | Time: 15.93639326095581 | Accuracy: 0.31726 | Loss: 1.9543363185119629
+Epoch: 5 | Time: 16.08549737930298 | Accuracy: 0.34182 | Loss: 1.8877838523864745
+Finished Training after 79.34913349151611 seconds.
+Training Model 15
+Epoch: 1 | Time: 13.298695802688599 | Accuracy: 0.11748 | Loss: 129.99535651123045
+Epoch: 2 | Time: 13.99660611152649 | Accuracy: 0.11746 | Loss: 14.101323061218261
+Epoch: 3 | Time: 13.37758755683899 | Accuracy: 0.11926 | Loss: 6.250693935241699
+Epoch: 4 | Time: 13.39513087272644 | Accuracy: 0.12774 | Loss: 3.5092588858032228
+Epoch: 5 | Time: 13.237507343292236 | Accuracy: 0.1524 | Loss: 2.6972100645446777
+Finished Training after 67.30568027496338 seconds.
+Training Model 16
+Epoch: 1 | Time: 12.215420007705688 | Accuracy: 0.15384 | Loss: 2.277021472854614
+Epoch: 2 | Time: 12.054519414901733 | Accuracy: 0.21136 | Loss: 2.15332192150116
+Epoch: 3 | Time: 12.069948434829712 | Accuracy: 0.24728 | Loss: 2.0624545111846926
+Epoch: 4 | Time: 12.084699630737305 | Accuracy: 0.2683 | Loss: 2.0013001263809205
+Epoch: 5 | Time: 12.146484375 | Accuracy: 0.28352 | Loss: 1.9483460360717773
+Finished Training after 60.57119297981262 seconds.
+Training Model 17
+Epoch: 1 | Time: 12.843258142471313 | Accuracy: 0.11386 | Loss: 2.3158392644500734
+Epoch: 2 | Time: 13.502847909927368 | Accuracy: 0.15682 | Loss: 2.234336208267212
+Epoch: 3 | Time: 13.518177270889282 | Accuracy: 0.18832 | Loss: 2.1830637783813476
+Epoch: 4 | Time: 13.40629506111145 | Accuracy: 0.21276 | Loss: 2.138381495742798
+Epoch: 5 | Time: 13.455341100692749 | Accuracy: 0.23398 | Loss: 2.097271438369751
+Finished Training after 66.72604465484619 seconds.
+Training Model 18
+Epoch: 1 | Time: 16.041351318359375 | Accuracy: 0.1293 | Loss: 1339.4242218359375
+Epoch: 2 | Time: 15.93212628364563 | Accuracy: 0.14864 | Loss: 405.1917280957031
+Epoch: 3 | Time: 16.03699231147766 | Accuracy: 0.14766 | Loss: 227.8881469921875
+Epoch: 4 | Time: 16.319151639938354 | Accuracy: 0.13354 | Loss: 86.05786396606446
+Epoch: 5 | Time: 15.747400760650635 | Accuracy: 0.11492 | Loss: 21.53629756072998
+Finished Training after 80.07714128494263 seconds.
+Training Model 19
+Epoch: 1 | Time: 12.689741134643555 | Accuracy: 0.10926 | Loss: 3.12428335647583
+Epoch: 2 | Time: 12.42051911354065 | Accuracy: 0.11768 | Loss: 2.974123663482666
+Epoch: 3 | Time: 12.571078062057495 | Accuracy: 0.11946 | Loss: 2.8539937902832033
+Epoch: 4 | Time: 12.663049697875977 | Accuracy: 0.11908 | Loss: 2.761323603515625
+Epoch: 5 | Time: 12.83821153640747 | Accuracy: 0.12348 | Loss: 2.6642898717498777
+Finished Training after 63.18272280693054 seconds.
+Training Model 20
+Epoch: 1 | Time: 12.244903087615967 | Accuracy: 0.10112 | Loss: 2.3566174952697754
+Epoch: 2 | Time: 12.040791034698486 | Accuracy: 0.1201 | Loss: 2.3064692612457276
+Epoch: 3 | Time: 12.050955772399902 | Accuracy: 0.13976 | Loss: 2.2629023002624513
+Epoch: 4 | Time: 12.033023357391357 | Accuracy: 0.16146 | Loss: 2.2105005746459963
+Epoch: 5 | Time: 11.864850997924805 | Accuracy: 0.17492 | Loss: 2.1660632174301147
+Finished Training after 60.234647035598755 seconds.
+Training Model 21
+Epoch: 1 | Time: 12.277531147003174 | Accuracy: 0.13366 | Loss: 2.2909785566711425
+Epoch: 2 | Time: 12.32256031036377 | Accuracy: 0.16022 | Loss: 2.2463427297973633
+Epoch: 3 | Time: 12.341699123382568 | Accuracy: 0.17616 | Loss: 2.2122751427459715
+Epoch: 4 | Time: 12.355815410614014 | Accuracy: 0.1802 | Loss: 2.182237677154541
+Epoch: 5 | Time: 12.39463758468628 | Accuracy: 0.18896 | Loss: 2.1529123175811766
+Finished Training after 61.69236707687378 seconds.
+Training Model 22
+Epoch: 1 | Time: 12.052820205688477 | Accuracy: 0.24264 | Loss: 2.040954202003479
+Epoch: 2 | Time: 12.31579065322876 | Accuracy: 0.33198 | Loss: 1.8255854262924194
+Epoch: 3 | Time: 12.36587381362915 | Accuracy: 0.37136 | Loss: 1.7334670265197754
+Epoch: 4 | Time: 12.470325231552124 | Accuracy: 0.39002 | Loss: 1.6854209656143189
+Epoch: 5 | Time: 12.215876579284668 | Accuracy: 0.41134 | Loss: 1.6371680964279174
+Finished Training after 61.42080855369568 seconds.
+Training Model 23
+Epoch: 1 | Time: 12.196783304214478 | Accuracy: 0.1003 | Loss: 2.3966275304412843
+Epoch: 2 | Time: 12.190451860427856 | Accuracy: 0.10466 | Loss: 2.346631439819336
+Epoch: 3 | Time: 11.887081623077393 | Accuracy: 0.1194 | Loss: 2.314593991241455
+Epoch: 4 | Time: 12.200241565704346 | Accuracy: 0.133 | Loss: 2.2913233960723876
+Epoch: 5 | Time: 12.230670690536499 | Accuracy: 0.14252 | Loss: 2.271322997436523
+Finished Training after 60.70535182952881 seconds.
+Training Model 24
+Epoch: 1 | Time: 23.407187461853027 | Accuracy: 0.09818 | Loss: 2.3245150662231446
+Epoch: 2 | Time: 23.832446098327637 | Accuracy: 0.09998 | Loss: 2.314638487319946
+Epoch: 3 | Time: 23.45337724685669 | Accuracy: 0.10014 | Loss: 2.3130525516510008
+Epoch: 4 | Time: 23.8017795085907 | Accuracy: 0.10088 | Loss: 2.3123645126342773
+Epoch: 5 | Time: 23.325650930404663 | Accuracy: 0.09988 | Loss: 2.313189359436035
+Finished Training after 117.82056474685669 seconds.
+Training Model 25
+Epoch: 1 | Time: 13.145118236541748 | Accuracy: 0.29996 | Loss: 1.9312300913238525
+Epoch: 2 | Time: 13.122525691986084 | Accuracy: 0.37106 | Loss: 1.751205270805359
+Epoch: 3 | Time: 13.025188446044922 | Accuracy: 0.39662 | Loss: 1.6759141208648682
+Epoch: 4 | Time: 13.111812353134155 | Accuracy: 0.41402 | Loss: 1.636038224029541
+Epoch: 5 | Time: 13.448744297027588 | Accuracy: 0.42468 | Loss: 1.6038610677337646
+Finished Training after 65.85351204872131 seconds.
+Training Model 26
+Epoch: 1 | Time: 13.711711168289185 | Accuracy: 0.1569 | Loss: 2.2336966593933107
+Epoch: 2 | Time: 14.20253324508667 | Accuracy: 0.2056 | Loss: 2.119026239013672
+Epoch: 3 | Time: 14.884787321090698 | Accuracy: 0.22818 | Loss: 2.0699834692382812
+Epoch: 4 | Time: 14.761680126190186 | Accuracy: 0.2451 | Loss: 2.0410388168334963
+Epoch: 5 | Time: 14.08647894859314 | Accuracy: 0.25868 | Loss: 2.0158656171035765
+Finished Training after 71.64731478691101 seconds.
+Training Model 27
+Epoch: 1 | Time: 13.224122285842896 | Accuracy: 0.1146 | Loss: 5.9658596893310545
+Epoch: 2 | Time: 12.842362642288208 | Accuracy: 0.12854 | Loss: 5.386660796813965
+Epoch: 3 | Time: 13.600911140441895 | Accuracy: 0.13664 | Loss: 5.118250502471924
+Epoch: 4 | Time: 13.116796493530273 | Accuracy: 0.14222 | Loss: 4.878021677856445
+Epoch: 5 | Time: 12.9745614528656 | Accuracy: 0.14354 | Loss: 4.668668706665039
+Finished Training after 65.75887250900269 seconds.
+Training Model 28
+Epoch: 1 | Time: 14.232889413833618 | Accuracy: 0.12352 | Loss: 2.328190152130127
+Epoch: 2 | Time: 13.946868896484375 | Accuracy: 0.14346 | Loss: 2.299602858963013
+Epoch: 3 | Time: 13.849136114120483 | Accuracy: 0.1518 | Loss: 2.274055574493408
+Epoch: 4 | Time: 14.236318588256836 | Accuracy: 0.15776 | Loss: 2.2498562451171873
+Epoch: 5 | Time: 13.954589128494263 | Accuracy: 0.16292 | Loss: 2.2297513284301758
+Finished Training after 70.21992254257202 seconds.
+Training Model 29
+Epoch: 1 | Time: 12.969170808792114 | Accuracy: 0.10206 | Loss: 2.321336666870117
+Epoch: 2 | Time: 13.140511751174927 | Accuracy: 0.10878 | Loss: 2.3010276792144775
+Epoch: 3 | Time: 13.29551362991333 | Accuracy: 0.12904 | Loss: 2.285063466491699
+Epoch: 4 | Time: 13.745099544525146 | Accuracy: 0.14568 | Loss: 2.257471396636963
+Epoch: 5 | Time: 13.100163698196411 | Accuracy: 0.15904 | Loss: 2.2316471085357668
+Finished Training after 66.25057983398438 seconds.
+Training Model 30
+Epoch: 1 | Time: 12.068814754486084 | Accuracy: 0.10182 | Loss: 2.5730642261505126
+Epoch: 2 | Time: 12.16213083267212 | Accuracy: 0.10162 | Loss: 2.4818669650268554
+Epoch: 3 | Time: 12.013660907745361 | Accuracy: 0.09952 | Loss: 2.4470118379211425
+Epoch: 4 | Time: 12.161642074584961 | Accuracy: 0.10166 | Loss: 2.424819516296387
+Epoch: 5 | Time: 12.164987564086914 | Accuracy: 0.10062 | Loss: 2.4109947130584715
+Finished Training after 60.571359634399414 seconds.
+Training Model 31
+Epoch: 1 | Time: 12.195550918579102 | Accuracy: 0.10404 | Loss: 2.309234614562988
+Epoch: 2 | Time: 12.409325122833252 | Accuracy: 0.11098 | Loss: 2.298043302078247
+Epoch: 3 | Time: 12.087941646575928 | Accuracy: 0.11466 | Loss: 2.2917596658325197
+Epoch: 4 | Time: 12.179401159286499 | Accuracy: 0.11828 | Loss: 2.284024938583374
+Epoch: 5 | Time: 12.003808498382568 | Accuracy: 0.1256 | Loss: 2.2762330994415283
+Finished Training after 60.87614727020264 seconds.
+Training Model 32
+Epoch: 1 | Time: 12.033497333526611 | Accuracy: 0.145 | Loss: 2.280272765350342
+Epoch: 2 | Time: 12.506815671920776 | Accuracy: 0.17048 | Loss: 2.2200346635437014
+Epoch: 3 | Time: 12.219274282455444 | Accuracy: 0.18944 | Loss: 2.172391801071167
+Epoch: 4 | Time: 12.212921380996704 | Accuracy: 0.20776 | Loss: 2.128269316711426
+Epoch: 5 | Time: 12.286344528198242 | Accuracy: 0.21662 | Loss: 2.0916840399169923
+Finished Training after 61.25897550582886 seconds.
+Training Model 33
+Epoch: 1 | Time: 12.954468488693237 | Accuracy: 0.09886 | Loss: 2.4646778591156004
+Epoch: 2 | Time: 13.093852996826172 | Accuracy: 0.10212 | Loss: 2.3631605731201173
+Epoch: 3 | Time: 13.032120943069458 | Accuracy: 0.09798 | Loss: 2.3044448669433595
+Epoch: 4 | Time: 13.350390195846558 | Accuracy: 0.10164 | Loss: 2.303358668670654
+Epoch: 5 | Time: 12.660807847976685 | Accuracy: 0.09984 | Loss: 2.347423868637085
+Finished Training after 65.09176921844482 seconds.
+Training Model 34
+Epoch: 1 | Time: 11.901228189468384 | Accuracy: 0.09966 | Loss: 2.35154146736145
+Epoch: 2 | Time: 11.902060270309448 | Accuracy: 0.10034 | Loss: 2.3463132431793214
+Epoch: 3 | Time: 11.911260843276978 | Accuracy: 0.10038 | Loss: 2.3448433239746094
+Epoch: 4 | Time: 12.051331996917725 | Accuracy: 0.10092 | Loss: 2.3395605293273927
+Epoch: 5 | Time: 11.915290117263794 | Accuracy: 0.10044 | Loss: 2.3393869270324705
+Finished Training after 59.681294441223145 seconds.
+Training Model 35
+Epoch: 1 | Time: 14.310169219970703 | Accuracy: 0.14856 | Loss: 87.9080432800293
+Epoch: 2 | Time: 15.134970426559448 | Accuracy: 0.1523 | Loss: 19.385100258483888
+Epoch: 3 | Time: 14.40034532546997 | Accuracy: 0.12304 | Loss: 5.358003397827148
+Epoch: 4 | Time: 14.852782964706421 | Accuracy: 0.11306 | Loss: 2.865509880142212
+Epoch: 5 | Time: 14.029337167739868 | Accuracy: 0.10698 | Loss: 2.4686229020690917
+Finished Training after 72.72773003578186 seconds.
+Training Model 36
+Epoch: 1 | Time: 13.447700262069702 | Accuracy: 0.10148 | Loss: 11.52373821258545
+Epoch: 2 | Time: 13.506124258041382 | Accuracy: 0.10494 | Loss: 10.254864426269531
+Epoch: 3 | Time: 13.733389616012573 | Accuracy: 0.11538 | Loss: 9.317956989440917
+Epoch: 4 | Time: 14.162548542022705 | Accuracy: 0.11926 | Loss: 8.636253811950684
+Epoch: 5 | Time: 13.518634557723999 | Accuracy: 0.12184 | Loss: 8.09659823348999
+Finished Training after 68.3685188293457 seconds.
+Training Model 37
+Epoch: 1 | Time: 12.932258367538452 | Accuracy: 0.22026 | Loss: 2.1269057552337647
+Epoch: 2 | Time: 13.139208793640137 | Accuracy: 0.28826 | Loss: 1.9712151126480102
+Epoch: 3 | Time: 13.032870054244995 | Accuracy: 0.31144 | Loss: 1.911003190612793
+Epoch: 4 | Time: 13.337976694107056 | Accuracy: 0.32762 | Loss: 1.8619053872680664
+Epoch: 5 | Time: 13.457473516464233 | Accuracy: 0.3419 | Loss: 1.8243233291244507
+Finished Training after 65.89991235733032 seconds.
+Training Model 38
+Epoch: 1 | Time: 13.049247741699219 | Accuracy: 0.207 | Loss: 2.205335858230591
+Epoch: 2 | Time: 12.775479316711426 | Accuracy: 0.26698 | Loss: 2.0258195278167723
+Epoch: 3 | Time: 12.932713508605957 | Accuracy: 0.28772 | Loss: 1.9757783323669433
+Epoch: 4 | Time: 13.219406127929688 | Accuracy: 0.30786 | Loss: 1.9409149650192261
+Epoch: 5 | Time: 13.24613070487976 | Accuracy: 0.31916 | Loss: 1.912788361968994
+Finished Training after 65.2230954170227 seconds.
+Training Model 39
+Epoch: 1 | Time: 12.130927324295044 | Accuracy: 0.12312 | Loss: 2.3147078504943845
+Epoch: 2 | Time: 11.794524669647217 | Accuracy: 0.17388 | Loss: 2.2075113998413087
+Epoch: 3 | Time: 11.967561483383179 | Accuracy: 0.2008 | Loss: 2.124847838668823
+Epoch: 4 | Time: 11.920623779296875 | Accuracy: 0.2246 | Loss: 2.0757853994750977
+Epoch: 5 | Time: 12.021828889846802 | Accuracy: 0.2377 | Loss: 2.044205589332581
+Finished Training after 59.83558893203735 seconds.
+Training Model 40
+Epoch: 1 | Time: 12.023444652557373 | Accuracy: 0.128 | Loss: 2.308084751663208
+Epoch: 2 | Time: 12.389909982681274 | Accuracy: 0.15026 | Loss: 2.2473695864105223
+Epoch: 3 | Time: 12.170207500457764 | Accuracy: 0.1646 | Loss: 2.210116142196655
+Epoch: 4 | Time: 12.148734092712402 | Accuracy: 0.17158 | Loss: 2.1880941637420652
+Epoch: 5 | Time: 12.112084865570068 | Accuracy: 0.17494 | Loss: 2.1723606620025633
+Finished Training after 60.84450125694275 seconds.
+Finished Generation 53 | Total Time: 2858.197191953659
+Number of Best Candidates Selected:4
+Selecting best solutions...
+Generation 54 solutions' crossover applied.
+Generation 54 solutions' mutations applied.
+Generation 54 solutions generated and repaired.
+Training Model 1
+Epoch: 1 | Time: 12.83176064491272 | Accuracy: 0.42774 | Loss: 1.6008237607955933
+Epoch: 2 | Time: 13.117882490158081 | Accuracy: 0.5264 | Loss: 1.3310953397750855
+Epoch: 3 | Time: 13.52432107925415 | Accuracy: 0.57586 | Loss: 1.1942828728103638
+Epoch: 4 | Time: 13.219927549362183 | Accuracy: 0.61016 | Loss: 1.0899140994644165
+Epoch: 5 | Time: 13.190597534179688 | Accuracy: 0.65118 | Loss: 0.9868602580261231
+Finished Training after 65.88461351394653 seconds.
+Training Model 2
+Epoch: 1 | Time: 37.111908197402954 | Accuracy: 0.42636 | Loss: 1.6265517667007445
+Epoch: 2 | Time: 37.08035182952881 | Accuracy: 0.5156 | Loss: 1.3739438465881348
+Epoch: 3 | Time: 37.09464883804321 | Accuracy: 0.55276 | Loss: 1.2661224400520326
+Epoch: 4 | Time: 37.09041619300842 | Accuracy: 0.57988 | Loss: 1.1883876661109924
+Epoch: 5 | Time: 37.096187591552734 | Accuracy: 0.60638 | Loss: 1.1200970272827149
+Finished Training after 185.47363567352295 seconds.
+Training Model 3
+Epoch: 1 | Time: 14.062761783599854 | Accuracy: 0.39256 | Loss: 1.7121037510681152
+Epoch: 2 | Time: 14.423397779464722 | Accuracy: 0.47454 | Loss: 1.4817277949523926
+Epoch: 3 | Time: 14.488408327102661 | Accuracy: 0.5229 | Loss: 1.3532723642730713
+Epoch: 4 | Time: 14.276378393173218 | Accuracy: 0.55846 | Loss: 1.2564013869857789
+Epoch: 5 | Time: 14.29623556137085 | Accuracy: 0.58734 | Loss: 1.1663518030548097
+Finished Training after 71.54730772972107 seconds.
+Training Model 4
+Epoch: 1 | Time: 19.273906469345093 | Accuracy: 0.39258 | Loss: 1.7248609321975708
+Epoch: 2 | Time: 19.6360981464386 | Accuracy: 0.4963 | Loss: 1.4790438819122314
+Epoch: 3 | Time: 19.14059543609619 | Accuracy: 0.53134 | Loss: 1.3775733908462524
+Epoch: 4 | Time: 19.31576633453369 | Accuracy: 0.56022 | Loss: 1.2982835070037841
+Epoch: 5 | Time: 19.4348886013031 | Accuracy: 0.57698 | Loss: 1.2484073414230348
+Finished Training after 96.80138206481934 seconds.
+Training Model 5
+Epoch: 1 | Time: 13.447555541992188 | Accuracy: 0.1001 | Loss: 2.342696529998779
+Epoch: 2 | Time: 13.617953538894653 | Accuracy: 0.10004 | Loss: 2.330630755004883
+Epoch: 3 | Time: 13.6986985206604 | Accuracy: 0.10042 | Loss: 2.321654446105957
+Epoch: 4 | Time: 13.575767755508423 | Accuracy: 0.10028 | Loss: 2.3142851413726806
+Epoch: 5 | Time: 13.538772106170654 | Accuracy: 0.1002 | Loss: 2.309419289703369
+Finished Training after 67.87887406349182 seconds.
+Training Model 6
+Epoch: 1 | Time: 12.45473337173462 | Accuracy: 0.11196 | Loss: 2.3476088245391846
+Epoch: 2 | Time: 12.21175479888916 | Accuracy: 0.14942 | Loss: 2.289112973251343
+Epoch: 3 | Time: 12.136805295944214 | Accuracy: 0.1667 | Loss: 2.2323387268066406
+Epoch: 4 | Time: 12.342546701431274 | Accuracy: 0.1833 | Loss: 2.1838834324645995
+Epoch: 5 | Time: 12.164289236068726 | Accuracy: 0.19248 | Loss: 2.1493298659515383
+Finished Training after 61.31025767326355 seconds.
+Training Model 7
+Epoch: 1 | Time: 13.495485544204712 | Accuracy: 0.1089 | Loss: 2.668657544631958
+Epoch: 2 | Time: 13.738788604736328 | Accuracy: 0.13058 | Loss: 2.29877348487854
+Epoch: 3 | Time: 13.3558349609375 | Accuracy: 0.15222 | Loss: 2.2303260929107664
+Epoch: 4 | Time: 13.770140409469604 | Accuracy: 0.16426 | Loss: 2.199703813323975
+Epoch: 5 | Time: 14.040297508239746 | Accuracy: 0.17402 | Loss: 2.1744603437042236
+Finished Training after 68.40066885948181 seconds.
+Training Model 8
+Epoch: 1 | Time: 14.20877480506897 | Accuracy: 0.18574 | Loss: 3.576737272644043
+Epoch: 2 | Time: 14.429744482040405 | Accuracy: 0.28252 | Loss: 1.980631810913086
+Epoch: 3 | Time: 14.1436448097229 | Accuracy: 0.3126 | Loss: 1.9013542392730713
+Epoch: 4 | Time: 14.103198766708374 | Accuracy: 0.31914 | Loss: 1.8725669763183594
+Epoch: 5 | Time: 14.429488182067871 | Accuracy: 0.33292 | Loss: 1.844506743850708
+Finished Training after 71.31497597694397 seconds.
+Training Model 9
+Epoch: 1 | Time: 12.982398271560669 | Accuracy: 0.1059 | Loss: 15.017439511108398
+Epoch: 2 | Time: 12.82521939277649 | Accuracy: 0.11102 | Loss: 7.594647642822266
+Epoch: 3 | Time: 13.116506338119507 | Accuracy: 0.113 | Loss: 5.789895565490722
+Epoch: 4 | Time: 13.034783124923706 | Accuracy: 0.11722 | Loss: 4.534149796142578
+Epoch: 5 | Time: 13.187177658081055 | Accuracy: 0.121 | Loss: 3.6618625234222413
+Finished Training after 65.14620661735535 seconds.
+Training Model 10
+Epoch: 1 | Time: 15.689379215240479 | Accuracy: 0.10846 | Loss: 2.3892654434967042
+Epoch: 2 | Time: 17.039687633514404 | Accuracy: 0.1108 | Loss: 2.36232099571228
+Epoch: 3 | Time: 16.40590524673462 | Accuracy: 0.11326 | Loss: 2.3427277766418455
+Epoch: 4 | Time: 17.01085090637207 | Accuracy: 0.11672 | Loss: 2.3255923431396486
+Epoch: 5 | Time: 16.035844564437866 | Accuracy: 0.12126 | Loss: 2.3161631437683106
+Finished Training after 82.18179106712341 seconds.
+Training Model 11
+Epoch: 1 | Time: 12.220540761947632 | Accuracy: 0.14478 | Loss: 2.2790956416320802
+Epoch: 2 | Time: 12.147157430648804 | Accuracy: 0.1671 | Loss: 2.234776659088135
+Epoch: 3 | Time: 12.145102739334106 | Accuracy: 0.18138 | Loss: 2.200293755950928
+Epoch: 4 | Time: 12.15442681312561 | Accuracy: 0.1939 | Loss: 2.1669681321716308
+Epoch: 5 | Time: 12.08346176147461 | Accuracy: 0.20368 | Loss: 2.1399507275390626
+Finished Training after 60.75080990791321 seconds.
+Training Model 12
+Epoch: 1 | Time: 12.981654405593872 | Accuracy: 0.10178 | Loss: 42.914685422363284
+Epoch: 2 | Time: 13.102292537689209 | Accuracy: 0.10952 | Loss: 33.906110016479495
+Epoch: 3 | Time: 13.222459316253662 | Accuracy: 0.11574 | Loss: 28.898558850097658
+Epoch: 4 | Time: 13.815672874450684 | Accuracy: 0.12256 | Loss: 24.73944654968262
+Epoch: 5 | Time: 13.488193988800049 | Accuracy: 0.12506 | Loss: 21.600192118530273
+Finished Training after 66.61039638519287 seconds.
+Training Model 13
+Epoch: 1 | Time: 12.002908945083618 | Accuracy: 0.3116 | Loss: 1.921967910118103
+Epoch: 2 | Time: 12.199340343475342 | Accuracy: 0.37952 | Loss: 1.7460664004898072
+Epoch: 3 | Time: 12.209221839904785 | Accuracy: 0.40226 | Loss: 1.6805526824188233
+Epoch: 4 | Time: 12.20501446723938 | Accuracy: 0.42084 | Loss: 1.6295837337875365
+Epoch: 5 | Time: 12.429778814315796 | Accuracy: 0.43426 | Loss: 1.592790655593872
+Finished Training after 61.046385049819946 seconds.
+Training Model 14
+Epoch: 1 | Time: 12.075896263122559 | Accuracy: 0.1977 | Loss: 2.1256503759002685
+Epoch: 2 | Time: 12.217046737670898 | Accuracy: 0.28626 | Loss: 1.931841051864624
+Epoch: 3 | Time: 12.090340614318848 | Accuracy: 0.32054 | Loss: 1.862494578552246
+Epoch: 4 | Time: 11.969406604766846 | Accuracy: 0.33672 | Loss: 1.8280994409179687
+Epoch: 5 | Time: 12.082715272903442 | Accuracy: 0.34758 | Loss: 1.806053487625122
+Finished Training after 60.43552613258362 seconds.
+Training Model 15
+Epoch: 1 | Time: 15.882601737976074 | Accuracy: 0.11678 | Loss: 2.331769051132202
+Epoch: 2 | Time: 15.931309461593628 | Accuracy: 0.12602 | Loss: 2.284651819534302
+Epoch: 3 | Time: 15.998907327651978 | Accuracy: 0.13106 | Loss: 2.265992436294556
+Epoch: 4 | Time: 16.02189064025879 | Accuracy: 0.14 | Loss: 2.247584476547241
+Epoch: 5 | Time: 16.106205463409424 | Accuracy: 0.1405 | Loss: 2.240802638244629
+Finished Training after 79.94103789329529 seconds.
+Training Model 16
+Epoch: 1 | Time: 53.86018633842468 | Accuracy: 0.16212 | Loss: 3.040711093826294
+Epoch: 2 | Time: 53.97817373275757 | Accuracy: 0.16284 | Loss: 2.7507552698516844
+Epoch: 3 | Time: 54.028587341308594 | Accuracy: 0.1557 | Loss: 2.8082078549957274
+Epoch: 4 | Time: 54.030925273895264 | Accuracy: 0.16078 | Loss: 2.8120229039001465
+Epoch: 5 | Time: 54.02526783943176 | Accuracy: 0.15962 | Loss: 2.8370529189300537
+Finished Training after 269.92326283454895 seconds.
+Training Model 17
+Epoch: 1 | Time: 12.010135889053345 | Accuracy: 0.29524 | Loss: 2.204280353126526
+Epoch: 2 | Time: 12.210043907165527 | Accuracy: 0.38156 | Loss: 1.756517612876892
+Epoch: 3 | Time: 12.21812105178833 | Accuracy: 0.41634 | Loss: 1.6477772847366332
+Epoch: 4 | Time: 11.954948425292969 | Accuracy: 0.4405 | Loss: 1.5923505629348755
+Epoch: 5 | Time: 12.172194242477417 | Accuracy: 0.4568 | Loss: 1.5516023486709594
+Finished Training after 60.565566301345825 seconds.
+Training Model 18
+Epoch: 1 | Time: 12.00167202949524 | Accuracy: 0.3196 | Loss: 1.9320967282485961
+Epoch: 2 | Time: 11.979926824569702 | Accuracy: 0.35954 | Loss: 1.8341011790084838
+Epoch: 3 | Time: 12.056605339050293 | Accuracy: 0.3702 | Loss: 1.8178067306518555
+Epoch: 4 | Time: 11.988466262817383 | Accuracy: 0.3754 | Loss: 1.8049363216400147
+Epoch: 5 | Time: 12.189001321792603 | Accuracy: 0.38058 | Loss: 1.7954714050292968
+Finished Training after 60.21579360961914 seconds.
+Training Model 19
+Epoch: 1 | Time: 11.944725275039673 | Accuracy: 0.11986 | Loss: 2.3192893715667724
+Epoch: 2 | Time: 12.290340185165405 | Accuracy: 0.13434 | Loss: 2.283057768173218
+Epoch: 3 | Time: 12.13109302520752 | Accuracy: 0.144 | Loss: 2.250803447113037
+Epoch: 4 | Time: 11.986457109451294 | Accuracy: 0.156 | Loss: 2.223032781829834
+Epoch: 5 | Time: 11.710752487182617 | Accuracy: 0.17564 | Loss: 2.1984967433166505
+Finished Training after 60.063488721847534 seconds.
+Training Model 20
+Epoch: 1 | Time: 12.215665817260742 | Accuracy: 0.13196 | Loss: 2.2877570613861082
+Epoch: 2 | Time: 12.268522024154663 | Accuracy: 0.17262 | Loss: 2.188812872695923
+Epoch: 3 | Time: 12.368451356887817 | Accuracy: 0.1902 | Loss: 2.137863857345581
+Epoch: 4 | Time: 12.295375347137451 | Accuracy: 0.20136 | Loss: 2.1060126642608643
+Epoch: 5 | Time: 12.167693376541138 | Accuracy: 0.2086 | Loss: 2.0785940870666506
+Finished Training after 61.315831899642944 seconds.
+Training Model 21
+Epoch: 1 | Time: 12.485172271728516 | Accuracy: 0.09984 | Loss: 2.7609703617095946
+Epoch: 2 | Time: 12.065898180007935 | Accuracy: 0.10176 | Loss: 2.3722953665924074
+Epoch: 3 | Time: 12.098671674728394 | Accuracy: 0.10482 | Loss: 2.321095017089844
+Epoch: 4 | Time: 12.145493507385254 | Accuracy: 0.10404 | Loss: 2.311681190490723
+Epoch: 5 | Time: 12.138514995574951 | Accuracy: 0.10784 | Loss: 2.306107850112915
+Finished Training after 60.9338698387146 seconds.
+Training Model 22
+Epoch: 1 | Time: 13.325643301010132 | Accuracy: 0.10048 | Loss: 2.354805783843994
+Epoch: 2 | Time: 13.043156623840332 | Accuracy: 0.10088 | Loss: 2.3461991135406493
+Epoch: 3 | Time: 13.037574052810669 | Accuracy: 0.09998 | Loss: 2.342483781890869
+Epoch: 4 | Time: 13.262962579727173 | Accuracy: 0.09982 | Loss: 2.339336929626465
+Epoch: 5 | Time: 13.375533819198608 | Accuracy: 0.10038 | Loss: 2.337592113189697
+Finished Training after 66.04499101638794 seconds.
+Training Model 23
+Epoch: 1 | Time: 12.290937900543213 | Accuracy: 0.14998 | Loss: 2.266292916259766
+Epoch: 2 | Time: 12.070116758346558 | Accuracy: 0.21304 | Loss: 2.135115528335571
+Epoch: 3 | Time: 12.465332269668579 | Accuracy: 0.24684 | Loss: 2.0570638175201417
+Epoch: 4 | Time: 12.478331804275513 | Accuracy: 0.27596 | Loss: 1.9985381133270264
+Epoch: 5 | Time: 12.230437994003296 | Accuracy: 0.29536 | Loss: 1.948458822631836
+Finished Training after 61.53527808189392 seconds.
+Training Model 24
+Epoch: 1 | Time: 12.64345908164978 | Accuracy: 0.23376 | Loss: 2.0320777297210695
+Epoch: 2 | Time: 12.146572828292847 | Accuracy: 0.31224 | Loss: 1.849082861061096
+Epoch: 3 | Time: 12.149286270141602 | Accuracy: 0.33684 | Loss: 1.7890516859436034
+Epoch: 4 | Time: 11.921310663223267 | Accuracy: 0.35642 | Loss: 1.7417959851455689
+Epoch: 5 | Time: 12.117440700531006 | Accuracy: 0.36822 | Loss: 1.7131585787200927
+Finished Training after 60.97818899154663 seconds.
+Training Model 25
+Epoch: 1 | Time: 14.062304735183716 | Accuracy: 0.12506 | Loss: 6.808320523757935
+Epoch: 2 | Time: 14.006913900375366 | Accuracy: 0.13446 | Loss: 2.434093052520752
+Epoch: 3 | Time: 14.264968156814575 | Accuracy: 0.1231 | Loss: 2.3334888868713377
+Epoch: 4 | Time: 14.204792737960815 | Accuracy: 0.11918 | Loss: 2.331861959915161
+Epoch: 5 | Time: 14.085509300231934 | Accuracy: 0.10068 | Loss: 2.398991156692505
+Finished Training after 70.6246132850647 seconds.
+Training Model 26
+Epoch: 1 | Time: 11.593436002731323 | Accuracy: 0.1396 | Loss: 2.4813508273315428
+Epoch: 2 | Time: 11.95199990272522 | Accuracy: 0.1762 | Loss: 2.217486691055298
+Epoch: 3 | Time: 11.674479246139526 | Accuracy: 0.19622 | Loss: 2.1311301902770996
+Epoch: 4 | Time: 11.559299230575562 | Accuracy: 0.21138 | Loss: 2.0786502122497557
+Epoch: 5 | Time: 11.524904012680054 | Accuracy: 0.2214 | Loss: 2.056445814819336
+Finished Training after 58.304240226745605 seconds.
+Training Model 27
+Epoch: 1 | Time: 23.963964223861694 | Accuracy: 0.30668 | Loss: 2.0581893962097166
+Epoch: 2 | Time: 24.103930711746216 | Accuracy: 0.35942 | Loss: 1.8309075677490234
+Epoch: 3 | Time: 24.014538526535034 | Accuracy: 0.39098 | Loss: 1.7153864210128784
+Epoch: 4 | Time: 24.07140612602234 | Accuracy: 0.42252 | Loss: 1.6354580448150635
+Epoch: 5 | Time: 24.429742336273193 | Accuracy: 0.43998 | Loss: 1.5805805178833008
+Finished Training after 120.58370471000671 seconds.
+Training Model 28
+Epoch: 1 | Time: 11.292439222335815 | Accuracy: 0.12018 | Loss: 2.3590291495513918
+Epoch: 2 | Time: 11.60154914855957 | Accuracy: 0.13706 | Loss: 2.314250923156738
+Epoch: 3 | Time: 11.448479175567627 | Accuracy: 0.15288 | Loss: 2.284235758056641
+Epoch: 4 | Time: 11.577851057052612 | Accuracy: 0.15788 | Loss: 2.265970592727661
+Epoch: 5 | Time: 11.461344718933105 | Accuracy: 0.16716 | Loss: 2.2434349752807616
+Finished Training after 57.38178300857544 seconds.
+Training Model 29
+Epoch: 1 | Time: 11.443378210067749 | Accuracy: 0.31024 | Loss: 2.533716578102112
+Epoch: 2 | Time: 11.73049545288086 | Accuracy: 0.38976 | Loss: 1.7283225917053222
+Epoch: 3 | Time: 11.481680393218994 | Accuracy: 0.43116 | Loss: 1.6195632175445556
+Epoch: 4 | Time: 11.632679224014282 | Accuracy: 0.4585 | Loss: 1.5543002409744262
+Epoch: 5 | Time: 11.52801513671875 | Accuracy: 0.48242 | Loss: 1.500394667892456
+Finished Training after 57.81636357307434 seconds.
+Training Model 30
+Epoch: 1 | Time: 14.61951994895935 | Accuracy: 0.19538 | Loss: 3898.3135405078124
+Epoch: 2 | Time: 14.701305389404297 | Accuracy: 0.21706 | Loss: 1538.150705625
+Epoch: 3 | Time: 14.692968130111694 | Accuracy: 0.2244 | Loss: 990.5083178320313
+Epoch: 4 | Time: 14.744948387145996 | Accuracy: 0.2342 | Loss: 753.00757578125
+Epoch: 5 | Time: 14.699820041656494 | Accuracy: 0.2369 | Loss: 610.811066796875
+Finished Training after 73.45868158340454 seconds.
+Training Model 31
+Epoch: 1 | Time: 11.627530574798584 | Accuracy: 0.09878 | Loss: 2.3756096630096435
+Epoch: 2 | Time: 11.592597484588623 | Accuracy: 0.09892 | Loss: 2.3228888918304444
+Epoch: 3 | Time: 11.77621841430664 | Accuracy: 0.09926 | Loss: 2.318027974395752
+Epoch: 4 | Time: 11.539863348007202 | Accuracy: 0.09918 | Loss: 2.31295223197937
+Epoch: 5 | Time: 11.803728580474854 | Accuracy: 0.09844 | Loss: 2.310494289779663
+Finished Training after 58.34005618095398 seconds.
+Training Model 32
+Epoch: 1 | Time: 11.624937772750854 | Accuracy: 0.10618 | Loss: 2.3429018031311033
+Epoch: 2 | Time: 11.788373231887817 | Accuracy: 0.111 | Loss: 2.3306715058135987
+Epoch: 3 | Time: 11.542216062545776 | Accuracy: 0.11618 | Loss: 2.3221358424377443
+Epoch: 4 | Time: 11.648496866226196 | Accuracy: 0.1185 | Loss: 2.315464315185547
+Epoch: 5 | Time: 11.497509956359863 | Accuracy: 0.12082 | Loss: 2.306286837081909
+Finished Training after 58.1016526222229 seconds.
+Training Model 33
+Epoch: 1 | Time: 11.603160381317139 | Accuracy: 0.29684 | Loss: 1.917110792617798
+Epoch: 2 | Time: 11.298337459564209 | Accuracy: 0.34118 | Loss: 1.7884171060180665
+Epoch: 3 | Time: 11.160017967224121 | Accuracy: 0.36514 | Loss: 1.745478881225586
+Epoch: 4 | Time: 11.881916046142578 | Accuracy: 0.37782 | Loss: 1.7240276028442383
+Epoch: 5 | Time: 11.933958530426025 | Accuracy: 0.38196 | Loss: 1.7108148445892335
+Finished Training after 57.87750577926636 seconds.
+Training Model 34
+Epoch: 1 | Time: 12.189104318618774 | Accuracy: 0.1514 | Loss: 2.215405670928955
+Epoch: 2 | Time: 12.23627519607544 | Accuracy: 0.17068 | Loss: 2.1394542224121094
+Epoch: 3 | Time: 12.678894996643066 | Accuracy: 0.16936 | Loss: 2.1241663512420654
+Epoch: 4 | Time: 12.270988941192627 | Accuracy: 0.17102 | Loss: 2.1162963768768313
+Epoch: 5 | Time: 12.384931802749634 | Accuracy: 0.17184 | Loss: 2.1158476364135743
+Finished Training after 61.76031970977783 seconds.
+Training Model 35
+Epoch: 1 | Time: 12.120327949523926 | Accuracy: 0.11002 | Loss: 2.3315120539855956
+Epoch: 2 | Time: 12.000255584716797 | Accuracy: 0.12504 | Loss: 2.300369652709961
+Epoch: 3 | Time: 12.085841655731201 | Accuracy: 0.13826 | Loss: 2.2754828987884523
+Epoch: 4 | Time: 11.903069734573364 | Accuracy: 0.14654 | Loss: 2.2576550128936765
+Epoch: 5 | Time: 11.953444480895996 | Accuracy: 0.1507 | Loss: 2.2486198695373534
+Finished Training after 60.063061475753784 seconds.
+Training Model 36
+Epoch: 1 | Time: 14.793146848678589 | Accuracy: 0.21624 | Loss: 2.1641991918945314
+Epoch: 2 | Time: 14.971736431121826 | Accuracy: 0.27038 | Loss: 2.030761189575195
+Epoch: 3 | Time: 14.905399799346924 | Accuracy: 0.28766 | Loss: 1.9654752922058105
+Epoch: 4 | Time: 14.814976453781128 | Accuracy: 0.30352 | Loss: 1.9141591199493408
+Epoch: 5 | Time: 15.020538806915283 | Accuracy: 0.31466 | Loss: 1.879831833267212
+Finished Training after 74.50592303276062 seconds.
+Training Model 37
+Epoch: 1 | Time: 34.404664278030396 | Accuracy: 0.12682 | Loss: 559.7998822644043
+Epoch: 2 | Time: 34.52132606506348 | Accuracy: 0.12106 | Loss: 48.97975246398926
+Epoch: 3 | Time: 34.38014769554138 | Accuracy: 0.11652 | Loss: 9.517368126602173
+Epoch: 4 | Time: 34.39775061607361 | Accuracy: 0.12038 | Loss: 4.224367549667359
+Epoch: 5 | Time: 34.50844645500183 | Accuracy: 0.10642 | Loss: 3.1246943908691405
+Finished Training after 172.21245884895325 seconds.
+Training Model 38
+Epoch: 1 | Time: 48.285696029663086 | Accuracy: 0.2549 | Loss: 2.077211647949219
+Epoch: 2 | Time: 48.306599140167236 | Accuracy: 0.3147 | Loss: 1.889803950958252
+Epoch: 3 | Time: 47.87377595901489 | Accuracy: 0.34034 | Loss: 1.8207077187728882
+Epoch: 4 | Time: 48.046069383621216 | Accuracy: 0.3577 | Loss: 1.7738356583023072
+Epoch: 5 | Time: 47.891711950302124 | Accuracy: 0.37122 | Loss: 1.7471420825958253
+Finished Training after 240.40397548675537 seconds.
+Training Model 39
+Epoch: 1 | Time: 13.173118829727173 | Accuracy: 0.1443 | Loss: 5.8374819314575195
+Epoch: 2 | Time: 12.960945844650269 | Accuracy: 0.15646 | Loss: 4.209292086486816
+Epoch: 3 | Time: 13.13351035118103 | Accuracy: 0.16338 | Loss: 3.233796170196533
+Epoch: 4 | Time: 13.104593753814697 | Accuracy: 0.16024 | Loss: 2.7608999893951416
+Epoch: 5 | Time: 12.833573579788208 | Accuracy: 0.1601 | Loss: 2.5983493072509765
+Finished Training after 65.20586442947388 seconds.
+Training Model 40
+Epoch: 1 | Time: 11.426463603973389 | Accuracy: 0.09912 | Loss: 2.369061056365967
+Epoch: 2 | Time: 11.608445644378662 | Accuracy: 0.10266 | Loss: 2.3322280070495607
+Epoch: 3 | Time: 11.526566505432129 | Accuracy: 0.1049 | Loss: 2.31602067489624
+Epoch: 4 | Time: 11.367056131362915 | Accuracy: 0.10494 | Loss: 2.3097821463775636
+Epoch: 5 | Time: 11.521679401397705 | Accuracy: 0.10912 | Loss: 2.3038491399383543
+Finished Training after 57.450331926345825 seconds.
+Finished Generation 54 | Total Time: 3270.8266999721527
+Number of Best Candidates Selected:4
+Selecting best solutions...
+Generation 55 solutions' crossover applied.
+Generation 55 solutions' mutations applied.
+Generation 55 solutions generated and repaired.
+Training Model 1
+Epoch: 1 | Time: 12.672727108001709 | Accuracy: 0.42888 | Loss: 1.601558793258667
+Epoch: 2 | Time: 12.493648529052734 | Accuracy: 0.52698 | Loss: 1.3226137912368774
+Epoch: 3 | Time: 12.639371633529663 | Accuracy: 0.58102 | Loss: 1.1851134940719605
+Epoch: 4 | Time: 12.644164323806763 | Accuracy: 0.61742 | Loss: 1.0729388619422913
+Epoch: 5 | Time: 12.749797582626343 | Accuracy: 0.6542 | Loss: 0.9725021333312989
+Finished Training after 63.19983267784119 seconds.
+Training Model 2
+Epoch: 1 | Time: 36.99693512916565 | Accuracy: 0.42796 | Loss: 1.619261215324402
+Epoch: 2 | Time: 37.17447018623352 | Accuracy: 0.5171 | Loss: 1.3683526894760132
+Epoch: 3 | Time: 37.1370267868042 | Accuracy: 0.55668 | Loss: 1.254330033454895
+Epoch: 4 | Time: 37.16813659667969 | Accuracy: 0.5814 | Loss: 1.1830205601501464
+Epoch: 5 | Time: 37.15201282501221 | Accuracy: 0.60526 | Loss: 1.1145372138214111
+Finished Training after 185.62870526313782 seconds.
+Training Model 3
+Epoch: 1 | Time: 14.52487564086914 | Accuracy: 0.39412 | Loss: 1.7190899055480957
+Epoch: 2 | Time: 14.477699995040894 | Accuracy: 0.47724 | Loss: 1.4817484811019896
+Epoch: 3 | Time: 14.690460205078125 | Accuracy: 0.524 | Loss: 1.3521708432006836
+Epoch: 4 | Time: 14.826533555984497 | Accuracy: 0.55612 | Loss: 1.2539118154525757
+Epoch: 5 | Time: 15.207620859146118 | Accuracy: 0.5883 | Loss: 1.1638541275024414
+Finished Training after 73.72730588912964 seconds.
+Training Model 4
+Epoch: 1 | Time: 19.53709650039673 | Accuracy: 0.39386 | Loss: 1.7318359841156006
+Epoch: 2 | Time: 19.594868421554565 | Accuracy: 0.4995 | Loss: 1.4768710670089722
+Epoch: 3 | Time: 19.279999017715454 | Accuracy: 0.53658 | Loss: 1.3752716552352906
+Epoch: 4 | Time: 19.63958716392517 | Accuracy: 0.56072 | Loss: 1.3006145030212402
+Epoch: 5 | Time: 19.92213249206543 | Accuracy: 0.5801 | Loss: 1.236364828414917
+Finished Training after 97.97381901741028 seconds.
+Training Model 5
+Epoch: 1 | Time: 14.036991834640503 | Accuracy: 0.0979 | Loss: 419.7269858868408
+Epoch: 2 | Time: 13.749858140945435 | Accuracy: 0.0934 | Loss: 53.974105694122315
+Epoch: 3 | Time: 14.124345064163208 | Accuracy: 0.09562 | Loss: 30.172818347930907
+Epoch: 4 | Time: 14.324273347854614 | Accuracy: 0.09696 | Loss: 21.58178996658325
+Epoch: 5 | Time: 13.74814248085022 | Accuracy: 0.09752 | Loss: 17.132444439239503
+Finished Training after 69.983731508255 seconds.
+Training Model 6
+Epoch: 1 | Time: 12.376916408538818 | Accuracy: 0.17228 | Loss: 2.202487147140503
+Epoch: 2 | Time: 12.500450134277344 | Accuracy: 0.21416 | Loss: 2.1077693466186522
+Epoch: 3 | Time: 12.54847764968872 | Accuracy: 0.23218 | Loss: 2.0713088468933107
+Epoch: 4 | Time: 12.686624765396118 | Accuracy: 0.23908 | Loss: 2.0510800801849367
+Epoch: 5 | Time: 12.404964685440063 | Accuracy: 0.24472 | Loss: 2.032262827682495
+Finished Training after 62.51755619049072 seconds.
+Training Model 7
+Epoch: 1 | Time: 12.056140422821045 | Accuracy: 0.09888 | Loss: 2.3185582704925536
+Epoch: 2 | Time: 12.150447368621826 | Accuracy: 0.0989 | Loss: 2.304206643676758
+Epoch: 3 | Time: 12.032459020614624 | Accuracy: 0.09902 | Loss: 2.303127462387085
+Epoch: 4 | Time: 12.080613374710083 | Accuracy: 0.09902 | Loss: 2.3065212608337404
+Epoch: 5 | Time: 12.07461953163147 | Accuracy: 0.09914 | Loss: 2.3035602056884765
+Finished Training after 60.39439940452576 seconds.
+Training Model 8
+Epoch: 1 | Time: 11.917065382003784 | Accuracy: 0.28262 | Loss: 1.9924244577026367
+Epoch: 2 | Time: 11.973072052001953 | Accuracy: 0.31398 | Loss: 1.9400693005371095
+Epoch: 3 | Time: 11.873027801513672 | Accuracy: 0.31752 | Loss: 1.932332967453003
+Epoch: 4 | Time: 11.935046911239624 | Accuracy: 0.32334 | Loss: 1.9265994985198975
+Epoch: 5 | Time: 12.067001342773438 | Accuracy: 0.32472 | Loss: 1.9211168423843383
+Finished Training after 59.765331506729126 seconds.
+Training Model 9
+Epoch: 1 | Time: 22.378380298614502 | Accuracy: 0.1396 | Loss: 2.3860869065093993
+Epoch: 2 | Time: 22.01208806037903 | Accuracy: 0.16628 | Loss: 2.243109089050293
+Epoch: 3 | Time: 21.7842538356781 | Accuracy: 0.17726 | Loss: 2.1965846655273435
+Epoch: 4 | Time: 21.332847356796265 | Accuracy: 0.1892 | Loss: 2.1705361604309084
+Epoch: 5 | Time: 21.370759963989258 | Accuracy: 0.19478 | Loss: 2.162896694793701
+Finished Training after 108.87845516204834 seconds.
+Training Model 10
+Epoch: 1 | Time: 11.514888286590576 | Accuracy: 0.16482 | Loss: 2.2340406131744386
+Epoch: 2 | Time: 11.475173950195312 | Accuracy: 0.1978 | Loss: 2.1356211212539673
+Epoch: 3 | Time: 11.554315567016602 | Accuracy: 0.21732 | Loss: 2.101633026046753
+Epoch: 4 | Time: 11.466164827346802 | Accuracy: 0.22572 | Loss: 2.086439900588989
+Epoch: 5 | Time: 11.486553430557251 | Accuracy: 0.23132 | Loss: 2.0813413348388674
+Finished Training after 57.497217416763306 seconds.
+Training Model 11
+Epoch: 1 | Time: 13.96662187576294 | Accuracy: 0.10342 | Loss: 143325.8870775
+Epoch: 2 | Time: 14.218127965927124 | Accuracy: 0.099 | Loss: 112502.7658025
+Epoch: 3 | Time: 14.14970350265503 | Accuracy: 0.1024 | Loss: 90727.2356825
+Epoch: 4 | Time: 14.476342916488647 | Accuracy: 0.10394 | Loss: 73112.50065625
+Epoch: 5 | Time: 14.151160478591919 | Accuracy: 0.10286 | Loss: 61749.14041875
+Finished Training after 70.96207857131958 seconds.
+Training Model 12
+Epoch: 1 | Time: 17.99048638343811 | Accuracy: 0.14468 | Loss: 2.250373165664673
+Epoch: 2 | Time: 18.05142855644226 | Accuracy: 0.19678 | Loss: 2.16645649597168
+Epoch: 3 | Time: 17.998722791671753 | Accuracy: 0.2201 | Loss: 2.1058547286224365
+Epoch: 4 | Time: 18.335259437561035 | Accuracy: 0.23708 | Loss: 2.0561655648040773
+Epoch: 5 | Time: 18.014857530593872 | Accuracy: 0.25122 | Loss: 2.0167364462280273
+Finished Training after 90.39087677001953 seconds.
+Training Model 13
+Epoch: 1 | Time: 14.663139581680298 | Accuracy: 0.1009 | Loss: 2.3687778311157226
+Epoch: 2 | Time: 14.66679859161377 | Accuracy: 0.0998 | Loss: 2.3261787126159668
+Epoch: 3 | Time: 14.543614864349365 | Accuracy: 0.09896 | Loss: 2.316347230300903
+Epoch: 4 | Time: 14.565812110900879 | Accuracy: 0.09988 | Loss: 2.3126091635131836
+Epoch: 5 | Time: 14.964330673217773 | Accuracy: 0.10152 | Loss: 2.3102095999908445
+Finished Training after 73.40381598472595 seconds.
+Training Model 14
+Epoch: 1 | Time: 26.779357194900513 | Accuracy: 0.18914 | Loss: 7.965710229339599
+Epoch: 2 | Time: 26.955561876296997 | Accuracy: 0.20994 | Loss: 2.655693024215698
+Epoch: 3 | Time: 26.945642232894897 | Accuracy: 0.24936 | Loss: 2.207460119857788
+Epoch: 4 | Time: 27.224635362625122 | Accuracy: 0.27008 | Loss: 2.0775270836639406
+Epoch: 5 | Time: 26.4371817111969 | Accuracy: 0.25232 | Loss: 2.1550815042877196
+Finished Training after 134.34249711036682 seconds.
+Training Model 15
+Epoch: 1 | Time: 11.805528163909912 | Accuracy: 0.09946 | Loss: 2.312130380783081
+Epoch: 2 | Time: 11.713031530380249 | Accuracy: 0.09968 | Loss: 2.3058394245910643
+Epoch: 3 | Time: 11.67100214958191 | Accuracy: 0.09926 | Loss: 2.305398537750244
+Epoch: 4 | Time: 11.767847061157227 | Accuracy: 0.10092 | Loss: 2.3045622149658205
+Epoch: 5 | Time: 11.698968172073364 | Accuracy: 0.10042 | Loss: 2.303898649673462
+Finished Training after 58.65650224685669 seconds.
+Training Model 16
+Epoch: 1 | Time: 49.63188362121582 | Accuracy: 0.21766 | Loss: 2.1058555249404907
+Epoch: 2 | Time: 49.59690308570862 | Accuracy: 0.26424 | Loss: 1.9868253550338746
+Epoch: 3 | Time: 50.07055115699768 | Accuracy: 0.28062 | Loss: 1.9568217847442626
+Epoch: 4 | Time: 50.0345573425293 | Accuracy: 0.29232 | Loss: 1.9417646185302735
+Epoch: 5 | Time: 50.00554656982422 | Accuracy: 0.2992 | Loss: 1.9199521575164795
+Finished Training after 249.3395631313324 seconds.
+Training Model 17
+Epoch: 1 | Time: 12.095987796783447 | Accuracy: 0.17424 | Loss: 2.165312586212158
+Epoch: 2 | Time: 12.043745756149292 | Accuracy: 0.21826 | Loss: 2.0554373698806763
+Epoch: 3 | Time: 12.010560750961304 | Accuracy: 0.22544 | Loss: 2.0380492055892945
+Epoch: 4 | Time: 12.215864181518555 | Accuracy: 0.23538 | Loss: 2.025318914413452
+Epoch: 5 | Time: 12.290296077728271 | Accuracy: 0.2358 | Loss: 2.017802692985535
+Finished Training after 60.656577587127686 seconds.
+Training Model 18
+Epoch: 1 | Time: 14.443525791168213 | Accuracy: 0.16286 | Loss: 2.174075182952881
+Epoch: 2 | Time: 14.416183471679688 | Accuracy: 0.17194 | Loss: 2.125052243652344
+Epoch: 3 | Time: 14.80009388923645 | Accuracy: 0.17824 | Loss: 2.1115853722381592
+Epoch: 4 | Time: 14.491212606430054 | Accuracy: 0.18046 | Loss: 2.1048959939956666
+Epoch: 5 | Time: 14.488547325134277 | Accuracy: 0.1827 | Loss: 2.0979209186553955
+Finished Training after 72.63968205451965 seconds.
+Training Model 19
+Epoch: 1 | Time: 12.428836345672607 | Accuracy: 0.10098 | Loss: 2.353323518218994
+Epoch: 2 | Time: 12.603389739990234 | Accuracy: 0.10104 | Loss: 2.310919941482544
+Epoch: 3 | Time: 12.428649425506592 | Accuracy: 0.10672 | Loss: 2.2996776448822023
+Epoch: 4 | Time: 12.500045776367188 | Accuracy: 0.1134 | Loss: 2.2920354671478274
+Epoch: 5 | Time: 12.588682889938354 | Accuracy: 0.11918 | Loss: 2.283160146789551
+Finished Training after 62.549724817276 seconds.
+Training Model 20
+Epoch: 1 | Time: 15.197997093200684 | Accuracy: 0.10032 | Loss: 2.4060347659301757
+Epoch: 2 | Time: 15.548938989639282 | Accuracy: 0.10154 | Loss: 2.326707528915405
+Epoch: 3 | Time: 15.354848861694336 | Accuracy: 0.10002 | Loss: 2.3165889066314698
+Epoch: 4 | Time: 15.080791234970093 | Accuracy: 0.10142 | Loss: 2.311086452178955
+Epoch: 5 | Time: 15.164762020111084 | Accuracy: 0.101 | Loss: 2.3081539247894285
+Finished Training after 76.34745693206787 seconds.
+Training Model 21
+Epoch: 1 | Time: 20.6951584815979 | Accuracy: 0.2238 | Loss: 2.0867492908477785
+Epoch: 2 | Time: 20.782228469848633 | Accuracy: 0.2728 | Loss: 1.9887504273223877
+Epoch: 3 | Time: 20.75549030303955 | Accuracy: 0.28578 | Loss: 1.9648687561035156
+Epoch: 4 | Time: 20.67401146888733 | Accuracy: 0.28768 | Loss: 1.953072387161255
+Epoch: 5 | Time: 20.734872102737427 | Accuracy: 0.29778 | Loss: 1.9386511593627929
+Finished Training after 103.64188623428345 seconds.
+Training Model 22
+Epoch: 1 | Time: 12.351149559020996 | Accuracy: 0.14256 | Loss: 2.2876448307800294
+Epoch: 2 | Time: 12.194285869598389 | Accuracy: 0.174 | Loss: 2.218270498123169
+Epoch: 3 | Time: 12.426950693130493 | Accuracy: 0.22638 | Loss: 2.1483319248962403
+Epoch: 4 | Time: 12.362961530685425 | Accuracy: 0.27642 | Loss: 2.0808502404022216
+Epoch: 5 | Time: 12.030523777008057 | Accuracy: 0.30194 | Loss: 2.0226480796051027
+Finished Training after 61.36599373817444 seconds.
+Training Model 23
+Epoch: 1 | Time: 11.764527559280396 | Accuracy: 0.10642 | Loss: 2.33222166595459
+Epoch: 2 | Time: 11.560877561569214 | Accuracy: 0.11632 | Loss: 2.304694705734253
+Epoch: 3 | Time: 11.710045337677002 | Accuracy: 0.12636 | Loss: 2.281296411895752
+Epoch: 4 | Time: 11.673768520355225 | Accuracy: 0.13546 | Loss: 2.2638514920043944
+Epoch: 5 | Time: 11.758439540863037 | Accuracy: 0.1401 | Loss: 2.25188957321167
+Finished Training after 58.46777677536011 seconds.
+Training Model 24
+Epoch: 1 | Time: 12.146215438842773 | Accuracy: 0.1022 | Loss: 41.92009838012695
+Epoch: 2 | Time: 12.299165487289429 | Accuracy: 0.10928 | Loss: 34.49383246276855
+Epoch: 3 | Time: 12.2050302028656 | Accuracy: 0.11116 | Loss: 29.059786295166017
+Epoch: 4 | Time: 12.243506669998169 | Accuracy: 0.11794 | Loss: 24.914733966064453
+Epoch: 5 | Time: 12.28147029876709 | Accuracy: 0.1191 | Loss: 21.644625150146485
+Finished Training after 61.17551398277283 seconds.
+Training Model 25
+Epoch: 1 | Time: 11.664638757705688 | Accuracy: 0.1344 | Loss: 2.354824362411499
+Epoch: 2 | Time: 11.78007459640503 | Accuracy: 0.17694 | Loss: 2.2260216534423827
+Epoch: 3 | Time: 11.721901416778564 | Accuracy: 0.2056 | Loss: 2.1474571141815186
+Epoch: 4 | Time: 11.554094552993774 | Accuracy: 0.22978 | Loss: 2.0813577532958982
+Epoch: 5 | Time: 11.802215814590454 | Accuracy: 0.24664 | Loss: 2.033818015823364
+Finished Training after 58.52304697036743 seconds.
+Training Model 26
+Epoch: 1 | Time: 11.906657934188843 | Accuracy: 0.13748 | Loss: 2.278719747619629
+Epoch: 2 | Time: 12.14273715019226 | Accuracy: 0.18282 | Loss: 2.134012015838623
+Epoch: 3 | Time: 11.957057237625122 | Accuracy: 0.1932 | Loss: 2.066854579849243
+Epoch: 4 | Time: 11.901397705078125 | Accuracy: 0.1952 | Loss: 2.0362152919769287
+Epoch: 5 | Time: 11.917123079299927 | Accuracy: 0.20088 | Loss: 2.011654019546509
+Finished Training after 59.825098752975464 seconds.
+Training Model 27
+Epoch: 1 | Time: 13.149137258529663 | Accuracy: 0.27586 | Loss: 3.806009864807129
+Epoch: 2 | Time: 13.057516813278198 | Accuracy: 0.38046 | Loss: 1.9026724141693114
+Epoch: 3 | Time: 13.11463451385498 | Accuracy: 0.45182 | Loss: 1.5639632984161378
+Epoch: 4 | Time: 13.339081525802612 | Accuracy: 0.48 | Loss: 1.4792407721328735
+Epoch: 5 | Time: 13.106277465820312 | Accuracy: 0.4933 | Loss: 1.442084765815735
+Finished Training after 65.7667760848999 seconds.
+Training Model 28
+Epoch: 1 | Time: 11.893714427947998 | Accuracy: 0.14026 | Loss: 2.268356718711853
+Epoch: 2 | Time: 11.798945665359497 | Accuracy: 0.16662 | Loss: 2.1779647690963744
+Epoch: 3 | Time: 11.874261617660522 | Accuracy: 0.17414 | Loss: 2.141423135070801
+Epoch: 4 | Time: 11.790503978729248 | Accuracy: 0.18304 | Loss: 2.119055120124817
+Epoch: 5 | Time: 11.841925382614136 | Accuracy: 0.1896 | Loss: 2.100889687728882
+Finished Training after 59.19947576522827 seconds.
+Training Model 29
+Epoch: 1 | Time: 11.664530754089355 | Accuracy: 0.14302 | Loss: 2.2779067086029055
+Epoch: 2 | Time: 11.750049591064453 | Accuracy: 0.16382 | Loss: 2.1845485903930664
+Epoch: 3 | Time: 11.718238592147827 | Accuracy: 0.16854 | Loss: 2.1543494565200807
+Epoch: 4 | Time: 11.886399984359741 | Accuracy: 0.17298 | Loss: 2.1338269500732423
+Epoch: 5 | Time: 11.794102430343628 | Accuracy: 0.1708 | Loss: 2.1246634214782714
+Finished Training after 58.81344676017761 seconds.
+Training Model 30
+Epoch: 1 | Time: 11.564918756484985 | Accuracy: 0.28366 | Loss: 2.0273266761398316
+Epoch: 2 | Time: 11.662762880325317 | Accuracy: 0.33202 | Loss: 1.8274017274475098
+Epoch: 3 | Time: 11.44076919555664 | Accuracy: 0.34874 | Loss: 1.7926797341918945
+Epoch: 4 | Time: 11.683495044708252 | Accuracy: 0.35782 | Loss: 1.7707159706878661
+Epoch: 5 | Time: 11.657135725021362 | Accuracy: 0.35946 | Loss: 1.7532009327316285
+Finished Training after 58.00920605659485 seconds.
+Training Model 31
+Epoch: 1 | Time: 14.037374019622803 | Accuracy: 0.13712 | Loss: 3.355349745635986
+Epoch: 2 | Time: 14.009852409362793 | Accuracy: 0.15476 | Loss: 2.3773086022949217
+Epoch: 3 | Time: 13.927358865737915 | Accuracy: 0.1644 | Loss: 2.264187101364136
+Epoch: 4 | Time: 14.381790161132812 | Accuracy: 0.14958 | Loss: 2.2866002764892577
+Epoch: 5 | Time: 13.776932001113892 | Accuracy: 0.12892 | Loss: 2.3172212991333008
+Finished Training after 70.13342714309692 seconds.
+Training Model 32
+Epoch: 1 | Time: 11.621013641357422 | Accuracy: 0.11026 | Loss: 2.3271846497344972
+Epoch: 2 | Time: 11.742154121398926 | Accuracy: 0.13884 | Loss: 2.2852915425872804
+Epoch: 3 | Time: 11.68596076965332 | Accuracy: 0.15432 | Loss: 2.2482003994750976
+Epoch: 4 | Time: 11.737343311309814 | Accuracy: 0.16028 | Loss: 2.217935856170654
+Epoch: 5 | Time: 11.782898426055908 | Accuracy: 0.16844 | Loss: 2.1952047354888915
+Finished Training after 58.569495677948 seconds.
+Training Model 33
+Epoch: 1 | Time: 11.872445106506348 | Accuracy: 0.22404 | Loss: 2.12403981918335
+Epoch: 2 | Time: 12.40890121459961 | Accuracy: 0.28484 | Loss: 1.984507428817749
+Epoch: 3 | Time: 12.54189133644104 | Accuracy: 0.30678 | Loss: 1.9269848880767821
+Epoch: 4 | Time: 12.655364274978638 | Accuracy: 0.32142 | Loss: 1.8901673677825928
+Epoch: 5 | Time: 12.465022802352905 | Accuracy: 0.3293 | Loss: 1.8686315441894532
+Finished Training after 61.943747997283936 seconds.
+Training Model 34
+Epoch: 1 | Time: 12.241859197616577 | Accuracy: 0.17598 | Loss: 2.201292795600891
+Epoch: 2 | Time: 12.134519338607788 | Accuracy: 0.2253 | Loss: 2.102368402633667
+Epoch: 3 | Time: 11.911404609680176 | Accuracy: 0.24068 | Loss: 2.072448503036499
+Epoch: 4 | Time: 12.309422492980957 | Accuracy: 0.25108 | Loss: 2.052994101715088
+Epoch: 5 | Time: 12.026337623596191 | Accuracy: 0.26134 | Loss: 2.0341506750488283
+Finished Training after 60.62367010116577 seconds.
+Training Model 35
+Epoch: 1 | Time: 11.871001958847046 | Accuracy: 0.12098 | Loss: 2.3170099256134034
+Epoch: 2 | Time: 11.821453094482422 | Accuracy: 0.15854 | Loss: 2.2498450424194334
+Epoch: 3 | Time: 11.923326015472412 | Accuracy: 0.18196 | Loss: 2.2043176664733886
+Epoch: 4 | Time: 11.807312488555908 | Accuracy: 0.19744 | Loss: 2.1712034479522706
+Epoch: 5 | Time: 11.730052709579468 | Accuracy: 0.21126 | Loss: 2.149332416152954
+Finished Training after 59.15326976776123 seconds.
+Training Model 36
+Epoch: 1 | Time: 12.409709692001343 | Accuracy: 0.26798 | Loss: 1.973545839691162
+Epoch: 2 | Time: 12.06601619720459 | Accuracy: 0.32166 | Loss: 1.8393357850646972
+Epoch: 3 | Time: 12.113612413406372 | Accuracy: 0.34592 | Loss: 1.7867577304840088
+Epoch: 4 | Time: 12.05053997039795 | Accuracy: 0.36148 | Loss: 1.7484531298065185
+Epoch: 5 | Time: 12.125961542129517 | Accuracy: 0.36662 | Loss: 1.731463663368225
+Finished Training after 60.7659695148468 seconds.
+Training Model 37
+Epoch: 1 | Time: 14.632092714309692 | Accuracy: 0.1445 | Loss: 2.2874688510131835
+Epoch: 2 | Time: 14.514108180999756 | Accuracy: 0.16254 | Loss: 2.207457353286743
+Epoch: 3 | Time: 14.428213596343994 | Accuracy: 0.17218 | Loss: 2.1633246471405028
+Epoch: 4 | Time: 14.874778270721436 | Accuracy: 0.20156 | Loss: 2.1373502360534666
+Epoch: 5 | Time: 14.904454946517944 | Accuracy: 0.204 | Loss: 2.1224348572158815
+Finished Training after 73.3537826538086 seconds.
+Training Model 38
+Epoch: 1 | Time: 12.035463333129883 | Accuracy: 0.11082 | Loss: 2.8514226491546633
+Epoch: 2 | Time: 12.23020887374878 | Accuracy: 0.11928 | Loss: 2.5334231239318847
+Epoch: 3 | Time: 12.057337284088135 | Accuracy: 0.12444 | Loss: 2.4309283194732667
+Epoch: 4 | Time: 12.295706748962402 | Accuracy: 0.13536 | Loss: 2.368556135482788
+Epoch: 5 | Time: 12.265551090240479 | Accuracy: 0.1442 | Loss: 2.3300982958221437
+Finished Training after 60.88439059257507 seconds.
+Training Model 39
+Epoch: 1 | Time: 12.107545375823975 | Accuracy: 0.16932 | Loss: 2.1516128425598144
+Epoch: 2 | Time: 12.078282117843628 | Accuracy: 0.20978 | Loss: 2.023450691757202
+Epoch: 3 | Time: 12.081932306289673 | Accuracy: 0.2135 | Loss: 2.0101423676300048
+Epoch: 4 | Time: 12.181861877441406 | Accuracy: 0.22042 | Loss: 1.9989085536193847
+Epoch: 5 | Time: 11.970044374465942 | Accuracy: 0.22394 | Loss: 1.9910123844909668
+Finished Training after 60.41978740692139 seconds.
+Training Model 40
+Epoch: 1 | Time: 14.760002136230469 | Accuracy: 0.10984 | Loss: 4.7142501782989505
+Epoch: 2 | Time: 14.305771589279175 | Accuracy: 0.11774 | Loss: 2.3278908862304686
+Epoch: 3 | Time: 14.950376987457275 | Accuracy: 0.10268 | Loss: 2.3201295611572266
+Epoch: 4 | Time: 14.613187789916992 | Accuracy: 0.09852 | Loss: 2.3084372438049314
+Epoch: 5 | Time: 14.680647850036621 | Accuracy: 0.09902 | Loss: 2.3072472073364256
+Finished Training after 73.310133934021 seconds.
+Finished Generation 55 | Total Time: 3073.371481657028
+Number of Best Candidates Selected:4
+Selecting best solutions...
+Generation 56 solutions' crossover applied.
+Generation 56 solutions' mutations applied.
+Generation 56 solutions generated and repaired.
+Training Model 1
+Epoch: 1 | Time: 13.039946794509888 | Accuracy: 0.42608 | Loss: 1.6033352547454833
+Epoch: 2 | Time: 13.10182237625122 | Accuracy: 0.5287 | Loss: 1.3214834520339966
+Epoch: 3 | Time: 12.946695804595947 | Accuracy: 0.57828 | Loss: 1.1841043141937255
+Epoch: 4 | Time: 12.747434616088867 | Accuracy: 0.61916 | Loss: 1.0757947849273681
+Epoch: 5 | Time: 13.630371570587158 | Accuracy: 0.6526 | Loss: 0.9788307532882691
+Finished Training after 65.46639323234558 seconds.
+Training Model 2
+Epoch: 1 | Time: 37.14603233337402 | Accuracy: 0.42112 | Loss: 1.6355723378753662
+Epoch: 2 | Time: 37.151423931121826 | Accuracy: 0.51258 | Loss: 1.3775386248016357
+Epoch: 3 | Time: 37.179107904434204 | Accuracy: 0.55106 | Loss: 1.2692833805465698
+Epoch: 4 | Time: 37.17797493934631 | Accuracy: 0.58206 | Loss: 1.1890550641441344
+Epoch: 5 | Time: 37.172285079956055 | Accuracy: 0.60642 | Loss: 1.119174162349701
+Finished Training after 185.82694673538208 seconds.
+Training Model 3
+Epoch: 1 | Time: 14.73476791381836 | Accuracy: 0.39604 | Loss: 1.7130427210998536
+Epoch: 2 | Time: 15.11231803894043 | Accuracy: 0.47516 | Loss: 1.4813260443878173
+Epoch: 3 | Time: 14.317798614501953 | Accuracy: 0.51672 | Loss: 1.3618833015441894
+Epoch: 4 | Time: 14.398905515670776 | Accuracy: 0.55584 | Loss: 1.2555789183807373
+Epoch: 5 | Time: 14.884598970413208 | Accuracy: 0.58394 | Loss: 1.1693118369293214
+Finished Training after 73.44851040840149 seconds.
+Training Model 4
+Epoch: 1 | Time: 19.372461795806885 | Accuracy: 0.39684 | Loss: 1.7288694589233398
+Epoch: 2 | Time: 19.457239151000977 | Accuracy: 0.49748 | Loss: 1.4763838730621337
+Epoch: 3 | Time: 19.215752124786377 | Accuracy: 0.53356 | Loss: 1.380369628944397
+Epoch: 4 | Time: 19.346693754196167 | Accuracy: 0.55806 | Loss: 1.2998533780670165
+Epoch: 5 | Time: 19.614845752716064 | Accuracy: 0.5811 | Loss: 1.2408372969436645
+Finished Training after 97.00711369514465 seconds.
+Training Model 5
+Epoch: 1 | Time: 12.20239782333374 | Accuracy: 0.1815 | Loss: 2.206880214881897
+Epoch: 2 | Time: 12.036066770553589 | Accuracy: 0.21052 | Loss: 2.111911019821167
+Epoch: 3 | Time: 12.237605571746826 | Accuracy: 0.21906 | Loss: 2.0960765743255614
+Epoch: 4 | Time: 12.0718834400177 | Accuracy: 0.22682 | Loss: 2.0745389962005616
+Epoch: 5 | Time: 12.544682025909424 | Accuracy: 0.22904 | Loss: 2.07320707611084
+Finished Training after 61.092759132385254 seconds.
+Training Model 6
+Epoch: 1 | Time: 18.910908699035645 | Accuracy: 0.17604 | Loss: 2.2195707688903807
+Epoch: 2 | Time: 19.237459182739258 | Accuracy: 0.21628 | Loss: 2.1333088346099855
+Epoch: 3 | Time: 19.01409602165222 | Accuracy: 0.23994 | Loss: 2.0795863454437256
+Epoch: 4 | Time: 19.214374542236328 | Accuracy: 0.25658 | Loss: 2.033063345336914
+Epoch: 5 | Time: 19.140551805496216 | Accuracy: 0.2711 | Loss: 1.9929208083343506
+Finished Training after 95.51751446723938 seconds.
+Training Model 7
+Epoch: 1 | Time: 12.38808798789978 | Accuracy: 0.17752 | Loss: 2.211421498641968
+Epoch: 2 | Time: 12.208804607391357 | Accuracy: 0.2262 | Loss: 2.1091261449432372
+Epoch: 3 | Time: 12.181811332702637 | Accuracy: 0.24904 | Loss: 2.055529672393799
+Epoch: 4 | Time: 12.271153450012207 | Accuracy: 0.26552 | Loss: 2.015044260940552
+Epoch: 5 | Time: 12.025525331497192 | Accuracy: 0.282 | Loss: 1.9830340727233886
+Finished Training after 61.07550382614136 seconds.
+Training Model 8
+Epoch: 1 | Time: 12.060428142547607 | Accuracy: 0.1206 | Loss: 2.3167079675292968
+Epoch: 2 | Time: 12.069379568099976 | Accuracy: 0.13896 | Loss: 2.2979341325378417
+Epoch: 3 | Time: 11.958749532699585 | Accuracy: 0.14236 | Loss: 2.283760972137451
+Epoch: 4 | Time: 11.967531442642212 | Accuracy: 0.15196 | Loss: 2.2699364973449705
+Epoch: 5 | Time: 12.155457019805908 | Accuracy: 0.15796 | Loss: 2.2571359781646727
+Finished Training after 60.211668968200684 seconds.
+Training Model 9
+Epoch: 1 | Time: 12.13005542755127 | Accuracy: 0.09976 | Loss: 2.3331267890930176
+Epoch: 2 | Time: 12.053698539733887 | Accuracy: 0.10594 | Loss: 2.3242926515197753
+Epoch: 3 | Time: 12.084292650222778 | Accuracy: 0.11222 | Loss: 2.316381953277588
+Epoch: 4 | Time: 12.226911067962646 | Accuracy: 0.11898 | Loss: 2.308094395980835
+Epoch: 5 | Time: 12.217590093612671 | Accuracy: 0.12462 | Loss: 2.300998041000366
+Finished Training after 60.7126681804657 seconds.
+Training Model 10
+Epoch: 1 | Time: 19.760445594787598 | Accuracy: 0.17542 | Loss: 2.255250072402954
+Epoch: 2 | Time: 19.68666124343872 | Accuracy: 0.18534 | Loss: 2.201266183395386
+Epoch: 3 | Time: 19.876075983047485 | Accuracy: 0.19096 | Loss: 2.152690478668213
+Epoch: 4 | Time: 19.909873247146606 | Accuracy: 0.20118 | Loss: 2.105899725341797
+Epoch: 5 | Time: 19.564234733581543 | Accuracy: 0.21842 | Loss: 2.065173466796875
+Finished Training after 98.79740595817566 seconds.
+Training Model 11
+Epoch: 1 | Time: 13.868905305862427 | Accuracy: 0.16 | Loss: 4.550942964935302
+Epoch: 2 | Time: 14.137247323989868 | Accuracy: 0.23676 | Loss: 2.1136648163986207
+Epoch: 3 | Time: 14.011048793792725 | Accuracy: 0.26614 | Loss: 2.013216674346924
+Epoch: 4 | Time: 13.893040418624878 | Accuracy: 0.27324 | Loss: 1.9993151807785035
+Epoch: 5 | Time: 13.874582290649414 | Accuracy: 0.27924 | Loss: 1.9884484425354003
+Finished Training after 69.78494501113892 seconds.
+Training Model 12
+Epoch: 1 | Time: 11.695886135101318 | Accuracy: 0.13166 | Loss: 2.287523133850098
+Epoch: 2 | Time: 11.763063430786133 | Accuracy: 0.16284 | Loss: 2.199273363418579
+Epoch: 3 | Time: 11.73824405670166 | Accuracy: 0.1753 | Loss: 2.164428090591431
+Epoch: 4 | Time: 11.783703565597534 | Accuracy: 0.1809 | Loss: 2.145741840209961
+Epoch: 5 | Time: 11.726729393005371 | Accuracy: 0.18506 | Loss: 2.1338634393692018
+Finished Training after 58.70774984359741 seconds.
+Training Model 13
+Epoch: 1 | Time: 14.310858488082886 | Accuracy: 0.18536 | Loss: 2.2385285861968995
+Epoch: 2 | Time: 14.16172194480896 | Accuracy: 0.23784 | Loss: 2.1191642723846433
+Epoch: 3 | Time: 14.15602159500122 | Accuracy: 0.26058 | Loss: 2.0399305017852782
+Epoch: 4 | Time: 14.115947723388672 | Accuracy: 0.2856 | Loss: 1.9779970433425904
+Epoch: 5 | Time: 14.269155740737915 | Accuracy: 0.30394 | Loss: 1.9344045244216919
+Finished Training after 71.01382970809937 seconds.
+Training Model 14
+Epoch: 1 | Time: 11.754565715789795 | Accuracy: 0.27786 | Loss: 2.3561986981201173
+Epoch: 2 | Time: 11.664424180984497 | Accuracy: 0.3711 | Loss: 1.7714409522628785
+Epoch: 3 | Time: 11.786462306976318 | Accuracy: 0.41226 | Loss: 1.6687653378677367
+Epoch: 4 | Time: 11.789299488067627 | Accuracy: 0.43648 | Loss: 1.612643007774353
+Epoch: 5 | Time: 11.769569873809814 | Accuracy: 0.456 | Loss: 1.57431310546875
+Finished Training after 58.764442443847656 seconds.
+Training Model 15
+Epoch: 1 | Time: 11.903714656829834 | Accuracy: 0.12924 | Loss: 2.2853340069580077
+Epoch: 2 | Time: 11.884166955947876 | Accuracy: 0.1455 | Loss: 2.2089972314453123
+Epoch: 3 | Time: 11.821034669876099 | Accuracy: 0.14626 | Loss: 2.1793453784179686
+Epoch: 4 | Time: 11.875555992126465 | Accuracy: 0.14772 | Loss: 2.161779954986572
+Epoch: 5 | Time: 11.922121286392212 | Accuracy: 0.14874 | Loss: 2.1524475858688357
+Finished Training after 59.406716108322144 seconds.
+Training Model 16
+Epoch: 1 | Time: 12.013447999954224 | Accuracy: 0.24982 | Loss: 2.0159045692062376
+Epoch: 2 | Time: 11.907487630844116 | Accuracy: 0.30202 | Loss: 1.8950383310317993
+Epoch: 3 | Time: 12.382301330566406 | Accuracy: 0.32656 | Loss: 1.8436383612823486
+Epoch: 4 | Time: 12.89414930343628 | Accuracy: 0.3433 | Loss: 1.8085050254821777
+Epoch: 5 | Time: 12.655498266220093 | Accuracy: 0.35052 | Loss: 1.7864613053131104
+Finished Training after 61.85301113128662 seconds.
+Training Model 17
+Epoch: 1 | Time: 14.386445045471191 | Accuracy: 0.13048 | Loss: 2.2855564541625975
+Epoch: 2 | Time: 14.156218528747559 | Accuracy: 0.14854 | Loss: 2.246446087799072
+Epoch: 3 | Time: 14.766653060913086 | Accuracy: 0.1522 | Loss: 2.235586739807129
+Epoch: 4 | Time: 14.725557804107666 | Accuracy: 0.15478 | Loss: 2.2244446572113037
+Epoch: 5 | Time: 14.74118685722351 | Accuracy: 0.15772 | Loss: 2.218841270675659
+Finished Training after 72.77617835998535 seconds.
+Training Model 18
+Epoch: 1 | Time: 13.860949993133545 | Accuracy: 0.12792 | Loss: 7.81603234664917
+Epoch: 2 | Time: 14.02385425567627 | Accuracy: 0.12652 | Loss: 3.1777327121734618
+Epoch: 3 | Time: 14.302125692367554 | Accuracy: 0.16618 | Loss: 2.358000233154297
+Epoch: 4 | Time: 13.827882051467896 | Accuracy: 0.2001 | Loss: 2.146768897628784
+Epoch: 5 | Time: 14.001319885253906 | Accuracy: 0.20212 | Loss: 2.142814287414551
+Finished Training after 70.01625418663025 seconds.
+Training Model 19
+Epoch: 1 | Time: 12.35683536529541 | Accuracy: 0.10084 | Loss: 2.3945613261413574
+Epoch: 2 | Time: 12.3935706615448 | Accuracy: 0.10016 | Loss: 2.324235836029053
+Epoch: 3 | Time: 12.64011025428772 | Accuracy: 0.09836 | Loss: 2.315847043838501
+Epoch: 4 | Time: 12.314231395721436 | Accuracy: 0.09862 | Loss: 2.310381233520508
+Epoch: 5 | Time: 12.003070592880249 | Accuracy: 0.09882 | Loss: 2.3074163232421876
+Finished Training after 61.707939863204956 seconds.
+Training Model 20
+Epoch: 1 | Time: 12.00345492362976 | Accuracy: 0.2952 | Loss: 1.9313067247772218
+Epoch: 2 | Time: 11.821104526519775 | Accuracy: 0.3739 | Loss: 1.7512495265197754
+Epoch: 3 | Time: 11.941589593887329 | Accuracy: 0.40064 | Loss: 1.6843622794723512
+Epoch: 4 | Time: 11.864228248596191 | Accuracy: 0.4156 | Loss: 1.6445148606109619
+Epoch: 5 | Time: 11.807656049728394 | Accuracy: 0.42962 | Loss: 1.6029517393875121
+Finished Training after 59.43815350532532 seconds.
+Training Model 21
+Epoch: 1 | Time: 11.600104570388794 | Accuracy: 0.18088 | Loss: 2.1478465322494507
+Epoch: 2 | Time: 11.646602392196655 | Accuracy: 0.20128 | Loss: 2.0834203443145753
+Epoch: 3 | Time: 11.60917043685913 | Accuracy: 0.21158 | Loss: 2.070823907623291
+Epoch: 4 | Time: 11.75150179862976 | Accuracy: 0.21518 | Loss: 2.066555892715454
+Epoch: 5 | Time: 11.553781032562256 | Accuracy: 0.22124 | Loss: 2.0614263287353514
+Finished Training after 58.16129493713379 seconds.
+Training Model 22
+Epoch: 1 | Time: 11.678420066833496 | Accuracy: 0.25648 | Loss: 2.0203219752120973
+Epoch: 2 | Time: 11.772884845733643 | Accuracy: 0.29992 | Loss: 1.9195895925903321
+Epoch: 3 | Time: 11.643686294555664 | Accuracy: 0.31414 | Loss: 1.8973930323791504
+Epoch: 4 | Time: 11.416767597198486 | Accuracy: 0.31658 | Loss: 1.8859841500091552
+Epoch: 5 | Time: 11.730868577957153 | Accuracy: 0.32426 | Loss: 1.8685127618789672
+Finished Training after 58.24274969100952 seconds.
+Training Model 23
+Epoch: 1 | Time: 11.893345832824707 | Accuracy: 0.14152 | Loss: 2.285214021453857
+Epoch: 2 | Time: 11.892683029174805 | Accuracy: 0.16478 | Loss: 2.199026187362671
+Epoch: 3 | Time: 12.026477813720703 | Accuracy: 0.17928 | Loss: 2.157896230316162
+Epoch: 4 | Time: 11.89659595489502 | Accuracy: 0.19054 | Loss: 2.1311331860351563
+Epoch: 5 | Time: 12.087290287017822 | Accuracy: 0.19342 | Loss: 2.113804026794434
+Finished Training after 59.796512603759766 seconds.
+Training Model 24
+Epoch: 1 | Time: 11.715760231018066 | Accuracy: 0.24548 | Loss: 2.0210055463027956
+Epoch: 2 | Time: 11.639615535736084 | Accuracy: 0.33986 | Loss: 1.8008863138580322
+Epoch: 3 | Time: 11.733449220657349 | Accuracy: 0.37128 | Loss: 1.7286669005203248
+Epoch: 4 | Time: 11.876319169998169 | Accuracy: 0.38918 | Loss: 1.6850310956573487
+Epoch: 5 | Time: 11.717788457870483 | Accuracy: 0.3975 | Loss: 1.6602688495254516
+Finished Training after 58.683053970336914 seconds.
+Training Model 25
+Epoch: 1 | Time: 12.147725582122803 | Accuracy: 0.21056 | Loss: 3.4497418502807617
+Epoch: 2 | Time: 12.2112295627594 | Accuracy: 0.28248 | Loss: 2.069981096229553
+Epoch: 3 | Time: 12.419993877410889 | Accuracy: 0.3237 | Loss: 1.9058152382659912
+Epoch: 4 | Time: 12.408056735992432 | Accuracy: 0.33538 | Loss: 1.8795787491607665
+Epoch: 5 | Time: 12.356700897216797 | Accuracy: 0.3385 | Loss: 1.8719868675994873
+Finished Training after 61.543829917907715 seconds.
+Training Model 26
+Epoch: 1 | Time: 16.171368837356567 | Accuracy: 0.10942 | Loss: 2.3074379194641113
+Epoch: 2 | Time: 16.06973958015442 | Accuracy: 0.11598 | Loss: 2.2922642093658445
+Epoch: 3 | Time: 15.926475286483765 | Accuracy: 0.1239 | Loss: 2.2810051693725586
+Epoch: 4 | Time: 15.882644891738892 | Accuracy: 0.12738 | Loss: 2.273299833602905
+Epoch: 5 | Time: 15.733392000198364 | Accuracy: 0.13118 | Loss: 2.2661877755737305
+Finished Training after 79.7837438583374 seconds.
+Training Model 27
+Epoch: 1 | Time: 14.556443452835083 | Accuracy: 0.11244 | Loss: 6.882532903594971
+Epoch: 2 | Time: 14.527839183807373 | Accuracy: 0.10198 | Loss: 2.7025155644226073
+Epoch: 3 | Time: 14.410004377365112 | Accuracy: 0.10164 | Loss: 2.473846117477417
+Epoch: 4 | Time: 14.40777850151062 | Accuracy: 0.1025 | Loss: 2.4103784646606443
+Epoch: 5 | Time: 14.425762414932251 | Accuracy: 0.10274 | Loss: 2.3705832669067384
+Finished Training after 72.32795214653015 seconds.
+Training Model 28
+Epoch: 1 | Time: 12.293355703353882 | Accuracy: 0.12668 | Loss: 2.3081922681427
+Epoch: 2 | Time: 12.479619026184082 | Accuracy: 0.14 | Loss: 2.2792934101104736
+Epoch: 3 | Time: 12.730437517166138 | Accuracy: 0.15286 | Loss: 2.2551572659301757
+Epoch: 4 | Time: 12.269884824752808 | Accuracy: 0.16224 | Loss: 2.2330019415283204
+Epoch: 5 | Time: 12.309359788894653 | Accuracy: 0.17372 | Loss: 2.209611312789917
+Finished Training after 62.082780599594116 seconds.
+Training Model 29
+Epoch: 1 | Time: 12.129752159118652 | Accuracy: 0.17118 | Loss: 2.227131647644043
+Epoch: 2 | Time: 11.917943954467773 | Accuracy: 0.23238 | Loss: 2.0944913469696047
+Epoch: 3 | Time: 12.095560550689697 | Accuracy: 0.26396 | Loss: 2.026697813835144
+Epoch: 4 | Time: 11.963851690292358 | Accuracy: 0.2848 | Loss: 1.986639316368103
+Epoch: 5 | Time: 12.027390003204346 | Accuracy: 0.29594 | Loss: 1.9628858212280273
+Finished Training after 60.134620666503906 seconds.
+Training Model 30
+Epoch: 1 | Time: 16.014293670654297 | Accuracy: 0.15732 | Loss: 2.2198801531219483
+Epoch: 2 | Time: 15.399590730667114 | Accuracy: 0.17356 | Loss: 2.172728546218872
+Epoch: 3 | Time: 15.5591402053833 | Accuracy: 0.18098 | Loss: 2.1598278212738036
+Epoch: 4 | Time: 15.217283487319946 | Accuracy: 0.18114 | Loss: 2.1495629737854003
+Epoch: 5 | Time: 15.080558061599731 | Accuracy: 0.18658 | Loss: 2.1428015924072263
+Finished Training after 77.27098560333252 seconds.
+Training Model 31
+Epoch: 1 | Time: 12.122896432876587 | Accuracy: 0.16308 | Loss: 2.251682738189697
+Epoch: 2 | Time: 12.115806818008423 | Accuracy: 0.19498 | Loss: 2.154449570121765
+Epoch: 3 | Time: 12.248656988143921 | Accuracy: 0.20734 | Loss: 2.122831714172363
+Epoch: 4 | Time: 12.079763650894165 | Accuracy: 0.21896 | Loss: 2.1038140576934814
+Epoch: 5 | Time: 12.022432088851929 | Accuracy: 0.22534 | Loss: 2.091897933731079
+Finished Training after 60.58968734741211 seconds.
+Training Model 32
+Epoch: 1 | Time: 12.712422370910645 | Accuracy: 0.1115 | Loss: 2.3322455516052245
+Epoch: 2 | Time: 12.602467060089111 | Accuracy: 0.13386 | Loss: 2.2831953574371338
+Epoch: 3 | Time: 13.342043161392212 | Accuracy: 0.15502 | Loss: 2.239729305343628
+Epoch: 4 | Time: 12.918292045593262 | Accuracy: 0.17836 | Loss: 2.201114621582031
+Epoch: 5 | Time: 13.122175216674805 | Accuracy: 0.19452 | Loss: 2.1648337672424316
+Finished Training after 64.6975212097168 seconds.
+Training Model 33
+Epoch: 1 | Time: 36.532585859298706 | Accuracy: 0.10274 | Loss: 28.047955002441405
+Epoch: 2 | Time: 36.38088369369507 | Accuracy: 0.10336 | Loss: 27.279264935913087
+Epoch: 3 | Time: 36.349273920059204 | Accuracy: 0.1024 | Loss: 26.32616885864258
+Epoch: 4 | Time: 36.02612662315369 | Accuracy: 0.10438 | Loss: 25.573638845825194
+Epoch: 5 | Time: 36.515015602111816 | Accuracy: 0.10546 | Loss: 24.708405607299806
+Finished Training after 181.80400776863098 seconds.
+Training Model 34
+Epoch: 1 | Time: 14.784963607788086 | Accuracy: 0.14104 | Loss: 5.920944772720337
+Epoch: 2 | Time: 13.710146427154541 | Accuracy: 0.16826 | Loss: 4.854267409362793
+Epoch: 3 | Time: 13.880670309066772 | Accuracy: 0.1796 | Loss: 4.486401770477295
+Epoch: 4 | Time: 15.020077228546143 | Accuracy: 0.1883 | Loss: 4.249872812728881
+Epoch: 5 | Time: 14.41760540008545 | Accuracy: 0.19586 | Loss: 4.040984825973511
+Finished Training after 71.81358361244202 seconds.
+Training Model 35
+Epoch: 1 | Time: 12.028331279754639 | Accuracy: 0.10888 | Loss: 2.3412728832244873
+Epoch: 2 | Time: 12.083868026733398 | Accuracy: 0.11014 | Loss: 2.332483719787598
+Epoch: 3 | Time: 12.070830583572388 | Accuracy: 0.11006 | Loss: 2.3294136824035645
+Epoch: 4 | Time: 11.869175434112549 | Accuracy: 0.11236 | Loss: 2.3247430686187744
+Epoch: 5 | Time: 11.90470027923584 | Accuracy: 0.11416 | Loss: 2.321475872039795
+Finished Training after 59.95702838897705 seconds.
+Training Model 36
+Epoch: 1 | Time: 39.38247561454773 | Accuracy: 0.12088 | Loss: 17.563328968811035
+Epoch: 2 | Time: 39.23065376281738 | Accuracy: 0.10566 | Loss: 2.3478527420043944
+Epoch: 3 | Time: 39.32764673233032 | Accuracy: 0.09948 | Loss: 2.349866714630127
+Epoch: 4 | Time: 39.329766511917114 | Accuracy: 0.099 | Loss: 2.3348534323883054
+Epoch: 5 | Time: 39.27013802528381 | Accuracy: 0.09816 | Loss: 2.3156190924072266
+Finished Training after 196.54080319404602 seconds.
+Training Model 37
+Epoch: 1 | Time: 20.868990659713745 | Accuracy: 0.16344 | Loss: 2.2322639039611816
+Epoch: 2 | Time: 20.663623332977295 | Accuracy: 0.17956 | Loss: 2.1854120989227295
+Epoch: 3 | Time: 20.80880570411682 | Accuracy: 0.18938 | Loss: 2.162853199996948
+Epoch: 4 | Time: 20.528321981430054 | Accuracy: 0.19526 | Loss: 2.154760878601074
+Epoch: 5 | Time: 20.429259061813354 | Accuracy: 0.19562 | Loss: 2.149327857055664
+Finished Training after 103.29912209510803 seconds.
+Training Model 38
+Epoch: 1 | Time: 14.535193920135498 | Accuracy: 0.1036 | Loss: 2.3730320039367676
+Epoch: 2 | Time: 14.228639125823975 | Accuracy: 0.11184 | Loss: 2.358094117050171
+Epoch: 3 | Time: 14.414061307907104 | Accuracy: 0.11538 | Loss: 2.345048506088257
+Epoch: 4 | Time: 14.381451606750488 | Accuracy: 0.11698 | Loss: 2.3375455436706543
+Epoch: 5 | Time: 14.520153045654297 | Accuracy: 0.11952 | Loss: 2.327093963088989
+Finished Training after 72.07961940765381 seconds.
+Training Model 39
+Epoch: 1 | Time: 11.557313442230225 | Accuracy: 0.21718 | Loss: 2.0721164862823485
+Epoch: 2 | Time: 11.551385402679443 | Accuracy: 0.25028 | Loss: 1.992144195251465
+Epoch: 3 | Time: 11.632012605667114 | Accuracy: 0.26432 | Loss: 1.9553752368164063
+Epoch: 4 | Time: 11.632680177688599 | Accuracy: 0.27044 | Loss: 1.9384492190170288
+Epoch: 5 | Time: 11.666747331619263 | Accuracy: 0.2743 | Loss: 1.9245076432800292
+Finished Training after 58.04025959968567 seconds.
+Training Model 40
+Epoch: 1 | Time: 12.785801649093628 | Accuracy: 0.21736 | Loss: 2.111982696685791
+Epoch: 2 | Time: 12.823190212249756 | Accuracy: 0.286 | Loss: 1.9520439056396484
+Epoch: 3 | Time: 13.088240385055542 | Accuracy: 0.30514 | Loss: 1.8911210842132569
+Epoch: 4 | Time: 12.771384239196777 | Accuracy: 0.31632 | Loss: 1.8651209425735473
+Epoch: 5 | Time: 12.778898000717163 | Accuracy: 0.32798 | Loss: 1.840922905883789
+Finished Training after 64.24763560295105 seconds.
+Finished Generation 56 | Total Time: 3084.1582260131836
+Number of Best Candidates Selected:4
+Selecting best solutions...
+Generation 57 solutions' crossover applied.
+Generation 57 solutions' mutations applied.
+Generation 57 solutions generated and repaired.
+Training Model 1
+Epoch: 1 | Time: 12.676645517349243 | Accuracy: 0.43318 | Loss: 1.5914022473144531
+Epoch: 2 | Time: 12.558727502822876 | Accuracy: 0.52916 | Loss: 1.3221440990829467
+Epoch: 3 | Time: 12.75030517578125 | Accuracy: 0.57792 | Loss: 1.1831318005371094
+Epoch: 4 | Time: 12.700308799743652 | Accuracy: 0.6173 | Loss: 1.0779188072681427
+Epoch: 5 | Time: 12.613019466400146 | Accuracy: 0.65216 | Loss: 0.9772713282966614
+Finished Training after 63.299126863479614 seconds.
+Training Model 2
+Epoch: 1 | Time: 36.894190311431885 | Accuracy: 0.42734 | Loss: 1.6144933873558045
+Epoch: 2 | Time: 37.13711190223694 | Accuracy: 0.5186 | Loss: 1.3642878157043457
+Epoch: 3 | Time: 37.164567708969116 | Accuracy: 0.55814 | Loss: 1.2540736184310912
+Epoch: 4 | Time: 37.14466571807861 | Accuracy: 0.5852 | Loss: 1.1764702978897095
+Epoch: 5 | Time: 37.166346073150635 | Accuracy: 0.61076 | Loss: 1.108266983642578
+Finished Training after 185.507004737854 seconds.
+Training Model 3
+Epoch: 1 | Time: 14.372882604598999 | Accuracy: 0.3918 | Loss: 1.7218863308334351
+Epoch: 2 | Time: 14.812944173812866 | Accuracy: 0.47372 | Loss: 1.4831710292816163
+Epoch: 3 | Time: 14.390691757202148 | Accuracy: 0.5149 | Loss: 1.3614377458953857
+Epoch: 4 | Time: 14.78948426246643 | Accuracy: 0.55726 | Loss: 1.251970139350891
+Epoch: 5 | Time: 15.235488891601562 | Accuracy: 0.5889 | Loss: 1.1704056811523438
+Finished Training after 73.60161089897156 seconds.
+Training Model 4
+Epoch: 1 | Time: 19.327678442001343 | Accuracy: 0.3962 | Loss: 1.72790750289917
+Epoch: 2 | Time: 19.60488247871399 | Accuracy: 0.494 | Loss: 1.4802326822280885
+Epoch: 3 | Time: 20.007124662399292 | Accuracy: 0.53408 | Loss: 1.3744625801086425
+Epoch: 4 | Time: 19.45119047164917 | Accuracy: 0.55714 | Loss: 1.3003635147857666
+Epoch: 5 | Time: 19.470224380493164 | Accuracy: 0.57908 | Loss: 1.2393524126434325
+Finished Training after 97.86122512817383 seconds.
+Training Model 5
+Epoch: 1 | Time: 13.04989767074585 | Accuracy: 0.13696 | Loss: 2.303206327896118
+Epoch: 2 | Time: 12.988730192184448 | Accuracy: 0.15212 | Loss: 2.2572801986694335
+Epoch: 3 | Time: 13.020790100097656 | Accuracy: 0.15842 | Loss: 2.213451811752319
+Epoch: 4 | Time: 12.926549911499023 | Accuracy: 0.16784 | Loss: 2.172721721229553
+Epoch: 5 | Time: 13.2155921459198 | Accuracy: 0.1734 | Loss: 2.136963300247192
+Finished Training after 65.20168423652649 seconds.
+Training Model 6
+Epoch: 1 | Time: 12.317477703094482 | Accuracy: 0.14192 | Loss: 2.2853950844573974
+Epoch: 2 | Time: 12.1500985622406 | Accuracy: 0.16088 | Loss: 2.234167011260986
+Epoch: 3 | Time: 12.235168933868408 | Accuracy: 0.16796 | Loss: 2.2112067345428468
+Epoch: 4 | Time: 12.18357515335083 | Accuracy: 0.17582 | Loss: 2.189480377044678
+Epoch: 5 | Time: 12.35805606842041 | Accuracy: 0.18598 | Loss: 2.172594190826416
+Finished Training after 61.24451494216919 seconds.
+Training Model 7
+Epoch: 1 | Time: 12.30740213394165 | Accuracy: 0.23686 | Loss: 2.0825430838012697
+Epoch: 2 | Time: 12.2492196559906 | Accuracy: 0.28302 | Loss: 1.9922007071304322
+Epoch: 3 | Time: 12.281543016433716 | Accuracy: 0.2986 | Loss: 1.9594334984970092
+Epoch: 4 | Time: 12.420893907546997 | Accuracy: 0.30506 | Loss: 1.945685239982605
+Epoch: 5 | Time: 12.203059434890747 | Accuracy: 0.30818 | Loss: 1.9406428755187988
+Finished Training after 61.462242603302 seconds.
+Training Model 8
+Epoch: 1 | Time: 12.400349617004395 | Accuracy: 0.17428 | Loss: 2.187443501739502
+Epoch: 2 | Time: 12.738731384277344 | Accuracy: 0.19462 | Loss: 2.132055498046875
+Epoch: 3 | Time: 12.72917127609253 | Accuracy: 0.19902 | Loss: 2.1177140502929688
+Epoch: 4 | Time: 12.568627119064331 | Accuracy: 0.20194 | Loss: 2.1078370262527466
+Epoch: 5 | Time: 12.814522504806519 | Accuracy: 0.2042 | Loss: 2.10239626121521
+Finished Training after 63.251524686813354 seconds.
+Training Model 9
+Epoch: 1 | Time: 13.212779760360718 | Accuracy: 0.11546 | Loss: 2.3860270177459717
+Epoch: 2 | Time: 13.342955112457275 | Accuracy: 0.15324 | Loss: 2.250324477920532
+Epoch: 3 | Time: 14.247552871704102 | Accuracy: 0.18598 | Loss: 2.196464500656128
+Epoch: 4 | Time: 13.232293844223022 | Accuracy: 0.20958 | Loss: 2.164008889770508
+Epoch: 5 | Time: 13.273353815078735 | Accuracy: 0.22208 | Loss: 2.1401649032592776
+Finished Training after 67.30905604362488 seconds.
+Training Model 10
+Epoch: 1 | Time: 24.808794260025024 | Accuracy: 0.09954 | Loss: 2.440963495941162
+Epoch: 2 | Time: 24.638038873672485 | Accuracy: 0.099 | Loss: 2.3039650160980223
+Epoch: 3 | Time: 24.717876195907593 | Accuracy: 0.09734 | Loss: 2.303121492767334
+Epoch: 4 | Time: 24.63565182685852 | Accuracy: 0.09962 | Loss: 2.3030538706970214
+Epoch: 5 | Time: 24.38863968849182 | Accuracy: 0.0969 | Loss: 2.3030045154571535
+Finished Training after 123.18912434577942 seconds.
+Training Model 11
+Epoch: 1 | Time: 24.42728281021118 | Accuracy: 0.15794 | Loss: 2.263605545578003
+Epoch: 2 | Time: 24.41246461868286 | Accuracy: 0.17638 | Loss: 2.217108981781006
+Epoch: 3 | Time: 24.46458911895752 | Accuracy: 0.1829 | Loss: 2.186205366897583
+Epoch: 4 | Time: 24.48570990562439 | Accuracy: 0.1906 | Loss: 2.15901341796875
+Epoch: 5 | Time: 24.722719192504883 | Accuracy: 0.19566 | Loss: 2.1355837264251707
+Finished Training after 122.51288533210754 seconds.
+Training Model 12
+Epoch: 1 | Time: 13.22264814376831 | Accuracy: 0.0989 | Loss: 13.051589556121826
+Epoch: 2 | Time: 13.375189542770386 | Accuracy: 0.09718 | Loss: 5.135769642181397
+Epoch: 3 | Time: 12.750455379486084 | Accuracy: 0.09768 | Loss: 3.498423286895752
+Epoch: 4 | Time: 12.972506523132324 | Accuracy: 0.0996 | Loss: 2.6187936489105224
+Epoch: 5 | Time: 12.879512786865234 | Accuracy: 0.09898 | Loss: 2.940566600189209
+Finished Training after 65.20043277740479 seconds.
+Training Model 13
+Epoch: 1 | Time: 12.601194620132446 | Accuracy: 0.12644 | Loss: 2.301361148376465
+Epoch: 2 | Time: 12.264254331588745 | Accuracy: 0.14602 | Loss: 2.244144201812744
+Epoch: 3 | Time: 12.313302040100098 | Accuracy: 0.15044 | Loss: 2.2258483729553222
+Epoch: 4 | Time: 12.416432619094849 | Accuracy: 0.15166 | Loss: 2.218672490463257
+Epoch: 5 | Time: 12.479337453842163 | Accuracy: 0.15448 | Loss: 2.212152120285034
+Finished Training after 62.07464027404785 seconds.
+Training Model 14
+Epoch: 1 | Time: 12.390599966049194 | Accuracy: 0.12856 | Loss: 2.2734050509643553
+Epoch: 2 | Time: 12.652397871017456 | Accuracy: 0.12548 | Loss: 2.270060883026123
+Epoch: 3 | Time: 12.419370412826538 | Accuracy: 0.11692 | Loss: 2.2819493061828613
+Epoch: 4 | Time: 12.35561990737915 | Accuracy: 0.11796 | Loss: 2.279452752380371
+Epoch: 5 | Time: 12.40990424156189 | Accuracy: 0.152 | Loss: 2.2182463762664795
+Finished Training after 62.2280113697052 seconds.
+Training Model 15
+Epoch: 1 | Time: 17.02361798286438 | Accuracy: 0.2348 | Loss: 2.104060631790161
+Epoch: 2 | Time: 16.987608671188354 | Accuracy: 0.37154 | Loss: 1.8064918534088135
+Epoch: 3 | Time: 17.274855852127075 | Accuracy: 0.4097 | Loss: 1.679543898010254
+Epoch: 4 | Time: 17.16731882095337 | Accuracy: 0.43252 | Loss: 1.6119708966827393
+Epoch: 5 | Time: 17.137613534927368 | Accuracy: 0.4486 | Loss: 1.5663809149932861
+Finished Training after 85.59113788604736 seconds.
+Training Model 16
+Epoch: 1 | Time: 12.554194450378418 | Accuracy: 0.15834 | Loss: 2.244826135559082
+Epoch: 2 | Time: 12.572726964950562 | Accuracy: 0.2424 | Loss: 2.07009048828125
+Epoch: 3 | Time: 12.347188472747803 | Accuracy: 0.27686 | Loss: 1.9882643786239624
+Epoch: 4 | Time: 12.52763843536377 | Accuracy: 0.29456 | Loss: 1.9422394708251953
+Epoch: 5 | Time: 12.479338645935059 | Accuracy: 0.307 | Loss: 1.9077869038391113
+Finished Training after 62.48120474815369 seconds.
+Training Model 17
+Epoch: 1 | Time: 19.87320113182068 | Accuracy: 0.10634 | Loss: 2.8880405768585207
+Epoch: 2 | Time: 19.986831665039062 | Accuracy: 0.15276 | Loss: 2.45561044631958
+Epoch: 3 | Time: 19.864432334899902 | Accuracy: 0.17876 | Loss: 2.315499608383179
+Epoch: 4 | Time: 20.00022602081299 | Accuracy: 0.19812 | Loss: 2.2478328257751463
+Epoch: 5 | Time: 20.010866165161133 | Accuracy: 0.2127 | Loss: 2.1935230392456053
+Finished Training after 99.73567724227905 seconds.
+Training Model 18
+Epoch: 1 | Time: 12.352542877197266 | Accuracy: 0.10144 | Loss: 2.3433569402313235
+Epoch: 2 | Time: 12.474033832550049 | Accuracy: 0.10086 | Loss: 2.338943225784302
+Epoch: 3 | Time: 12.43861985206604 | Accuracy: 0.10214 | Loss: 2.3350811487579346
+Epoch: 4 | Time: 12.321067810058594 | Accuracy: 0.10316 | Loss: 2.3313319931793215
+Epoch: 5 | Time: 12.245330333709717 | Accuracy: 0.1041 | Loss: 2.3271665618133546
+Finished Training after 61.831711769104004 seconds.
+Training Model 19
+Epoch: 1 | Time: 12.41831111907959 | Accuracy: 0.1101 | Loss: 2.365872755432129
+Epoch: 2 | Time: 12.490326881408691 | Accuracy: 0.12422 | Loss: 2.3201056217956544
+Epoch: 3 | Time: 12.321219205856323 | Accuracy: 0.13562 | Loss: 2.292374660873413
+Epoch: 4 | Time: 12.446446657180786 | Accuracy: 0.14414 | Loss: 2.26660520904541
+Epoch: 5 | Time: 12.288822412490845 | Accuracy: 0.15606 | Loss: 2.2414041677856447
+Finished Training after 61.965250730514526 seconds.
+Training Model 20
+Epoch: 1 | Time: 16.891422510147095 | Accuracy: 0.15554 | Loss: 54.04453633331299
+Epoch: 2 | Time: 16.84997034072876 | Accuracy: 0.16146 | Loss: 7.159186287994385
+Epoch: 3 | Time: 16.890923023223877 | Accuracy: 0.17088 | Loss: 4.128979193038941
+Epoch: 4 | Time: 17.110852479934692 | Accuracy: 0.16768 | Loss: 4.590350232849121
+Epoch: 5 | Time: 16.930336952209473 | Accuracy: 0.18102 | Loss: 4.107970598144531
+Finished Training after 84.67363142967224 seconds.
+Training Model 21
+Epoch: 1 | Time: 13.68162989616394 | Accuracy: 0.1168 | Loss: 2.3463685807800294
+Epoch: 2 | Time: 13.457780361175537 | Accuracy: 0.12128 | Loss: 2.3260783145141604
+Epoch: 3 | Time: 13.159097671508789 | Accuracy: 0.12582 | Loss: 2.3128680210876467
+Epoch: 4 | Time: 13.589504957199097 | Accuracy: 0.13222 | Loss: 2.29676742767334
+Epoch: 5 | Time: 13.39326024055481 | Accuracy: 0.14016 | Loss: 2.2765838317108154
+Finished Training after 67.28140044212341 seconds.
+Training Model 22
+Epoch: 1 | Time: 12.158406257629395 | Accuracy: 0.15082 | Loss: 2.1811798360443113
+Epoch: 2 | Time: 12.282498598098755 | Accuracy: 0.17442 | Loss: 2.026037826690674
+Epoch: 3 | Time: 12.32076096534729 | Accuracy: 0.17996 | Loss: 2.0093681018066407
+Epoch: 4 | Time: 12.09987187385559 | Accuracy: 0.18424 | Loss: 1.9983114778518676
+Epoch: 5 | Time: 12.21426796913147 | Accuracy: 0.18594 | Loss: 1.9907654712677
+Finished Training after 61.075932025909424 seconds.
+Training Model 23
+Epoch: 1 | Time: 12.307708978652954 | Accuracy: 0.10236 | Loss: 2.3382738790893556
+Epoch: 2 | Time: 12.349886894226074 | Accuracy: 0.1066 | Loss: 2.328861637649536
+Epoch: 3 | Time: 12.626921653747559 | Accuracy: 0.11388 | Loss: 2.317614918136597
+Epoch: 4 | Time: 12.474584579467773 | Accuracy: 0.11882 | Loss: 2.3084440200042726
+Epoch: 5 | Time: 12.49428129196167 | Accuracy: 0.1207 | Loss: 2.2991136505126955
+Finished Training after 62.25350475311279 seconds.
+Training Model 24
+Epoch: 1 | Time: 14.775521516799927 | Accuracy: 0.3107 | Loss: 1.9210437615966798
+Epoch: 2 | Time: 14.683844327926636 | Accuracy: 0.33962 | Loss: 1.8410669675827027
+Epoch: 3 | Time: 14.64910340309143 | Accuracy: 0.3513 | Loss: 1.8185159954833985
+Epoch: 4 | Time: 14.606642723083496 | Accuracy: 0.35384 | Loss: 1.801238663520813
+Epoch: 5 | Time: 14.506511926651001 | Accuracy: 0.3597 | Loss: 1.7904830175018311
+Finished Training after 73.2217664718628 seconds.
+Training Model 25
+Epoch: 1 | Time: 14.908861875534058 | Accuracy: 0.12428 | Loss: 2.3037597332000734
+Epoch: 2 | Time: 15.266399621963501 | Accuracy: 0.16008 | Loss: 2.1732782331085203
+Epoch: 3 | Time: 15.058341264724731 | Accuracy: 0.17332 | Loss: 2.1036175119018554
+Epoch: 4 | Time: 14.85423493385315 | Accuracy: 0.17976 | Loss: 2.0681428887176514
+Epoch: 5 | Time: 14.98693037033081 | Accuracy: 0.1884 | Loss: 2.046746523399353
+Finished Training after 75.07488560676575 seconds.
+Training Model 26
+Epoch: 1 | Time: 35.53406596183777 | Accuracy: 0.12794 | Loss: 31.202031477661134
+Epoch: 2 | Time: 35.61888766288757 | Accuracy: 0.15546 | Loss: 24.52750207824707
+Epoch: 3 | Time: 35.63153886795044 | Accuracy: 0.17076 | Loss: 21.15245561340332
+Epoch: 4 | Time: 35.76358914375305 | Accuracy: 0.18102 | Loss: 19.21810338317871
+Epoch: 5 | Time: 35.77090239524841 | Accuracy: 0.18712 | Loss: 18.040566385498046
+Finished Training after 178.31910610198975 seconds.
+Training Model 27
+Epoch: 1 | Time: 15.571551084518433 | Accuracy: 0.14628 | Loss: 2.280833599700928
+Epoch: 2 | Time: 15.284334182739258 | Accuracy: 0.17802 | Loss: 2.2041337089538575
+Epoch: 3 | Time: 14.570591449737549 | Accuracy: 0.20752 | Loss: 2.1425996354675294
+Epoch: 4 | Time: 16.09262704849243 | Accuracy: 0.22742 | Loss: 2.091104444618225
+Epoch: 5 | Time: 15.499467611312866 | Accuracy: 0.24072 | Loss: 2.0541781954193117
+Finished Training after 77.01870250701904 seconds.
+Training Model 28
+Epoch: 1 | Time: 33.718634605407715 | Accuracy: 0.23402 | Loss: 3.0422809659576417
+Epoch: 2 | Time: 33.73483228683472 | Accuracy: 0.27392 | Loss: 2.6581313357543945
+Epoch: 3 | Time: 33.4606773853302 | Accuracy: 0.28676 | Loss: 2.540045093841553
+Epoch: 4 | Time: 33.47608971595764 | Accuracy: 0.29872 | Loss: 2.4420399004364013
+Epoch: 5 | Time: 33.4683883190155 | Accuracy: 0.3022 | Loss: 2.3972684976959227
+Finished Training after 167.8587408065796 seconds.
+Training Model 29
+Epoch: 1 | Time: 31.223832845687866 | Accuracy: 0.12348 | Loss: 2.296950442276001
+Epoch: 2 | Time: 31.011374711990356 | Accuracy: 0.12848 | Loss: 2.2733281134796144
+Epoch: 3 | Time: 31.286555290222168 | Accuracy: 0.13342 | Loss: 2.2610232166290283
+Epoch: 4 | Time: 31.161049365997314 | Accuracy: 0.14106 | Loss: 2.246987029800415
+Epoch: 5 | Time: 31.161073923110962 | Accuracy: 0.14662 | Loss: 2.2391171866607666
+Finished Training after 155.8440079689026 seconds.
+Training Model 30
+Epoch: 1 | Time: 13.663094997406006 | Accuracy: 0.11336 | Loss: 2.3764521431732177
+Epoch: 2 | Time: 14.149054765701294 | Accuracy: 0.12826 | Loss: 2.282413297958374
+Epoch: 3 | Time: 14.126330852508545 | Accuracy: 0.14298 | Loss: 2.250175754928589
+Epoch: 4 | Time: 14.022317886352539 | Accuracy: 0.14824 | Loss: 2.236238006439209
+Epoch: 5 | Time: 14.019885301589966 | Accuracy: 0.15878 | Loss: 2.2223315954589844
+Finished Training after 69.98080039024353 seconds.
+Training Model 31
+Epoch: 1 | Time: 22.271000862121582 | Accuracy: 0.14108 | Loss: 2.2943850606536866
+Epoch: 2 | Time: 22.110822916030884 | Accuracy: 0.1709 | Loss: 2.229577913894653
+Epoch: 3 | Time: 22.215429306030273 | Accuracy: 0.19668 | Loss: 2.1740454625701906
+Epoch: 4 | Time: 22.1950261592865 | Accuracy: 0.21632 | Loss: 2.127526455001831
+Epoch: 5 | Time: 22.02324104309082 | Accuracy: 0.23432 | Loss: 2.091867831993103
+Finished Training after 110.81563973426819 seconds.
+Training Model 32
+Epoch: 1 | Time: 14.533606767654419 | Accuracy: 0.1988 | Loss: 2.235036807861328
+Epoch: 2 | Time: 14.598278522491455 | Accuracy: 0.23954 | Loss: 2.086315079269409
+Epoch: 3 | Time: 14.455260276794434 | Accuracy: 0.2637 | Loss: 2.0145462245941164
+Epoch: 4 | Time: 14.483195066452026 | Accuracy: 0.28236 | Loss: 1.9719976091766358
+Epoch: 5 | Time: 14.556445360183716 | Accuracy: 0.29364 | Loss: 1.9487439445495605
+Finished Training after 72.6269040107727 seconds.
+Training Model 33
+Epoch: 1 | Time: 14.57393193244934 | Accuracy: 0.28984 | Loss: 1.9874328301239013
+Epoch: 2 | Time: 14.649122476577759 | Accuracy: 0.38196 | Loss: 1.7693864335632323
+Epoch: 3 | Time: 14.738128185272217 | Accuracy: 0.41402 | Loss: 1.6766306026077271
+Epoch: 4 | Time: 14.6246919631958 | Accuracy: 0.43236 | Loss: 1.6229323930358888
+Epoch: 5 | Time: 14.779207706451416 | Accuracy: 0.45022 | Loss: 1.5816737812423707
+Finished Training after 73.36520051956177 seconds.
+Training Model 34
+Epoch: 1 | Time: 12.008971691131592 | Accuracy: 0.20166 | Loss: 2.4331528673934937
+Epoch: 2 | Time: 12.16390872001648 | Accuracy: 0.27726 | Loss: 1.971130503616333
+Epoch: 3 | Time: 12.158257007598877 | Accuracy: 0.30556 | Loss: 1.8827777462005615
+Epoch: 4 | Time: 12.265881299972534 | Accuracy: 0.32324 | Loss: 1.8470257468795777
+Epoch: 5 | Time: 12.121856451034546 | Accuracy: 0.337 | Loss: 1.81410913646698
+Finished Training after 60.71899700164795 seconds.
+Training Model 35
+Epoch: 1 | Time: 31.329720497131348 | Accuracy: 0.11954 | Loss: 3.0491505391693114
+Epoch: 2 | Time: 31.417401552200317 | Accuracy: 0.11542 | Loss: 2.79252834236145
+Epoch: 3 | Time: 31.28399968147278 | Accuracy: 0.11492 | Loss: 2.6708926441955567
+Epoch: 4 | Time: 31.467992067337036 | Accuracy: 0.11402 | Loss: 2.581452321166992
+Epoch: 5 | Time: 31.506367206573486 | Accuracy: 0.11582 | Loss: 2.542628801651001
+Finished Training after 157.0056028366089 seconds.
+Training Model 36
+Epoch: 1 | Time: 14.379219055175781 | Accuracy: 0.10362 | Loss: 4.4152450344848635
+Epoch: 2 | Time: 14.503723382949829 | Accuracy: 0.10448 | Loss: 4.035545941772461
+Epoch: 3 | Time: 14.713541030883789 | Accuracy: 0.10614 | Loss: 3.5904704429626464
+Epoch: 4 | Time: 14.431349992752075 | Accuracy: 0.10616 | Loss: 3.2744035261535647
+Epoch: 5 | Time: 14.752334833145142 | Accuracy: 0.1046 | Loss: 3.1027800476837157
+Finished Training after 72.78028678894043 seconds.
+Training Model 37
+Epoch: 1 | Time: 13.330034971237183 | Accuracy: 0.236 | Loss: 2.060658942832947
+Epoch: 2 | Time: 13.218889951705933 | Accuracy: 0.27702 | Loss: 1.9683007065200806
+Epoch: 3 | Time: 13.288732290267944 | Accuracy: 0.28762 | Loss: 1.940804801826477
+Epoch: 4 | Time: 13.091861486434937 | Accuracy: 0.29748 | Loss: 1.9153429487991334
+Epoch: 5 | Time: 12.938419342041016 | Accuracy: 0.30194 | Loss: 1.9096954344177246
+Finished Training after 65.86805701255798 seconds.
+Training Model 38
+Epoch: 1 | Time: 15.645318031311035 | Accuracy: 0.10904 | Loss: 2.38268981300354
+Epoch: 2 | Time: 17.011194467544556 | Accuracy: 0.12804 | Loss: 2.3399173686981203
+Epoch: 3 | Time: 15.785560369491577 | Accuracy: 0.14776 | Loss: 2.3051076602172853
+Epoch: 4 | Time: 15.040796756744385 | Accuracy: 0.16042 | Loss: 2.271636085128784
+Epoch: 5 | Time: 15.133877992630005 | Accuracy: 0.169 | Loss: 2.236802002029419
+Finished Training after 78.61686992645264 seconds.
+Training Model 39
+Epoch: 1 | Time: 12.19470500946045 | Accuracy: 0.10266 | Loss: 2.3718418325805666
+Epoch: 2 | Time: 12.384144067764282 | Accuracy: 0.10766 | Loss: 2.3572291428375243
+Epoch: 3 | Time: 12.295043706893921 | Accuracy: 0.11132 | Loss: 2.343748132095337
+Epoch: 4 | Time: 12.093775987625122 | Accuracy: 0.11576 | Loss: 2.334260520172119
+Epoch: 5 | Time: 12.335774660110474 | Accuracy: 0.11804 | Loss: 2.324422992630005
+Finished Training after 61.30356526374817 seconds.
+Training Model 40
+Epoch: 1 | Time: 15.479303121566772 | Accuracy: 0.10002 | Loss: 2.329334156112671
+Epoch: 2 | Time: 15.596013307571411 | Accuracy: 0.09866 | Loss: 2.304592311630249
+Epoch: 3 | Time: 15.832059144973755 | Accuracy: 0.0996 | Loss: 2.303201404495239
+Epoch: 4 | Time: 15.454679250717163 | Accuracy: 0.09852 | Loss: 2.3029306452178955
+Epoch: 5 | Time: 15.428657293319702 | Accuracy: 0.0982 | Loss: 2.3028512139129638
+Finished Training after 77.79083800315857 seconds.
+Finished Generation 57 | Total Time: 3449.5683274269104
+Number of Best Candidates Selected:4
+Selecting best solutions...
+Generation 58 solutions' crossover applied.
+Generation 58 solutions' mutations applied.
+Generation 58 solutions generated and repaired.
+Training Model 1
+Epoch: 1 | Time: 13.154555320739746 | Accuracy: 0.43058 | Loss: 1.5978463181304932
+Epoch: 2 | Time: 13.107977390289307 | Accuracy: 0.52982 | Loss: 1.321947612953186
+Epoch: 3 | Time: 13.617196321487427 | Accuracy: 0.57882 | Loss: 1.1881254959106444
+Epoch: 4 | Time: 13.221664190292358 | Accuracy: 0.6157 | Loss: 1.0791874598312379
+Epoch: 5 | Time: 13.112381219863892 | Accuracy: 0.65178 | Loss: 0.9758348275184632
+Finished Training after 66.21389555931091 seconds.
+Training Model 2
+Epoch: 1 | Time: 37.15486025810242 | Accuracy: 0.42322 | Loss: 1.6380632049179078
+Epoch: 2 | Time: 37.1702778339386 | Accuracy: 0.51272 | Loss: 1.3734722214889525
+Epoch: 3 | Time: 37.15838980674744 | Accuracy: 0.55136 | Loss: 1.267403252735138
+Epoch: 4 | Time: 37.168757915496826 | Accuracy: 0.58182 | Loss: 1.1871961131286621
+Epoch: 5 | Time: 37.13309907913208 | Accuracy: 0.60786 | Loss: 1.1191112080764771
+Finished Training after 185.7855052947998 seconds.
+Training Model 3
+Epoch: 1 | Time: 14.2739737033844 | Accuracy: 0.3912 | Loss: 1.7231683639144897
+Epoch: 2 | Time: 14.541232347488403 | Accuracy: 0.47396 | Loss: 1.4806868840408325
+Epoch: 3 | Time: 14.236408472061157 | Accuracy: 0.51978 | Loss: 1.3579154988479614
+Epoch: 4 | Time: 14.750602960586548 | Accuracy: 0.55392 | Loss: 1.2632316539001465
+Epoch: 5 | Time: 14.215558290481567 | Accuracy: 0.58292 | Loss: 1.179124109840393
+Finished Training after 72.01789736747742 seconds.
+Training Model 4
+Epoch: 1 | Time: 19.72628664970398 | Accuracy: 0.39502 | Loss: 1.7255231874847412
+Epoch: 2 | Time: 19.313719749450684 | Accuracy: 0.50002 | Loss: 1.4748121489334107
+Epoch: 3 | Time: 19.458561658859253 | Accuracy: 0.53606 | Loss: 1.367088098640442
+Epoch: 4 | Time: 19.5791072845459 | Accuracy: 0.5598 | Loss: 1.300737392311096
+Epoch: 5 | Time: 19.48605227470398 | Accuracy: 0.58116 | Loss: 1.239682931022644
+Finished Training after 97.5638518333435 seconds.
+Training Model 5
+Epoch: 1 | Time: 13.064341068267822 | Accuracy: 0.16656 | Loss: 6.246593133773803
+Epoch: 2 | Time: 12.677443027496338 | Accuracy: 0.2486 | Loss: 2.1344193898010255
+Epoch: 3 | Time: 12.73637866973877 | Accuracy: 0.28492 | Loss: 1.9142849409866334
+Epoch: 4 | Time: 12.637019157409668 | Accuracy: 0.30166 | Loss: 1.8752915496826172
+Epoch: 5 | Time: 12.447003364562988 | Accuracy: 0.31218 | Loss: 1.8495078546142578
+Finished Training after 63.56230640411377 seconds.
+Training Model 6
+Epoch: 1 | Time: 12.08625340461731 | Accuracy: 0.29878 | Loss: 1.947284310913086
+Epoch: 2 | Time: 12.138148307800293 | Accuracy: 0.37758 | Loss: 1.7450651262283325
+Epoch: 3 | Time: 12.159176349639893 | Accuracy: 0.40396 | Loss: 1.6771175423049927
+Epoch: 4 | Time: 11.993329286575317 | Accuracy: 0.41666 | Loss: 1.634620456237793
+Epoch: 5 | Time: 12.177870273590088 | Accuracy: 0.42836 | Loss: 1.6047381675338745
+Finished Training after 60.55489802360535 seconds.
+Training Model 7
+Epoch: 1 | Time: 24.15536594390869 | Accuracy: 0.09962 | Loss: 2.3740870656585695
+Epoch: 2 | Time: 24.002313137054443 | Accuracy: 0.09914 | Loss: 2.3030441772460937
+Epoch: 3 | Time: 24.05249309539795 | Accuracy: 0.09882 | Loss: 2.3030447971343992
+Epoch: 4 | Time: 24.39840316772461 | Accuracy: 0.09706 | Loss: 2.3031030876159666
+Epoch: 5 | Time: 24.49996781349182 | Accuracy: 0.09702 | Loss: 2.303086571960449
+Finished Training after 121.10867261886597 seconds.
+Training Model 8
+Epoch: 1 | Time: 18.23736572265625 | Accuracy: 0.11196 | Loss: 2.3354823936462403
+Epoch: 2 | Time: 18.231899976730347 | Accuracy: 0.1214 | Loss: 2.3029986060333254
+Epoch: 3 | Time: 18.255632400512695 | Accuracy: 0.12416 | Loss: 2.30099950920105
+Epoch: 4 | Time: 18.137791633605957 | Accuracy: 0.13066 | Loss: 2.2931238634490967
+Epoch: 5 | Time: 18.263200283050537 | Accuracy: 0.12752 | Loss: 2.2963473708343507
+Finished Training after 91.12601065635681 seconds.
+Training Model 9
+Epoch: 1 | Time: 16.582898139953613 | Accuracy: 0.20566 | Loss: 2.193129559249878
+Epoch: 2 | Time: 16.587745666503906 | Accuracy: 0.24176 | Loss: 2.0771055492401125
+Epoch: 3 | Time: 16.420413494110107 | Accuracy: 0.2975 | Loss: 1.9796742250442505
+Epoch: 4 | Time: 16.446008920669556 | Accuracy: 0.33828 | Loss: 1.9025822829055785
+Epoch: 5 | Time: 16.68601369857788 | Accuracy: 0.35764 | Loss: 1.8443272555160521
+Finished Training after 82.72319841384888 seconds.
+Training Model 10
+Epoch: 1 | Time: 26.50945234298706 | Accuracy: 0.1141 | Loss: 1018.376664375
+Epoch: 2 | Time: 26.521552562713623 | Accuracy: 0.12012 | Loss: 533.6939037695313
+Epoch: 3 | Time: 26.710811614990234 | Accuracy: 0.1272 | Loss: 415.55596189453126
+Epoch: 4 | Time: 26.51381206512451 | Accuracy: 0.13064 | Loss: 344.31753866210937
+Epoch: 5 | Time: 26.614474058151245 | Accuracy: 0.13568 | Loss: 285.26294649414064
+Finished Training after 132.87022423744202 seconds.
+Training Model 11
+Epoch: 1 | Time: 29.250591039657593 | Accuracy: 0.19438 | Loss: 6.842268419342041
+Epoch: 2 | Time: 29.349159002304077 | Accuracy: 0.23128 | Loss: 3.9894593212890626
+Epoch: 3 | Time: 29.515092372894287 | Accuracy: 0.25202 | Loss: 3.3320163388061523
+Epoch: 4 | Time: 29.192626237869263 | Accuracy: 0.26272 | Loss: 3.0264739350891112
+Epoch: 5 | Time: 29.205687522888184 | Accuracy: 0.26816 | Loss: 2.843242625808716
+Finished Training after 146.51327753067017 seconds.
+Training Model 12
+Epoch: 1 | Time: 44.644481897354126 | Accuracy: 0.1036 | Loss: 2.3650118425750732
+Epoch: 2 | Time: 44.55828237533569 | Accuracy: 0.1039 | Loss: 2.3390730464172362
+Epoch: 3 | Time: 44.573423624038696 | Accuracy: 0.10194 | Loss: 2.3402268143463134
+Epoch: 4 | Time: 44.58910894393921 | Accuracy: 0.10108 | Loss: 2.3396525343322754
+Epoch: 5 | Time: 44.6042206287384 | Accuracy: 0.10116 | Loss: 2.339558253250122
+Finished Training after 222.96963739395142 seconds.
+Training Model 13
+Epoch: 1 | Time: 16.6811363697052 | Accuracy: 0.10238 | Loss: 2.5466916207122803
+Epoch: 2 | Time: 16.418864727020264 | Accuracy: 0.10788 | Loss: 2.464721992492676
+Epoch: 3 | Time: 16.174977779388428 | Accuracy: 0.11344 | Loss: 2.4205218340301515
+Epoch: 4 | Time: 16.371617078781128 | Accuracy: 0.11686 | Loss: 2.3949387684631347
+Epoch: 5 | Time: 16.443625450134277 | Accuracy: 0.12266 | Loss: 2.3688579777526857
+Finished Training after 82.09034705162048 seconds.
+Training Model 14
+Epoch: 1 | Time: 12.25226616859436 | Accuracy: 0.1535 | Loss: 3.4568443771362305
+Epoch: 2 | Time: 12.312460899353027 | Accuracy: 0.20562 | Loss: 2.195040700073242
+Epoch: 3 | Time: 12.400219678878784 | Accuracy: 0.2507 | Loss: 2.0291063191223144
+Epoch: 4 | Time: 12.356165647506714 | Accuracy: 0.27064 | Loss: 1.981636978263855
+Epoch: 5 | Time: 12.23169469833374 | Accuracy: 0.2764 | Loss: 1.9578275765228272
+Finished Training after 61.5529260635376 seconds.
+Training Model 15
+Epoch: 1 | Time: 117.38009405136108 | Accuracy: 0.26632 | Loss: 20.283283740844727
+Epoch: 2 | Time: 117.5342013835907 | Accuracy: 0.32478 | Loss: 18.168850389709473
+Epoch: 3 | Time: 117.91514039039612 | Accuracy: 0.3483 | Loss: 16.932968017578126
+Epoch: 4 | Time: 118.00764298439026 | Accuracy: 0.36618 | Loss: 15.824429743041993
+Epoch: 5 | Time: 117.95353150367737 | Accuracy: 0.378 | Loss: 15.054282106628419
+Finished Training after 588.7907333374023 seconds.
+Training Model 16
+Epoch: 1 | Time: 19.175519704818726 | Accuracy: 0.28328 | Loss: 1.9893835697937012
+Epoch: 2 | Time: 19.160483360290527 | Accuracy: 0.33 | Loss: 1.854904626083374
+Epoch: 3 | Time: 19.05485773086548 | Accuracy: 0.35086 | Loss: 1.805002706604004
+Epoch: 4 | Time: 19.002727508544922 | Accuracy: 0.35956 | Loss: 1.7737354164886474
+Epoch: 5 | Time: 18.979249715805054 | Accuracy: 0.36562 | Loss: 1.7571540756225585
+Finished Training after 95.37295842170715 seconds.
+Training Model 17
+Epoch: 1 | Time: 12.349754571914673 | Accuracy: 0.15458 | Loss: 2.2216007593536378
+Epoch: 2 | Time: 12.553208112716675 | Accuracy: 0.16988 | Loss: 2.1928080823516845
+Epoch: 3 | Time: 12.321234703063965 | Accuracy: 0.17234 | Loss: 2.181410736465454
+Epoch: 4 | Time: 12.533974170684814 | Accuracy: 0.17272 | Loss: 2.176733779144287
+Epoch: 5 | Time: 12.540438652038574 | Accuracy: 0.17852 | Loss: 2.1752487911987304
+Finished Training after 62.298731088638306 seconds.
+Training Model 18
+Epoch: 1 | Time: 13.865007162094116 | Accuracy: 0.10326 | Loss: 3.983468650894165
+Epoch: 2 | Time: 13.829126834869385 | Accuracy: 0.10306 | Loss: 3.784434345550537
+Epoch: 3 | Time: 14.28870415687561 | Accuracy: 0.1025 | Loss: 3.643722484359741
+Epoch: 4 | Time: 14.168927669525146 | Accuracy: 0.10466 | Loss: 3.472337877731323
+Epoch: 5 | Time: 13.736385345458984 | Accuracy: 0.10462 | Loss: 3.35124039352417
+Finished Training after 69.88827252388 seconds.
+Training Model 19
+Epoch: 1 | Time: 12.033955097198486 | Accuracy: 0.1012 | Loss: 2.703273655166626
+Epoch: 2 | Time: 12.05180835723877 | Accuracy: 0.09914 | Loss: 2.3755201288604737
+Epoch: 3 | Time: 11.832762479782104 | Accuracy: 0.10032 | Loss: 2.3589429754638673
+Epoch: 4 | Time: 11.874874830245972 | Accuracy: 0.09984 | Loss: 2.349100377197266
+Epoch: 5 | Time: 11.972754716873169 | Accuracy: 0.09962 | Loss: 2.3403658972930907
+Finished Training after 59.7663037776947 seconds.
+Training Model 20
+Epoch: 1 | Time: 21.578261852264404 | Accuracy: 0.1003 | Loss: 2.3822883351898194
+Epoch: 2 | Time: 21.620586156845093 | Accuracy: 0.09996 | Loss: 2.362479250411987
+Epoch: 3 | Time: 21.453571557998657 | Accuracy: 0.10044 | Loss: 2.354180393753052
+Epoch: 4 | Time: 21.424281120300293 | Accuracy: 0.09986 | Loss: 2.3505920626068115
+Epoch: 5 | Time: 21.421863317489624 | Accuracy: 0.101 | Loss: 2.3457561763763426
+Finished Training after 107.49868774414062 seconds.
+Training Model 21
+Epoch: 1 | Time: 19.84425187110901 | Accuracy: 0.30364 | Loss: 1.9079790406799317
+Epoch: 2 | Time: 19.858109712600708 | Accuracy: 0.3364 | Loss: 1.828833123779297
+Epoch: 3 | Time: 19.819649934768677 | Accuracy: 0.3441 | Loss: 1.8062770686340333
+Epoch: 4 | Time: 19.81645154953003 | Accuracy: 0.35304 | Loss: 1.78632224609375
+Epoch: 5 | Time: 19.82783579826355 | Accuracy: 0.35964 | Loss: 1.7619319203186035
+Finished Training after 99.16642427444458 seconds.
+Training Model 22
+Epoch: 1 | Time: 11.884612560272217 | Accuracy: 0.1014 | Loss: 2.3576505795288085
+Epoch: 2 | Time: 11.823855876922607 | Accuracy: 0.10238 | Loss: 2.3429225575256347
+Epoch: 3 | Time: 11.909057140350342 | Accuracy: 0.10246 | Loss: 2.334026907958984
+Epoch: 4 | Time: 11.87096357345581 | Accuracy: 0.10452 | Loss: 2.3289077059936525
+Epoch: 5 | Time: 11.783912897109985 | Accuracy: 0.10452 | Loss: 2.3243240464782713
+Finished Training after 59.27253842353821 seconds.
+Training Model 23
+Epoch: 1 | Time: 23.223999500274658 | Accuracy: 0.09996 | Loss: 2.3465646136474607
+Epoch: 2 | Time: 23.155810594558716 | Accuracy: 0.09998 | Loss: 2.325948154449463
+Epoch: 3 | Time: 22.54550790786743 | Accuracy: 0.1 | Loss: 2.3151823361206056
+Epoch: 4 | Time: 22.653881072998047 | Accuracy: 0.1 | Loss: 2.3099743407440188
+Epoch: 5 | Time: 22.734436988830566 | Accuracy: 0.10002 | Loss: 2.317439593963623
+Finished Training after 114.31376075744629 seconds.
+Training Model 24
+Epoch: 1 | Time: 12.463944911956787 | Accuracy: 0.10458 | Loss: 2.327548621139526
+Epoch: 2 | Time: 12.532326221466064 | Accuracy: 0.11162 | Loss: 2.296262269668579
+Epoch: 3 | Time: 12.30292272567749 | Accuracy: 0.11262 | Loss: 2.286018694381714
+Epoch: 4 | Time: 12.411655902862549 | Accuracy: 0.1148 | Loss: 2.2787874068450926
+Epoch: 5 | Time: 12.375677108764648 | Accuracy: 0.1209 | Loss: 2.270963483352661
+Finished Training after 62.08664631843567 seconds.
+Training Model 25
+Epoch: 1 | Time: 12.321600198745728 | Accuracy: 0.10002 | Loss: 2.3370663092041015
+Epoch: 2 | Time: 12.217102527618408 | Accuracy: 0.10246 | Loss: 2.3261854650878906
+Epoch: 3 | Time: 12.259087800979614 | Accuracy: 0.10632 | Loss: 2.318213697967529
+Epoch: 4 | Time: 12.324721574783325 | Accuracy: 0.10628 | Loss: 2.313937682571411
+Epoch: 5 | Time: 12.475735902786255 | Accuracy: 0.11164 | Loss: 2.3055251836395265
+Finished Training after 61.598368406295776 seconds.
+Training Model 26
+Epoch: 1 | Time: 22.74490475654602 | Accuracy: 0.10276 | Loss: 2.340287230224609
+Epoch: 2 | Time: 22.65590214729309 | Accuracy: 0.10582 | Loss: 2.3310486460876465
+Epoch: 3 | Time: 23.001842498779297 | Accuracy: 0.10918 | Loss: 2.321780906600952
+Epoch: 4 | Time: 22.858119010925293 | Accuracy: 0.11196 | Loss: 2.3137909924316404
+Epoch: 5 | Time: 23.455875396728516 | Accuracy: 0.11744 | Loss: 2.3051924142456053
+Finished Training after 114.71676421165466 seconds.
+Training Model 27
+Epoch: 1 | Time: 12.332587718963623 | Accuracy: 0.1019 | Loss: 2.7370697192382814
+Epoch: 2 | Time: 12.707806825637817 | Accuracy: 0.10056 | Loss: 2.4160201291656493
+Epoch: 3 | Time: 12.274292230606079 | Accuracy: 0.09926 | Loss: 2.385811064453125
+Epoch: 4 | Time: 12.173858404159546 | Accuracy: 0.09996 | Loss: 2.3629067878723147
+Epoch: 5 | Time: 12.379616260528564 | Accuracy: 0.09958 | Loss: 2.3556596717834473
+Finished Training after 61.86828327178955 seconds.
+Training Model 28
+Epoch: 1 | Time: 12.170918464660645 | Accuracy: 0.09982 | Loss: 2.43531245803833
+Epoch: 2 | Time: 12.169074058532715 | Accuracy: 0.0987 | Loss: 2.3043803064727784
+Epoch: 3 | Time: 12.197400569915771 | Accuracy: 0.09804 | Loss: 2.303275891418457
+Epoch: 4 | Time: 12.204685926437378 | Accuracy: 0.09948 | Loss: 2.3033495111846922
+Epoch: 5 | Time: 12.322068214416504 | Accuracy: 0.09868 | Loss: 2.3031476429748534
+Finished Training after 61.06427073478699 seconds.
+Training Model 29
+Epoch: 1 | Time: 11.746334075927734 | Accuracy: 0.29074 | Loss: 1.9664719704055786
+Epoch: 2 | Time: 11.861998081207275 | Accuracy: 0.38246 | Loss: 1.755375453338623
+Epoch: 3 | Time: 11.661240577697754 | Accuracy: 0.4058 | Loss: 1.6814979846954345
+Epoch: 4 | Time: 11.88680624961853 | Accuracy: 0.42024 | Loss: 1.6307427121353149
+Epoch: 5 | Time: 11.93187952041626 | Accuracy: 0.43438 | Loss: 1.5945352837371827
+Finished Training after 59.08838176727295 seconds.
+Training Model 30
+Epoch: 1 | Time: 13.565850734710693 | Accuracy: 0.20472 | Loss: 2.127618048782349
+Epoch: 2 | Time: 13.863662004470825 | Accuracy: 0.23824 | Loss: 2.0660065798187257
+Epoch: 3 | Time: 13.934435844421387 | Accuracy: 0.24198 | Loss: 2.0534495568847655
+Epoch: 4 | Time: 13.951416492462158 | Accuracy: 0.25004 | Loss: 2.043415286178589
+Epoch: 5 | Time: 14.272307634353638 | Accuracy: 0.25324 | Loss: 2.0406374659729005
+Finished Training after 69.58779525756836 seconds.
+Training Model 31
+Epoch: 1 | Time: 13.13100528717041 | Accuracy: 0.1042 | Loss: 2.3090822499084473
+Epoch: 2 | Time: 12.530954122543335 | Accuracy: 0.13602 | Loss: 2.2620138540649415
+Epoch: 3 | Time: 12.660575151443481 | Accuracy: 0.18166 | Loss: 2.197371747665405
+Epoch: 4 | Time: 12.945818424224854 | Accuracy: 0.20156 | Loss: 2.152245991744995
+Epoch: 5 | Time: 12.928792953491211 | Accuracy: 0.21684 | Loss: 2.117774149093628
+Finished Training after 64.19726610183716 seconds.
+Training Model 32
+Epoch: 1 | Time: 19.860835790634155 | Accuracy: 0.13042 | Loss: 2.3165810636901853
+Epoch: 2 | Time: 20.0407235622406 | Accuracy: 0.14562 | Loss: 2.2804688736724854
+Epoch: 3 | Time: 19.891311168670654 | Accuracy: 0.1567 | Loss: 2.257103609390259
+Epoch: 4 | Time: 20.11415719985962 | Accuracy: 0.16122 | Loss: 2.236544261856079
+Epoch: 5 | Time: 19.81738042831421 | Accuracy: 0.16366 | Loss: 2.2254230854034422
+Finished Training after 99.72452926635742 seconds.
+Training Model 33
+Epoch: 1 | Time: 13.166664838790894 | Accuracy: 0.1042 | Loss: 3.6385587046051024
+Epoch: 2 | Time: 13.294339179992676 | Accuracy: 0.10814 | Loss: 3.320277777175903
+Epoch: 3 | Time: 13.22581934928894 | Accuracy: 0.10366 | Loss: 3.1351180170440673
+Epoch: 4 | Time: 13.06891942024231 | Accuracy: 0.10492 | Loss: 2.9777724541473387
+Epoch: 5 | Time: 13.141272783279419 | Accuracy: 0.10678 | Loss: 2.857230970458984
+Finished Training after 65.89713835716248 seconds.
+Training Model 34
+Epoch: 1 | Time: 11.88102674484253 | Accuracy: 0.10032 | Loss: 2.4134480377960204
+Epoch: 2 | Time: 11.980892658233643 | Accuracy: 0.10476 | Loss: 2.330976806564331
+Epoch: 3 | Time: 12.153921604156494 | Accuracy: 0.10684 | Loss: 2.3157091638183593
+Epoch: 4 | Time: 12.00083041191101 | Accuracy: 0.11252 | Loss: 2.3034663304901124
+Epoch: 5 | Time: 11.889669179916382 | Accuracy: 0.1194 | Loss: 2.2918625008392333
+Finished Training after 59.90646314620972 seconds.
+Training Model 35
+Epoch: 1 | Time: 11.883975982666016 | Accuracy: 0.1761 | Loss: 2.210895917892456
+Epoch: 2 | Time: 11.93844723701477 | Accuracy: 0.2401 | Loss: 2.0699864252471922
+Epoch: 3 | Time: 11.70021915435791 | Accuracy: 0.26492 | Loss: 2.020103563919067
+Epoch: 4 | Time: 12.34948182106018 | Accuracy: 0.27928 | Loss: 1.9878434317016602
+Epoch: 5 | Time: 12.378221988677979 | Accuracy: 0.29124 | Loss: 1.9656023768615722
+Finished Training after 60.25046944618225 seconds.
+Training Model 36
+Epoch: 1 | Time: 25.621020793914795 | Accuracy: 0.10028 | Loss: 2.3339949229431154
+Epoch: 2 | Time: 25.765690803527832 | Accuracy: 0.1164 | Loss: 2.3175381159973143
+Epoch: 3 | Time: 25.509475231170654 | Accuracy: 0.13062 | Loss: 2.3031131430053713
+Epoch: 4 | Time: 25.31607413291931 | Accuracy: 0.13688 | Loss: 2.289974817352295
+Epoch: 5 | Time: 25.705323457717896 | Accuracy: 0.14096 | Loss: 2.278083324432373
+Finished Training after 127.91770577430725 seconds.
+Training Model 37
+Epoch: 1 | Time: 14.31948471069336 | Accuracy: 0.17492 | Loss: 2.9480921389770507
+Epoch: 2 | Time: 14.810688734054565 | Accuracy: 0.21342 | Loss: 2.7116136723327635
+Epoch: 3 | Time: 14.367634773254395 | Accuracy: 0.23332 | Loss: 2.5650694440078734
+Epoch: 4 | Time: 14.434997320175171 | Accuracy: 0.25282 | Loss: 2.4243689598083495
+Epoch: 5 | Time: 14.772365808486938 | Accuracy: 0.26696 | Loss: 2.3332921647262572
+Finished Training after 72.70529365539551 seconds.
+Training Model 38
+Epoch: 1 | Time: 13.171118021011353 | Accuracy: 0.09952 | Loss: 2.6174877085876465
+Epoch: 2 | Time: 13.10933518409729 | Accuracy: 0.10064 | Loss: 2.4855400649261474
+Epoch: 3 | Time: 13.522708177566528 | Accuracy: 0.10144 | Loss: 2.422736219100952
+Epoch: 4 | Time: 13.508529424667358 | Accuracy: 0.10178 | Loss: 2.388988568572998
+Epoch: 5 | Time: 14.111232280731201 | Accuracy: 0.10482 | Loss: 2.370889638442993
+Finished Training after 67.42304635047913 seconds.
+Training Model 39
+Epoch: 1 | Time: 14.205971240997314 | Accuracy: 0.0991 | Loss: 3.4209674324035646
+Epoch: 2 | Time: 13.403591871261597 | Accuracy: 0.10102 | Loss: 2.4542660083007815
+Epoch: 3 | Time: 13.55028748512268 | Accuracy: 0.10166 | Loss: 2.385892130584717
+Epoch: 4 | Time: 13.299503564834595 | Accuracy: 0.09936 | Loss: 2.3595238404083254
+Epoch: 5 | Time: 13.77205228805542 | Accuracy: 0.10034 | Loss: 2.3486113291168214
+Finished Training after 68.23153281211853 seconds.
+Training Model 40
+Epoch: 1 | Time: 12.064269304275513 | Accuracy: 0.09822 | Loss: 2.6227142771911622
+Epoch: 2 | Time: 12.335400819778442 | Accuracy: 0.10088 | Loss: 2.5262647554779054
+Epoch: 3 | Time: 12.048513174057007 | Accuracy: 0.10094 | Loss: 2.4757294453430174
+Epoch: 4 | Time: 12.206143856048584 | Accuracy: 0.10198 | Loss: 2.450307693481445
+Epoch: 5 | Time: 12.009809970855713 | Accuracy: 0.1015 | Loss: 2.4210053604125976
+Finished Training after 60.66425943374634 seconds.
+Finished Generation 58 | Total Time: 3980.520870447159
+Number of Best Candidates Selected:4
+Selecting best solutions...
+Generation 59 solutions' crossover applied.
+Generation 59 solutions' mutations applied.
+Generation 59 solutions generated and repaired.
+Training Model 1
+Epoch: 1 | Time: 12.99113941192627 | Accuracy: 0.42194 | Loss: 1.6085676245689393
+Epoch: 2 | Time: 13.346323490142822 | Accuracy: 0.52608 | Loss: 1.3303000152206421
+Epoch: 3 | Time: 13.00989842414856 | Accuracy: 0.57422 | Loss: 1.1986024345779418
+Epoch: 4 | Time: 13.039649248123169 | Accuracy: 0.61336 | Loss: 1.0887670475769042
+Epoch: 5 | Time: 13.160599708557129 | Accuracy: 0.64862 | Loss: 0.9915063365745544
+Finished Training after 65.54773044586182 seconds.
+Training Model 2
+Epoch: 1 | Time: 37.173383474349976 | Accuracy: 0.42378 | Loss: 1.6272484275817871
+Epoch: 2 | Time: 37.21458435058594 | Accuracy: 0.51194 | Loss: 1.3791093439102173
+Epoch: 3 | Time: 37.226436376571655 | Accuracy: 0.55162 | Loss: 1.2685762366104125
+Epoch: 4 | Time: 37.24182081222534 | Accuracy: 0.58144 | Loss: 1.1844613940048219
+Epoch: 5 | Time: 37.22105813026428 | Accuracy: 0.60642 | Loss: 1.1224890535545349
+Finished Training after 186.07740259170532 seconds.
+Training Model 3
+Epoch: 1 | Time: 14.884241580963135 | Accuracy: 0.39012 | Loss: 1.7188506314086913
+Epoch: 2 | Time: 14.489491701126099 | Accuracy: 0.4765 | Loss: 1.4779923350143434
+Epoch: 3 | Time: 14.742067098617554 | Accuracy: 0.52032 | Loss: 1.361105213508606
+Epoch: 4 | Time: 14.902677774429321 | Accuracy: 0.55644 | Loss: 1.264152659072876
+Epoch: 5 | Time: 14.508422613143921 | Accuracy: 0.58926 | Loss: 1.1657015958023071
+Finished Training after 73.527024269104 seconds.
+Training Model 4
+Epoch: 1 | Time: 19.277027368545532 | Accuracy: 0.39606 | Loss: 1.7224156667327881
+Epoch: 2 | Time: 19.353222370147705 | Accuracy: 0.4954 | Loss: 1.4787940163421631
+Epoch: 3 | Time: 19.629772663116455 | Accuracy: 0.53372 | Loss: 1.3691405707550048
+Epoch: 4 | Time: 19.2316677570343 | Accuracy: 0.56016 | Loss: 1.2980922652435303
+Epoch: 5 | Time: 19.4425048828125 | Accuracy: 0.5798 | Loss: 1.238183795413971
+Finished Training after 96.93431568145752 seconds.
+Training Model 5
+Epoch: 1 | Time: 13.516202926635742 | Accuracy: 0.12156 | Loss: 2.3021328691101073
+Epoch: 2 | Time: 13.80748462677002 | Accuracy: 0.17484 | Loss: 2.215793662414551
+Epoch: 3 | Time: 13.980021953582764 | Accuracy: 0.19854 | Loss: 2.1769635593414307
+Epoch: 4 | Time: 13.468218088150024 | Accuracy: 0.21046 | Loss: 2.1519123100280764
+Epoch: 5 | Time: 13.3660249710083 | Accuracy: 0.22366 | Loss: 2.1307806652069092
+Finished Training after 68.13807272911072 seconds.
+Training Model 6
+Epoch: 1 | Time: 14.635320663452148 | Accuracy: 0.10164 | Loss: 2.3331404344177247
