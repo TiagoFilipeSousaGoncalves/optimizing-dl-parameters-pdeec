@@ -56016,3 +56016,4 @@ Epoch: 4 | Time: 13.336503028869629 | Accuracy: 0.09872 | Loss: 2.32865587463378
 Epoch: 5 | Time: 13.067481994628906 | Accuracy: 0.10104 | Loss: 2.3238669744110108
 Finished Training after 65.65769004821777 seconds.
 Training Model 36
+Epoch: 1 | Time: 13.448222637176514 | Accuracy: 0.2236 | Loss: 2.077184323348999
