@@ -580,9 +580,7 @@ class GeneticAlgorithm:
         return [test_acc, avg_test_loss]
 
 
-    # TODO: Thread Training Solution (this would only give a performance boost using different processes, not threads, i think. I dont know how hard it is to implement,
-    #  because sharing memory between processes can be a pain sometimes. Even if we implement it this would only give a performance boost if the gpu can train multiple
-    #  models simultaneously without reaching its parallel processing capability. I think this should be the last thing to implement)
+    # TODO: Implement Thread Training Solution
     def thread_training(self):
         pass
 
@@ -607,28 +605,7 @@ class GeneticAlgorithm:
         nr_of_conv_layers = [np.shape(conv_layers_sols[0])[0], np.shape(conv_layers_sols[1])[0]]
         limitant_sol_idx = np.argmin(nr_of_conv_layers)
 
-        # TODO: Review Conv-Transfer Learning to Take Channel Dimensions Into Account
-        # The weights are going to be copied from the number of layers equal to the the number of layers of limitant_sol_idx
-        # TODO: Best way of transfer learning between conv-layers 
-        # TODO: Erase this string upon review
-        '''
-        # 1) calculate tensor sizes
-        # 2) calculate max size in each dimension
-        # 3) initialize random tensor with max sizes
-        # 4) assign learned weights to random tensor
-        # 5) slice to new tensor
-
-        t1
-        t2
-        c, h, w = t2.size()
-        random_tensor(max_size)
-
-        random_tensor[:c, :h, :w] = t2[:c, :h, :w]
-
-        t1 = random_tensor[t1.size()]
-        
-        '''
-
+        # Transfer Weights
         with torch.no_grad():
             conv_idx = 0
             curr_idx = 0
@@ -644,14 +621,7 @@ class GeneticAlgorithm:
                     new_weights = torch.clone(pretrained_model.convolutional_layers[curr_idx].weight)
                     new_weights_size = pretrained_model.convolutional_layers[curr_idx].weight.size()
 
-                    # TODO: Erase this commented code upon review
-                    # Flatten Tensors to avoid dimension problems
-                    # previous_weights = previous_weights.view(-1)
-                    # new_weights = new_weights.view(-1)
-                    # Check the minimum size
-                    # min_size = min(previous_weights.size(0), new_weights.size(0))
 
-                    # TODO: Validate this commented code upon review
                     # Each Conv2d Tensor has 4 Dimensions; we need to get maximum dimension size
                     # Dimension 0: The Output Channels
                     max_nr_out_channels = max(int(previous_weights_size[0]), int(new_weights_size[0]))
@@ -698,14 +668,6 @@ class GeneticAlgorithm:
                                                                                :new_weights_in_channels,
                                                                                :new_weights_k_size_xx,
                                                                                :new_weights_k_size_yy]
-
-
-
-                    # TODO: Erase this part upon review
-                    # Transfer Weights
-                    # new_weights[0:min_size] = previous_weights[0:min_size]
-                    # Reshape New Weights Tensor
-                    # new_weights = new_weights.view(new_weights_size)
 
 
                     # Transfer this to the the pretrained model
@@ -865,10 +827,6 @@ class GeneticAlgorithm:
             conv_block_mask = torch.rand_like(_solution[0])
             conv_block_mask = conv_block_mask >= self.mutation_rate
 
-            # TODO: Review that this was commented 
-            # Create a Tensor to evaluate feasibility while creating the mutated solution
-            # curr_tensor = torch.rand((1, self.input_shape[0], self.input_shape[1], self.input_shape[2]))
-
             # Iterate through conv-block and evaluate mutation places
             for layer_idx, layer in enumerate(_solution[0]):
                 layer_mask = conv_block_mask[layer_idx]
@@ -891,11 +849,6 @@ class GeneticAlgorithm:
                             # kernel_size = random.choice(allowed_conv_kernel_size)
                             kernel_size = random.choice(utils.conv_kernel_size)
                             _solution[0][layer_idx][where_mutated] = kernel_size
-
-                        # Update curr_tensor
-                        # _nr_filters = int(_solution[0][layer_idx][0].item())
-                        # _kernel_size = int(_solution[0][layer_idx][where_mutated].item())
-                        # curr_tensor = nn.Conv2d(in_channels=curr_tensor.size()[1], out_channels=_nr_filters, kernel_size=_kernel_size)(curr_tensor)
 
                     elif where_mutated == 2:
                         if is_mutated == True:
@@ -921,10 +874,7 @@ class GeneticAlgorithm:
                             pool = random.randint(0, len(utils.conv_pooling_types)-1)
                             _solution[0][layer_idx][where_mutated] = pool
 
-                        # Update curr_tensor after Column 4 mutations in conv_pool_type
-                        # _pool = int(_solution[0][layer_idx][where_mutated].item())
-                        # curr_tensor = utils.conv_pooling_types[_pool](curr_tensor)
-
+            
             # We now check the fc-block
             # We create a mask of numbers in interval [0, 1) for the fc-block
             fc_block_mask = torch.rand_like(_solution[1])

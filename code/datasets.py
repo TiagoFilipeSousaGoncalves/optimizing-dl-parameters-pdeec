@@ -20,6 +20,7 @@ def get_mnist_loader(batch_size, train=True):
     return data_loader
 
 
+
 # Fashion MNIST Data Loader
 def get_fashion_mnist_loader(batch_size, train=True):
 
@@ -30,11 +31,12 @@ def get_fashion_mnist_loader(batch_size, train=True):
     train_transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=fashion_mnist_mean,
                                                                                       std=fashion_mnist_std)])
 
-    fashion_mnist_data = torchvision.datasets.FashionMNIST('data/fashion_mnist', train=train, download=True, transform=train_transform)
+    fashion_mnist_data = torchvision.datasets.FashionMNIST('data/fashion-mnist', train=train, download=True, transform=train_transform)
 
     data_loader = torch.utils.data.DataLoader(fashion_mnist_data, batch_size=batch_size, shuffle=True, num_workers=4)
 
     return data_loader
+
 
 
 # CIFAR10 Data Loader

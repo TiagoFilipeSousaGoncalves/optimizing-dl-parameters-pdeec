@@ -73,5 +73,6 @@ def main():
     print(f"Finished the training of all datasets")
 
 
+# Run the algorithm
 if __name__ == '__main__':
     main()

@@ -1,8 +1,15 @@
 # Imports
-import torch.nn as nn
+# General
 import numpy as np
 
-# Class Utils with some important dictionaries that we use in the building of our solutions
+# PyTorch
+import torch 
+import torch.nn as nn
+import torchvision
+
+
+
+# Class: Utilities with some important dictionaries that we use in the building of our solutions
 class Utils:
     def __init__(self):
         self.inv_conv_activ_functions = ['none',
@@ -39,68 +46,72 @@ class Utils:
         self.learning_rate = np.array([0.001, 0.0001, 0.00001])
 
 
+# We create this object to automatically import to other functions 
 utils = Utils()
 
 
-'''
-# data_loader = torch.utils.data.DataLoader(imagenet_data, batch_size=4, shuffle=True, num_workers=4)
 
-
+# Function: Obtain Mean and Standard Deviation of the datasets to apply a proper normalisation
+# You can run this function to check our mean and std values in the training scripts
 def calculate_mean_std():
-    train_transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.1307],
-                                                                                        std=[0.3081])])
+    # Compute Mean and STD on MNIST
+    # Get data
+    mnist_data = torchvision.datasets.MNIST('data/mnist', train=True, download=True)
 
-    mnist_data = torchvision.datasets.MNIST('data/mnist', train=True, download=True, transform=train_transform)
-
+    # Create and empty list to append all the images of the dataset
     l = []
 
+    # Go through all the images
     for i in range(len(mnist_data)):
         l.append(mnist_data[i][0])
 
+    # Convert into PyTorch Tensor
     l = torch.stack(l, dim=0)
 
-    print(torch.std_mean(l))
+    # Get Mean and STD
+    print(f"MNIST Dataset Mean and STD: {torch.std_mean(l)}")
 
     ####
-    train_transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.2860],
-                                                                                      std=[0.3530])])
 
-    fashion_mnist_data = torchvision.datasets.FashionMNIST('data/fashion_mnist', train=True, download=True, transform=train_transform)
+    # Compute Mean and STD on Fashion-MNIST
+    # Get data
+    fashion_mnist_data = torchvision.datasets.FashionMNIST('data/fashion-mnist', train=True, download=True)
 
+    # Create and empty list to append all the images of the dataset
     l = []
 
+    # Go through all the images
     for i in range(len(fashion_mnist_data)):
         l.append(fashion_mnist_data[i][0])
 
+    # Convert into PyTorch Tensor
     l = torch.stack(l, dim=0)
 
-    print(torch.std_mean(l))
+    # Get Mean and STD
+    print(f"Fashion-MNIST Dataset Mean and STD: {torch.std_mean(l)}")
 
     ####
-    train_transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.4914, 0.4822, 0.4465],
-                                                                                      std=[0.2470, 0.2435, 0.2616])])
 
-    cifar_10_data = torchvision.datasets.CIFAR10('data/cifar10', train=True, download=True, transform=train_transform)
+    # Compute Mean and STD on CIFAR-10
+    # Get data
+    cifar_10_data = torchvision.datasets.CIFAR10('data/cifar10', train=True, download=True)
 
+    # Create and empty list to append all the images of the dataset
     l = []
 
+    # Go through all the images
     for i in range(len(cifar_10_data)):
         l.append(cifar_10_data[i][0])
 
+    # Convert into PyTorch Tensor
     l = torch.stack(l, dim=0)
 
-    print(torch.std_mean(l[:, 0]))
-    print(torch.std_mean(l[:, 1]))
-    print(torch.std_mean(l[:, 2]))
+    # Get Mean and STD
+    print(f"CIFAR-10 Dataset Red Channel Mean and STD: {torch.std_mean(l[:, 0])}")
+    print(f"CIFAR-10 Dataset Green Channel Mean and STD: {torch.std_mean(l[:, 1])}")
+    print(f"CIFAR-10 Dataset Green Channel Mean and STD: {torch.std_mean(l[:, 2])}")
 
+    return 
 
-calculate_mean_std()
-'''
-
-'''
-if __name__ == '__main__':
-    ga = GeneticAlgorithm(10, 10, 0.5, 0.5, 0.5, 0, 1, 8)
-
-    ga.train()
-'''
-
+# Uncomment if you want to run this function and check mean and std values per dataset
+# calculate_mean_std()
