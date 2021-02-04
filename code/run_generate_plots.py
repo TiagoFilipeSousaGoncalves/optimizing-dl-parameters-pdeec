@@ -13,11 +13,9 @@ import torch
 # Results Directory
 results = "results"
 # Datasets Directories
-# datasets = [i for i in os.listdir(results) if not i.startswith('.')]
-# datasets = [i for i in datasets if not i.startswith('_')]
-# datasets = [i for i in datasets if not i.startswith('s')]
-# datasets = [i for i in datasets if not i.startswith('e')]
-datasets = ["mnist"]
+# datasets = ["mnist", "fashion-mnist"]
+# datasets_max_phases = [2, 2]
+datasets = ["fashion-mnist"]
 datasets_max_phases = [2]
 # print(datasets)
 
