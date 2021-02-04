@@ -12,11 +12,12 @@ import torch
 # Directories
 # Results Directory
 results = "results"
+
 # Datasets Directories
-# datasets = ["mnist", "fashion-mnist"]
-# datasets_max_phases = [2, 2]
-datasets = ["fashion-mnist"]
-datasets_max_phases = [2]
+# Names
+datasets = ["mnist", "fashion-mnist", "cifar10"]
+# This is variable permits to generation of bounded plots w.r.t. the maximum number of phases
+datasets_max_phases = [2, 2, 2]
 # print(datasets)
 
 # Filenames
@@ -50,7 +51,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     # print(f"Test Results Shape: {np.shape(test_results)}")
 
 
-    # TODO: Review Plot 1 - Search Space Size vs Chromossome Lengths
+    # Review Plot 1 - Search Space Size vs Chromossome Lengths
     # Initial chromossome length
     chromossome_lengths = [2+i for i in range(4)]
     # Conv-Layer Params
@@ -118,7 +119,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
 
 
     
-    # TODO: Review Plot 2 - Best Individual Fitnesses per Phase
+    # Review Plot 2 - Best Individual Fitnesses per Phase
     # List for phases
     phases = [i for i in range(datasets_max_phases[dataset_idx])]
     
@@ -152,7 +153,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     plt.show()
 
 
-    # TODO: Review Plot 3 - Best Individual Accuracy per Phase
+    # Review Plot 3 - Best Individual Accuracy per Phase
     # List for best individual accuracies per phase
     best_individual_accuracy = list()
     # Go through all phases
@@ -183,7 +184,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
     plt.show()
 
 
-    # TODO: Review Plot 4 - Individual Fitness per Generation per Phase
+    # Review Plot 4 - Individual Fitness per Generation per Phase
     # Create list to append lists of individual fitnesses
     ind_ph_fitnesses = list()
     # Go through all phases
@@ -216,7 +217,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
 
 
 
-    # TODO: Review Plot 5 - Distribution of Individuals and Fitnesses
+    # Plot 5 - Distribution of Individuals and Fitnesses
     # Create list for all the individual fitnesses
     ind_fitnesses = list()
     # Go through all phases
@@ -246,7 +247,7 @@ for dataset_idx, dataset_folder_name in enumerate(datasets):
 
 
 
-    # TODO: Review Plot 6 - Accuracy per Generation per Phase
+    # Plot 6 - Accuracy per Generation per Phase
     # Go through phases
     for phase in range(datasets_max_phases[dataset_idx]):
         # Create temporary axis lists to append the results per phase
