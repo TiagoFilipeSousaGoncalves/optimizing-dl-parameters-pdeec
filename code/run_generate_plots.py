@@ -11,14 +11,20 @@ import torch
 
 # Directories
 # Results Directory
-results = "results"
+# results = "results"
+
+# Results Supplementary Material Directory
+results = "results/supplementary_material"
 
 # Datasets Directories
 # Names
 datasets = ["mnist", "fashion-mnist", "cifar10"]
 # This is variable permits to generation of bounded plots w.r.t. the maximum number of phases
-datasets_max_phases = [2, 2, 2]
+# datasets_max_phases = [2, 2, 2]
 # print(datasets)
+
+# Supplementary Results Max Phases
+datasets_max_phases = [4, 4, 4]
 
 # Filenames
 stat_data_fname = "stat_data.pickle"
