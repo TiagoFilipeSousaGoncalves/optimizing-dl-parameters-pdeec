@@ -215,7 +215,7 @@ class GeneticAlgorithm:
                     # the size of the population
                     best_gen_candidates = list()
 
-                    # Append the previous best two solutions to assure that progress is not lost
+                    # Append the previous best nr of autoselected solutions to assure that progress is not lost
                     # Get the sorted indices 
                     sorted_indices = np.argsort(generation_solutions_fitness)
                     # Use this var self.nr_of_autoselected_solutions
