@@ -1,19 +1,14 @@
 # Imports
-import numpy as np
+import os
 import matplotlib.pyplot as plt
 import _pickle as cPickle
-import os
 from itertools import product
 
-# PyTorch
-import torch
+
 
 
 # Directories
-# Results Directory
-# results = "results"
-
-# Results Supplementary Material Directory
+# Results/Supplementary Material Directory
 results = "results/supplementary_material"
 
 # Datasets Directories

@@ -1,0 +1,7 @@
+@inproceedings{goncalvescapozzi2023recpad,
+	author = {Tiago Gonçalves, Leonardo Capozzi, Ana Rebelo and Jaime S. Cardoso},
+	title = {{Optimisation of Deep Neural Networks using a Genetic Algorithm: A Comparative Study}},
+	booktitle = {29th Portuguese Conference in Pattern Recognition (RECPAD)},
+	year = {2023},
+    address = {Coimbra, Portugal}
+}

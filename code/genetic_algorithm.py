@@ -1,13 +1,13 @@
 # Imports
+import os
 import numpy as np
 import time
 import random
-import os
+import _pickle as cPickle
 
 # Torch Imports
 import torch
 import torch.nn as nn
-from torchsummary import summary
 
 # Project Imports
 from code.model import Model
@@ -17,16 +17,18 @@ from code.datasets import get_mnist_loader, get_fashion_mnist_loader, get_cifar1
 # Sklearn Imports
 import sklearn.metrics as sklearn_metrics
 
-# Pickle
-import _pickle as cPickle
+
 
 # Set random seed value so we a have a reproductible work
 random_seed = 42
+
+
 
 # Initialize random seeds
 np.random.seed(random_seed)
 torch.manual_seed(random_seed)
 random.seed(random_seed)
+
 
 
 # Define the Genetic Algorithm Class
